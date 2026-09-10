@@ -11,10 +11,12 @@ type QueryResult = Partial<LandingData> & {
 
 export default async function Page() {
   let result: QueryResult = {};
-  try {
-    result = await client.fetch<QueryResult>(landingQuery);
-  } catch {
-    result = {};
+  if (client) {
+    try {
+      result = await client.fetch<QueryResult>(landingQuery);
+    } catch {
+      result = {};
+    }
   }
 
   const data: LandingData = {

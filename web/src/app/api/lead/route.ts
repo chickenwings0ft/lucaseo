@@ -22,8 +22,8 @@ export async function POST(req: Request) {
       submittedAt: new Date().toISOString(),
     };
 
-    if (!process.env.SANITY_API_TOKEN) {
-      console.error("SANITY_API_TOKEN no configurado — lead:", doc);
+    if (!writeClient || !process.env.SANITY_API_TOKEN) {
+      console.error("Sanity no configurado — lead:", doc);
       return NextResponse.json({ error: "Servidor no configurado" }, { status: 500 });
     }
 
