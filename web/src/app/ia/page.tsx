@@ -1,22 +1,26 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Automatizaciones de IA | Lucaseo — Trabaja menos, cierra más",
   description: "Automatizamos los procesos repetitivos de tu negocio con Inteligencia Artificial. CRM, leads, emails y atención al cliente en piloto automático.",
 };
 
-const automations = [
-  { icon: "🤖", title: "Chatbots con IA", desc: "Un asistente de IA en tu web que responde preguntas, cualifica leads y agenda reuniones a cualquier hora del día. Entrenado con el conocimiento de tu negocio: servicios, precios, preguntas frecuentes. El lead entra, el bot cualifica, tú cierras." },
-  { icon: "📧", title: "Email Marketing Automatizado", desc: "Secuencias de emails que se activan según el comportamiento del usuario: se registró, pidió información, vio una página específica, abandonó un carrito. Cada email en el momento exacto, con el mensaje exacto, sin que tengas que enviar nada manualmente." },
-  { icon: "🎯", title: "Lead Scoring Automático", desc: "No todos los leads son iguales. Automatizamos la puntuación de cada contacto según su comportamiento, empresa, cargo y engagement con tu contenido. Tus comerciales trabajan primero en los leads con más probabilidad de cierre — no en los más recientes." },
-  { icon: "🔄", title: "Integración CRM", desc: "Conectamos tu web, tus formularios, tus ads y tus emails con HubSpot, Pipedrive o el CRM que uses. Nada cae en el olvido: cada lead queda registrado automáticamente, enriquecido con datos y asignado al comercial correcto." },
-  { icon: "📱", title: "WhatsApp Automation", desc: "Respuestas automáticas, confirmaciones de cita, recordatorios de seguimiento y notificaciones en WhatsApp Business. La plataforma con mayor tasa de apertura del mundo — y donde está realmente tu cliente." },
-  { icon: "📊", title: "Reporting Automatizado", desc: "Dashboards que se actualizan solos con los datos que importan: leads esta semana, conversiones por canal, coste por cliente, ROI de cada campaña. La información que necesitas para tomar decisiones, sin tener que buscarla en cinco herramientas distintas." },
+const services = [
+  { href: "/ia/automatizaciones", icon: "⚙️", title: "Automatizaciones", desc: "Automatizamos tareas repetitivas — emails, datos, informes, facturas — con flujos inteligentes que conectan tus herramientas actuales. Tu equipo deja de copiar y pegar para dedicarse a lo que realmente importa." },
+  { href: "/ia/agentes", icon: "🧠", title: "Agentes IA", desc: "Agentes autónomos que ejecutan tareas complejas por ti: investigación, generación de contenido, análisis de datos, gestión de tareas. No son chatbots — son trabajadores digitales que entienden contexto y toman decisiones." },
+  { href: "/ia/agentes-voz", icon: "🎙️", title: "Agentes de Voz", desc: "IA que atiende llamadas telefónicas por ti: responde preguntas, cualifica leads, agenda citas y escala a humano cuando es necesario. Disponible 24/7, sin tiempos de espera, sin centralitas." },
+  { href: "/ia/personalizado", icon: "🔧", title: "IA a Medida", desc: "Soluciones de inteligencia artificial diseñadas específicamente para tu negocio: modelos entrenados con tus datos, workflows personalizados, integraciones a medida. Lo que necesites, lo construimos." },
+  { href: "/ia/chatbots", icon: "🤖", title: "Chatbots con IA", desc: "Un asistente en tu web que responde preguntas, cualifica leads y agenda reuniones a cualquier hora del día. Entrenado con el conocimiento de tu negocio: servicios, precios, preguntas frecuentes." },
+  { href: "/ia/email-marketing", icon: "📧", title: "Email Marketing Automatizado", desc: "Secuencias de emails que se activan según el comportamiento del usuario: registro, descarga, visita, carrito abandonado. Cada email en el momento exacto, con el mensaje exacto, sin enviar nada a mano." },
+  { href: "/ia/lead-scoring", icon: "🎯", title: "Lead Scoring Automático", desc: "Puntuación automática de cada contacto según su comportamiento, empresa, cargo y engagement. Tus comerciales trabajan primero en los leads con más probabilidad de cierre — no en los más recientes." },
+  { href: "/ia/integracion-crm", icon: "🔄", title: "Integración CRM", desc: "Conectamos tu web, formularios, ads y emails con HubSpot, Pipedrive o el CRM que uses. Cada lead queda registrado automáticamente, enriquecido con datos y asignado al comercial correcto." },
+  { href: "/ia/whatsapp-automation", icon: "📱", title: "WhatsApp Automation", desc: "Respuestas automáticas, confirmaciones de cita, recordatorios de seguimiento y notificaciones en WhatsApp Business. La plataforma con mayor tasa de apertura del mundo." },
+  { href: "/ia/reporting-automatizado", icon: "📊", title: "Reporting Automatizado", desc: "Dashboards que se actualizan solos con los datos que importan: leads, conversiones, coste por cliente, ROI por campaña. Toda la información en una pantalla, sin buscar en cinco herramientas." },
 ];
-
-const tools = ["n8n", "Make (Integromat)", "Zapier", "OpenAI / GPT-4", "HubSpot", "Pipedrive", "ActiveCampaign", "WhatsApp Business API", "Notion", "Airtable", "Google Sheets", "Slack"];
 
 const useCases = [
   { sector: "Clínica o consulta", before: "La recepcionista tarda 20 minutos en cualificar cada solicitud y agendar manualmente", after: "El chatbot cualifica, el paciente elige fecha en el calendario y el sistema envía confirmación y recordatorio — sin intervención humana" },
@@ -24,6 +28,8 @@ const useCases = [
   { sector: "Academia o formación", before: "Alumno potencial pregunta por WhatsApp, nadie responde el fin de semana, lead perdido", after: "IA responde en segundos con toda la información del curso, recoge datos de contacto y cualifica antes de que el lunes llegue un humano" },
   { sector: "E-commerce", before: "Carrito abandonado = lead perdido. El equipo no tiene tiempo de hacer seguimiento manual", after: "Secuencia automatizada de 3 emails en 72h: recordatorio, testimonio y oferta limitada. El 15-20% de los abandonos recuperados sin intervención" },
 ];
+
+const tools = ["n8n", "Make (Integromat)", "Zapier", "OpenAI / GPT-4", "HubSpot", "Pipedrive", "ActiveCampaign", "WhatsApp Business API", "Notion", "Airtable", "Google Sheets", "Slack"];
 
 const faqs = [
   { q: "¿Necesito conocimientos técnicos para gestionar estas automatizaciones?", a: "No. Diseñamos las automatizaciones de forma que funcionen solas una vez configuradas. Te formamos para que puedas ver los resultados, ajustar mensajes básicos y entender el sistema. Para cambios más profundos, estamos nosotros." },
@@ -55,12 +61,14 @@ export default function IaPage() {
         .tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #004aad; margin-bottom: 1rem; }
         h2 { font-family: var(--font-display), system-ui; font-weight: 700; font-size: clamp(1.875rem, 3vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; text-wrap: balance; }
         .lead { font-size: 1.0625rem; color: #5a6480; max-width: 580px; line-height: 1.75; font-weight: 300; }
-        .automations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); margin-top: 3.5rem; }
-        .auto-card { background: #fff; padding: 2.5rem; transition: background 0.2s; }
-        .auto-card:hover { background: #f5f8ff; }
-        .a-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.5rem; }
-        .a-title { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; }
-        .a-desc { font-size: 0.9375rem; color: #5a6480; line-height: 1.7; font-weight: 300; }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); margin-top: 3.5rem; }
+        .svc-card { background: #fff; padding: 2.5rem; transition: background 0.2s; text-decoration: none; color: inherit; display: block; }
+        .svc-card:hover { background: #f5f8ff; }
+        .svc-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .svc-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+        .svc-title { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.1rem; }
+        .svc-desc { font-size: 0.9375rem; color: #5a6480; line-height: 1.7; font-weight: 300; margin-bottom: 1.25rem; }
+        .svc-link { font-size: 0.875rem; font-weight: 600; color: #004aad; }
         .cases-section { background: #0a0f1e; color: #fff; }
         .cases-section h2 { color: #fff; }
         .cases-section .lead { color: rgba(255,255,255,0.6); max-width: 100%; }
@@ -85,7 +93,7 @@ export default function IaPage() {
         .step-t { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
         .step-d { font-size: 0.875rem; color: #5a6480; line-height: 1.65; font-weight: 300; }
         @media (max-width: 768px) {
-          .automations-grid { grid-template-columns: 1fr; }
+          .services-grid { grid-template-columns: 1fr; }
           .cases-grid { grid-template-columns: 1fr; }
           .steps { grid-template-columns: 1fr 1fr; }
         }
@@ -118,17 +126,23 @@ export default function IaPage() {
         </p>
       </div>
 
-      {/* AUTOMATIZACIONES */}
+      {/* SERVICIOS IA */}
       <div className="wrap">
-        <div className="tag">Qué automatizamos</div>
-        <h2>Los procesos que más tiempo<br />te roban, en piloto automático</h2>
-        <div className="automations-grid">
-          {automations.map(a => (
-            <div className="auto-card" key={a.title}>
-              <div className="a-icon">{a.icon}</div>
-              <div className="a-title">{a.title}</div>
-              <p className="a-desc">{a.desc}</p>
-            </div>
+        <div className="tag">Nuestros servicios de IA</div>
+        <h2>Todo lo que la inteligencia artificial<br />puede hacer por tu negocio</h2>
+        <p className="lead">
+          10 servicios especializados para automatizar, cualificar, comunicar y analizar. Cada uno diseñado para resolver un problema concreto de tu negocio.
+        </p>
+        <div className="services-grid">
+          {services.map(s => (
+            <Link href={s.href} className="svc-card" key={s.href}>
+              <div className="svc-header">
+                <div className="svc-icon">{s.icon}</div>
+                <div className="svc-title">{s.title}</div>
+              </div>
+              <p className="svc-desc">{s.desc}</p>
+              <span className="svc-link">Ver más &rarr;</span>
+            </Link>
           ))}
         </div>
       </div>
@@ -209,6 +223,7 @@ export default function IaPage() {
         title="¿Cuántas horas pierde tu equipo en tareas repetitivas?"
         body="Hacemos un diagnóstico gratuito de tus procesos actuales e identificamos las automatizaciones con mayor impacto para tu negocio. Sin tecnicismos, sin compromisos."
       />
+      <SiteFooter />
     </>
   );
 }

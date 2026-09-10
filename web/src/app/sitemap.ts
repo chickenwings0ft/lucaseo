@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/ia/agentes", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/ia/agentes-voz", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/ia/personalizado", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/chatbots", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/email-marketing", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/lead-scoring", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/integracion-crm", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/whatsapp-automation", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/ia/reporting-automatizado", priority: 0.8, changeFrequency: "monthly" as const },
     // Subpáginas RRSS
     { url: "/rrss/estrategia-mensual", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/rrss/paid-media", priority: 0.8, changeFrequency: "monthly" as const },
