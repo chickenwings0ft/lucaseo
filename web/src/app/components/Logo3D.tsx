@@ -31,6 +31,7 @@ export default function Logo3D() {
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(w, h);
+      renderer.domElement.style.display = "block";
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.4;
@@ -131,7 +132,13 @@ export default function Logo3D() {
   return (
     <div
       ref={mountRef}
-      style={{ width: "clamp(280px, 50vw, 560px)", height: "clamp(200px, 30vw, 380px)", cursor: "grab" }}
+      style={{
+        width: "clamp(280px, 45vw, 520px)",
+        height: "clamp(220px, 28vw, 360px)",
+        overflow: "hidden",
+        display: "block",
+        position: "relative",
+      }}
     />
   );
 }

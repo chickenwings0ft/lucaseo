@@ -112,9 +112,7 @@ export default function Landing({ data }: { data: LandingData }) {
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
         .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2.5rem 6rem; min-height: 100vh; position: relative; overflow: hidden; }
         .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: var(--accent-glow); filter: blur(180px); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
-        .hero-logo-wrap { position: relative; margin-bottom: 3rem; animation: heroFloat 4s ease-in-out infinite; }
-        @keyframes heroFloat { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-18px); } }
-        .hero-logo-img { display: block; filter: drop-shadow(0 20px 60px rgba(0,74,173,0.18)); transform-origin: center center; will-change: transform; }
+        .hero-logo-wrap { position: relative; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero-content { position: relative; max-width: 780px; }
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.75rem; }
         .hero-eyebrow::before,.hero-eyebrow::after { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
