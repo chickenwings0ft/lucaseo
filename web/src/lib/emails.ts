@@ -17,9 +17,12 @@ export type Lead = {
   message?: string;
 };
 
+// El logo se referencia por URL absoluta: los clientes de correo no pueden
+// resolver rutas relativas. alt lo cubre cuando el cliente bloquea imágenes.
 const shell = (body: string) => `<!doctype html>
 <html lang="es"><body style="margin:0;padding:24px;background:#f5f7fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#0a0f1e">
 <div style="max-width:520px;margin:0 auto;background:#fff;border:1px solid #e4e9f2;border-radius:10px;padding:32px">
+<img src="https://lucaseo.com/logo.png" alt="Lucaseo" width="44" height="44" style="display:block;border:0;width:44px;height:44px;margin-bottom:24px">
 ${body}
 </div></body></html>`;
 
