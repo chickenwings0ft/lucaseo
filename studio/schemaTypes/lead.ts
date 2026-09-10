@@ -10,6 +10,7 @@ export default defineType({
     defineField({name: 'company', title: 'Empresa', type: 'string'}),
     defineField({name: 'email', title: 'Email', type: 'string'}),
     defineField({name: 'phone', title: 'Teléfono', type: 'string'}),
+    defineField({name: 'preference', title: 'Prefiere contacto por', type: 'string'}),
     defineField({name: 'goal', title: 'Objetivo', type: 'string'}),
     defineField({name: 'message', title: 'Mensaje', type: 'text', rows: 4}),
     defineField({name: 'submittedAt', title: 'Recibido', type: 'datetime', readOnly: true}),

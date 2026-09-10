@@ -13,6 +13,7 @@ export type Lead = {
   company?: string;
   email: string;
   phone?: string;
+  preference?: string;
   goal?: string;
   message?: string;
 };
@@ -51,7 +52,16 @@ export async function sendLeadEmails(lead: Lead): Promise<boolean> {
       subject: `Nuevo lead: ${who}${lead.company ? ` (${lead.company})` : ""}`,
       html: shell(`
         <p style="margin:0 0 20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#004aad;font-weight:600">Nuevo lead</p>
-        <h1 style="margin:0 0 24px;font-size:20px">${esc(who)}</h1>
+        <h1 style="margin:0 0 20px;font-size:20px">${esc(who)}</h1>
+        ${
+          lead.preference
+            ? `<div style="margin:0 0 20px;padding:12px 16px;background:#eef3fc;border-left:3px solid #004aad;border-radius:4px">
+                 <span style="font-size:13px;color:#5a6480">Prefiere que le contactes por </span>
+                 <strong style="font-size:14px;color:#004aad">${esc(lead.preference)}</strong>
+                 ${lead.preference.toLowerCase().startsWith("tel") && lead.phone ? `<div style="margin-top:6px;font-size:15px;font-weight:600">${esc(lead.phone)}</div>` : ""}
+               </div>`
+            : ""
+        }
         <table style="width:100%;border-collapse:collapse">
           ${row("Nombre", lead.name)}
           ${row("Empresa", lead.company)}

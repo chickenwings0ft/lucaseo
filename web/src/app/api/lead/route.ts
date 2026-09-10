@@ -17,6 +17,7 @@ export async function POST(req: Request) {
       company: str(body.company),
       email: str(body.email),
       phone: str(body.phone),
+      preference: str(body.preference),
       goal: str(body.goal),
       message: str(body.message),
       status: "new",
@@ -41,6 +42,7 @@ export async function POST(req: Request) {
         company: doc.company,
         email: doc.email!,
         phone: doc.phone,
+        preference: doc.preference,
         goal: doc.goal,
         message: doc.message,
       });

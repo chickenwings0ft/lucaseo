@@ -85,6 +85,7 @@ export default function Landing({ data }: { data: LandingData }) {
       company: fd.get("empresa"),
       email: fd.get("email"),
       phone: fd.get("telefono"),
+      preference: fd.get("preferencia"),
       goal: fd.get("objetivo"),
       message: fd.get("mensaje"),
     };
@@ -163,6 +164,12 @@ export default function Landing({ data }: { data: LandingData }) {
         label { font-size: 0.8125rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
         input, textarea, select { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; color: var(--text); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 400; width: 100%; transition: border-color 0.2s; outline: none; appearance: none; }
         input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .pref-group { display: flex; gap: 0.625rem; }
+        .pref { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; font-size: 0.9375rem; color: var(--text); font-weight: 400; transition: border-color 0.2s, background 0.2s; }
+        .pref input { position: absolute; opacity: 0; width: 0; height: 0; }
+        .pref:hover { border-color: var(--accent); }
+        .pref:has(input:checked) { border-color: var(--accent); background: var(--accent-glow); color: var(--accent); font-weight: 500; }
+        .pref:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--accent-glow); }
         textarea { resize: vertical; min-height: 120px; }
         input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.6; }
         .form-note { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
@@ -345,6 +352,19 @@ export default function Landing({ data }: { data: LandingData }) {
                   <div className="field">
                     <label htmlFor="telefono">Teléfono</label>
                     <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" />
+                  </div>
+                  <div className="field">
+                    <label>¿Cómo prefieres que te contactemos?</label>
+                    <div className="pref-group">
+                      <label className="pref">
+                        <input type="radio" name="preferencia" value="Email" defaultChecked />
+                        <span>Por email</span>
+                      </label>
+                      <label className="pref">
+                        <input type="radio" name="preferencia" value="Teléfono" />
+                        <span>Por teléfono</span>
+                      </label>
+                    </div>
                   </div>
                   <div className="field">
                     <label htmlFor="objetivo">¿Cuál es tu objetivo principal?</label>
