@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -27,6 +28,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${syne.variable} ${dmSans.variable}`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T8MSE1KS11"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T8MSE1KS11');
+          `}
+        </Script>
+      </head>
       <body>{children}</body>
     </html>
   );
