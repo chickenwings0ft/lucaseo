@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
+import type { AccordionService } from "../components/ServicesAccordionGrid";
 
 export const metadata: Metadata = {
   title: "SEM · Google Ads | Lucaseo — Resultados desde el primer día",
@@ -15,13 +17,15 @@ const faqs = [
   { q: "¿Trabajáis con Social Ads también?", a: "Sí. Dentro de nuestro servicio de SEM incluimos estrategia de Social Ads — Meta Ads (Instagram y Facebook) — como canal complementario a Google Ads cuando tiene sentido para el negocio. Para estrategias específicas de RRSS, tenemos también un servicio dedicado." },
 ];
 
-const formats = [
-  { icon: "🔍", title: "Search Ads", desc: "Anuncios de texto en los resultados de búsqueda. El formato con mayor intención de compra: tu anuncio aparece cuando alguien está buscando activamente lo que tú ofreces. Configuramos las keywords, las pujas, las extensiones y las páginas de destino para maximizar la tasa de conversión." },
+const semServices: AccordionService[] = [
+  { icon: "🔍", title: "Google Ads", desc: "Anuncios de texto en los resultados de búsqueda. El formato con mayor intención de compra: tu anuncio aparece cuando alguien está buscando activamente lo que tú ofreces. Configuramos las keywords, las pujas, las extensiones y las páginas de destino para maximizar la tasa de conversión.", href: "/sem/google-ads" },
   { icon: "🖼️", title: "Display & Remarketing", desc: "Banners visuales en millones de webs de la Red de Display de Google. Ideales para notoriedad de marca y, especialmente, para remarketing: recuperar visitantes que ya conocen tu negocio pero aún no han convertido. El clic más barato del ecosistema digital." },
   { icon: "⚡", title: "Performance Max", desc: "La campaña más avanzada de Google: un solo formato que distribuye presupuesto automáticamente entre Search, Display, YouTube, Gmail y Discover usando machine learning. Perfecta cuando tienes datos de conversión suficientes y quieres escalar de forma eficiente." },
   { icon: "🛒", title: "Shopping Ads", desc: "Para e-commerce: tus productos aparecen directamente en Google con foto, precio y nombre de la tienda antes de que el usuario haga clic. La mayor intención de compra posible. Optimizamos tu feed de productos, las pujas por categoría y la estrategia de descuentos estacional." },
   { icon: "🎥", title: "YouTube Ads", desc: "Video ads en el segundo buscador del mundo. Formatos in-stream que solo cobran cuando alguien ve al menos 30 segundos de tu anuncio. Especialmente efectivos para negocios con productos visuales, servicios premium o cuando quieres construir marca a escala." },
-  { icon: "📱", title: "Social Ads (Meta)", desc: "Instagram y Facebook Ads como canal de demanda complementario a Google. Mientras Google captura a quien ya busca, Meta crea la necesidad en quienes todavía no han buscado. Combinados correctamente, multiplican el retorno total de tu inversión publicitaria." },
+  { icon: "📱", title: "Meta Ads", desc: "Instagram y Facebook Ads como canal de demanda complementario a Google. Mientras Google captura a quien ya busca, Meta crea la necesidad en quienes todavía no han buscado. Combinados correctamente, multiplican el retorno total de tu inversión publicitaria.", href: "/sem/meta-ads" },
+  { icon: "🎵", title: "TikTok Ads", desc: "TikTok ya no es solo para adolescentes. Es la plataforma donde 1.000 millones de usuarios pasan más de 90 minutos al día. Su publicidad tiene algo que no tiene ninguna otra: parece contenido, no publicidad. El CPM más bajo del mercado.", href: "/sem/tiktok-ads" },
+  { icon: "🤖", title: "ChatGPT Ads", desc: "200 millones de personas usan ChatGPT cada semana para buscar información y tomar decisiones de compra. OpenAI ha abierto su plataforma publicitaria. Los early adopters van a llevarse la mayor ventaja competitiva de la década.", href: "/sem/chatgpt-ads" },
 ];
 
 const process = [
@@ -59,12 +63,6 @@ export default function SemPage() {
         .s-num { font-family: var(--font-display), system-ui; font-weight: 800; font-size: clamp(2rem, 3.5vw, 3rem); color: #004aad; letter-spacing: -0.04em; margin-bottom: 0.35rem; }
         .s-lbl { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; }
         .s-ctx { font-size: 0.8125rem; color: #5a6480; }
-        .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); margin-top: 3.5rem; }
-        .format-card { background: #fff; padding: 2.5rem; transition: background 0.2s; }
-        .format-card:hover { background: #f5f8ff; }
-        .f-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.5rem; }
-        .f-title { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; }
-        .f-desc { font-size: 0.9375rem; color: #5a6480; line-height: 1.7; font-weight: 300; }
         .process-sec { background: #0a0f1e; color: #fff; }
         .process-sec h2 { color: #fff; }
         .process-sec .lead { color: rgba(255,255,255,0.6); max-width: 100%; }
@@ -85,7 +83,6 @@ export default function SemPage() {
         .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
         .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
-          .formats { grid-template-columns: 1fr; }
           .stats-row { grid-template-columns: 1fr 1fr; }
           .steps { grid-template-columns: 1fr 1fr; }
           .compare-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -140,15 +137,7 @@ export default function SemPage() {
         <div className="tag">Formatos que gestionamos</div>
         <h2>Cada euro en el formato<br />que más retorno da para tu negocio</h2>
         <p className="lead">No todas las campañas son iguales. Elegimos el mix de formatos según tu objetivo, tu sector y la fase del embudo en que se encuentra tu cliente potencial.</p>
-        <div className="formats">
-          {formats.map(f => (
-            <div className="format-card" key={f.title}>
-              <div className="f-icon">{f.icon}</div>
-              <div className="f-title">{f.title}</div>
-              <p className="f-desc">{f.desc}</p>
-            </div>
-          ))}
-        </div>
+        <ServicesAccordionGrid services={semServices} />
       </div>
 
       {/* PROCESO */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
 
 export const metadata: Metadata = {
   title: "Creación Web | Lucaseo — Webs que venden, no que decoran",
@@ -58,12 +59,6 @@ export default function WebPage() {
         .s-num { font-family: var(--font-display), system-ui; font-weight: 800; font-size: clamp(2rem, 3.5vw, 3rem); color: #004aad; letter-spacing: -0.04em; margin-bottom: 0.35rem; }
         .s-lbl { font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; }
         .s-ctx { font-size: 0.8125rem; color: #5a6480; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); margin-top: 3.5rem; }
-        .svc-card { background: #fff; padding: 2.5rem; transition: background 0.2s; }
-        .svc-card:hover { background: #f5f8ff; }
-        .s-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.5rem; }
-        .s-title { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; }
-        .s-desc { font-size: 0.9375rem; color: #5a6480; line-height: 1.7; font-weight: 300; }
         .types-section { background: #0a0f1e; color: #fff; }
         .types-section h2 { color: #fff; }
         .types-section .lead { color: rgba(255,255,255,0.6); max-width: 100%; }
@@ -82,7 +77,6 @@ export default function WebPage() {
         .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
         .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
-          .services-grid { grid-template-columns: 1fr; }
           .stats-row { grid-template-columns: 1fr 1fr; }
           .types-grid { grid-template-columns: 1fr; }
           .steps { grid-template-columns: 1fr 1fr; }
@@ -136,15 +130,7 @@ export default function WebPage() {
       <div className="wrap">
         <div className="tag">Qué construimos</div>
         <h2>Web diseñada para crecer<br />con tu negocio</h2>
-        <div className="services-grid">
-          {services.map(s => (
-            <div className="svc-card" key={s.title}>
-              <div className="s-icon">{s.icon}</div>
-              <div className="s-title">{s.title}</div>
-              <p className="s-desc">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <ServicesAccordionGrid services={services} />
       </div>
 
       {/* TIPOS */}

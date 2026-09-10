@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
+import type { AccordionService } from "../components/ServicesAccordionGrid";
 
 export const metadata: Metadata = {
   title: "RRSS & Social Ads | Lucaseo — Tu marca donde están tus clientes",
   description: "Gestión de redes sociales y Social Ads en Meta, Instagram y TikTok. Comunidad, contenido y publicidad que convierte seguidores en clientes reales.",
 };
 
-const services = [
+const rrssServices: AccordionService[] = [
   { icon: "📸", title: "Gestión de Instagram", desc: "Tu perfil de Instagram como motor de clientes. Estrategia de contenido mensual, diseño de publicaciones, copies que generan engagement real, gestión de comentarios y DMs. No publicamos por publicar: cada post tiene un objetivo claro dentro del embudo." },
   { icon: "👥", title: "Gestión de Facebook", desc: "Facebook sigue siendo la plataforma con más datos de audiencia del mundo. Optimizamos tu página, publicamos contenido de valor para tu segmento, gestionamos reseñas y construimos una comunidad activa alrededor de tu marca." },
   { icon: "🎵", title: "TikTok & Reels", desc: "El formato de vídeo corto es la mayor oportunidad de alcance orgánico actual. Creamos guiones, editamos vídeos y publicamos contenido que engancha — para que tu negocio aparezca en los feeds de miles de potenciales clientes sin invertir en publicidad." },
   { icon: "🎯", title: "Meta Ads (Social Ads)", desc: "Publicidad de pago en Instagram y Facebook con una segmentación que Google no puede igualar: comportamientos, intereses, datos demográficos y audiencias lookalike. Creamos las creatividades, configuramos las campañas y optimizamos el presupuesto para el menor coste por cliente posible." },
   { icon: "✍️", title: "Copywriting & Creatividad", desc: "Las redes sociales se ganan con contenido que detiene el scroll. Escribimos copies con gancho, diseñamos visuales que destacan en el feed y creamos mensajes que conectan con tu audiencia porque hablan exactamente de sus problemas y deseos." },
   { icon: "📊", title: "Análisis & Reporting", desc: "Sin métricas de vanidad. Reportamos alcance, engagement, clics a web, leads generados y coste por resultado. Sabrás exactamente qué publicaciones funcionan, qué audiencias convierten y cómo está evolucionando tu presencia mes a mes." },
+  { icon: "📅", title: "Estrategia Mensual", desc: "Publicar por publicar no funciona. Lo que funciona es una estrategia mensual con objetivos claros, contenido diseñado para tu audiencia y un calendario editorial que convierte seguidores en clientes reales.", href: "/rrss/estrategia-mensual" },
+  { icon: "💰", title: "Paid Media", desc: "Los Social Ads son la forma más rápida de poner tu negocio delante de las personas correctas. Pero sin estrategia, segmentación y optimización constante, es como quemar billetes. Nos aseguramos de que cada euro trabaje.", href: "/rrss/paid-media" },
+  { icon: "📖", title: "Storytelling de Marca", desc: "La gente no sigue marcas en redes sociales para ver anuncios. Sigue historias que les inspiran, les enseñan o les hacen sentir algo. El storytelling estratégico convierte tu marca en una historia que tu audiencia quiere seguir.", href: "/rrss/estrategia-storytelling" },
 ];
 
 const socialAds = [
@@ -52,12 +57,6 @@ export default function RrssPage() {
         .tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #004aad; margin-bottom: 1rem; }
         h2 { font-family: var(--font-display), system-ui; font-weight: 700; font-size: clamp(1.875rem, 3vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; text-wrap: balance; }
         .lead { font-size: 1.0625rem; color: #5a6480; max-width: 580px; line-height: 1.75; font-weight: 300; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); margin-top: 3.5rem; }
-        .svc-card { background: #fff; padding: 2.5rem; transition: background 0.2s; }
-        .svc-card:hover { background: #f5f8ff; }
-        .s-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.5rem; }
-        .s-title { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.75rem; }
-        .s-desc { font-size: 0.9375rem; color: #5a6480; line-height: 1.7; font-weight: 300; }
         .ads-section { background: #0a0f1e; color: #fff; }
         .ads-section h2 { color: #fff; }
         .ads-section .lead { color: rgba(255,255,255,0.6); max-width: 100%; }
@@ -79,7 +78,6 @@ export default function RrssPage() {
         .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
         .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
-          .services-grid { grid-template-columns: 1fr; }
           .ads-platforms { grid-template-columns: 1fr; }
           .why-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
@@ -117,15 +115,7 @@ export default function RrssPage() {
         <div className="tag">Qué incluye</div>
         <h2>Gestión completa de<br />tu presencia en redes</h2>
         <p className="lead">Desde la estrategia hasta la publicación diaria, pasando por la publicidad de pago.</p>
-        <div className="services-grid">
-          {services.map(s => (
-            <div className="svc-card" key={s.title}>
-              <div className="s-icon">{s.icon}</div>
-              <div className="s-title">{s.title}</div>
-              <p className="s-desc">{s.desc}</p>
-            </div>
-          ))}
-        </div>
+        <ServicesAccordionGrid services={rrssServices} />
       </div>
 
       {/* SOCIAL ADS */}
