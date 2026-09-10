@@ -2,8 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Locale } from "@/lib/pages/types";
 
-const links = [
+const esLinks = [
   { href: "/seo", label: "SEO" },
   { href: "/sem", label: "SEM" },
   { href: "/rrss", label: "RRSS" },
@@ -11,8 +12,20 @@ const links = [
   { href: "/ia", label: "IA" },
 ];
 
-export default function ServiceNav() {
+const enLinks = [
+  { href: "/en/seo", label: "SEO" },
+  { href: "/en/sem", label: "SEM" },
+  { href: "/en/social-media", label: "Social" },
+  { href: "/en/web", label: "Web" },
+  { href: "/en/ai", label: "AI" },
+];
+
+export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
   const pathname = usePathname();
+  const links = locale === "en" ? enLinks : esLinks;
+  const home = locale === "en" ? "/en" : "/";
+  const ctaHref = locale === "en" ? "/en#contact" : "/#contacto";
+  const ctaLabel = locale === "en" ? "Let's talk" : "Hablemos";
 
   return (
     <>
@@ -52,7 +65,7 @@ export default function ServiceNav() {
       `}</style>
 
       <nav className="site-nav">
-        <Link href="/" className="site-nav__logo" aria-label="Lucaseo — inicio">
+        <Link href={home} className="site-nav__logo" aria-label="Lucaseo — inicio">
           <Image src="/logo.png" alt="Lucaseo" width={40} height={40} priority style={{ width: "auto", height: "34px" }} />
         </Link>
 
@@ -62,14 +75,14 @@ export default function ServiceNav() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`site-nav__link${pathname === l.href ? " site-nav__link--active" : ""}`}
+                  className={`site-nav__link${pathname.startsWith(l.href) ? " site-nav__link--active" : ""}`}
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <Link href="/#contacto" className="site-nav__cta">Hablemos</Link>
+          <Link href={ctaHref} className="site-nav__cta">{ctaLabel}</Link>
         </div>
       </nav>
     </>
