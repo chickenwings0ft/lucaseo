@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import type { LandingData } from "@/lib/content";
 
 import ServiceNav from "./components/ServiceNav";
+import ServicesAccordionGrid from "./components/ServicesAccordionGrid";
 
 const Logo3D = dynamic(() => import("./components/Logo3D"), { ssr: false });
 
@@ -34,6 +35,17 @@ function Headline({ text }: { text: string }) {
 
 export default function Landing({ data }: { data: LandingData }) {
   const { settings, services, steps, cases, stats } = data;
+
+  const accordionServices = services.map(s => {
+    let href: string | undefined;
+    const lower = s.name.toLowerCase();
+    if (lower.includes("seo")) href = "/seo";
+    else if (lower.includes("sem") || lower.includes("google ads")) href = "/sem";
+    else if (lower.includes("meta") || lower.includes("social")) href = "/rrss";
+    else if (lower.includes("web")) href = "/web";
+    else if (lower.includes("ia") || lower.includes("automat")) href = "/ia";
+    return { icon: s.icon || "", title: s.name, desc: s.description, href };
+  });
   const clientsFromCms = data.clients ?? [];
   const useLocalClients = clientsFromCms.length === 0;
 
@@ -134,12 +146,6 @@ export default function Landing({ data }: { data: LandingData }) {
         .section-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
         .section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; margin-bottom: 1.25rem; }
         .section-body { font-size: 1.0625rem; color: var(--muted); max-width: 540px; line-height: 1.7; font-weight: 300; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-top: 3.5rem; border: 1px solid var(--border); }
-        .service-card { background: var(--bg); padding: 2.5rem; transition: background 0.2s; }
-        .service-card:hover { background: var(--surface); }
-        .service-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--accent-glow); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.125rem; }
-        .service-name { font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
-        .service-desc { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
         .process-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; }
         .step-num { font-family: var(--font-display); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; }
@@ -187,7 +193,6 @@ export default function Landing({ data }: { data: LandingData }) {
         .footer-links a:hover { color: var(--text); }
         @media (max-width: 900px) {
           .stats-bar { grid-template-columns: repeat(2, 1fr); }
-          .services-grid { grid-template-columns: 1fr; }
           .process-steps { grid-template-columns: 1fr; gap: 2rem; }
           .proof-grid { grid-template-columns: 1fr; }
           .clients-grid { grid-template-columns: 1fr; }
@@ -235,15 +240,7 @@ export default function Landing({ data }: { data: LandingData }) {
           <div className="section-tag">{settings.servicesTag}</div>
           <h2 className="section-title">{settings.servicesTitle}</h2>
           <p className="section-body">{settings.servicesBody}</p>
-          <div className="services-grid">
-            {services.map((s) => (
-              <div className="service-card" key={s._id}>
-                {s.icon && <div className="service-icon">{s.icon}</div>}
-                <div className="service-name">{s.name}</div>
-                <p className="service-desc">{s.description}</p>
-              </div>
-            ))}
-          </div>
+          <ServicesAccordionGrid services={accordionServices} />
         </div>
       </section>
 
