@@ -36,6 +36,19 @@ export default function Landing({ data }: { data: LandingData }) {
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
 
   useEffect(() => {
+    function handleScroll() {
+      const logo = document.getElementById("hero-logo");
+      if (!logo) return;
+      const scrollY = window.scrollY;
+      const rotation = scrollY * 0.08;
+      const scale = Math.max(0.7, 1 - scrollY * 0.0005);
+      logo.style.transform = `rotate(${rotation}deg) scale(${scale})`;
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -97,7 +110,7 @@ export default function Landing({ data }: { data: LandingData }) {
   return (
     <>
       <style>{`
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1rem 2.5rem; background: rgba(10,10,20,0.8); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1rem 2.5rem; background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
         .nav-logo { display: flex; align-items: center; justify-content: center; text-decoration: none; }
         nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; justify-content: flex-end; }
         nav ul a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
@@ -107,15 +120,18 @@ export default function Landing({ data }: { data: LandingData }) {
         .btn:disabled { opacity: 0.6; cursor: default; }
         .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
-        .hero { display: flex; flex-direction: column; justify-content: flex-end; padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; }
-        .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: var(--accent-glow); filter: blur(160px); top: -250px; right: -150px; pointer-events: none; }
-        .hero-content { position: relative; max-width: 1100px; }
+        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2.5rem 6rem; min-height: 100vh; position: relative; overflow: hidden; }
+        .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: var(--accent-glow); filter: blur(180px); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+        .hero-logo-wrap { position: relative; margin-bottom: 3rem; animation: heroFloat 4s ease-in-out infinite; }
+        @keyframes heroFloat { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-18px); } }
+        .hero-logo-img { display: block; filter: drop-shadow(0 20px 60px rgba(0,74,173,0.18)); transform-origin: center center; will-change: transform; }
+        .hero-content { position: relative; max-width: 780px; }
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.75rem; }
-        .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
-        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(3rem, 7vw, 6rem); line-height: 1.02; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 2rem; }
+        .hero-eyebrow::before,.hero-eyebrow::after { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 5.5vw, 5rem); line-height: 1.05; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 1.5rem; }
         .hero-headline em { font-style: normal; color: var(--accent); }
-        .hero-sub { font-size: 1.125rem; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.7; }
-        .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .hero-sub { font-size: 1.125rem; color: var(--muted); max-width: 520px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.7; }
+        .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
         .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
         .stat-cell { background: var(--bg); padding: 2rem 2.5rem; }
         .stat-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 0.4rem; }
@@ -143,8 +159,8 @@ export default function Landing({ data }: { data: LandingData }) {
         .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
         .client-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; padding: 2.5rem 2rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); text-decoration: none; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; min-height: 200px; }
         .client-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,74,173,0.1); }
-        .client-logo-box { display: flex; align-items: center; justify-content: center; width: 100%; height: 110px; background: #fff; border-radius: 10px; padding: 1.25rem 1.5rem; }
-        .client-logo-box--dark { background: transparent; padding: 0; }
+        .client-logo-box { display: flex; align-items: center; justify-content: center; width: 100%; height: 110px; }
+        .client-logo-box--dark { background: #0a1733; border-radius: 10px; padding: 1rem 1.5rem; }
         .client-logo { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
         .client-visit { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; color: var(--accent); }
         .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -193,20 +209,21 @@ export default function Landing({ data }: { data: LandingData }) {
           <Image src="/logo.png" alt="Lucaseo" width={52} height={52} priority style={{ width: "auto", height: "52px" }} />
         </a>
         <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#resultados">Resultados</a></li>
-          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="/seo">SEO</a></li>
+          <li><a href="/sem">SEM</a></li>
+          <li><a href="/rrss">RRSS</a></li>
+          <li><a href="/web">Web</a></li>
+          <li><a href="/ia">IA</a></li>
           <li><a href="#contacto" className="btn">Hablemos</a></li>
         </ul>
       </nav>
 
-      <div className="hero">
+      <div className="hero" id="hero-section">
         <div className="hero-glow" />
+        <div className="hero-logo-wrap" id="hero-logo-wrap">
+          <Image id="hero-logo" src="/logo-header.png" alt="Lucaseo" width={480} height={180} priority className="hero-logo-img" style={{ width: "clamp(240px, 40vw, 480px)", height: "auto" }} />
+        </div>
         <div className="hero-content">
-          <div style={{ marginBottom: "1.5rem" }}>
-            <Image src="/logo-header.png" alt="Lucaseo" width={150} height={150} style={{ width: "clamp(110px, 14vw, 150px)", height: "auto" }} />
-          </div>
           <div className="hero-eyebrow">{settings.heroEyebrow}</div>
           <h1 className="hero-headline"><Headline text={settings.heroHeadline} /></h1>
           <p className="hero-sub">{settings.heroSubtitle}</p>
