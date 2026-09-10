@@ -2,7 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import type { LandingData } from "@/lib/content";
+
+const Logo3D = dynamic(() => import("./components/Logo3D"), { ssr: false });
 
 const localClients = [
   { _id: "l1", name: "Macheta Smash Burger", url: "https://macheta.es", darkBackground: false, localLogo: "/macheta-logo.png", w: 960, h: 540 },
@@ -34,19 +37,6 @@ export default function Landing({ data }: { data: LandingData }) {
   const statsRef = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
-
-  useEffect(() => {
-    function handleScroll() {
-      const logo = document.getElementById("hero-logo");
-      if (!logo) return;
-      const scrollY = window.scrollY;
-      const rotation = scrollY * 0.08;
-      const scale = Math.max(0.7, 1 - scrollY * 0.0005);
-      logo.style.transform = `rotate(${rotation}deg) scale(${scale})`;
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -221,7 +211,7 @@ export default function Landing({ data }: { data: LandingData }) {
       <div className="hero" id="hero-section">
         <div className="hero-glow" />
         <div className="hero-logo-wrap" id="hero-logo-wrap">
-          <Image id="hero-logo" src="/logo-header.png" alt="Lucaseo" width={480} height={180} priority className="hero-logo-img" style={{ width: "clamp(240px, 40vw, 480px)", height: "auto" }} />
+          <Logo3D />
         </div>
         <div className="hero-content">
           <div className="hero-eyebrow">{settings.heroEyebrow}</div>
