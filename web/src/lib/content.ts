@@ -76,9 +76,7 @@ export const defaults: LandingData = {
     { _id: "s1", icon: "🔍", name: "SEO Orgánico", description: "Optimización técnica, contenido estratégico y link building para que aparezcas cuando tu cliente te está buscando. Sin pagar por cada clic." },
     { _id: "s2", icon: "⚡", name: "Google Ads (SEM)", description: "Campañas de búsqueda, display y Performance Max optimizadas para que cada euro invertido traiga clientes con intención de compra real." },
     { _id: "s3", icon: "📱", name: "Meta & Social Ads", description: "Publicidad en Instagram y Facebook con segmentación precisa y creatividades que convierten. Tu producto frente a quien ya lo quiere comprar." },
-    { _id: "s4", icon: "🌐", name: "Web Optimizada", description: "Una web rápida, bien estructurada y diseñada para convertir visitas en leads. Core Web Vitals, velocidad de carga y arquitectura SEO-first." },
-    { _id: "s5", icon: "📊", name: "Analytics & Medición", description: "GA4, píxeles, conversiones y dashboards en tiempo real para que sepas exactamente qué canal te trae clientes y cuánto te cuesta cada uno." },
-    { _id: "s6", icon: "✍️", name: "Contenido & SEO Local", description: "Estrategia de contenidos, Google Business Profile y posicionamiento local para que los clientes de tu zona te encuentren a ti antes que a la competencia." },
+    { _id: "s4", icon: "🌐", name: "Creación Web", description: "Diseñamos y desarrollamos webs rápidas, optimizadas para SEO y pensadas para convertir visitas en clientes. Desde landing pages hasta e-commerce, con arquitectura profesional y velocidad de carga que Google premia." },
   ],
   steps: [
     { _id: "p1", label: "01 — Diagnóstico", title: "Auditamos tu situación real", description: "Analizamos tu web, competencia, palabras clave y campañas actuales. Identificamos dónde estás perdiendo clientes y cuánto te está costando." },
