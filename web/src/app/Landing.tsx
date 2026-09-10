@@ -5,6 +5,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import type { LandingData } from "@/lib/content";
 
+import ServiceNav from "./components/ServiceNav";
+
 const Logo3D = dynamic(() => import("./components/Logo3D"), { ssr: false });
 
 const localClients = [
@@ -100,26 +102,23 @@ export default function Landing({ data }: { data: LandingData }) {
   return (
     <>
       <style>{`
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1rem 2.5rem; background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-        .nav-logo { display: flex; align-items: center; justify-content: center; text-decoration: none; }
-        nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; justify-content: flex-end; }
-        nav ul a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-        nav ul a:hover { color: var(--text); }
         .btn { display: inline-block; padding: 0.625rem 1.5rem; background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 500; font-size: 0.875rem; text-decoration: none; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; letter-spacing: 0.01em; }
         .btn:hover { opacity: 0.88; transform: translateY(-1px); }
         .btn:disabled { opacity: 0.6; cursor: default; }
         .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
-        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 10rem 2.5rem 6rem; min-height: 100vh; position: relative; overflow: hidden; }
-        .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: var(--accent-glow); filter: blur(180px); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
-        .hero-logo-wrap { position: relative; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero-content { position: relative; max-width: 780px; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.75rem; }
-        .hero-eyebrow::before,.hero-eyebrow::after { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
-        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 5.5vw, 5rem); line-height: 1.05; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 1.5rem; }
+        .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 7rem 2rem 5rem; position: relative; }
+        .hero-logo-wrap { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.5rem; }
+        .hero-content { position: relative; max-width: 680px; display: flex; flex-direction: column; align-items: center; }
+        .hero-eyebrow { font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 1.25rem; }
         .hero-headline em { font-style: normal; color: var(--accent); }
-        .hero-sub { font-size: 1.125rem; color: var(--muted); max-width: 520px; margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.7; }
-        .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .hero-sub { font-size: 1.0625rem; color: var(--muted); max-width: 460px; margin: 0 0 2.25rem; font-weight: 400; line-height: 1.65; text-wrap: pretty; }
+        .hero-actions { display: flex; gap: 1.75rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .hero-link { color: var(--text); font-size: 0.9375rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.18s ease; }
+        .hero-link:hover { color: var(--accent); }
+        .hero-link span { transition: transform 0.18s ease; }
+        .hero-link:hover span { transform: translateX(3px); }
         .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
         .stat-cell { background: var(--bg); padding: 2rem 2.5rem; }
         .stat-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 0.4rem; }
@@ -174,7 +173,6 @@ export default function Landing({ data }: { data: LandingData }) {
         .footer-links a { font-size: 0.8125rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: var(--text); }
         @media (max-width: 900px) {
-          nav ul { display: none; }
           .stats-bar { grid-template-columns: repeat(2, 1fr); }
           .services-grid { grid-template-columns: 1fr; }
           .process-steps { grid-template-columns: 1fr; gap: 2rem; }
@@ -184,7 +182,6 @@ export default function Landing({ data }: { data: LandingData }) {
           .form-row { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
-          nav { padding: 1rem 1.25rem; }
           .hero { padding: 6rem 1.25rem 3rem; }
           .section-wrap { padding: 4rem 1.25rem; }
           .stat-cell { padding: 1.5rem; }
@@ -192,22 +189,9 @@ export default function Landing({ data }: { data: LandingData }) {
         }
       `}</style>
 
-      <nav>
-        <a href="#" className="nav-logo">
-          <Image src="/logo.png" alt="Lucaseo" width={52} height={52} priority style={{ width: "auto", height: "52px" }} />
-        </a>
-        <ul>
-          <li><a href="/seo">SEO</a></li>
-          <li><a href="/sem">SEM</a></li>
-          <li><a href="/rrss">RRSS</a></li>
-          <li><a href="/web">Web</a></li>
-          <li><a href="/ia">IA</a></li>
-          <li><a href="#contacto" className="btn">Hablemos</a></li>
-        </ul>
-      </nav>
+      <ServiceNav />
 
       <div className="hero" id="hero-section">
-        <div className="hero-glow" />
         <div className="hero-logo-wrap" id="hero-logo-wrap">
           <Logo3D />
         </div>
@@ -217,7 +201,7 @@ export default function Landing({ data }: { data: LandingData }) {
           <p className="hero-sub">{settings.heroSubtitle}</p>
           <div className="hero-actions">
             <a href="#contacto" className="btn">{settings.heroPrimaryCta}</a>
-            <a href="#servicios" className="btn btn-outline">{settings.heroSecondaryCta}</a>
+            <a href="#servicios" className="hero-link">{settings.heroSecondaryCta} <span>→</span></a>
           </div>
         </div>
       </div>

@@ -133,8 +133,8 @@ export default function Logo3D() {
     <div
       ref={mountRef}
       style={{
-        width: "clamp(280px, 45vw, 520px)",
-        height: "clamp(220px, 28vw, 360px)",
+        width: "clamp(200px, 26vw, 300px)",
+        height: "clamp(180px, 20vw, 240px)",
         overflow: "hidden",
         display: "block",
         position: "relative",
