@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a14;
+  --surface: #12121f;
+  --border: rgba(255, 255, 255, 0.07);
+  --text: #eeeef0;
+  --muted: #7878a0;
+  --accent: #2563ff;
+  --accent-glow: rgba(37, 99, 255, 0.18);
+  --teal: #00e5c3;
+  --teal-dim: rgba(0, 229, 195, 0.12);
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f4f8;
+    --surface: #ffffff;
+    --border: rgba(0, 0, 0, 0.07);
+    --text: #0a0a14;
+    --muted: #60607c;
+    --accent: #1a4fff;
+    --accent-glow: rgba(26, 79, 255, 0.1);
+    --teal: #00b89c;
+    --teal-dim: rgba(0, 184, 156, 0.1);
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f4f8;
+  --surface: #ffffff;
+  --border: rgba(0, 0, 0, 0.07);
+  --text: #0a0a14;
+  --muted: #60607c;
+  --accent: #1a4fff;
+  --accent-glow: rgba(26, 79, 255, 0.1);
+  --teal: #00b89c;
+  --teal-dim: rgba(0, 184, 156, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
