@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import type { LandingData } from "@/lib/content";
 
 import ServiceNav from "./components/ServiceNav";
@@ -36,6 +37,7 @@ export default function Landing({ data }: { data: LandingData }) {
   const clientsFromCms = data.clients ?? [];
   const useLocalClients = clientsFromCms.length === 0;
 
+  const router = useRouter();
   const statsRef = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
@@ -93,7 +95,11 @@ export default function Landing({ data }: { data: LandingData }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      setFormState(res.ok ? "done" : "error");
+      if (res.ok) {
+        router.push("/gracias");
+      } else {
+        setFormState("error");
+      }
     } catch {
       setFormState("error");
     }

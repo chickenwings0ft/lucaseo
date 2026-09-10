@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { writeClient } from "@/lib/sanity";
+import { sendLeadEmails } from "@/lib/emails";
 
 export async function POST(req: Request) {
   try {
@@ -22,12 +23,36 @@ export async function POST(req: Request) {
       submittedAt: new Date().toISOString(),
     };
 
-    if (!writeClient || !process.env.SANITY_API_TOKEN) {
-      console.error("Sanity no configurado — lead:", doc);
+    // Guardar y avisar son independientes: si uno falla, el lead no se pierde.
+    let saved = false;
+    if (writeClient && process.env.SANITY_API_TOKEN) {
+      try {
+        await writeClient.create(doc);
+        saved = true;
+      } catch (err) {
+        console.error("No se pudo guardar el lead en Sanity:", err);
+      }
+    }
+
+    let emailed = false;
+    try {
+      emailed = await sendLeadEmails({
+        name: doc.name,
+        company: doc.company,
+        email: doc.email!,
+        phone: doc.phone,
+        goal: doc.goal,
+        message: doc.message,
+      });
+    } catch (err) {
+      console.error("No se pudieron enviar los emails del lead:", err);
+    }
+
+    if (!saved && !emailed) {
+      console.error("Lead sin registrar en ningún canal:", doc);
       return NextResponse.json({ error: "Servidor no configurado" }, { status: 500 });
     }
 
-    await writeClient.create(doc);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Error guardando lead:", err);
