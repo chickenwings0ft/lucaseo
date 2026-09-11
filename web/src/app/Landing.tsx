@@ -48,29 +48,8 @@ export default function Landing({ data }: { data: LandingData }) {
 
   const router = useRouter();
   const statsRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const animated = useRef(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
-
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    let raf: number;
-    let direction = 1;
-    const step = () => {
-      if (direction === 1 && vid.currentTime >= vid.duration - 0.05) {
-        direction = -1;
-      } else if (direction === -1 && vid.currentTime <= 0.05) {
-        direction = 1;
-      }
-      if (direction === -1) {
-        vid.currentTime = Math.max(0, vid.currentTime - 1 / 30);
-      }
-      raf = requestAnimationFrame(step);
-    };
-    vid.play().then(() => { raf = requestAnimationFrame(step); }).catch(() => {});
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -226,9 +205,10 @@ export default function Landing({ data }: { data: LandingData }) {
 
       <div className="hero" id="hero-section">
         <video
-          ref={videoRef}
           className="hero-video"
           src="/hero-video.mp4"
+          autoPlay
+          loop
           muted
           playsInline
           preload="auto"
