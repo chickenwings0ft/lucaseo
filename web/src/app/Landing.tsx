@@ -128,6 +128,7 @@ export default function Landing({ data }: { data: LandingData }) {
         .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1; }
         .hero-content { position: relative; z-index: 2; max-width: 780px; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
         .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 2.5rem; color: #fff; }
+        .hero-glow { color: #4d9aff; text-shadow: 0 0 20px rgba(0,74,173,0.8), 0 0 40px rgba(0,74,173,0.5), 0 0 80px rgba(0,74,173,0.3); }
         .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
         .hero .btn { padding: 0.875rem 2rem; font-size: 1rem; }
         .hero .btn-outline { border-color: rgba(255,255,255,0.4); color: #fff; }
@@ -215,7 +216,7 @@ export default function Landing({ data }: { data: LandingData }) {
         />
         <div className="hero-overlay" />
         <div className="hero-content">
-          <h1 className="hero-headline">Tu negocio merece más <span style={{ color: "var(--accent)" }}>clientes</span>.</h1>
+          <h1 className="hero-headline">Tu negocio merece más <span className="hero-glow">clientes</span>.</h1>
           <div className="hero-actions">
             <a href="#contacto" className="btn">{settings.heroPrimaryCta}</a>
             <a href="#servicios" className="btn btn-outline">{settings.heroSecondaryCta}</a>
