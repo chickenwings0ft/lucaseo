@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import SiteFooter from "../components/SiteFooter";
+import FaqSection from "../components/FaqSection";
 
 export const metadata: Metadata = {
   title: "Clientes | Lucaseo — Problemas que dejamos de tener",
@@ -56,6 +57,15 @@ const cases = [
     resultado: "−62% en CPA — De 87 € a 33 € por lead.",
     importante: "No recortamos presupuesto. Recortamos desperdicio.",
   },
+];
+
+const clientesFaqs = [
+  { q: "¿Qué tipo de resultados conseguís para vuestros clientes?", a: "Depende del servicio: en SEO, posicionamos keywords que traen tráfico cualificado. En Ads, reducimos el coste por lead y aumentamos conversiones. En redes, construimos comunidad que genera negocio. Cada caso es distinto, pero siempre medimos resultados reales: leads, ventas y ROI, no métricas de vanidad." },
+  { q: "¿Cuánto tarda en verse resultados con Lucaseo?", a: "Con Google Ads y Social Ads, desde las primeras semanas. Con SEO, entre 3 y 6 meses para notar movimiento y 6-12 meses para resultados sólidos. Con diseño web, el impacto en conversión se nota desde el día que se lanza la nueva web. Siempre somos transparentes con los plazos." },
+  { q: "¿Puedo ver casos reales de clientes?", a: "Sí. En esta misma página puedes ver casos con resultados concretos: qué problema tenía el cliente, qué hicimos y qué conseguimos. No publicamos nombres sin permiso, pero en una conversación privada podemos compartir más detalles." },
+  { q: "¿Trabajáis con empresas pequeñas o solo con grandes cuentas?", a: "Principalmente con pymes y negocios que están creciendo. No necesitas un presupuesto enorme para trabajar con nosotros. Lo que necesitas es un negocio con potencial y ganas de mejorar tu presencia digital." },
+  { q: "¿Qué sectores conocéis mejor?", a: "Hostelería, servicios profesionales, e-commerce, turismo, formación y servicios locales. Pero no nos limitamos: lo importante es entender cómo funciona tu negocio y dónde están tus clientes. Cada proyecto empieza con una investigación del sector." },
+  { q: "¿Cómo puedo ser el próximo caso de éxito?", a: "Contáctanos y cuéntanos tu situación. Te hacemos un diagnóstico gratuito y te decimos qué podemos hacer por ti. Sin presión, sin discurso de ventas. Si encajamos, empezamos." },
 ];
 
 export default function ClientesPage() {
@@ -135,6 +145,7 @@ export default function ClientesPage() {
         ))}
       </div>
 
+      <FaqSection topic="nuestros clientes y resultados" faqs={clientesFaqs} />
       <ServiceCta
         title="Tu negocio todavía no está aquí. Perfecto."
         body="La próxima historia puede ser la tuya."

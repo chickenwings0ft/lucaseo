@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import FaqSection from "../components/FaqSection";
 import SiteFooter from "../components/SiteFooter";
 import IaServicesGrid from "../components/IaServicesGrid";
 
@@ -18,12 +19,13 @@ const useCases = [
 
 const tools = ["n8n", "Make (Integromat)", "Zapier", "OpenAI / GPT-4", "HubSpot", "Pipedrive", "ActiveCampaign", "WhatsApp Business API", "Notion", "Airtable", "Google Sheets", "Slack"];
 
-const faqs = [
-  { q: "¿Necesito conocimientos técnicos para gestionar estas automatizaciones?", a: "No. Diseñamos las automatizaciones de forma que funcionen solas una vez configuradas. Te formamos para que puedas ver los resultados, ajustar mensajes básicos y entender el sistema. Para cambios más profundos, estamos nosotros." },
-  { q: "¿Con qué herramientas trabajáis?", a: "Trabajamos principalmente con n8n y Make para las automatizaciones, OpenAI/GPT-4 para los componentes de IA generativa, y nos integramos con prácticamente cualquier CRM, plataforma de email o app que uses. Si tiene API, lo podemos conectar." },
-  { q: "¿Cuánto tiempo tarda en implementarse una automatización?", a: "Depende de la complejidad. Un flujo sencillo — como captura de lead y envío de email de bienvenida — puede estar listo en 1–2 días. Una integración completa CRM + chatbot + secuencias de nurturing, entre 2 y 4 semanas." },
-  { q: "¿La IA puede equivocarse o dar información incorrecta a mis clientes?", a: "Sí, si no está bien configurada. Por eso entrenamos cada chatbot con conocimiento específico de tu negocio y establecemos límites claros: cuando la IA no sabe algo, no inventa — escala al humano. El chatbot nunca actúa sin supervisión para decisiones críticas." },
-  { q: "¿Qué retorno puedo esperar de las automatizaciones?", a: "Depende del proceso que automatices. Un chatbot de cualificación puede ahorrar 10–15 horas semanales del equipo. Una secuencia de email para carritos abandonados puede recuperar el 15–20% de las ventas perdidas. Lo medimos todo desde el principio para que el retorno sea cuantificable." },
+const iaFaqs = [
+  { q: "¿Qué tipo de procesos puedo automatizar con IA en mi negocio?", a: "Respuesta a leads, seguimiento comercial, atención al cliente con chatbots, clasificación de emails, reporting, lead scoring, envíos de WhatsApp y cualquier tarea repetitiva que consuma tiempo. La automatización con IA no reemplaza a tu equipo: le quita lo que no debería estar haciendo manualmente." },
+  { q: "¿Necesito conocimientos técnicos para usar inteligencia artificial en mi empresa?", a: "No. Nosotros nos encargamos de todo el desarrollo, integración y configuración. Tú recibes un sistema funcionando que se conecta con tus herramientas actuales: CRM, email, WhatsApp, web. La inteligencia artificial para empresas tiene que ser fácil de usar, no un proyecto de ingeniería." },
+  { q: "¿Cuánto cuesta implementar un chatbot con IA para mi web?", a: "Depende de la complejidad: un chatbot IA básico de preguntas frecuentes no tiene el mismo coste que un asistente avanzado conectado a tu CRM y base de datos. En Lucaseo hacemos propuestas cerradas con precio fijo, para que sepas lo que pagas antes de empezar." },
+  { q: "¿Los agentes de IA pueden sustituir a una persona de mi equipo?", a: "No es el objetivo. Los agentes IA automatizan tareas repetitivas como responder consultas frecuentes, cualificar leads o enviar seguimientos. Liberan tiempo para que tu equipo se centre en lo que realmente necesita intervención humana: cerrar ventas, resolver problemas complejos y tomar decisiones." },
+  { q: "¿Se integra con las herramientas que ya uso (HubSpot, Mailchimp, Slack)?", a: "Sí. Trabajamos con APIs e integraciones nativas para conectar la IA con tu CRM, email marketing, WhatsApp Business, Slack y las herramientas que ya uses. No necesitas cambiar nada de lo que tienes. Automatizar procesos empieza por conectar lo que ya funciona." },
+  { q: "¿Cómo puedo empezar a implementar IA en mi negocio?", a: "Cuéntanos qué procesos te quitan más tiempo o dónde pierdes más oportunidades. Analizamos tu caso y te proponemos qué automatizar primero para que veas resultados rápido. Sin jerga técnica ni proyectos eternos." },
 ];
 
 export default function IaPage() {
@@ -62,10 +64,6 @@ export default function IaPage() {
         .tools-section { background: #f5f8ff; border-top: 1px solid rgba(0,74,173,0.1); border-bottom: 1px solid rgba(0,74,173,0.1); }
         .tools-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
         .tool-badge { background: #fff; border: 1px solid rgba(0,74,173,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; color: #0a0f1e; }
-        .faq-wrap { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem; }
-        .faq-item { border-bottom: 1px solid rgba(0,74,173,0.1); padding: 2rem 0; }
-        .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
-        .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         .process-section { background: #fff; border-top: 1px solid rgba(0,74,173,0.1); border-bottom: 1px solid rgba(0,74,173,0.1); }
         .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3.5rem; }
         .step-n { font-family: var(--font-display), system-ui; font-weight: 800; font-size: 1.75rem; color: rgba(0,74,173,0.15); letter-spacing: -0.04em; margin-bottom: 0.875rem; }
@@ -165,19 +163,7 @@ export default function IaPage() {
         </div>
       </div>
 
-      {/* FAQ */}
-      <div className="faq-wrap">
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div className="tag">FAQ</div>
-          <h2>Todo lo que necesitas saber<br />sobre automatización con IA</h2>
-        </div>
-        {faqs.map(f => (
-          <div className="faq-item" key={f.q}>
-            <div className="faq-q">{f.q}</div>
-            <p className="faq-a">{f.a}</p>
-          </div>
-        ))}
-      </div>
+      <FaqSection topic="automatizaciones e inteligencia artificial" faqs={iaFaqs} />
 
       <ServiceCta
         title="¿Cuántas horas está perdiendo tu equipo en cosas que podrían hacerse automáticamente?"

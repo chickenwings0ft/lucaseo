@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import FaqSection from "../components/FaqSection";
 import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
 
 export const metadata: Metadata = {
@@ -8,11 +9,13 @@ export const metadata: Metadata = {
   description: "Aparecer en Google no es suerte. Es estrategia. Auditamos, optimizamos y posicionamos tu web para que tus clientes te encuentren antes que a la competencia.",
 };
 
-const faqs = [
-  { q: "¿Cuánto tarda el SEO?", a: "Normalmente no necesitas esperar un año para ver si existe vida. Las primeras señales pueden aparecer en pocos meses y los resultados sólidos llegan a medida que la estrategia acumula autoridad y relevancia. No es inmediato. Es precisamente por eso que tiene tanto valor." },
-  { q: "¿SEO o Google Ads?", a: "Ads te pone delante mañana. SEO construye un canal que puede darte tráfico durante mucho tiempo. La combinación suele ser mucho más potente." },
-  { q: "¿Necesito una web nueva?", a: "No necesariamente. Primero vemos si tu web tiene arreglo. A veces necesita una cirugía. A veces solo necesita dejar de hacer algunas cosas fatal." },
-  { q: "¿Garantizáis el número 1?", a: "No. Y desconfía de cualquiera que te lo garantice." },
+const seoFaqs = [
+  { q: "¿Qué es el posicionamiento SEO y por qué lo necesita mi negocio?", a: "El posicionamiento SEO es el conjunto de técnicas que hacen que tu web aparezca en los primeros resultados de Google cuando alguien busca lo que vendes. Sin SEO, tu web existe pero nadie la encuentra. Con una estrategia bien ejecutada, atraes tráfico cualificado de forma constante sin pagar por cada clic." },
+  { q: "¿Cuánto tarda en verse resultados con el SEO orgánico?", a: "Depende del sector, la competencia y el estado actual de tu web. Normalmente los primeros movimientos se notan entre 3 y 6 meses. A los 6-12 meses es cuando el SEO orgánico empieza a generar un flujo de visitas estable y creciente. Es una inversión a medio plazo que se acumula con el tiempo." },
+  { q: "¿Qué incluye una auditoría SEO de Lucaseo?", a: "Analizamos la parte técnica de tu web (velocidad, indexación, errores), tu contenido (estructura, keywords, thin content), tu perfil de enlaces y tu posición respecto a la competencia. El resultado es un informe con acciones priorizadas para que sepas exactamente qué arreglar primero." },
+  { q: "¿SEO o Google Ads? ¿Qué es mejor para mi negocio?", a: "No se excluyen. Google Ads te trae clientes desde el primer día; el SEO construye un canal de captación que no depende de presupuesto publicitario. Lo ideal es combinar ambos: Ads para resultados inmediatos y SEO para reducir tu dependencia de la publicidad de pago a medio plazo." },
+  { q: "¿Cómo sé si mi agencia SEO está haciendo bien su trabajo?", a: "Pide datos concretos: posiciones de keywords, tráfico orgánico, páginas indexadas y, sobre todo, leads o ventas que llegan desde buscadores. Si tu agencia SEO solo te habla de impresiones o clics sin conectarlos con negocio, algo falla. En Lucaseo medimos lo que importa: clientes, no vanity metrics." },
+  { q: "¿Cómo puedo empezar con una consultoría SEO?", a: "Escríbenos a través del formulario de contacto o por email. Miramos tu web, tu sector y tu competencia, y te decimos qué vemos y por dónde empezaríamos. La primera conversación no tiene coste ni compromiso." },
 ];
 
 const pillars = [
@@ -67,10 +70,6 @@ export default function SeoPage() {
         .step-n { width: 44px; height: 44px; border-radius: 50%; background: #004aad; color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display), system-ui; font-weight: 800; font-size: 0.875rem; margin-bottom: 1.25rem; position: relative; z-index: 1; }
         .step-t { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.625rem; }
         .step-d { font-size: 0.9rem; color: #5a6480; line-height: 1.65; }
-        .faq-wrap { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem; }
-        .faq-item { border-bottom: 1px solid rgba(0,74,173,0.1); padding: 2rem 0; }
-        .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
-        .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         .diff { background: #0a0f1e; color: #fff; }
         .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
         .diff h2 { color: #fff; }
@@ -167,19 +166,7 @@ export default function SeoPage() {
         </div>
       </div>
 
-      {/* FAQ */}
-      <div className="faq-wrap">
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div className="tag">FAQ</div>
-          <h2>Lo que más nos preguntan<br />sobre el SEO</h2>
-        </div>
-        {faqs.map(f => (
-          <div className="faq-item" key={f.q}>
-            <div className="faq-q">{f.q}</div>
-            <p className="faq-a">{f.a}</p>
-          </div>
-        ))}
-      </div>
+      <FaqSection topic="SEO y posicionamiento web" faqs={seoFaqs} />
 
       <ServiceCta
         title="¿Quieres saber cuánto tráfico estás dejando encima de la mesa?"

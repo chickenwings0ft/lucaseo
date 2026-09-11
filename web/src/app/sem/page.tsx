@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import FaqSection from "../components/FaqSection";
 import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
 import type { AccordionService } from "../components/ServicesAccordionGrid";
 
@@ -9,11 +10,13 @@ export const metadata: Metadata = {
   description: "Campañas de Google Ads que generan clientes reales. Search, Display y Performance Max optimizados para que cada euro invertido traiga el máximo retorno.",
 };
 
-const faqs = [
-  { q: "¿Con cuánto presupuesto puedo empezar?", a: "Depende mucho del sector, competencia y valor de cada cliente. Antes de darte un número, calculamos qué tiene sentido para tu negocio." },
-  { q: "¿Cuándo se ven resultados?", a: "Puedes empezar a recibir tráfico y conversiones desde el principio. La rentabilidad y estabilidad de la cuenta llegan con la optimización." },
-  { q: "¿Medís conversiones reales?", a: "Sí. Formularios, llamadas, ventas y cualquier acción que tenga valor para tu negocio." },
-  { q: "¿También hacéis Meta y TikTok?", a: "Sí. Elegimos plataforma según dónde esté tu cliente y qué tipo de demanda quieras generar." },
+const semFaqs = [
+  { q: "¿Cuánto cuesta hacer publicidad en Google Ads?", a: "No hay un mínimo fijo. Depende de tu sector, las keywords y cuánto vale cada cliente para ti. Nosotros calculamos el presupuesto que tiene sentido antes de encender nada. Hay negocios que empiezan con 500€/mes y otros que necesitan más. Lo importante es que cada euro invertido tenga retorno medible." },
+  { q: "¿Cuándo empiezo a ver resultados con campañas SEM?", a: "Puedes recibir tráfico y conversiones desde las primeras 24-48 horas. La rentabilidad y la estabilidad del coste por lead mejoran con la optimización durante las primeras semanas. En 2-3 meses la cuenta suele estar en su punto óptimo de rendimiento." },
+  { q: "¿Google Ads funciona para cualquier negocio?", a: "Funciona especialmente bien cuando hay demanda activa: gente buscando lo que vendes. Si tu servicio o producto se busca en Google, Ads puede ponerte delante de esas personas. Para productos nuevos sin demanda de búsqueda, combinamos con Meta Ads o TikTok Ads para generar esa demanda." },
+  { q: "¿Qué diferencia hay entre gestionar Google Ads yo mismo o con una agencia?", a: "Puedes abrir una cuenta y lanzar campañas tú solo. El problema es que Google está diseñado para que gastes más, no para que vendas más. Una agencia Google Ads con experiencia sabe qué estructuras, pujas y segmentaciones funcionan para tu caso, y te ahorra el coste de aprender probando con tu dinero." },
+  { q: "¿También hacéis campañas en Meta Ads y TikTok Ads?", a: "Sí. No nos casamos con una plataforma. Elegimos dónde poner tu presupuesto según dónde esté tu cliente y qué tipo de demanda quieras generar. Google para captar demanda existente, Meta y TikTok para crear demanda nueva y hacer remarketing." },
+  { q: "¿Cómo puedo solicitar una auditoría de mis campañas?", a: "Contáctanos por el formulario o por email. Revisamos tu cuenta, analizamos qué está funcionando y qué no, y te proponemos un plan de acción concreto. Sin compromiso ni letra pequeña." },
 ];
 
 const semServices: AccordionService[] = [
@@ -77,11 +80,7 @@ export default function SemPage() {
         .compare-col li.good { color: #0a0f1e; }
         .check { color: #004aad; font-weight: 700; flex-shrink: 0; }
         .cross { color: #cc3300; font-weight: 700; flex-shrink: 0; }
-        .faq-wrap { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem; }
-        .faq-item { border-bottom: 1px solid rgba(0,74,173,0.1); padding: 2rem 0; }
-        .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
-        .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
           .stats-row { grid-template-columns: 1fr 1fr; }
           .steps { grid-template-columns: 1fr 1fr; }
           .compare-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -174,19 +173,7 @@ export default function SemPage() {
         </div>
       </div>
 
-      {/* FAQ */}
-      <div className="faq-wrap">
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div className="tag">FAQ</div>
-          <h2>Preguntas frecuentes<br />sobre SEM y Google Ads</h2>
-        </div>
-        {faqs.map(f => (
-          <div className="faq-item" key={f.q}>
-            <div className="faq-q">{f.q}</div>
-            <p className="faq-a">{f.a}</p>
-          </div>
-        ))}
-      </div>
+      <FaqSection topic="SEM y Google Ads" faqs={semFaqs} />
 
       <ServiceCta
         title="¿Cuánto dinero estás dejando escapar?"

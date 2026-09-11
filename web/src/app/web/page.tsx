@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import FaqSection from "../components/FaqSection";
 import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
 
 export const metadata: Metadata = {
@@ -24,12 +25,13 @@ const types = [
   { name: "Web con CMS", best: "Contenido editable", desc: "Tú también deberías poder cambiar tu web. Contenido editable sin depender del desarrollador para cada coma." },
 ];
 
-const faqs = [
-  { q: "¿Cuánto tarda en hacerse una web?", a: "Una landing page optimizada puede estar lista en 2–3 semanas. Una web corporativa completa, entre 4 y 8 semanas dependiendo del número de páginas y la complejidad. Un e-commerce, entre 6 y 12 semanas. Siempre empezamos por un briefing detallado para darte un plazo real antes de empezar." },
-  { q: "¿Hacéis webs en WordPress?", a: "Trabajamos con WordPress, Shopify, Next.js y desarrollo a medida según el proyecto. WordPress para webs con mucho contenido que el cliente quiere gestionar solo. Next.js para webs de alto rendimiento. Shopify para e-commerce. Recomendamos la tecnología según el objetivo del proyecto, no la que nos resulta más cómoda." },
-  { q: "¿Me enseñáis a gestionar mi web después?", a: "Sí. Cuando usamos un CMS, hacemos una sesión de formación grabada para que puedas actualizar contenido, publicar en el blog y gestionar los elementos básicos sin depender de nosotros para cada cambio." },
-  { q: "¿Incluís el hosting y el dominio?", a: "Podemos gestionarlo nosotros o trabajar con tu proveedor actual. Recomendamos Vercel o Netlify para webs en Next.js (rendimiento excelente), y SiteGround o Cloudways para WordPress. El coste del hosting no está incluido en el desarrollo pero te asesoramos en la mejor opción para tu caso." },
-  { q: "¿Qué pasa si ya tengo web pero está mal hecha?", a: "Hacemos una auditoría de tu web actual: velocidad, SEO técnico, conversión y diseño. A partir de ahí decidimos juntos si es mejor optimizar la existente o construir una nueva desde cero. A veces con ajustes bien enfocados se puede mejorar el rendimiento sin reconstruir todo." },
+const webFaqs = [
+  { q: "¿Cuánto cuesta crear una página web profesional?", a: "Depende del tipo de web: una landing page no tiene el mismo coste que un e-commerce con 200 productos. En Lucaseo trabajamos con presupuestos adaptados a lo que necesita cada negocio. Lo que no hacemos es webs con plantilla genérica disfrazadas de diseño web a medida." },
+  { q: "¿Cuánto se tarda en tener mi web lista?", a: "Una landing page puede estar en 1-2 semanas. Una web corporativa completa entre 3-6 semanas. Un e-commerce entre 4-8 semanas dependiendo de la complejidad. El desarrollo web tiene fases: diseño, desarrollo, contenido y testing. No las saltamos para ir más rápido." },
+  { q: "¿Las webs que hacéis están optimizadas para SEO?", a: "Sí, siempre. Cada web que desarrollamos cumple los estándares técnicos de SEO: velocidad de carga, estructura de URLs, metadatos, schema markup, responsive design y Core Web Vitals. Una web optimizada SEO desde el principio se posiciona mucho más rápido que una que se arregla después." },
+  { q: "¿Puedo actualizar yo mismo el contenido de la web?", a: "Sí. Trabajamos con sistemas de gestión de contenido que te permiten editar textos, imágenes y páginas sin tocar código. Te enseñamos cómo hacerlo. Y si prefieres no tocarlo, nos encargamos nosotros del mantenimiento." },
+  { q: "¿Qué diferencia hay entre una web para empresas hecha por una agencia y una hecha con Wix o Squarespace?", a: "Rendimiento, flexibilidad y posicionamiento. Las plataformas tipo Wix son útiles para proyectos básicos, pero tienen limitaciones en velocidad, SEO técnico y personalización. Una web profesional se desarrolla pensando en cómo vende tu negocio, no en cómo funciona la plantilla." },
+  { q: "¿Cómo puedo solicitar un presupuesto para mi web?", a: "Contáctanos por el formulario. Cuéntanos qué tipo de web necesitas y qué quieres conseguir con ella. Te enviamos una propuesta detallada con plazos, funcionalidades y precio cerrado. Sin sorpresas." },
 ];
 
 export default function WebPage() {
@@ -72,10 +74,6 @@ export default function WebPage() {
         .step-n { font-family: var(--font-display), system-ui; font-weight: 800; font-size: 1.75rem; color: rgba(0,74,173,0.15); letter-spacing: -0.04em; margin-bottom: 0.875rem; }
         .step-t { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
         .step-d { font-size: 0.875rem; color: #5a6480; line-height: 1.65; font-weight: 300; }
-        .faq-wrap { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem; }
-        .faq-item { border-bottom: 1px solid rgba(0,74,173,0.1); padding: 2rem 0; }
-        .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
-        .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
           .stats-row { grid-template-columns: 1fr 1fr; }
           .types-grid { grid-template-columns: 1fr; }
@@ -170,19 +168,7 @@ export default function WebPage() {
         </div>
       </div>
 
-      {/* FAQ */}
-      <div className="faq-wrap">
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div className="tag">FAQ</div>
-          <h2>Preguntas frecuentes<br />sobre creación web</h2>
-        </div>
-        {faqs.map(f => (
-          <div className="faq-item" key={f.q}>
-            <div className="faq-q">{f.q}</div>
-            <p className="faq-a">{f.a}</p>
-          </div>
-        ))}
-      </div>
+      <FaqSection topic="diseño y desarrollo web" faqs={webFaqs} />
 
       <ServiceCta
         title="¿Tu web representa el negocio que tienes hoy?"

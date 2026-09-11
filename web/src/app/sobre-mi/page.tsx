@@ -2,11 +2,21 @@ import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import SiteFooter from "../components/SiteFooter";
+import FaqSection from "../components/FaqSection";
 
 export const metadata: Metadata = {
   title: "Sobre Lucas | Lucaseo — Quién está detrás",
   description: "Conoce a Lucas, fundador de Lucaseo. Marketing digital, SEO, inteligencia artificial y una obsesión: que tu negocio crezca.",
 };
+
+const sobreMiFaqs = [
+  { q: "¿Quién está detrás de Lucaseo?", a: "Lucas, especialista en marketing digital con experiencia en SEO, publicidad online e inteligencia artificial aplicada a negocios. Lucaseo nació de una idea sencilla: que las empresas pequeñas y medianas tengan acceso al mismo marketing digital que las grandes, sin humo ni contratos eternos." },
+  { q: "¿Lucaseo es un freelance o una agencia de marketing digital?", a: "Somos una agencia boutique. Trabajamos con un equipo reducido y especializado para poder dar un servicio cercano y personalizado. No somos una fábrica de clientes: elegimos los proyectos donde sabemos que podemos generar impacto real." },
+  { q: "¿Con qué tipo de empresas trabaja Lucaseo?", a: "Principalmente con pymes, startups y negocios locales que quieren crecer en digital. Hostelería, servicios profesionales, e-commerce, formación… Nos adaptamos al sector, no al revés. Lo importante es que el negocio tenga potencial y ganas de crecer." },
+  { q: "¿En qué os diferenciáis de otras agencias de marketing?", a: "En que no vendemos humo. No prometemos resultados imposibles ni te atamos con contratos de 12 meses. Medimos todo, te contamos qué funciona y qué no, y ajustamos. Si algo no tiene sentido para tu negocio, te lo decimos." },
+  { q: "¿Trabajáis solo en España o también con clientes internacionales?", a: "Trabajamos con clientes en España y también con negocios internacionales. El marketing digital no tiene fronteras. Lo que importa es entender el mercado, el idioma y el público objetivo de cada proyecto." },
+  { q: "¿Cómo puedo empezar a trabajar con Lucaseo?", a: "Escríbenos por el formulario de contacto. Cuéntanos qué necesitas y qué quieres conseguir. Te respondemos en menos de 24 horas con un diagnóstico inicial gratuito y sin compromiso." },
+];
 
 export default function SobreMi() {
   return (
@@ -67,6 +77,7 @@ export default function SobreMi() {
         <p>Quiero ser esa persona a la que llamas y dices: &ldquo;Tenemos este problema.&rdquo; Y que te responda: &ldquo;Vale. Vamos a ver cómo lo solucionamos.&rdquo; Trabajo con estrategia, creatividad, datos y tecnología. Y cuando algo no tiene sentido, también te lo voy a decir.</p>
       </div>
 
+      <FaqSection topic="Lucaseo y cómo trabajamos" faqs={sobreMiFaqs} />
       <ServiceCta
         title="Si quieres una agencia que te diga que todo está genial... Probablemente no soy tu persona."
         body="Si quieres alguien que entre, mire el negocio, encuentre oportunidades y se remangue para hacer el trabajo... hablemos."

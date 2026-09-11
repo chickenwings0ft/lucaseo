@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
+import FaqSection from "../components/FaqSection";
 import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
 import type { AccordionService } from "../components/ServicesAccordionGrid";
 
@@ -27,12 +28,13 @@ const socialAds = [
   { platform: "TikTok Ads", color: "#010101", icon: "🎵", desc: "El formato de vídeo más viralizable. Campañas In-Feed que aparecen de forma nativa en el scroll de los usuarios, Spark Ads que amplifican tu contenido orgánico y TopView para máxima notoriedad de marca." },
 ];
 
-const faqs = [
-  { q: "¿Cuántas publicaciones hacéis por semana?", a: "Depende de la estrategia y la plataforma, pero habitualmente trabajamos con 3–5 publicaciones semanales en Instagram/Facebook y 2–3 Reels o TikToks. La frecuencia no es lo importante: lo es la consistencia y la calidad. Publicamos cuando tenemos algo de valor que decir." },
-  { q: "¿Necesito presupuesto de publicidad además de la gestión?", a: "Para la gestión orgánica (publicaciones, comunidad, contenido) no. Para Social Ads sí necesitas un presupuesto publicitario aparte que va directamente a Meta o TikTok. Recomendamos mínimo 300–500€/mes de presupuesto publicitario para poder obtener datos suficientes y optimizar." },
-  { q: "¿Vosotros creáis el contenido o necesito dármelo yo?", a: "Creamos los copies, el diseño gráfico y la estrategia de contenido. Para vídeos con presencia de personas del negocio necesitamos grabaciones tuyas o de tu equipo — nosotros hacemos la edición, el montaje y la publicación. Para Reels y TikToks puramente de producto o servicio, podemos crearlo completo." },
-  { q: "¿Cómo se diferencia la gestión orgánica de los Social Ads?", a: "La gestión orgánica es el trabajo de publicar contenido, gestionar la comunidad y crecer de forma natural. Los Social Ads son publicidad de pago que amplifica tu alcance a audiencias fuera de tus seguidores actuales. Lo ideal es hacer ambas cosas: el orgánico construye credibilidad, los Ads traen volumen." },
-  { q: "¿Cuánto tiempo tarda en verse el impacto en redes sociales?", a: "El impacto en alcance y engagement se ve desde el primer mes. El impacto en negocio — leads, ventas — depende de muchos factores, pero con Social Ads bien configurados hay resultados medibles en las primeras 2–4 semanas. La gestión orgánica pura tarda más en traducirse en clientes." },
+const rrssFaqs = [
+  { q: "¿Cuánto cuesta la gestión de redes sociales para un negocio?", a: "Depende del alcance: número de plataformas, frecuencia de publicación, si incluye contenido gráfico y vídeo, y si añades Social Ads. En Lucaseo adaptamos cada propuesta al negocio. Lo que no hacemos es paquetes genéricos donde todos pagan lo mismo y reciben lo mismo." },
+  { q: "¿Cuántas publicaciones por semana necesita mi negocio en Instagram?", a: "No hay una cifra mágica. Trabajamos habitualmente con 3-5 publicaciones semanales en feed y 2-3 Reels o Stories. Pero la frecuencia no es lo importante: lo es la consistencia, la calidad y que cada pieza tenga un objetivo dentro de la estrategia de redes sociales." },
+  { q: "¿Necesito presupuesto de publicidad aparte de la gestión de contenido?", a: "Para la gestión orgánica no. Para Social Ads sí necesitas un presupuesto publicitario que va directamente a Meta o TikTok. Recomendamos un mínimo de 300-500€/mes en publicidad en Instagram o Facebook para tener datos suficientes y poder optimizar las campañas." },
+  { q: "¿Vosotros creáis todo el contenido para redes o necesito aportar material?", a: "Creamos los copies, la estrategia y el diseño gráfico. Para vídeos con presencia de personas del negocio necesitamos grabaciones tuyas o de tu equipo. Nosotros nos encargamos de la edición, el montaje y la publicación. Para contenido de producto podemos crearlo completo." },
+  { q: "¿Cuánto tarda en verse resultados con una estrategia de redes sociales?", a: "El impacto en alcance y engagement se nota desde el primer mes. El impacto en negocio — leads y ventas — depende de muchos factores, pero con Social Ads bien configurados hay resultados medibles en 2-4 semanas. La gestión orgánica pura tarda más en traducirse en clientes directos." },
+  { q: "¿Cómo puedo empezar a trabajar con vosotros en redes sociales?", a: "Escríbenos por el formulario de contacto. Analizamos tus perfiles actuales, tu sector y tu competencia, y te proponemos una estrategia adaptada. La primera conversación no tiene coste ni compromiso." },
 ];
 
 export default function RrssPage() {
@@ -73,10 +75,6 @@ export default function RrssPage() {
         .why-n { font-family: var(--font-display), system-ui; font-weight: 800; font-size: 1.5rem; color: rgba(0,74,173,0.2); line-height: 1; flex-shrink: 0; width: 2.5rem; }
         .why-t { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
         .why-d { font-size: 0.9rem; color: #5a6480; line-height: 1.65; font-weight: 300; }
-        .faq-wrap { max-width: 760px; margin: 0 auto; padding: 5rem 2.5rem; }
-        .faq-item { border-bottom: 1px solid rgba(0,74,173,0.1); padding: 2rem 0; }
-        .faq-q { font-family: var(--font-display), system-ui; font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.875rem; }
-        .faq-a { font-size: 0.9375rem; color: #5a6480; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
           .ads-platforms { grid-template-columns: 1fr; }
           .why-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -163,19 +161,7 @@ export default function RrssPage() {
         </div>
       </div>
 
-      {/* FAQ */}
-      <div className="faq-wrap">
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <div className="tag">FAQ</div>
-          <h2>Todo lo que necesitas saber<br />sobre RRSS y Social Ads</h2>
-        </div>
-        {faqs.map(f => (
-          <div className="faq-item" key={f.q}>
-            <div className="faq-q">{f.q}</div>
-            <p className="faq-a">{f.a}</p>
-          </div>
-        ))}
-      </div>
+      <FaqSection topic="redes sociales y Social Ads" faqs={rrssFaqs} />
 
       <ServiceCta
         title="¿Tus redes generan negocio o solo notificaciones?"
