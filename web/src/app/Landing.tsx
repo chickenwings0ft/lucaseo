@@ -2,14 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import type { LandingData } from "@/lib/content";
 
 import ServiceNav from "./components/ServiceNav";
 import ServicesAccordionGrid from "./components/ServicesAccordionGrid";
-
-const Logo3D = dynamic(() => import("./components/Logo3D"), { ssr: false });
 
 const localClients = [
   { _id: "l1", name: "Macheta Smash Burger", url: "https://macheta.es", darkBackground: false, localLogo: "/macheta-logo.png", w: 960, h: 540 },
@@ -51,8 +48,29 @@ export default function Landing({ data }: { data: LandingData }) {
 
   const router = useRouter();
   const statsRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const animated = useRef(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    let raf: number;
+    let direction = 1;
+    const step = () => {
+      if (direction === 1 && vid.currentTime >= vid.duration - 0.05) {
+        direction = -1;
+      } else if (direction === -1 && vid.currentTime <= 0.05) {
+        direction = 1;
+      }
+      if (direction === -1) {
+        vid.currentTime = Math.max(0, vid.currentTime - 1 / 30);
+      }
+      raf = requestAnimationFrame(step);
+    };
+    vid.play().then(() => { raf = requestAnimationFrame(step); }).catch(() => {});
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -126,18 +144,15 @@ export default function Landing({ data }: { data: LandingData }) {
         .btn:disabled { opacity: 0.6; cursor: default; }
         .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
-        .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 7rem 2rem 5rem; position: relative; }
-        .hero-logo-wrap { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.5rem; }
-        .hero-content { position: relative; max-width: 680px; display: flex; flex-direction: column; align-items: center; }
-        .hero-eyebrow { font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 1.25rem; }
-        .hero-headline em { font-style: normal; color: var(--accent); }
-        .hero-sub { font-size: 1.0625rem; color: var(--muted); max-width: 460px; margin: 0 0 2.25rem; font-weight: 400; line-height: 1.65; text-wrap: pretty; }
-        .hero-actions { display: flex; gap: 1.75rem; align-items: center; flex-wrap: wrap; justify-content: center; }
-        .hero-link { color: var(--text); font-size: 0.9375rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.18s ease; }
-        .hero-link:hover { color: var(--accent); }
-        .hero-link span { transition: transform 0.18s ease; }
-        .hero-link:hover span { transform: translateX(3px); }
+        .hero { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 100vh; overflow: hidden; }
+        .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 780px; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+        .hero-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; margin-bottom: 2.5rem; color: #fff; }
+        .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+        .hero .btn { padding: 0.875rem 2rem; font-size: 1rem; }
+        .hero .btn-outline { border-color: rgba(255,255,255,0.4); color: #fff; }
+        .hero .btn-outline:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.1); }
         .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
         .stat-cell { background: var(--bg); padding: 2rem 2.5rem; }
         .stat-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -0.04em; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 0.4rem; }
@@ -210,16 +225,20 @@ export default function Landing({ data }: { data: LandingData }) {
       <ServiceNav />
 
       <div className="hero" id="hero-section">
-        <div className="hero-logo-wrap" id="hero-logo-wrap">
-          <Logo3D />
-        </div>
+        <video
+          ref={videoRef}
+          className="hero-video"
+          src="/hero-video.mp4"
+          muted
+          playsInline
+          preload="auto"
+        />
+        <div className="hero-overlay" />
         <div className="hero-content">
-          <div className="hero-eyebrow">{settings.heroEyebrow}</div>
-          <h1 className="hero-headline"><Headline text={settings.heroHeadline} /></h1>
-          <p className="hero-sub">{settings.heroSubtitle}</p>
+          <h1 className="hero-headline">Tu negocio merece más clientes.</h1>
           <div className="hero-actions">
             <a href="#contacto" className="btn">{settings.heroPrimaryCta}</a>
-            <a href="#servicios" className="hero-link">{settings.heroSecondaryCta} <span>→</span></a>
+            <a href="#servicios" className="btn btn-outline">{settings.heroSecondaryCta}</a>
           </div>
         </div>
       </div>
