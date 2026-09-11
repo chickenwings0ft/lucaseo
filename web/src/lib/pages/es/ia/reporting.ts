@@ -5,9 +5,9 @@ export const reportingAutomatizado: ServicePage = {
   metaTitle: "Reporting Automatizado con IA | Lucaseo",
   metaDescription: "Dashboards que se actualizan solos con los datos que importan: leads, conversiones, coste por cliente, ROI por campaña. Decisiones basadas en datos, sin buscar en 5 herramientas.",
   eyebrow: "IA · Reporting",
-  title: "Dashboards que se actualizan solos. *Decisiones en minutos, no en días.*",
-  lead: "Dashboards que se actualizan solos con los datos que importan: leads esta semana, conversiones por canal, coste por cliente, ROI de cada campaña. La información que necesitas para tomar decisiones, sin tener que buscarla en cinco herramientas distintas.",
-  primaryCta: "Quiero mis dashboards automatizados",
+  title: "Deja de perder una mañana *preparando un informe.*",
+  lead: "Conectamos tus fuentes de datos y generamos reporting automáticamente. Lo importante no es tener más dashboards. Es saber qué está pasando sin tener que construir el dashboard cada lunes.",
+  primaryCta: "Quiero automatizar mis informes →",
   secondaryCta: "Ver ejemplo de dashboard",
   stats: [
     { n: "5h", l: "Ahorro semanal en reporting", c: "De buscar datos en 5 herramientas a verlo todo en una pantalla" },

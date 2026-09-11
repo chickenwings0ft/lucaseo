@@ -5,9 +5,9 @@ export const agentesVoz: ServicePage = {
   metaTitle: "Agentes de Voz con IA | Lucaseo — Llamadas Automatizadas",
   metaDescription: "Agentes de voz con inteligencia artificial que atienden llamadas, agendan citas y cualifican leads por teléfono 24/7 con una voz natural indistinguible de un humano.",
   eyebrow: "IA · Agentes de Voz",
-  title: "Una voz que atiende, agenda y *vende por ti 24 horas al día*",
-  lead: "El 62% de las llamadas comerciales se pierden fuera de horario. Los agentes de voz con IA atienden cada llamada al primer tono, en el idioma del cliente, con el conocimiento completo de tu negocio — y nadie nota la diferencia.",
-  primaryCta: "Quiero un agente de voz",
+  title: "Tu teléfono también puede *trabajar por ti.*",
+  lead: "Agentes de voz para: atender llamadas, recoger datos, cualificar oportunidades, confirmar citas y hacer seguimiento. Una voz que no se cansa. Un sistema que no se pone enfermo.",
+  primaryCta: "Quiero explorar agentes de voz →",
   secondaryCta: "Escuchar una demo",
   stats: [
     { n: "100%", l: "Llamadas atendidas", c: "Ninguna llamada se pierde, ni siquiera a las 3 de la mañana" },

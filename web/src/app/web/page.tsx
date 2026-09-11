@@ -9,19 +9,19 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: "🎨", title: "Diseño UX/UI", desc: "Una web bonita que no convierte es cara decoración. Diseñamos pensando en el comportamiento del usuario: dónde mira, dónde hace clic, qué le genera confianza y qué le frena. Cada elemento visual tiene un propósito: llevar al visitante hacia la acción que quieres que tome." },
-  { icon: "⚡", title: "Velocidad & Core Web Vitals", desc: "El 53% de los usuarios abandona una web si tarda más de 3 segundos en cargar. Construimos sitios que puntúan 90+ en PageSpeed Insights: código optimizado, imágenes en formato moderno, carga diferida y sin scripts innecesarios que ralenticen la experiencia." },
-  { icon: "🔍", title: "SEO-first desde el primer día", desc: "Una web nueva sin arquitectura SEO bien pensada es una web que Google tardará meses en entender. Estructuramos URLs, jerarquía de encabezados, datos estructurados, sitemaps y robots.txt desde el principio, para que el posicionamiento arranque desde el momento del lanzamiento." },
-  { icon: "📱", title: "Mobile-first responsive", desc: "El 65% del tráfico web en España llega desde el móvil. Diseñamos primero para pantallas pequeñas y luego escalamos al escritorio — no al revés — garantizando una experiencia perfecta en cualquier dispositivo sin compromisos de diseño." },
-  { icon: "🔒", title: "Seguridad & rendimiento", desc: "HTTPS, certificados SSL, protección contra inyección de código, backups automáticos y actualizaciones regulares. Tu web es el escaparate de tu negocio: no puede caerse, no puede cargarse lenta y no puede ser hackeada." },
-  { icon: "📈", title: "Optimización de conversión (CRO)", desc: "El tráfico que llega a tu web no sirve de nada si no convierte. Analizamos el comportamiento de los visitantes con mapas de calor, grabaciones de sesión y tests A/B para identificar dónde se pierden los leads y qué cambios multiplican los contactos." },
+  { icon: "🎨", title: "Diseño UX/UI", desc: "Diseñamos para que la gente entienda rápido y navegue sin pensar demasiado." },
+  { icon: "⚡", title: "Rendimiento", desc: "Una web lenta es una forma elegante de echar clientes." },
+  { icon: "🔍", title: "SEO-first", desc: "La estructura se construye pensando en Google desde el inicio." },
+  { icon: "📱", title: "Mobile-first", desc: "Tu cliente probablemente está entrando desde el móvil." },
+  { icon: "🔒", title: "Seguridad", desc: "Buen código, buenas prácticas y una base sólida." },
+  { icon: "📈", title: "Conversión", desc: "Cada página tiene un propósito." },
 ];
 
 const types = [
-  { name: "Landing Pages", best: "Campañas de Ads y conversión directa", desc: "Una sola página, un solo objetivo: que el visitante haga clic en 'Contactar', 'Comprar' o 'Reservar'. Diseñadas para maximizar la tasa de conversión con mensajes claros, prueba social y llamadas a la acción irresistibles." },
-  { name: "Web Corporativa", best: "Negocios de servicios y empresas B2B", desc: "Tu web como herramienta de ventas: presentación clara de servicios, casos de éxito, equipo y proceso de trabajo. Diseñada para generar confianza y convertir visitas de clientes potenciales en solicitudes de propuesta." },
-  { name: "E-commerce", best: "Venta online de productos físicos o digitales", desc: "Tiendas online optimizadas para conversión: fichas de producto que venden, proceso de pago sin fricción, gestión de inventario, cupones y toda la integración con pasarelas de pago. En Shopify, WooCommerce o a medida." },
-  { name: "Web con CMS", best: "Negocios que necesitan actualizar contenido", desc: "Control total sobre tu web sin tocar código. Integramos WordPress, Sanity u otros CMS para que puedas publicar blogs, actualizar precios, añadir servicios y gestionar tu web con autonomía total." },
+  { name: "Landing Page", best: "Ads, campañas y lanzamientos", desc: "Un objetivo. Un mensaje. Una acción. Perfecta para Ads, campañas y lanzamientos." },
+  { name: "Web Corporativa", best: "Confianza antes de la llamada", desc: "Para empresas que necesitan confianza antes de la llamada. Servicios, casos, equipo, proceso y propuesta de valor." },
+  { name: "E-commerce", best: "Venta online", desc: "Una tienda no debería parecer un catálogo. Debería vender. Diseño, producto, checkout y experiencia de compra." },
+  { name: "Web con CMS", best: "Contenido editable", desc: "Tú también deberías poder cambiar tu web. Contenido editable sin depender del desarrollador para cada coma." },
 ];
 
 const faqs = [
@@ -87,12 +87,12 @@ export default function WebPage() {
       <section className="hero">
         <div className="hero-inner">
           <div className="eyebrow">Creación Web</div>
-          <h1>Tu web no es un folleto digital.<br />Es tu <em>mejor comercial</em>.</h1>
+          <h1>Tu web no debería explicar quién eres.<br /><em>Debería conseguir que alguien quiera trabajar contigo.</em></h1>
           <p className="hero-lead">
-            La mayoría de webs tienen el mismo problema: fueron hechas para verse bien en una presentación, no para vender. Sin velocidad suficiente para que Google las posicione, sin estructura clara para que el usuario encuentre lo que busca y sin llamadas a la acción que conviertan el tráfico en clientes. Construimos webs que hacen exactamente lo contrario.
+            Una buena web hace tres cosas muy rápido: te entiende, te cree y te mueve a actuar. Por eso no empezamos diseñando. Empezamos pensando.
           </p>
           <div className="hero-actions">
-            <a href="/#contacto" className="btn">Quiero mi web nueva</a>
+            <a href="/#contacto" className="btn">Quiero una web que venda</a>
             <a href="#tipos" className="btn btn-ghost">Ver tipos de web</a>
           </div>
         </div>
@@ -116,20 +116,17 @@ export default function WebPage() {
 
       {/* COPY BLOQUE */}
       <div className="wrap" style={{ borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
-        <div className="tag">El problema de la mayoría de webs</div>
-        <h2>Una web cara que no vende<br />es peor que no tener web.</h2>
+        <div className="tag">Problema</div>
+        <h2>Una web bonita que no convierte<br />sigue siendo una web cara.</h2>
         <p className="lead">
-          Hemos auditado decenas de webs de negocios que "tenían web" pero no tenían clientes. Los problemas son siempre los mismos: carga lenta que Google penaliza en rankings y que los usuarios abandonan antes de leer nada, menús confusos que hacen que el visitante no sepa qué hace exactamente la empresa, y páginas sin llamadas a la acción claras que acaban con "si quieres más información, llámanos".
-        </p>
-        <p className="lead" style={{ marginTop: "1.25rem" }}>
-          Una web bien construida es tu comercial 24/7: explica quién eres, qué resuelves, por qué eres la mejor opción y pone al visitante frente al botón correcto en el momento correcto. Eso no ocurre por accidente — ocurre cuando alguien diseña con ese objetivo desde el principio.
+          Hay webs que son visualmente espectaculares. Y luego está el pequeño detalle de que nadie sabe qué hacer cuando entra. Menús infinitos. Textos que dicen &ldquo;soluciones innovadoras&rdquo;. Botones que dicen &ldquo;saber más&rdquo;. Y una home que parece una presentación corporativa. Nosotros hacemos otra cosa.
         </p>
       </div>
 
       {/* SERVICIOS */}
       <div className="wrap">
         <div className="tag">Qué construimos</div>
-        <h2>Web diseñada para crecer<br />con tu negocio</h2>
+        <h2>Una web pensada<br />para hacer negocio.</h2>
         <ServicesAccordionGrid services={services} />
       </div>
 
@@ -137,8 +134,7 @@ export default function WebPage() {
       <div className="types-section" id="tipos">
         <div className="wrap">
           <div className="tag" style={{ color: "rgba(255,255,255,0.4)" }}>Tipos de web</div>
-          <h2>El proyecto correcto<br />para cada objetivo</h2>
-          <p className="lead">No todas las webs son iguales. La tecnología y el enfoque cambian según para qué sirve tu web.</p>
+          <h2>No todas las webs<br />necesitan lo mismo.</h2>
           <div className="types-grid">
             {types.map(t => (
               <div className="type-card" key={t.name}>
@@ -155,14 +151,14 @@ export default function WebPage() {
       <div className="process-section">
         <div className="wrap">
           <div className="tag">Cómo trabajamos</div>
-          <h2>De briefing a web publicada<br />en 5 fases claras</h2>
+          <h2>Cinco pasos.<br />Sin misterio.</h2>
           <div className="steps">
             {[
-              { n: "01", t: "Briefing y estrategia", d: "Entendemos tu negocio, tu competencia, tu cliente y tu objetivo. El diseño viene después: primero la estrategia." },
-              { n: "02", t: "Arquitectura y wireframes", d: "Estructuramos las páginas, el flujo de usuario y las llamadas a la acción antes de diseñar. El esqueleto decide el 80% del resultado." },
-              { n: "03", t: "Diseño visual", d: "Interfaz completa con tu identidad de marca, tipografía, color y todos los componentes. Lo apruebas antes de programar." },
-              { n: "04", t: "Desarrollo y SEO técnico", d: "Código limpio, velocidad optimizada, SEO técnico implementado desde el principio. No es un add-on final: es parte del proceso." },
-              { n: "05", t: "Lanzamiento y handoff", d: "Publicación, formación en el CMS si lo hay, y soporte post-lanzamiento para los primeros 30 días." },
+              { n: "01", t: "Briefing", d: "Entendemos negocio, cliente y objetivo." },
+              { n: "02", t: "Arquitectura", d: "Organizamos la información antes de pensar en decoración." },
+              { n: "03", t: "Diseño", d: "Convertimos la estrategia en una experiencia visual." },
+              { n: "04", t: "Desarrollo", d: "Código, velocidad, SEO y funcionamiento." },
+              { n: "05", t: "Lanzamiento", d: "Publicamos, revisamos y te dejamos todo preparado." },
             ].map(s => (
               <div key={s.n}>
                 <div className="step-n">{s.n}</div>
@@ -189,8 +185,8 @@ export default function WebPage() {
       </div>
 
       <ServiceCta
-        title="¿Tu web está vendiendo lo que puede vender?"
-        body="Auditamos tu web actual o empezamos desde cero el proyecto que necesitas. Cuéntanos qué tienes ahora y qué quieres conseguir."
+        title="¿Tu web representa el negocio que tienes hoy?"
+        body="Si la respuesta es &ldquo;más o menos&rdquo;... ya tenemos trabajo."
       />
     </>
   );

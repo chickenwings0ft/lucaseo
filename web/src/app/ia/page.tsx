@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const useCases = [
-  { sector: "Clínica o consulta", before: "La recepcionista tarda 20 minutos en cualificar cada solicitud y agendar manualmente", after: "El chatbot cualifica, el paciente elige fecha en el calendario y el sistema envía confirmación y recordatorio — sin intervención humana" },
-  { sector: "Inmobiliaria", before: "Cada lead de Idealista se gestiona a mano, algunos se pierden, el seguimiento es inconsistente", after: "El lead entra al CRM automáticamente, recibe un email de bienvenida en segundos y el agente solo interviene cuando el lead ha demostrado interés real" },
-  { sector: "Academia o formación", before: "Alumno potencial pregunta por WhatsApp, nadie responde el fin de semana, lead perdido", after: "IA responde en segundos con toda la información del curso, recoge datos de contacto y cualifica antes de que el lunes llegue un humano" },
-  { sector: "E-commerce", before: "Carrito abandonado = lead perdido. El equipo no tiene tiempo de hacer seguimiento manual", after: "Secuencia automatizada de 3 emails en 72h: recordatorio, testimonio y oferta limitada. El 15-20% de los abandonos recuperados sin intervención" },
+  { sector: "Clínica o consulta", before: "20 minutos de trabajo manual por solicitud.", after: "La IA recoge la información, cualifica, agenda y envía confirmaciones." },
+  { sector: "Inmobiliaria", before: "Leads entrando desde varios canales y seguimiento inconsistente.", after: "Lead capturado, CRM actualizado y seguimiento activado automáticamente." },
+  { sector: "Academia o formación", before: "WhatsApp sin responder durante horas.", after: "Respuesta inmediata, información del curso y captura de datos." },
+  { sector: "E-commerce", before: "Carritos abandonados que desaparecen.", after: "Automatizaciones de recuperación y seguimiento sin intervención manual." },
 ];
 
 const tools = ["n8n", "Make (Integromat)", "Zapier", "OpenAI / GPT-4", "HubSpot", "Pipedrive", "ActiveCampaign", "WhatsApp Business API", "Notion", "Airtable", "Google Sheets", "Slack"];
@@ -81,9 +81,9 @@ export default function IaPage() {
       <section className="hero">
         <div className="hero-inner">
           <div className="eyebrow">Automatizaciones de IA</div>
-          <h1>Trabaja menos.<br /><em>Cierra más.</em></h1>
+          <h1>Tu equipo no debería pasar el día haciendo cosas que <em>una máquina puede hacer en segundos.</em></h1>
           <p className="hero-lead">
-            Cada tarea repetitiva que hace tu equipo — responder emails, cualificar leads, agendar reuniones, hacer seguimiento de clientes, enviar presupuestos — puede estar ejecutándose automáticamente mientras tú te dedicas a lo que realmente mueve tu negocio. La IA no reemplaza a tu equipo: multiplica lo que puede hacer.
+            Responder lo mismo. Copiar datos. Actualizar un CRM. Perseguir leads. Mandar recordatorios. Preparar informes. Clasificar correos. Eso no necesita más horas. Necesita mejor sistema.
           </p>
           <div className="hero-actions">
             <a href="/#contacto" className="btn">Quiero automatizar mi negocio</a>
@@ -94,23 +94,17 @@ export default function IaPage() {
 
       {/* COPY BLOQUE */}
       <div className="wrap" style={{ borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
-        <div className="tag">La oportunidad que la mayoría ignora</div>
-        <h2>Tus competidores aún lo hacen<br />todo a mano. Tú no tienes que hacerlo.</h2>
+        <div className="tag">La idea</div>
+        <h2>La IA no viene a quitarte trabajo.<br />Viene a quitarte el trabajo que nunca quisiste hacer.</h2>
         <p className="lead">
-          El 40% del tiempo de trabajo en empresas medianas se dedica a tareas que podrían estar automatizadas con la tecnología actual. Copiar datos entre herramientas, enviar emails de seguimiento, cualificar leads manualmente, generar informes semanales. Horas que tu equipo podría dedicar a cerrar ventas, atender a clientes o desarrollar el negocio.
-        </p>
-        <p className="lead" style={{ marginTop: "1.25rem" }}>
-          La IA generativa — GPT-4, Claude, Gemini — combinada con herramientas de automatización como n8n o Make permite construir sistemas que hacen el trabajo repetitivo por ti: responden, cualifican, registran, envían y escalan al humano solo cuando hay valor real que añadir. No es el futuro. Es lo que los negocios más eficientes ya están haciendo ahora mismo.
+          La combinamos con automatización, CRM y tus herramientas actuales para crear sistemas que funcionan incluso cuando tu equipo está ocupado. O de vacaciones. Especialmente de vacaciones.
         </p>
       </div>
 
       {/* SERVICIOS IA */}
       <div className="wrap">
-        <div className="tag">Nuestros servicios de IA</div>
-        <h2>Todo lo que la inteligencia artificial<br />puede hacer por tu negocio</h2>
-        <p className="lead">
-          10 servicios especializados para automatizar, cualificar, comunicar y analizar. Cada uno diseñado para resolver un problema concreto de tu negocio.
-        </p>
+        <div className="tag">Servicios de IA</div>
+        <h2>Diez formas de quitar trabajo de la mesa.</h2>
         <IaServicesGrid />
       </div>
 
@@ -118,8 +112,7 @@ export default function IaPage() {
       <div className="cases-section" id="casos">
         <div className="wrap">
           <div className="tag" style={{ color: "rgba(255,255,255,0.4)" }}>Casos de uso reales</div>
-          <h2>Antes y después:<br />negocios que ya funcionan en automático</h2>
-          <p className="lead">Lo mismo que hacían a mano, ahora sin intervención humana.</p>
+          <h2>Antes y después.</h2>
           <div className="cases-grid">
             {useCases.map(u => (
               <div className="case-card" key={u.sector}>
@@ -142,8 +135,8 @@ export default function IaPage() {
       <div className="tools-section">
         <div className="wrap">
           <div className="tag">Tecnología</div>
-          <h2>Las herramientas con las<br />que construimos tus automatizaciones</h2>
-          <p className="lead">Usamos las mejores herramientas del mercado para cada capa del sistema — sin atarte a una sola plataforma.</p>
+          <h2>La herramienta importa menos que el sistema.</h2>
+          <p className="lead">Trabajamos con herramientas como:</p>
           <div className="tools-grid">
             {tools.map(t => <span className="tool-badge" key={t}>{t}</span>)}
           </div>
@@ -154,13 +147,13 @@ export default function IaPage() {
       <div className="process-section">
         <div className="wrap">
           <div className="tag">Cómo trabajamos</div>
-          <h2>De proceso manual a sistema<br />automático en 4 fases</h2>
+          <h2>De &quot;esto lo hacemos a mano&quot; a &quot;esto se hace solo&quot;.</h2>
           <div className="steps">
             {[
-              { n: "01", t: "Mapeo de procesos", d: "Identificamos qué tareas se repiten, cuánto tiempo consumen y cuáles tienen mayor impacto si se automatizan. No todo hay que automatizar — empezamos por lo que más valor genera." },
-              { n: "02", t: "Diseño del sistema", d: "Diseñamos el flujo completo: qué dispara la automatización, qué hace cada paso, cuándo interviene un humano y cómo se mide el resultado. Lo apruebas antes de construirlo." },
-              { n: "03", t: "Construcción y pruebas", d: "Construimos las automatizaciones, las conectamos con tus herramientas actuales y hacemos pruebas exhaustivas con casos reales. Nada llega a producción sin estar probado." },
-              { n: "04", t: "Lanzamiento y monitorización", d: "El sistema entra en producción. Monitorizamos el rendimiento las primeras semanas, ajustamos lo que sea necesario y te formamos para entender los datos que genera." },
+              { n: "01", t: "Mapeamos", d: "Encontramos tareas repetitivas." },
+              { n: "02", t: "Diseñamos", d: "Decidimos qué automatizar y dónde debe entrar una persona." },
+              { n: "03", t: "Construimos", d: "Integramos las herramientas y creamos el sistema." },
+              { n: "04", t: "Monitorizamos", d: "Lo lanzamos, medimos y ajustamos." },
             ].map(s => (
               <div key={s.n}>
                 <div className="step-n">{s.n}</div>
@@ -187,8 +180,8 @@ export default function IaPage() {
       </div>
 
       <ServiceCta
-        title="¿Cuántas horas pierde tu equipo en tareas repetitivas?"
-        body="Hacemos un diagnóstico gratuito de tus procesos actuales e identificamos las automatizaciones con mayor impacto para tu negocio. Sin tecnicismos, sin compromisos."
+        title="¿Cuántas horas está perdiendo tu equipo en cosas que podrían hacerse automáticamente?"
+        body="Cuéntanos cómo trabajáis hoy. Nosotros te diremos qué automatizaríamos primero."
       />
       <SiteFooter />
     </>

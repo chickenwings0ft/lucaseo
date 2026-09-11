@@ -5,9 +5,9 @@ export const whatsappAutomation: ServicePage = {
   metaTitle: "WhatsApp Automation con IA | Lucaseo",
   metaDescription: "Respuestas automáticas, confirmaciones de cita, recordatorios y notificaciones por WhatsApp Business. La plataforma con mayor tasa de apertura del mundo.",
   eyebrow: "IA · WhatsApp Automation",
-  title: "WhatsApp en piloto automático. *98% de tasa de apertura.*",
-  lead: "Respuestas automáticas, confirmaciones de cita, recordatorios de seguimiento y notificaciones en WhatsApp Business. La plataforma con mayor tasa de apertura del mundo — y donde está realmente tu cliente.",
-  primaryCta: "Quiero automatizar WhatsApp",
+  title: "Tu cliente ya está en WhatsApp. *Úsalo.*",
+  lead: "Automatizamos conversaciones para responder preguntas, recoger información, cualificar contactos, hacer seguimiento y derivar conversaciones al equipo.",
+  primaryCta: "Quiero automatizar WhatsApp →",
   secondaryCta: "Ver casos de uso",
   stats: [
     { n: "98%", l: "Tasa de apertura en WhatsApp", c: "Vs. 20% del email. Tu mensaje se lee." },

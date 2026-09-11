@@ -11,13 +11,13 @@ interface Props {
 const i18n = {
   es: {
     eyebrow: "Empieza hoy",
-    primary: "Quiero más clientes",
+    primary: "Cuéntanos qué necesitas →",
     secondary: "Ver todos los servicios",
-    bullets: ["Respuesta en menos de 24h", "Primera consulta sin coste", "Sin contratos largos"],
+    bullets: ["Te respondemos en menos de 24h", "Primera conversación sin coste", "Sin compromisos ni contratos eternos"],
     ctaHref: "/#contacto",
     homeHref: "/",
-    defaultTitle: "¿Listo para conseguir más clientes?",
-    defaultBody: "Cuéntanos tu situación. En menos de 24h te respondemos con un diagnóstico sin compromiso.",
+    defaultTitle: "¿Tu negocio necesita más clientes?",
+    defaultBody: "Cuéntanos qué tienes, dónde estás y qué quieres conseguir. Te diremos qué vemos y por dónde empezaríamos.",
   },
   en: {
     eyebrow: "Start today",

@@ -5,9 +5,9 @@ export const paidMedia: ServicePage = {
   metaTitle: "Social Ads & Paid Media | Lucaseo — Publicidad en Redes Sociales",
   metaDescription: "Campañas de publicidad en Instagram, Facebook, TikTok y LinkedIn. Segmentación avanzada, creatividades que convierten y optimización diaria para maximizar tu ROAS.",
   eyebrow: "RRSS · Paid Media",
-  title: "Publicidad en redes que *convierte, no solo impresiona*",
-  lead: "Los Social Ads son la forma más rápida de poner tu negocio delante de las personas correctas. Pero sin estrategia, segmentación y optimización constante, es como quemar billetes. Nosotros nos aseguramos de que cada euro trabaje.",
-  primaryCta: "Quiero campañas que vendan",
+  title: "Tu contenido puede llegar a 1.000 personas. *O a 100.000.*",
+  lead: "La diferencia está en qué haces después. Construimos campañas para amplificar el contenido que funciona, encontrar nuevas audiencias y convertir atención en resultados. No pagamos por enseñar cosas. Pagamos por generar oportunidades.",
+  primaryCta: "Quiero escalar con Paid Media →",
   secondaryCta: "Ver cómo funciona",
   stats: [
     { n: "4.2x", l: "ROAS medio de nuestras campañas", c: "Por cada euro invertido, 4.2€ de retorno" },

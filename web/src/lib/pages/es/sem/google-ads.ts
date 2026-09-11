@@ -5,9 +5,9 @@ export const googleAds: ServicePage = {
   metaTitle: "Google Ads para Empresas | Lucaseo — Campañas SEM",
   metaDescription: "Campañas de Google Ads que generan leads y ventas desde el primer día. Search, Display, Shopping y YouTube Ads con optimización diaria y ROAS garantizado.",
   eyebrow: "SEM · Google Ads",
-  title: "Aparece en Google *justo cuando te buscan*",
-  lead: "Google Ads te pone delante de personas que ya están buscando lo que vendes. No interrumpes — respondes. Configuramos, optimizamos y escalamos campañas que convierten clics en clientes desde la primera semana.",
-  primaryCta: "Quiero aparecer en Google Ads",
+  title: "Que te busquen. Que te encuentren. *Que te compren.*",
+  lead: "Google Ads funciona mejor cuando apareces en el momento exacto en que alguien necesita lo que tú vendes. Nosotros diseñamos campañas para llegar ahí sin pagar de más por el camino.",
+  primaryCta: "Quiero mejorar Google Ads →",
   secondaryCta: "Ver resultados",
   stats: [
     { n: "5.4x", l: "ROAS medio de nuestras campañas", c: "5.4€ de retorno por cada euro invertido" },
@@ -27,12 +27,11 @@ export const googleAds: ServicePage = {
     tag: "Tipos de campaña",
     title: "Cada formato de Google Ads tiene su propósito",
     items: [
-      { icon: "🔍", title: "Search Ads", desc: "Anuncios de texto en los resultados de búsqueda. El formato más potente para captar intención de compra activa. Alta conversión, bajo desperdicio." },
-      { icon: "🖼️", title: "Display Ads", desc: "Banners en la red de 3 millones de sitios web de Google. Ideal para branding, remarketing y generar demanda en audiencias frías." },
-      { icon: "🛒", title: "Shopping Ads", desc: "Tus productos con foto y precio directamente en los resultados de búsqueda. Imprescindible para e-commerce y tiendas online." },
-      { icon: "🎬", title: "YouTube Ads", desc: "Vídeo ads antes, durante o después del contenido de YouTube. Formato inmersivo con segmentación avanzada por intereses y comportamiento." },
-      { icon: "📱", title: "Performance Max", desc: "Campañas automatizadas que combinan todos los formatos de Google. La IA de Google optimiza en tiempo real dónde y cómo aparecer." },
-      { icon: "🔄", title: "Remarketing", desc: "Persigue con anuncios personalizados a quienes visitaron tu web sin convertir. Recupera hasta el 26% de los carritos abandonados." },
+      { icon: "🔍", title: "Search Ads", desc: "Capturamos demanda con intención real." },
+      { icon: "📱", title: "Performance Max", desc: "Exprimimos el ecosistema de Google." },
+      { icon: "🛒", title: "Shopping", desc: "Ponemos el producto delante del comprador." },
+      { icon: "🔄", title: "Remarketing", desc: "Volvemos a entrar en la conversación cuando toca." },
+      { icon: "📊", title: "Tracking", desc: "Medimos qué clic acaba convirtiéndose en dinero." },
     ],
   },
   steps: {
@@ -64,8 +63,8 @@ export const googleAds: ServicePage = {
     { q: "¿Puedo ver exactamente dónde va mi dinero?", a: "Absolutamente. Tienes acceso completo a tu cuenta de Google Ads. Además, nuestros informes semanales detallan: impresiones, clics, conversiones, coste por conversión y ROAS por cada campaña, grupo de anuncios y keyword. Total transparencia." },
     { q: "¿Hacéis también las landing pages?", a: "Sí. Una campaña sin una landing page optimizada para conversión es como un embudo sin fondo. Diseñamos y desarrollamos landing pages específicas para cada campaña, con A/B testing de titulares, formularios y CTAs. Está incluido en nuestra gestión." },
   ],
-  ctaTitle: "¿Tu competencia ya está en Google Ads?",
-  ctaBody: "Analizamos gratis tus keywords y te decimos cuánto cuesta captar cada cliente en tu sector. Sin compromiso.",
+  ctaTitle: "Menos clics inútiles. Más conversaciones que merecen la pena.",
+  ctaBody: "",
   related: {
     title: "Servicios relacionados",
     links: [

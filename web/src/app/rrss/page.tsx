@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 };
 
 const rrssServices: AccordionService[] = [
-  { icon: "📸", title: "Gestión de Instagram", desc: "Tu perfil de Instagram como motor de clientes. Estrategia de contenido mensual, diseño de publicaciones, copies que generan engagement real, gestión de comentarios y DMs. No publicamos por publicar: cada post tiene un objetivo claro dentro del embudo." },
-  { icon: "👥", title: "Gestión de Facebook", desc: "Facebook sigue siendo la plataforma con más datos de audiencia del mundo. Optimizamos tu página, publicamos contenido de valor para tu segmento, gestionamos reseñas y construimos una comunidad activa alrededor de tu marca." },
-  { icon: "🎵", title: "TikTok & Reels", desc: "El formato de vídeo corto es la mayor oportunidad de alcance orgánico actual. Creamos guiones, editamos vídeos y publicamos contenido que engancha — para que tu negocio aparezca en los feeds de miles de potenciales clientes sin invertir en publicidad." },
-  { icon: "🎯", title: "Meta Ads (Social Ads)", desc: "Publicidad de pago en Instagram y Facebook con una segmentación que Google no puede igualar: comportamientos, intereses, datos demográficos y audiencias lookalike. Creamos las creatividades, configuramos las campañas y optimizamos el presupuesto para el menor coste por cliente posible." },
-  { icon: "✍️", title: "Copywriting & Creatividad", desc: "Las redes sociales se ganan con contenido que detiene el scroll. Escribimos copies con gancho, diseñamos visuales que destacan en el feed y creamos mensajes que conectan con tu audiencia porque hablan exactamente de sus problemas y deseos." },
-  { icon: "📊", title: "Análisis & Reporting", desc: "Sin métricas de vanidad. Reportamos alcance, engagement, clics a web, leads generados y coste por resultado. Sabrás exactamente qué publicaciones funcionan, qué audiencias convierten y cómo está evolucionando tu presencia mes a mes." },
-  { icon: "📅", title: "Estrategia Mensual", desc: "Publicar por publicar no funciona. Lo que funciona es una estrategia mensual con objetivos claros, contenido diseñado para tu audiencia y un calendario editorial que convierte seguidores en clientes reales.", href: "/rrss/estrategia-mensual" },
-  { icon: "💰", title: "Paid Media", desc: "Los Social Ads son la forma más rápida de poner tu negocio delante de las personas correctas. Pero sin estrategia, segmentación y optimización constante, es como quemar billetes. Nos aseguramos de que cada euro trabaje.", href: "/rrss/paid-media" },
-  { icon: "📖", title: "Storytelling de Marca", desc: "La gente no sigue marcas en redes sociales para ver anuncios. Sigue historias que les inspiran, les enseñan o les hacen sentir algo. El storytelling estratégico convierte tu marca en una historia que tu audiencia quiere seguir.", href: "/rrss/estrategia-storytelling" },
+  { icon: "📸", title: "Instagram", desc: "La parte visual de tu marca necesita intención, no solo diseño bonito." },
+  { icon: "👥", title: "Facebook", desc: "Contenido, comunidad y campañas para llegar a públicos reales." },
+  { icon: "🎵", title: "TikTok & Reels", desc: "Ideas que entienden el lenguaje del vídeo corto." },
+  { icon: "🎯", title: "Meta Ads", desc: "Ponemos dinero detrás de lo que merece escalar." },
+  { icon: "✍️", title: "Copywriting", desc: "Escribimos para captar atención y provocar acción." },
+  { icon: "📊", title: "Análisis", desc: "Medimos qué consigue negocio." },
+  { icon: "📅", title: "Estrategia Mensual", desc: "Tu contenido no debería improvisarse cada lunes.", href: "/rrss/estrategia-mensual" },
+  { icon: "💰", title: "Paid Media", desc: "Más alcance. Mejor segmentación. Más oportunidades.", href: "/rrss/paid-media" },
+  { icon: "📖", title: "Storytelling", desc: "Porque la gente recuerda historias mucho más que claims.", href: "/rrss/estrategia-storytelling" },
 ];
 
 const socialAds = [
@@ -86,35 +86,30 @@ export default function RrssPage() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-inner">
-          <div className="eyebrow">RRSS & Social Ads</div>
-          <h1>Tu marca donde están<br />tus clientes — <em>todos los días</em>.</h1>
+          <div className="eyebrow">Redes Sociales</div>
+          <h1>Tus clientes ya están ahí.<br /><em>Ahora falta que tu marca diga algo que merezca la pena.</em></h1>
           <p className="hero-lead">
-            4.800 millones de personas usan redes sociales cada día. Tu cliente potencial está ahí ahora mismo, desplazando el feed, buscando inspiración, comparando opciones. La pregunta es si tu negocio aparece — y si cuando aparece, tiene algo que valga la pena ver.
+            No necesitamos ayudarte a &quot;estar presente&quot;. Necesitamos ayudarte a ser relevante. Contenido, estrategia, creatividad, paid media y storytelling para que tus redes dejen de ser el sitio donde subes algo los martes.
           </p>
           <div className="hero-actions">
-            <a href="/#contacto" className="btn">Quiero mi estrategia en RRSS</a>
-            <a href="#social-ads" className="btn btn-ghost">Ver Social Ads</a>
+            <a href="/#contacto" className="btn">Quiero una estrategia de RRSS</a>
           </div>
         </div>
       </section>
 
       {/* INTRO COPY */}
       <div className="wrap" style={{ borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
-        <div className="tag">La oportunidad real</div>
-        <h2>Las redes sociales ya no son<br />opcionales para los negocios.</h2>
+        <div className="tag">El error</div>
+        <h2>Publicar no es tener una estrategia.</h2>
         <p className="lead">
-          El 74% de los consumidores utiliza las redes sociales para orientar su decisión de compra. El 54% de los usuarios de Instagram ha buscado un producto o servicio después de verlo en la plataforma. Esto no es marketing digital: es el comportamiento de compra moderno.
-        </p>
-        <p className="lead" style={{ marginTop: "1.25rem" }}>
-          Pero estar en redes sociales sin estrategia es como abrir una tienda en el centro comercial y no poner el rótulo. Publicar por publicar, sin coherencia de marca, sin copy que enganche y sin datos que orienten las decisiones, es dinero y tiempo tirado a la basura. Lo que necesitas es presencia con propósito.
+          Puedes publicar cinco veces a la semana. Tener un feed precioso. Conseguir likes. Y seguir sin vender nada. Las redes sociales funcionan cuando cada pieza tiene un papel: atraer, entretener, educar, generar confianza o convertir.
         </p>
       </div>
 
       {/* SERVICIOS */}
       <div className="wrap">
-        <div className="tag">Qué incluye</div>
-        <h2>Gestión completa de<br />tu presencia en redes</h2>
-        <p className="lead">Desde la estrategia hasta la publicación diaria, pasando por la publicidad de pago.</p>
+        <div className="tag">Qué hacemos</div>
+        <h2>Hacemos que tu marca tenga algo que contar.</h2>
         <ServicesAccordionGrid services={rrssServices} />
       </div>
 
@@ -144,16 +139,15 @@ export default function RrssPage() {
           <div className="why-grid">
             <div>
               <div className="tag">Nuestro enfoque</div>
-              <h2>Contenido que vende,<br />no que gusta.</h2>
-              <p className="lead">La mayoría de agencias de RRSS te dan likes. Nosotros te damos clientes. La diferencia es el enfoque: cada decisión de contenido está orientada a generar interés real en tu producto o servicio, no a acumular seguidores que nunca comprarán.</p>
+              <h2>Contenido que gusta está bien.<br />Contenido que consigue algo está mejor.</h2>
             </div>
             <div>
               <div className="why-list">
                 {[
-                  { t: "Estrategia antes que ejecución", d: "Antes de publicar nada, definimos a quién le hablas, qué problema resuelves, cuál es tu diferencia y cómo se lo contamos de forma que genere acción." },
-                  { t: "Copy que detiene el scroll", d: "El primer segundo decide si alguien sigue leyendo o pasa de largo. Escribimos primeras líneas que enganchan porque hablan de lo que le importa a tu cliente." },
-                  { t: "Datos para decidir, no para decorar", d: "Analizamos qué tipo de contenido genera más clics a tu web, más mensajes, más ventas — y hacemos más de eso, menos de lo que no funciona." },
-                  { t: "Orgánico + Ads: la fórmula completa", d: "El contenido orgánico construye credibilidad y comunidad. Los Ads amplifican lo que ya funciona. Juntos, multiplican el resultado." },
+                  { t: "Estrategia", d: "Primero decidimos qué decir y a quién." },
+                  { t: "Atención", d: "Después creamos la idea que hace que alguien pare." },
+                  { t: "Confianza", d: "Demostramos que sabes de qué hablas." },
+                  { t: "Acción", d: "Y llevamos a la persona al siguiente paso." },
                 ].map((w, i) => (
                   <div className="why-item" key={w.t}>
                     <div className="why-n">0{i + 1}</div>
@@ -184,8 +178,8 @@ export default function RrssPage() {
       </div>
 
       <ServiceCta
-        title="¿Tus redes sociales generan clientes o solo seguidores?"
-        body="Hacemos un análisis gratuito de tu presencia digital actual y te mostramos exactamente qué cambiar para que tus redes empiecen a generar negocio real."
+        title="¿Tus redes generan negocio o solo notificaciones?"
+        body="Las miramos contigo y te decimos dónde están las oportunidades."
       />
     </>
   );

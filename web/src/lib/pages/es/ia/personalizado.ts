@@ -5,9 +5,9 @@ export const personalizado: ServicePage = {
   metaTitle: "Soluciones de IA a Medida | Lucaseo — Desarrollo Personalizado",
   metaDescription: "Desarrollo de soluciones de inteligencia artificial a medida para tu negocio. Desde modelos de predicción hasta sistemas de procesamiento de lenguaje natural adaptados a tu sector.",
   eyebrow: "IA · Desarrollo a Medida",
-  title: "Una IA diseñada *exclusivamente para tu negocio*",
-  lead: "A veces las soluciones estándar no encajan. Cuando tu problema es único, la solución también tiene que serlo. Desarrollamos sistemas de IA desde cero, adaptados a tus datos, tus procesos y tus objetivos específicos.",
-  primaryCta: "Hablemos de tu proyecto",
+  title: "Cuando una solución estándar no encaja, *construimos la tuya.*",
+  lead: "Cada negocio tiene procesos raros. Eso está bien. Analizamos el problema, diseñamos la lógica y construimos el sistema específico que necesitas.",
+  primaryCta: "Tengo un problema concreto →",
   secondaryCta: "Ver posibilidades",
   stats: [
     { n: "100%", l: "Personalización", c: "Cada solución se construye desde cero para tu caso" },

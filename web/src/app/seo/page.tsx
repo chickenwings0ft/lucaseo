@@ -9,20 +9,19 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  { q: "¿Cuánto tiempo tarda el SEO en dar resultados?", a: "Las primeras señales de mejora — rankings subiendo, tráfico creciendo — suelen verse entre el mes 3 y el 5. Resultados consolidados y tráfico sostenido, entre los 6 y 12 meses. El SEO no es inmediato, pero es el activo digital más rentable a largo plazo: cuando paras de pagar, no desaparece." },
-  { q: "¿Qué diferencia hay entre SEO y Google Ads?", a: "Los Ads dan visibilidad inmediata pero pagas por cada clic: cuando paras el presupuesto, desapareces. El SEO orgánico te posiciona de forma permanente sin pagar por clic. Lo ideal es combinarlos: Ads para resultados rápidos, SEO para construir una base de tráfico que no depende de tu presupuesto publicitario." },
-  { q: "¿Necesito una web nueva para hacer SEO?", a: "No necesariamente. Auditamos tu web actual y determinamos qué se puede optimizar sin reconstruirla. En muchos casos, con ajustes técnicos, mejora de contenidos y estrategia de enlaces, la web existente ya puede escalar posiciones significativamente." },
-  { q: "¿Garantizáis la posición número 1?", a: "Nadie puede garantizar posiciones concretas sin engañarte. Google lo determina mediante más de 200 factores que cambian constantemente. Lo que sí garantizamos es aplicar las mejores prácticas del sector, resultados medibles y transparencia total: verás cada acción y cada número." },
-  { q: "¿Trabajáis con cualquier sector?", a: "Sí, aunque tenemos experiencia especial en salud, legal, hostelería, e-commerce y servicios locales. Cada sector tiene su propia lógica de búsqueda y competencia — y eso es exactamente lo que analizamos antes de empezar." },
+  { q: "¿Cuánto tarda el SEO?", a: "Normalmente no necesitas esperar un año para ver si existe vida. Las primeras señales pueden aparecer en pocos meses y los resultados sólidos llegan a medida que la estrategia acumula autoridad y relevancia. No es inmediato. Es precisamente por eso que tiene tanto valor." },
+  { q: "¿SEO o Google Ads?", a: "Ads te pone delante mañana. SEO construye un canal que puede darte tráfico durante mucho tiempo. La combinación suele ser mucho más potente." },
+  { q: "¿Necesito una web nueva?", a: "No necesariamente. Primero vemos si tu web tiene arreglo. A veces necesita una cirugía. A veces solo necesita dejar de hacer algunas cosas fatal." },
+  { q: "¿Garantizáis el número 1?", a: "No. Y desconfía de cualquiera que te lo garantice." },
 ];
 
 const pillars = [
-  { icon: "⚙️", title: "SEO Técnico", desc: "Tu web puede tener el mejor contenido del mundo, pero si Google no puede rastrearlo, publicarlo y entenderlo correctamente, no aparecerá. Auditamos velocidad de carga, arquitectura de URLs, datos estructurados, indexación, Core Web Vitals y todos los factores técnicos que determinan si Google confía en tu web." },
-  { icon: "✍️", title: "Contenido Estratégico", desc: "El contenido que posiciona no es el que suena bien: es el que responde exactamente lo que tu cliente busca en el momento exacto en que lo busca. Investigamos keywords con volumen real, intención de búsqueda y baja competencia, y creamos contenido que convierte visitas en leads." },
-  { icon: "🔗", title: "Link Building", desc: "Los enlaces de otras webs son votos de confianza para Google. Construimos un perfil de enlaces natural, con medios relevantes de tu sector, directorios de calidad y colaboraciones estratégicas. Sin spam, sin granjas de enlaces: autoridad real que hace subir tu web de forma sostenida." },
-  { icon: "📍", title: "SEO Local", desc: "Si tienes un negocio físico o sirves a clientes en una zona geográfica, el SEO local es tu mayor oportunidad. Optimizamos tu Google Business Profile, gestionamos reseñas, creamos páginas de aterrizaje locales y te posicionamos en el pack de 3 de Google Maps que ven todos tus vecinos." },
-  { icon: "📊", title: "Analítica & Reporting", desc: "Nada se hace a ciegas. Implementamos GA4, Search Console y dashboards en tiempo real para que sepas qué keywords suben, qué páginas generan más leads y qué está frenando tu crecimiento. Informes claros, sin tecnicismos, cada mes." },
-  { icon: "🏪", title: "SEO para E-commerce", desc: "Las tiendas online tienen retos específicos: miles de páginas de producto, contenido duplicado, fichas de categoría sin optimizar. Estructuramos tu catálogo para que Google lo entienda, posicionamos tus productos más rentables y hacemos que cada búsqueda de producto sea una oportunidad de venta." },
+  { icon: "⚙️", title: "SEO Técnico", desc: "Primero hacemos que Google pueda entenderte. Velocidad, arquitectura, indexación, rastreo, estructura y todos esos detalles invisibles que pueden estar frenando tu crecimiento." },
+  { icon: "✍️", title: "Contenido Estratégico", desc: "No escribimos para rellenar páginas. Creamos contenido para responder búsquedas reales y llevar a personas con intención de compra hacia tu negocio." },
+  { icon: "🔗", title: "Autoridad y enlaces", desc: "Google también necesita razones para confiar en ti. Construimos autoridad de forma natural y estratégica, sin trucos que puedan salir caros después." },
+  { icon: "📍", title: "SEO Local", desc: "Para que te encuentren los que están cerca de ti. Google Maps, búsquedas locales, perfiles de negocio y todo lo necesario para convertir búsquedas cercanas en clientes." },
+  { icon: "📊", title: "Analítica & Reporting", desc: "No te mandamos un PDF para que te sientas culpable de no abrirlo. Te enseñamos qué está pasando, qué está creciendo y qué vamos a hacer después." },
+  { icon: "🏪", title: "SEO para E-commerce", desc: "Más búsquedas. Más producto visto. Más oportunidades de venta. Trabajamos categorías, fichas, arquitectura, búsquedas transaccionales y todo el recorrido hasta la compra." },
 ];
 
 const results = [
@@ -91,13 +90,13 @@ export default function SeoPage() {
       <section className="hero">
         <div className="hero-inner">
           <div className="eyebrow">SEO Orgánico</div>
-          <h1>Tu cliente te está buscando.<br /><em>¿Apareces tú o aparece tu competencia?</em></h1>
+          <h1>Tu cliente ya te está buscando.<br /><em>La pregunta es si te encuentra a ti.</em></h1>
           <p className="hero-lead">
-            Cada día, miles de personas en España buscan exactamente lo que tú vendes. El problema no es la demanda — siempre ha estado ahí. El problema es que el 91% del tráfico de Google se queda en la primera página, y el 33% hace clic solo en el primer resultado. Si no estás arriba, no existes.
+            Todos los días alguien escribe en Google exactamente lo que tu negocio vende. &quot;Dentista cerca de mí.&quot; &quot;Abogado laboralista Barcelona.&quot; &quot;Empresa de reformas.&quot; &quot;Restaurante italiano.&quot; No necesitas convencer a alguien de que quiere lo que vendes. Ya lo está buscando. Solo necesitas aparecer antes que tu competencia.
           </p>
           <div className="hero-actions">
             <a href="/#contacto" className="btn">Quiero aparecer en Google</a>
-            <a href="#como-funciona" className="btn btn-ghost">Cómo lo hacemos</a>
+            <a href="#como-funciona" className="btn btn-ghost">Ver cómo lo hacemos</a>
           </div>
         </div>
       </section>
@@ -117,21 +116,18 @@ export default function SeoPage() {
 
       {/* POR QUÉ SEO */}
       <div className="wrap" style={{ borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
-        <div className="tag">Por qué el SEO cambia negocios</div>
-        <h2>El canal que trabaja para ti<br />aunque estés durmiendo</h2>
+        <div className="tag">El verdadero valor del SEO</div>
+        <h2>El mejor anuncio de Google es no necesitar pagar el clic.</h2>
         <p className="lead">
-          Los anuncios de pago son un grifo: mientras pagas, fluye tráfico. Cuando paras el presupuesto, el grifo se cierra. El SEO es diferente. Es una inversión que se acumula: cada artículo que posiciona, cada enlace que conseguimos, cada mejora técnica que aplicamos se queda ahí, generando visitas y clientes mes tras mes, año tras año, sin coste variable.
-        </p>
-        <p className="lead" style={{ marginTop: "1.25rem" }}>
-          Un negocio bien posicionado en Google recibe tráfico cualificado — personas que ya están buscando lo que vendes, con intención de compra real — de forma totalmente gratuita. No hay coste por clic, no hay presupuesto mínimo, no hay dependencia de plataformas externas. Solo clientes que te encuentran porque eres la mejor respuesta a su pregunta.
+          Los Ads funcionan mientras pagas. El SEO funciona porque has conseguido algo más difícil: convertirte en una de las mejores respuestas. Una buena estrategia SEO construye un activo. Cada página optimizada. Cada búsqueda ganada. Cada contenido que posiciona. Cada mejora técnica. Todo suma. Y a diferencia de un anuncio, no desaparece cuando apagas la tarjeta.
         </p>
       </div>
 
       {/* PILARES */}
       <div className="wrap" id="como-funciona">
-        <div className="tag">Nuestro enfoque</div>
-        <h2>El SEO no es una sola cosa.<br />Es un sistema completo.</h2>
-        <p className="lead">Posicionarse en Google requiere trabajar en paralelo cuatro pilares que se refuerzan mutuamente. Descuidar uno limita el resto.</p>
+        <div className="tag">Servicios SEO</div>
+        <h2>Google no tiene un botón de &quot;hazme primero&quot;.<br />Ojalá.</h2>
+        <p className="lead">Mientras tanto, trabajamos todas las piezas que realmente influyen.</p>
         <ServicesAccordionGrid services={pillars} />
       </div>
 
@@ -139,14 +135,13 @@ export default function SeoPage() {
       <div className="process" style={{ borderTop: "1px solid rgba(0,74,173,0.1)", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
         <div className="wrap">
           <div className="tag">Proceso</div>
-          <h2>Cómo pasamos de cero<br />a primera página</h2>
-          <p className="lead">Sin atajos, sin trucos de Black Hat que Google acaba penalizando. Solo estrategia sólida y ejecución consistente.</p>
+          <h2>De &quot;¿por qué no aparezco?&quot; a &quot;¿cómo hemos llegado aquí arriba?&quot;</h2>
           <div className="steps">
             {[
-              { n: "01", t: "Auditoría completa", d: "Analizamos tu web al detalle: velocidad, indexación, errores, keywords actuales, competencia. Identificamos exactamente dónde estás perdiendo posiciones y por qué." },
-              { n: "02", t: "Estrategia de keywords", d: "Mapeamos las búsquedas con mayor intención de compra en tu sector, ordenadas por volumen, competencia y rentabilidad potencial. Tu hoja de ruta para los próximos 12 meses." },
-              { n: "03", t: "Optimización y contenido", d: "Implementamos las mejoras técnicas, optimizamos las páginas existentes y creamos nuevo contenido alineado con la estrategia. Todo lo que necesitas para que Google te prefiera." },
-              { n: "04", t: "Resultados y escala", d: "Monitorizamos los rankings semanalmente, analizamos qué funciona y duplicamos sobre ello. A medida que crece el tráfico orgánico, escalamos la estrategia a más keywords y mercados." },
+              { n: "01", t: "Auditoría", d: "Desmontamos tu SEO pieza por pieza." },
+              { n: "02", t: "Estrategia", d: "Encontramos las búsquedas que realmente pueden generar negocio." },
+              { n: "03", t: "Optimización", d: "Corregimos lo técnico y mejoramos el contenido." },
+              { n: "04", t: "Escala", d: "Medimos, aprendemos y ampliamos donde vemos oportunidad." },
             ].map(s => (
               <div className="step" key={s.n}>
                 <div className="step-n">{s.n}</div>
@@ -163,18 +158,11 @@ export default function SeoPage() {
         <div className="wrap">
           <div className="diff-grid">
             <div>
-              <div className="tag" style={{ color: "rgba(255,255,255,0.5)" }}>Por qué Lucaseo</div>
-              <h2>SEO sin humo,<br />sin atajos, sin sorpresas</h2>
-              <p className="lead">La industria del SEO está llena de agencias que prometen posición 1 en 30 días. Eso no existe. Lo que sí existe es trabajo bien hecho, transparencia total y resultados que duran.</p>
+              <div className="tag" style={{ color: "rgba(255,255,255,0.5)" }}>Por qué Lucaseo para SEO</div>
+              <h2>SEO sin humo.</h2>
+              <p className="lead">Nadie serio puede prometerte &quot;posición 1 en 30 días&quot;. Google no funciona así. Nosotros tampoco. Lo que sí hacemos es decirte: qué vemos, qué haríamos, por qué y cómo vamos a medirlo.</p>
             </div>
-            <ul className="diff-list">
-              <li>Reportes mensuales en lenguaje humano: qué subió, qué bajó y qué vamos a hacer al respecto</li>
-              <li>Dashboard en tiempo real para que veas el progreso sin esperar al informe</li>
-              <li>Estrategia de keywords basada en intención de compra, no solo en volumen de búsqueda</li>
-              <li>Nunca comprometemos tu dominio con técnicas que Google penaliza</li>
-              <li>Combinamos SEO técnico, de contenido y off-page en una estrategia integrada</li>
-              <li>Experiencia en más de 10 sectores distintos — sabemos qué funciona en el tuyo</li>
-            </ul>
+            <div></div>
           </div>
         </div>
       </div>
@@ -194,8 +182,8 @@ export default function SeoPage() {
       </div>
 
       <ServiceCta
-        title="¿Tu web no aparece en Google?"
-        body="Hacemos una auditoría gratuita de tu situación actual. Sabrás exactamente en qué posición estás, cuánto tráfico estás perdiendo y qué haremos para cambiarlo."
+        title="¿Quieres saber cuánto tráfico estás dejando encima de la mesa?"
+        body="Te enseñamos qué está pasando con tu web y dónde están las oportunidades. Sin coste inicial. Sin compromiso. En lenguaje humano."
       />
     </>
   );

@@ -5,9 +5,9 @@ export const chatgptAds: ServicePage = {
   metaTitle: "Publicidad en ChatGPT & IA | Lucaseo — Ads en Inteligencia Artificial",
   metaDescription: "Posiciona tu marca en las respuestas de ChatGPT y otros modelos de IA. El nuevo canal publicitario que tu competencia aún no conoce.",
   eyebrow: "SEM · ChatGPT Ads",
-  title: "El próximo gran canal publicitario *ya está aquí*",
-  lead: "200 millones de personas ya usan ChatGPT cada semana para buscar información, comparar productos y tomar decisiones de compra. OpenAI ha abierto su plataforma publicitaria — y los early adopters van a llevarse la mayor ventaja competitiva de la década.",
-  primaryCta: "Quiero ser de los primeros",
+  title: "La próxima batalla no será por el primer puesto. *Será por la primera recomendación.*",
+  lead: "El buscador está cambiando. Cada vez más personas preguntan en lenguaje natural, comparan opciones y esperan una respuesta directa. Las marcas que entiendan este nuevo comportamiento tendrán ventaja. Las que no, llegarán tarde. En Lucaseo trabajamos la estrategia para visibilidad y adquisición dentro de nuevos entornos de búsqueda y recomendación basados en IA, preparados para lo que viene.",
+  primaryCta: "Quiero hablar sobre ChatGPT Ads →",
   secondaryCta: "Entender la oportunidad",
   stats: [
     { n: "200M+", l: "Usuarios semanales de ChatGPT", c: "Y creciendo un 20% cada trimestre" },
@@ -65,7 +65,7 @@ export const chatgptAds: ServicePage = {
     { q: "¿Qué es GEO y cómo afecta a mi negocio?", a: "GEO (Generative Engine Optimization) es el equivalente al SEO para modelos de IA. Consiste en optimizar tu presencia digital — web, contenido, reseñas, datos estructurados — para que los modelos de IA te recomienden de forma orgánica. Es el SEO del futuro, y ya se puede trabajar hoy." },
     { q: "¿Puedo medir el impacto?", a: "Sí. La plataforma de OpenAI ofrece métricas de impresiones, clics y conversiones. Además, podemos medir el tráfico que llega a tu web desde ChatGPT y otras IAs, y comparar la conversión con otros canales. Complementamos con análisis de brand mentions en IA." },
   ],
-  ctaTitle: "¿Quieres estar donde nadie más está?",
+  ctaTitle: "No esperes a que el nuevo buscador esté lleno.",
   ctaBody: "Analizamos cómo habla la IA de tu marca y te presentamos un plan para posicionarte en este nuevo canal antes que tu competencia.",
   related: {
     title: "Servicios relacionados",

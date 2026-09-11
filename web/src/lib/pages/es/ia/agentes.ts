@@ -5,9 +5,9 @@ export const agentes: ServicePage = {
   metaTitle: "Agentes de IA para Empresas | Lucaseo",
   metaDescription: "Agentes de inteligencia artificial que trabajan 24/7: atienden clientes, cualifican leads, gestionan tareas y toman decisiones con contexto completo de tu negocio.",
   eyebrow: "IA · Agentes Inteligentes",
-  title: "Un empleado digital que *nunca duerme y nunca se equivoca*",
-  lead: "Los agentes de IA no son chatbots con respuestas predefinidas. Son sistemas autónomos que entienden tu negocio, acceden a tus datos en tiempo real, toman decisiones y ejecutan acciones — desde agendar reuniones hasta cerrar ventas.",
-  primaryCta: "Quiero mi agente IA",
+  title: "No necesitas otro chatbot. *Necesitas un sistema que haga cosas.*",
+  lead: "Un agente IA puede analizar información, tomar decisiones dentro de unos límites, consultar herramientas y ejecutar acciones. Lo importante no es que \"hable bonito\". Lo importante es que trabaje.",
+  primaryCta: "Quiero un agente IA →",
   secondaryCta: "Ver casos de uso",
   stats: [
     { n: "24/7", l: "Disponibilidad total", c: "Tu agente no descansa, no enferma, no pide vacaciones" },

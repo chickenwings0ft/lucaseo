@@ -3,16 +3,16 @@ import Link from "next/link";
 import { useState } from "react";
 
 const services = [
-  { href: "/ia/automatizaciones", icon: "⚙️", title: "Automatizaciones", desc: "Automatizamos tareas repetitivas — emails, datos, informes, facturas — con flujos inteligentes que conectan tus herramientas actuales. Tu equipo deja de copiar y pegar para dedicarse a lo que realmente importa." },
-  { href: "/ia/agentes", icon: "🧠", title: "Agentes IA", desc: "Agentes autónomos que ejecutan tareas complejas por ti: investigación, generación de contenido, análisis de datos, gestión de tareas. No son chatbots — son trabajadores digitales que entienden contexto y toman decisiones." },
-  { href: "/ia/agentes-voz", icon: "🎙️", title: "Agentes de Voz", desc: "IA que atiende llamadas telefónicas por ti: responde preguntas, cualifica leads, agenda citas y escala a humano cuando es necesario. Disponible 24/7, sin tiempos de espera, sin centralitas." },
-  { href: "/ia/personalizado", icon: "🔧", title: "IA a Medida", desc: "Soluciones de inteligencia artificial diseñadas específicamente para tu negocio: modelos entrenados con tus datos, workflows personalizados, integraciones a medida. Lo que necesites, lo construimos." },
-  { href: "/ia/chatbots", icon: "🤖", title: "Chatbots con IA", desc: "Un asistente en tu web que responde preguntas, cualifica leads y agenda reuniones a cualquier hora del día. Entrenado con el conocimiento de tu negocio: servicios, precios, preguntas frecuentes." },
-  { href: "/ia/email-marketing", icon: "📧", title: "Email Marketing Automatizado", desc: "Secuencias de emails que se activan según el comportamiento del usuario: registro, descarga, visita, carrito abandonado. Cada email en el momento exacto, con el mensaje exacto, sin enviar nada a mano." },
-  { href: "/ia/lead-scoring", icon: "🎯", title: "Lead Scoring Automático", desc: "Puntuación automática de cada contacto según su comportamiento, empresa, cargo y engagement. Tus comerciales trabajan primero en los leads con más probabilidad de cierre — no en los más recientes." },
-  { href: "/ia/integracion-crm", icon: "🔄", title: "Integración CRM", desc: "Conectamos tu web, formularios, ads y emails con HubSpot, Pipedrive o el CRM que uses. Cada lead queda registrado automáticamente, enriquecido con datos y asignado al comercial correcto." },
-  { href: "/ia/whatsapp-automation", icon: "📱", title: "WhatsApp Automation", desc: "Respuestas automáticas, confirmaciones de cita, recordatorios de seguimiento y notificaciones en WhatsApp Business. La plataforma con mayor tasa de apertura del mundo." },
-  { href: "/ia/reporting-automatizado", icon: "📊", title: "Reporting Automatizado", desc: "Dashboards que se actualizan solos con los datos que importan: leads, conversiones, coste por cliente, ROI por campaña. Toda la información en una pantalla, sin buscar en cinco herramientas." },
+  { href: "/ia/automatizaciones", icon: "⚙️", title: "Automatizaciones", desc: "Conectamos las herramientas que ya utilizas para que los procesos ocurran solos." },
+  { href: "/ia/agentes", icon: "🧠", title: "Agentes IA", desc: "Sistemas capaces de razonar, responder y ejecutar tareas dentro de un flujo de trabajo." },
+  { href: "/ia/agentes-voz", icon: "🎙️", title: "Agentes de Voz", desc: "Llamadas automáticas para atender, cualificar, confirmar o hacer seguimiento." },
+  { href: "/ia/personalizado", icon: "🔧", title: "IA a Medida", desc: "Construimos sistemas específicos para problemas que no tienen una solución de catálogo." },
+  { href: "/ia/chatbots", icon: "🤖", title: "Chatbots con IA", desc: "Atención rápida, natural y disponible 24/7." },
+  { href: "/ia/email-marketing", icon: "📧", title: "Email Marketing Automatizado", desc: "Secuencias que reaccionan a lo que hace cada contacto." },
+  { href: "/ia/lead-scoring", icon: "🎯", title: "Lead Scoring", desc: "Descubrimos qué leads merecen atención primero." },
+  { href: "/ia/integracion-crm", icon: "🔄", title: "Integración CRM", desc: "Dejamos que tus herramientas hablen entre ellas." },
+  { href: "/ia/whatsapp-automation", icon: "📱", title: "WhatsApp Automation", desc: "Atención, seguimiento y cualificación desde el canal donde ya está tu cliente." },
+  { href: "/ia/reporting-automatizado", icon: "📊", title: "Reporting Automatizado", desc: "Menos tiempo preparando informes. Más tiempo tomando decisiones." },
 ];
 
 export default function IaServicesGrid() {

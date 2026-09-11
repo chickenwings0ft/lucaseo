@@ -5,9 +5,9 @@ export const emailMarketing: ServicePage = {
   metaTitle: "Email Marketing Automatizado con IA | Lucaseo",
   metaDescription: "Secuencias de email que se activan según el comportamiento del usuario. Nurturing, carritos abandonados, onboarding y más — sin enviar un solo email a mano.",
   eyebrow: "IA · Email Marketing",
-  title: "Emails que se envían solos *en el momento exacto*",
-  lead: "Secuencias de emails que se activan según el comportamiento del usuario: se registró, pidió información, visitó una página específica, abandonó un carrito. Cada email en el momento justo, con el mensaje preciso, sin que nadie de tu equipo pulse enviar.",
-  primaryCta: "Quiero automatizar mis emails",
+  title: "El email de \"hola, te escribimos porque...\" *puede morir.*",
+  lead: "Creamos secuencias que cambian según lo que hace cada contacto. Más relevantes. Más personales. Más automáticas.",
+  primaryCta: "Quiero automatizar mi email marketing →",
   secondaryCta: "Ver ejemplos de secuencias",
   stats: [
     { n: "3.8×", l: "Más apertura que emails masivos", c: "Los emails por comportamiento son relevantes — se abren" },

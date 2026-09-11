@@ -5,9 +5,9 @@ export const chatbots: ServicePage = {
   metaTitle: "Chatbots con IA para Empresas | Lucaseo",
   metaDescription: "Implementamos chatbots con inteligencia artificial que cualifican leads, responden preguntas y agendan reuniones 24/7. Entrenados con el conocimiento de tu negocio.",
   eyebrow: "IA · Chatbots",
-  title: "Un asistente en tu web que *nunca duerme*",
-  lead: "Un chatbot con IA entrenado con el conocimiento de tu negocio: servicios, precios, preguntas frecuentes, procesos internos. El visitante pregunta, el bot responde con precisión, cualifica al lead y agenda la reunión — todo sin intervención humana, a cualquier hora del día.",
-  primaryCta: "Quiero un chatbot para mi web",
+  title: "Responder rápido también es *una ventaja competitiva.*",
+  lead: "Tu cliente pregunta a las 22:41. Tu equipo no está. La IA sí. Construimos asistentes entrenados con el conocimiento de tu negocio para responder, orientar, capturar leads y derivar al humano cuando hace falta.",
+  primaryCta: "Quiero un chatbot IA →",
   secondaryCta: "Ver demostración",
   stats: [
     { n: "24/7", l: "Disponibilidad total", c: "Tu chatbot responde sábados, domingos y festivos" },

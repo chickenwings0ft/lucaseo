@@ -5,9 +5,9 @@ export const leadScoring: ServicePage = {
   metaTitle: "Lead Scoring Automático con IA | Lucaseo",
   metaDescription: "Puntuamos automáticamente cada lead según su comportamiento, perfil y engagement. Tu equipo comercial trabaja primero en los leads con más probabilidad de cierre.",
   eyebrow: "IA · Lead Scoring",
-  title: "No todos los leads son iguales. *Tu equipo debería saberlo.*",
-  lead: "Automatizamos la puntuación de cada contacto según su comportamiento, empresa, cargo y engagement con tu contenido. Tus comerciales trabajan primero en los leads con más probabilidad de cierre — no en los más recientes.",
-  primaryCta: "Quiero puntuar mis leads",
+  title: "No todos los leads merecen *la misma llamada.*",
+  lead: "La IA analiza señales y comportamiento para ayudarte a identificar: quién acaba de mirar, quién está interesado, quién está listo para hablar. Tu equipo deja de perseguir a todo el mundo. Y empieza por quien importa.",
+  primaryCta: "Quiero priorizar mis leads →",
   secondaryCta: "Cómo funciona",
   stats: [
     { n: "3.2×", l: "Más tasa de cierre", c: "Cuando comerciales trabajan leads por puntuación, no por orden de llegada" },

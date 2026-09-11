@@ -5,9 +5,9 @@ export const tiktokAds: ServicePage = {
   metaTitle: "TikTok Ads para Empresas | Lucaseo — Publicidad en TikTok",
   metaDescription: "Campañas de TikTok Ads que generan ventas y notoriedad. Creatividades nativas en vídeo, segmentación precisa y el CPM más bajo del mercado.",
   eyebrow: "SEM · TikTok Ads",
-  title: "El canal con más engagement y *el coste por impacto más bajo del mercado*",
-  lead: "TikTok ya no es solo para adolescentes. Es la plataforma donde 1.000 millones de usuarios pasan más de 90 minutos al día. Y su publicidad tiene algo que no tiene ninguna otra: parece contenido, no publicidad.",
-  primaryCta: "Quiero anunciarme en TikTok",
+  title: "Si tu marca parece un anuncio, *ya has perdido.*",
+  lead: "TikTok premia lo que parece contenido. La audiencia no quiere otro anuncio. Quiere descubrir algo. Reírse. Aprender. Sorprenderse. Y, de vez en cuando, comprar. Creamos campañas y conceptos que entienden ese lenguaje.",
+  primaryCta: "Quiero explorar TikTok Ads →",
   secondaryCta: "Ver formatos",
   stats: [
     { n: "92min", l: "Tiempo medio diario en TikTok", c: "Más que Instagram, YouTube y Twitter juntos" },
@@ -24,15 +24,14 @@ export const tiktokAds: ServicePage = {
     ],
   },
   cards: {
-    tag: "Formatos",
-    title: "Publicidad que no parece publicidad",
+    tag: "Enfoque",
+    title: "TikTok para marcas que quieren dejar de sonar a marca",
     items: [
-      { icon: "📱", title: "In-Feed Ads", desc: "Vídeos nativos en el feed 'Para ti'. Integrados en el scroll natural. El formato más versátil y el que mejor ROAS suele dar." },
-      { icon: "🔥", title: "Spark Ads", desc: "Potenciamos tus mejores vídeos orgánicos como publicidad. Mantiene likes y comentarios reales. Autenticidad + alcance." },
-      { icon: "🏪", title: "TikTok Shop Ads", desc: "Anuncios con enlace directo a compra sin salir de TikTok. El embudo más corto del mercado para e-commerce." },
-      { icon: "🎯", title: "Lead Generation Ads", desc: "Formularios nativos dentro de TikTok. El usuario no sale de la app para dejarte sus datos. Conversión máxima, fricción mínima." },
-      { icon: "🔄", title: "Retargeting", desc: "Impacta de nuevo a quienes vieron tus vídeos, visitaron tu web o interactuaron con tu perfil. Cierra el embudo." },
-      { icon: "📊", title: "Branded Content", desc: "Colaboraciones con creadores de TikTok que hablan de tu marca de forma natural. Credibilidad + alcance exponencial." },
+      { icon: "🎨", title: "Creatividad nativa", desc: "Contenido que encaja en el feed, no que lo interrumpe." },
+      { icon: "🪝", title: "Hooks fuertes", desc: "Los primeros 2 segundos deciden todo. Los trabajamos a fondo." },
+      { icon: "⚡", title: "Vídeos que entran rápido", desc: "Ritmo, cortes y narrativa pensados para retener atención." },
+      { icon: "🧪", title: "Testing constante", desc: "Variaciones de concepto, formato y CTA hasta encontrar lo que funciona." },
+      { icon: "🚀", title: "Escala", desc: "Cuando encontramos una idea ganadora, la escalamos." },
     ],
   },
   steps: {
@@ -65,8 +64,8 @@ export const tiktokAds: ServicePage = {
     { q: "¿Puedo medir las conversiones en mi web?", a: "Sí. Instalamos el TikTok Pixel y la Events API en tu web para rastrear cada conversión: compras, formularios, añadir al carrito, etc. Toda la atribución configurada desde el primer día." },
     { q: "¿TikTok Ads se puede combinar con Meta Ads?", a: "Absolutamente, y es lo que recomendamos. Meta y TikTok se complementan: Meta tiene mejor retargeting y audiencias lookalike; TikTok tiene mejor alcance orgánico y CPM más bajo. Una estrategia omnicanal maximiza el retorno global." },
   ],
-  ctaTitle: "¿Quieres probar TikTok Ads?",
-  ctaBody: "Creamos tu primera campaña de prueba con creatividades incluidas. Si no funciona, no pagas la gestión.",
+  ctaTitle: "Deja de perseguir atención. Empieza a ganártela.",
+  ctaBody: "",
   related: {
     title: "Servicios relacionados",
     links: [

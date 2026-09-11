@@ -5,9 +5,9 @@ export const estrategiaStorytelling: ServicePage = {
   metaTitle: "Storytelling para Marcas | Lucaseo — Narrativa de Marca",
   metaDescription: "Construimos la narrativa de tu marca en redes sociales. Storytelling estratégico que conecta emocionalmente con tu audiencia y convierte seguidores en clientes fieles.",
   eyebrow: "RRSS · Storytelling",
-  title: "Las marcas que cuentan historias *venden más que las que solo anuncian*",
-  lead: "La gente no sigue marcas en redes sociales para ver anuncios. Sigue historias que les inspiran, les enseñan o les hacen sentir algo. El storytelling estratégico convierte tu marca en una historia que tu audiencia quiere seguir.",
-  primaryCta: "Quiero contar mi historia",
+  title: "La gente no compra una empresa. *Compra una historia que entiende y quiere formar parte de ella.*",
+  lead: "Qué haces. Por qué importa. Qué problema resuelves. Qué te hace diferente. Y por qué alguien debería elegirte a ti. Construimos esa narrativa y la convertimos en contenido. Porque una marca sin historia es fácil de olvidar.",
+  primaryCta: "Quiero encontrar mi historia →",
   secondaryCta: "Ver ejemplos",
   stats: [
     { n: "22x", l: "Más memorable que los datos solos", c: "Las historias se recuerdan 22 veces más que los hechos" },

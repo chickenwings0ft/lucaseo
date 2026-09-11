@@ -7,6 +7,7 @@ export type AccordionService = {
   title: string;
   desc: string;
   href?: string;
+  ctaLabel?: string;
 };
 
 export default function ServicesAccordionGrid({ services }: { services: AccordionService[] }) {
@@ -97,7 +98,7 @@ export default function ServicesAccordionGrid({ services }: { services: Accordio
                     <p className="sag-card__desc">{s.desc}</p>
                     {s.href && (
                       <Link href={s.href} className="sag-card__link">
-                        Ver servicio completo &rarr;
+                        {s.ctaLabel || "Ver servicio completo →"}
                       </Link>
                     )}
                   </div>

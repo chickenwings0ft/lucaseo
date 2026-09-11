@@ -5,9 +5,9 @@ export const estrategiaMensual: ServicePage = {
   metaTitle: "Gestión de Redes Sociales Mensual | Lucaseo",
   metaDescription: "Gestión completa de tus redes sociales: estrategia, contenido, publicación y análisis mensual. Deja de improvisar y empieza a crecer con un plan real.",
   eyebrow: "RRSS · Estrategia Mensual",
-  title: "Redes sociales que *generan clientes, no solo likes*",
-  lead: "Publicar por publicar no funciona. Lo que funciona es una estrategia mensual con objetivos claros, contenido diseñado para tu audiencia y un calendario editorial que convierte seguidores en clientes reales.",
-  primaryCta: "Quiero una estrategia real",
+  title: "Porque improvisar también es una estrategia. *Solo que normalmente es mala.*",
+  lead: "Cada mes definimos: qué decir, qué no decir, qué formato usar, qué mensaje repetir, qué campaña lanzar y qué medir. Así tus redes empiezan a parecer una marca. No un cajón de contenido olvidado.",
+  primaryCta: "Quiero mi estrategia mensual →",
   secondaryCta: "Ver qué incluye",
   stats: [
     { n: "+180%", l: "Crecimiento medio de engagement", c: "En los primeros 3 meses de gestión" },

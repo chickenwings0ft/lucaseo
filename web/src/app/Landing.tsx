@@ -9,9 +9,10 @@ import ServiceNav from "./components/ServiceNav";
 import ServicesAccordionGrid from "./components/ServicesAccordionGrid";
 
 const localClients = [
-  { _id: "l1", name: "Macheta Smash Burger", url: "https://macheta.es", darkBackground: false, localLogo: "/macheta-logo.png", w: 960, h: 540 },
-  { _id: "l2", name: "Roots", url: "https://rootsrioja.com", darkBackground: false, localLogo: "/roots-logo.png", w: 512, h: 512 },
-  { _id: "l3", name: "Briya Exterior Cleaning", url: "https://briya.com.au", darkBackground: true, localLogo: "/briya-logo.png", w: 192, h: 222 },
+  { _id: "l0", name: "EEhh", url: "#", darkBackground: false, localLogo: "/eehh-logo.png", w: 512, h: 512, tagline: "Una marca más visible. Una web más viva. Más oportunidades." },
+  { _id: "l1", name: "Macheta Smash Burger", url: "https://macheta.es", darkBackground: false, localLogo: "/macheta-logo.png", w: 960, h: 540, tagline: "Construimos presencia digital para que la marca no pase desapercibida." },
+  { _id: "l2", name: "Roots Rioja", url: "https://rootsrioja.com", darkBackground: false, localLogo: "/roots-logo.png", w: 512, h: 512, tagline: "Una marca con historia necesitaba una presencia digital a la altura." },
+  { _id: "l3", name: "Briya Exterior Cleaning", url: "https://briya.com.au", darkBackground: true, localLogo: "/briya-logo.png", w: 192, h: 222, tagline: "De servicio local a presencia digital capaz de competir." },
 ];
 
 function Headline({ text }: { text: string }) {
@@ -33,15 +34,22 @@ function Headline({ text }: { text: string }) {
 export default function Landing({ data }: { data: LandingData }) {
   const { settings, services, steps, cases, stats } = data;
 
+  const ctaLabels: Record<string, string> = {
+    "/seo": "Quiero aparecer en Google →",
+    "/sem": "Quiero clientes ya →",
+    "/rrss": "Quiero que mis redes trabajen →",
+    "/web": "Quiero una web que venda →",
+    "/ia": "Quiero automatizar mi negocio →",
+  };
   const accordionServices = services.map(s => {
     let href: string | undefined;
     const lower = s.name.toLowerCase();
     if (lower.includes("seo")) href = "/seo";
-    else if (lower.includes("sem") || lower.includes("google ads")) href = "/sem";
-    else if (lower.includes("meta") || lower.includes("social")) href = "/rrss";
+    else if (lower.includes("sem") || lower.includes("paid")) href = "/sem";
+    else if (lower.includes("redes") || lower.includes("social")) href = "/rrss";
     else if (lower.includes("web")) href = "/web";
-    else if (lower.includes("ia") || lower.includes("automat")) href = "/ia";
-    return { icon: s.icon || "", title: s.name, desc: s.description, href };
+    else if (lower.includes("ia") || lower.includes("inteligencia") || lower.includes("automat")) href = "/ia";
+    return { icon: s.icon || "", title: s.name, desc: s.description, href, ctaLabel: href ? ctaLabels[href] : undefined };
   });
   const clientsFromCms = data.clients ?? [];
   const useLocalClients = clientsFromCms.length === 0;
@@ -142,7 +150,7 @@ export default function Landing({ data }: { data: LandingData }) {
         .section-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; margin-bottom: 1.25rem; }
         .section-body { font-size: 1.0625rem; color: var(--muted); max-width: 540px; line-height: 1.7; font-weight: 300; }
         .process-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; margin-top: 3.5rem; }
         .step-num { font-family: var(--font-display); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; }
         .step-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
         .step-desc { font-size: 0.9375rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
@@ -151,13 +159,27 @@ export default function Landing({ data }: { data: LandingData }) {
         .proof-result { font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; letter-spacing: -0.04em; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
         .proof-context { font-size: 0.9375rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.6; font-weight: 300; }
         .proof-sector { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 0.25rem 0.625rem; border-radius: 4px; }
-        .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
+        .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
         .client-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; padding: 2.5rem 2rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); text-decoration: none; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; min-height: 200px; }
         .client-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,74,173,0.1); }
         .client-logo-box { display: flex; align-items: center; justify-content: center; width: 100%; height: 110px; }
         .client-logo-box--dark { background: #0a1733; border-radius: 10px; padding: 1rem 1.5rem; }
         .client-logo { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
         .client-visit { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.04em; color: var(--accent); }
+        .client-tagline { font-size: 0.875rem; color: var(--muted); text-align: center; line-height: 1.5; font-weight: 300; padding: 0 0.5rem; }
+        .concept-section { text-align: center; padding: 5rem 2.5rem; }
+        .concept-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.3; max-width: 600px; margin: 0 auto; }
+        .concept-accent { color: var(--accent); }
+        .brand-idea { text-align: center; padding: 5rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+        .brand-idea-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.5rem; }
+        .brand-idea-body { font-size: 1.0625rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.75; font-weight: 300; }
+        .closing-cta { text-align: center; padding: 5rem 2.5rem; border-bottom: 1px solid var(--border); }
+        .closing-cta-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
+        .closing-cta-body { font-size: 1.0625rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.75; font-weight: 300; margin-bottom: 2rem; }
+        .stats-intro { text-align: center; padding: 3rem 2.5rem 1rem; }
+        .stats-intro-text { font-size: 0.875rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+        .stats-outro { text-align: center; padding: 1rem 2.5rem 3rem; }
+        .stats-outro-text { font-size: 1rem; color: var(--muted); font-weight: 300; font-style: italic; }
         .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
         .contact-form { display: flex; flex-direction: column; gap: 1rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -224,6 +246,17 @@ export default function Landing({ data }: { data: LandingData }) {
         </div>
       </div>
 
+      <div className="concept-section">
+        <div className="concept-title">
+          El océano digital está lleno.<br />
+          La pregunta no es si hay clientes.<br />
+          La pregunta es: <span className="concept-accent">¿Quién se los está llevando?</span>
+        </div>
+      </div>
+
+      <div className="stats-intro">
+        <div className="stats-intro-text">Algunas cosas que nos gusta mover:</div>
+      </div>
       <div className="stats-bar" ref={statsRef}>
         {stats.map((s) => (
           <div className="stat-cell" key={s._id}>
@@ -234,6 +267,9 @@ export default function Landing({ data }: { data: LandingData }) {
           </div>
         ))}
       </div>
+      <div className="stats-outro">
+        <div className="stats-outro-text">No hacemos magia. Hacemos que el marketing deje de ser una apuesta.</div>
+      </div>
 
       <section id="servicios">
         <div className="section-wrap">
@@ -243,6 +279,15 @@ export default function Landing({ data }: { data: LandingData }) {
           <ServicesAccordionGrid services={accordionServices} />
         </div>
       </section>
+
+      <div className="brand-idea">
+        <h2 className="brand-idea-title">El océano no premia al que espera.<br />Premia al que se mueve mejor.</h2>
+        <p className="brand-idea-body">
+          Tu competencia también tiene una web. También publica en Instagram. También hace Ads. También dice que &ldquo;ofrece la mejor calidad&rdquo;.<br /><br />
+          Entonces deja de competir por parecerte a ellos. Hazlo mejor. Hazlo más rápido. Hazlo con más intención.<br /><br />
+          En Lucaseo trabajamos para que tu negocio tenga una presencia digital imposible de ignorar.
+        </p>
+      </div>
 
       <div className="process-section">
         <section id="proceso">
@@ -292,6 +337,7 @@ export default function Landing({ data }: { data: LandingData }) {
                     <span className={c.darkBackground ? "client-logo-box client-logo-box--dark" : "client-logo-box"}>
                       <Image src={c.localLogo} alt={c.name} width={c.w} height={c.h} className="client-logo" />
                     </span>
+                    <span className="client-tagline">{c.tagline}</span>
                     <span className="client-visit">Visitar web →</span>
                   </a>
                 ))
@@ -308,6 +354,16 @@ export default function Landing({ data }: { data: LandingData }) {
           </div>
         </div>
       </section>
+
+      <div className="closing-cta">
+        <h2 className="closing-cta-title">¿Tienes buen negocio pero internet no se ha enterado?</h2>
+        <p className="closing-cta-body">
+          Perfecto. Ese es un problema bastante más fácil de solucionar que tener un mal negocio.<br /><br />
+          Cuéntanos qué tienes, dónde estás y qué quieres conseguir. Te diremos qué vemos, qué cambiaríamos y por dónde empezaríamos.<br /><br />
+          Sin presión. Sin discurso de ventas de 47 diapositivas.
+        </p>
+        <a href="#contacto" className="btn">Cuéntanos qué necesitas →</a>
+      </div>
 
       <section id="contacto">
         <div className="section-wrap">
@@ -364,26 +420,27 @@ export default function Landing({ data }: { data: LandingData }) {
                     </div>
                   </div>
                   <div className="field">
-                    <label htmlFor="objetivo">¿Cuál es tu objetivo principal?</label>
+                    <label htmlFor="objetivo">¿Qué quieres conseguir?</label>
                     <select id="objetivo" name="objetivo" defaultValue="">
                       <option value="">Selecciona una opción</option>
-                      <option>Aparecer en Google (SEO)</option>
-                      <option>Publicidad en Google Ads</option>
-                      <option>Publicidad en redes sociales</option>
-                      <option>Mejorar mi web</option>
-                      <option>Estrategia completa de marketing digital</option>
+                      <option>Que me encuentren más en Google</option>
+                      <option>Conseguir clientes con Ads</option>
+                      <option>Mejorar mis redes</option>
+                      <option>Crear una web nueva</option>
+                      <option>Automatizar procesos con IA</option>
+                      <option>No tengo ni idea. Necesito orientación</option>
                     </select>
                   </div>
                   <div className="field">
-                    <label htmlFor="mensaje">Cuéntanos sobre tu negocio</label>
-                    <textarea id="mensaje" name="mensaje" placeholder="¿A qué te dedicas? ¿Cuántos clientes quieres al mes? ¿Qué has probado antes?" />
+                    <label htmlFor="mensaje">Cuéntanos un poco sobre tu negocio</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="¿Qué haces? ¿Qué te preocupa? ¿Qué te gustaría conseguir?" />
                   </div>
                   {formState === "error" && (
                     <p className="form-err">No se pudo enviar. Inténtalo de nuevo o escríbenos a {settings.contactEmail}.</p>
                   )}
-                  <p className="form-note">Tus datos están seguros. No los compartimos con terceros.</p>
+                  <p className="form-note">Tus datos son tuyos. No los vendemos, no los alquilamos y no te mandamos veinte emails por semana.</p>
                   <button type="submit" className="btn btn-full" disabled={formState === "sending"}>
-                    {formState === "sending" ? "Enviando…" : "Quiero más clientes →"}
+                    {formState === "sending" ? "Enviando…" : "Quiero hablar con Lucaseo →"}
                   </button>
                 </form>
               )}

@@ -5,9 +5,9 @@ export const automatizaciones: ServicePage = {
   metaTitle: "Automatizaciones con IA para Empresas | Lucaseo",
   metaDescription: "Automatiza tareas repetitivas con inteligencia artificial. Ahorra horas al día, reduce errores y escala tu negocio sin contratar más personal.",
   eyebrow: "IA · Automatizaciones",
-  title: "Deja que la IA haga *el trabajo que nadie quiere hacer*",
-  lead: "Tu equipo pierde entre 2 y 4 horas diarias en tareas repetitivas: responder emails idénticos, clasificar datos, generar informes, actualizar hojas de cálculo. La IA no viene a sustituir personas — viene a liberar su tiempo para lo que realmente importa.",
-  primaryCta: "Quiero automatizar mi negocio",
+  title: "Deja de hacer manualmente *lo que puedes hacer una vez.*",
+  lead: "Captura de leads. Emails. Tareas. Notificaciones. CRM. Seguimientos. Diseñamos flujos que se activan solos y hacen el trabajo repetitivo por ti.",
+  primaryCta: "Quiero automatizar un proceso →",
   secondaryCta: "Ver cómo funciona",
   stats: [
     { n: "73%", l: "Reducción de tareas manuales", c: "En los primeros 30 días de implementación" },

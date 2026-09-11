@@ -5,9 +5,9 @@ export const integracionCrm: ServicePage = {
   metaTitle: "Integración CRM con IA | Lucaseo",
   metaDescription: "Conectamos tu web, formularios, ads y emails con HubSpot, Pipedrive o el CRM que uses. Cada lead registrado automáticamente, enriquecido y asignado.",
   eyebrow: "IA · Integración CRM",
-  title: "Tu CRM lleno de datos. *Sin que nadie los meta a mano.*",
-  lead: "Conectamos tu web, tus formularios, tus ads y tus emails con HubSpot, Pipedrive o el CRM que uses. Nada cae en el olvido: cada lead queda registrado automáticamente, enriquecido con datos y asignado al comercial correcto.",
-  primaryCta: "Quiero integrar mi CRM",
+  title: "Tus herramientas deberían *hablar entre ellas.*",
+  lead: "Si alguien rellena un formulario y luego alguien tiene que copiar sus datos al CRM... tenemos un pequeño problema. Conectamos formularios, CRM, email, WhatsApp, calendarios y otras herramientas para que la información viaje sola.",
+  primaryCta: "Quiero conectar mi CRM →",
   secondaryCta: "Ver integraciones disponibles",
   stats: [
     { n: "0", l: "Leads perdidos", c: "Cada contacto queda registrado automáticamente en tu CRM" },
