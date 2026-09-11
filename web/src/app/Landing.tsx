@@ -215,7 +215,7 @@ export default function Landing({ data }: { data: LandingData }) {
         />
         <div className="hero-overlay" />
         <div className="hero-content">
-          <h1 className="hero-headline">Tu negocio merece más clientes.</h1>
+          <h1 className="hero-headline">Tu negocio merece más <span style={{ color: "var(--accent)" }}>clientes</span>.</h1>
           <div className="hero-actions">
             <a href="#contacto" className="btn">{settings.heroPrimaryCta}</a>
             <a href="#servicios" className="btn btn-outline">{settings.heroSecondaryCta}</a>
