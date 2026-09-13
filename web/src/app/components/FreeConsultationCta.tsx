@@ -51,7 +51,6 @@ export default function FreeConsultationCta() {
             </div>
           </div>
           <div className="fcc-right">
-            <div className="fcc-price-was">Usually $150 AUD</div>
             <div className="fcc-price">$0<span>/visit</span></div>
             <div className="fcc-sub">Only a few free spots released each week</div>
             <a href="#contact" className="fcc-btn">Claim my free visit</a>
