@@ -83,7 +83,7 @@ export default function WebPage() {
 
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
               <div style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>📱</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Mobile-first</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Mobile-first</h3>
               <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}>Tu cliente probablemente entra desde móvil.</p>
             </div>
 
