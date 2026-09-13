@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ServiceNav from "./components/ServiceNav";
 import ServiceCta from "./components/ServiceCta";
+import ServiceAreaMap from "./components/ServiceAreaMap";
 import SiteFooter from "./components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -114,6 +115,7 @@ export default function HomePage() {
         </p>
       </div>
 
+      <ServiceAreaMap />
       <ServiceCta locale="en" />
       <SiteFooter locale="en" />
     </>
