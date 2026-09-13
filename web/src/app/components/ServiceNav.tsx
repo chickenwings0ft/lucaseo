@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/pages/types";
 
 const esLinks = [
+  { href: "/sobre-mi", label: "Sobre Mí" },
   { href: "/seo", label: "SEO" },
   { href: "/sem", label: "SEM" },
   { href: "/rrss", label: "RRSS" },
@@ -13,6 +14,7 @@ const esLinks = [
 ];
 
 const enLinks = [
+  { href: "/en/about", label: "About" },
   { href: "/en/seo", label: "SEO" },
   { href: "/en/sem", label: "SEM" },
   { href: "/en/social-media", label: "Social" },
