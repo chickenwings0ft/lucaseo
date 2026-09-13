@@ -1,62 +1,50 @@
-import type { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://lucaseo.com";
-  const now = new Date().toISOString();
+  const baseUrl = 'https://lucaseo.com.au';
 
-  const pages = [
-    { url: "", priority: 1, changeFrequency: "weekly" as const },
-    // Servicios principales ES
-    { url: "/seo", priority: 0.9, changeFrequency: "monthly" as const },
-    { url: "/sem", priority: 0.9, changeFrequency: "monthly" as const },
-    { url: "/rrss", priority: 0.9, changeFrequency: "monthly" as const },
-    { url: "/web", priority: 0.9, changeFrequency: "monthly" as const },
-    { url: "/ia", priority: 0.9, changeFrequency: "monthly" as const },
-    // Subpáginas IA
-    { url: "/ia/automatizaciones", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/agentes", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/agentes-voz", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/personalizado", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/chatbots", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/email-marketing", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/lead-scoring", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/integracion-crm", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/whatsapp-automation", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/ia/reporting-automatizado", priority: 0.8, changeFrequency: "monthly" as const },
-    // Subpáginas RRSS
-    { url: "/rrss/estrategia-mensual", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/rrss/paid-media", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/rrss/estrategia-storytelling", priority: 0.8, changeFrequency: "monthly" as const },
-    // Subpáginas SEM
-    { url: "/sem/google-ads", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/sem/tiktok-ads", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/sem/chatgpt-ads", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/sem/meta-ads", priority: 0.8, changeFrequency: "monthly" as const },
-    // Páginas de empresa
-    { url: "/sobre-mi", priority: 0.7, changeFrequency: "monthly" as const },
-    { url: "/clientes", priority: 0.7, changeFrequency: "monthly" as const },
-    { url: "/clientes/macheta", priority: 0.6, changeFrequency: "monthly" as const },
-    { url: "/clientes/roots", priority: 0.6, changeFrequency: "monthly" as const },
-    { url: "/clientes/briya", priority: 0.6, changeFrequency: "monthly" as const },
-    // Legal
-    { url: "/politica-privacidad", priority: 0.3, changeFrequency: "yearly" as const },
-    { url: "/aviso-legal", priority: 0.3, changeFrequency: "yearly" as const },
-    // English
-    { url: "/en", priority: 0.9, changeFrequency: "weekly" as const },
-    { url: "/en/seo", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/en/sem", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/en/social-media", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/en/web", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/en/ai", priority: 0.8, changeFrequency: "monthly" as const },
-    { url: "/en/about", priority: 0.6, changeFrequency: "monthly" as const },
-    { url: "/en/privacy-policy", priority: 0.3, changeFrequency: "yearly" as const },
-    { url: "/en/legal-notice", priority: 0.3, changeFrequency: "yearly" as const },
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/sobre-mi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/seo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/sem`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/rrss`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/web`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ia`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ];
-
-  return pages.map((p) => ({
-    url: `${base}${p.url}`,
-    lastModified: now,
-    changeFrequency: p.changeFrequency,
-    priority: p.priority,
-  }));
 }
