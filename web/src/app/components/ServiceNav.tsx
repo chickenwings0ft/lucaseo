@@ -66,7 +66,7 @@ export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
 
       <nav className="site-nav">
         <Link href={home} className="site-nav__logo" aria-label="Lucaseo — inicio">
-          <Image src="/logo.png" alt="Lucaseo" width={40} height={40} priority style={{ width: "auto", height: "34px" }} />
+          <Image src="/logo.png" alt="Lucaseo" width={60} height={60} priority style={{ width: "auto", height: "48px" }} />
         </Link>
 
         <div className="site-nav__right">
