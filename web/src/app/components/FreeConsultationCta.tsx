@@ -53,7 +53,7 @@ export default function FreeConsultationCta() {
           <div className="fcc-right">
             <div className="fcc-price">$0<span>/visit</span></div>
             <div className="fcc-sub">Only a few free spots released each week</div>
-            <a href="#contact" className="fcc-btn">Claim my free visit</a>
+            <a href="/#contact" className="fcc-btn">Claim my free visit</a>
             <div className="fcc-note">No card required · No obligation · Gold Coast businesses only</div>
           </div>
         </div>

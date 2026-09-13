@@ -4,6 +4,7 @@ import ServiceNav from "./components/ServiceNav";
 import ServiceCta from "./components/ServiceCta";
 import ServiceAreaMap from "./components/ServiceAreaMap";
 import FreeConsultationCta from "./components/FreeConsultationCta";
+import EnContactSection from "./components/EnContactSection";
 import SiteFooter from "./components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -119,6 +120,7 @@ export default function HomePage() {
       <ServiceAreaMap />
       <FreeConsultationCta />
       <ServiceCta locale="en" />
+      <EnContactSection />
       <SiteFooter locale="en" />
     </>
   );
