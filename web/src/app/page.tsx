@@ -3,6 +3,7 @@ import Link from "next/link";
 import ServiceNav from "./components/ServiceNav";
 import ServiceCta from "./components/ServiceCta";
 import ServiceAreaMap from "./components/ServiceAreaMap";
+import FreeConsultationCta from "./components/FreeConsultationCta";
 import SiteFooter from "./components/SiteFooter";
 
 export const metadata: Metadata = {
@@ -116,6 +117,7 @@ export default function HomePage() {
       </div>
 
       <ServiceAreaMap />
+      <FreeConsultationCta />
       <ServiceCta locale="en" />
       <SiteFooter locale="en" />
     </>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -103,6 +104,8 @@ export default function SemPage() {
       </div>
 
       <FaqSection topic="SEM and Google Ads" faqs={semFaqs} />
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="What if my budget is small?"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -93,6 +94,8 @@ export default function AiPage() {
       </div>
 
       <FaqSection topic="AI and automation" faqs={aiFaqs} />
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="How many hours does your team lose to repetitive tasks?"

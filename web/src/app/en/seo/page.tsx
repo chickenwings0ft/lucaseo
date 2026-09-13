@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -116,6 +117,8 @@ export default function SeoPage() {
       </div>
 
       <FaqSection topic="SEO and search ranking" faqs={seoFaqs} />
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="What happens next?"

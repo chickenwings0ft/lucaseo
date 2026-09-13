@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import ServiceHero from "../../components/ServiceHero";
 
 export const metadata: Metadata = {
@@ -222,6 +223,8 @@ export default function AboutPage() {
           </p>
         </section>
       </div>
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="Shall we start?"

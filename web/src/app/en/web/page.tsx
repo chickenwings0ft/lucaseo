@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -137,6 +138,8 @@ export default function WebPage() {
       </div>
 
       <FaqSection topic="web design and development" faqs={webFaqs} />
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="Does your website represent the business you have today?"

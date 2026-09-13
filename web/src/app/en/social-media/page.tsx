@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import FreeConsultationCta from "../../components/FreeConsultationCta";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -113,6 +114,8 @@ export default function SocialMediaPage() {
       </div>
 
       <FaqSection topic="social media management" faqs={socialFaqs} />
+
+      <FreeConsultationCta />
 
       <ServiceCta
         title="Let's talk about your strategy?"
