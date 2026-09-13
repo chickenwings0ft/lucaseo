@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
-import ServicesAccordionGrid from "../components/ServicesAccordionGrid";
-import type { AccordionService } from "../components/ServicesAccordionGrid";
+import ServiceHero from "../components/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "SEM · Google Ads | Lucaseo — Resultados desde el primer día",
-  description: "Campañas de Google Ads que generan clientes reales. Search, Display y Performance Max optimizados para que cada euro invertido traiga el máximo retorno.",
+  title: "Google Ads & SEM Australia — Lucaseo | Resultados Rápidos",
+  description: "Google Ads optimizado. Presupuesto igual, 3x más clientes. Casos reales: $2000/mes → 45 leads. Desde $500 AUD/mes gestión. Auditoría gratis.",
 };
 
 const semFaqs = [
