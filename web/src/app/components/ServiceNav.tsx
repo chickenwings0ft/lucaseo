@@ -25,8 +25,8 @@ const enLinks = [
 export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
   const pathname = usePathname();
   const links = locale === "en" ? enLinks : esLinks;
-  const home = locale === "en" ? "/en" : "/";
-  const ctaHref = locale === "en" ? "/en#contact" : "/#contacto";
+  const home = locale === "en" ? "/" : "/es";
+  const ctaHref = locale === "en" ? "/#contact" : "/es#contacto";
   const ctaLabel = locale === "en" ? "Let's talk" : "Hablemos";
 
   return (

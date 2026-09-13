@@ -28,7 +28,7 @@ export default function IaPage() {
         highlight="una máquina puede hacer en segundos."
         lead="Responder lo mismo. Copiar datos. Actualizar el CRM. Perseguir leads. Recordatorios. Reportes. Clasificar emails. Eso no necesita más horas: necesita mejor sistema."
         cta1Text="Quiero automatizar mi negocio"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
         withVideo={true}
       />
 

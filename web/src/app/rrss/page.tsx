@@ -28,7 +28,7 @@ export default function RrssPage() {
         highlight="¿O solo las usas para publicar fotos?"
         lead="Instagram, TikTok, LinkedIn: son donde tus clientes pasan 2-3 horas diarias. Si no estás ahí generando leads, tu competencia lo está. La mayoría de pequeños negocios abandona sus redes a mitad de camino. Así que hay hueco para quien lo haga bien."
         cta1Text="Consulta de redes gratis"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
         withVideo={true}
       />
 

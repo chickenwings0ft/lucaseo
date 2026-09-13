@@ -29,7 +29,7 @@ export default function SemPage() {
         highlight="¿Pero está funcionando de verdad?"
         lead="Mientras lees esto, tu presupuesto publicitario se está quemando en Google Ads. ¿Sabes exactamente cuánto cuesta cada cliente que llega? ¿Sabes cuál es tu ROI real? En Lucaseo hacemos lo opuesto: minimizamos lo que no funciona y escalamos lo que sí."
         cta1Text="Audita tu presupuesto Ads"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
       />
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>

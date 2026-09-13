@@ -56,7 +56,7 @@ export default function SeoPage() {
         highlight="¿Y tú?"
         lead="Hace 3 años, posicionarse en Google era suficiente. Hoy, tu cliente busca en ChatGPT, Claude, Perplexity, TikTok, YouTube. Si solo estás en Google, pierdes el 60% de las búsquedas. Tu competencia está en todos lados. ¿Dónde estás tú?"
         cta1Text="Pide tu auditoría SEO gratuita"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
       />
 
       <div className="wrap">

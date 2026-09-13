@@ -60,7 +60,8 @@ const en = {
 
 export default function SiteFooter({ locale = "es" }: { locale?: Locale }) {
   const t = locale === "en" ? en : es;
-  const home = locale === "en" ? "/en" : "/";
+  const home = locale === "en" ? "/" : "/es";
+  const contactHref = locale === "en" ? "/#contact" : "/es#contacto";
 
   return (
     <>
@@ -117,14 +118,14 @@ export default function SiteFooter({ locale = "es" }: { locale?: Locale }) {
               <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.65, margin: 0 }}>
                 {t.ctaQ}<br />{t.ctaAction}
               </p>
-              <Link href="/#contacto" style={{ fontSize: "0.875rem", color: "#4d9aff", textDecoration: "none", marginTop: "0.5rem", display: "inline-block" }}>{t.ctaLink}</Link>
+              <Link href={contactHref} style={{ fontSize: "0.875rem", color: "#4d9aff", textDecoration: "none", marginTop: "0.5rem", display: "inline-block" }}>{t.ctaLink}</Link>
             </div>
           </div>
           <div className="site-ft-bar">
             <span className="site-ft-copy">&copy; {new Date().getFullYear()} Lucaseo. {t.rights}</span>
             <div className="site-ft-lang">
-              <Link href="/" className={locale === "es" ? "active" : ""}>ES</Link>
-              <Link href="/en" className={locale === "en" ? "active" : ""}>EN</Link>
+              <Link href="/es" className={locale === "es" ? "active" : ""}>ES</Link>
+              <Link href="/" className={locale === "en" ? "active" : ""}>EN</Link>
             </div>
           </div>
         </div>

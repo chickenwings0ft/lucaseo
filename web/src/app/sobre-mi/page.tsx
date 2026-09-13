@@ -18,7 +18,7 @@ export default function SobreMiPage() {
         highlight="Y empecé Lucaseo porque estaba cansado de ver agencias mentir."
         lead="Hace unos años trabajaba como freelancer. Un día un cliente me preguntó por qué otra agencia cobraba $5000 por lo que yo hacía en $500. Se me encendió una bombilla. Decidí hacer una agencia diferente."
         cta1Text="Hablemos"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
         withVideo={true}
       />
 

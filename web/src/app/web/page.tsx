@@ -28,7 +28,7 @@ export default function WebPage() {
         highlight="Debería conseguir que alguien quiera trabajar contigo."
         lead="Una buena web hace tres cosas muy rápido: te entiende, te cree y te mueve a actuar. Por eso no empezamos diseñando. Empezamos pensando en cómo vende tu negocio."
         cta1Text="Quiero una web que venda"
-        cta1Href="/#contacto"
+        cta1Href="/es#contacto"
         withVideo={true}
       />
 

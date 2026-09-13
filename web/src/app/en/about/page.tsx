@@ -1,98 +1,233 @@
 import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
-import SiteFooter from "../../components/SiteFooter";
+import ServiceHero from "../../components/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "About Lucas | Lucaseo",
-  description: "Meet Lucas, founder of Lucaseo. Digital marketing, SEO, artificial intelligence and one obsession: growing your business.",
-  alternates: { canonical: "https://lucaseo.com/en/about" },
+  title: "About Lucas — Lucaseo | Web, SEO & AI Agency Australia",
+  description: "I'm Lucas. I started Lucaseo because I was sick of watching agencies lie. Real results, honest pricing, personal service. This is how I work.",
+  alternates: { canonical: "https://lucaseo.com.au/en/about" },
 };
 
 export default function AboutPage() {
   return (
     <>
       <ServiceNav locale="en" />
-      <style>{`
-        .about-hero { padding: 9rem 2rem 5rem; background: linear-gradient(168deg, #f0f5ff 0%, #ffffff 68%); border-bottom: 1px solid rgba(0,74,173,0.1); }
-        .about-in { max-width: 800px; margin: 0 auto; }
-        .about-eyebrow { font-size: 0.75rem; font-weight: 600; color: #004aad; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .about-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 5vw, 4rem); line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 1.75rem; }
-        .about-hero h1 em { font-style: normal; color: #004aad; }
-        .about-lead { font-size: 1.125rem; color: #5a6480; line-height: 1.75; margin-bottom: 1.25rem; max-width: 640px; }
-        .about-section { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
-        .about-section + .about-section { border-top: 1px solid rgba(0,74,173,0.1); }
-        .about-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #004aad; margin-bottom: 1rem; }
-        .about-section h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; margin-bottom: 1.25rem; }
-        .about-section p { font-size: 1rem; color: #3d4661; line-height: 1.8; margin-bottom: 1.25rem; }
-        .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        .about-value { padding: 1.5rem; border: 1px solid rgba(0,74,173,0.12); border-radius: 8px; }
-        .about-value h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.5rem; }
-        .about-value p { font-size: 0.9375rem; color: #5a6480; margin-bottom: 0; }
-        .about-timeline { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-direction: column; gap: 1.5rem; }
-        .about-timeline li { display: flex; gap: 1.25rem; align-items: flex-start; }
-        .about-year { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: #004aad; flex-shrink: 0; min-width: 48px; }
-        .about-timeline p { font-size: 0.9375rem; color: #3d4661; line-height: 1.7; margin: 0; }
-        @media (max-width: 600px) { .about-values { grid-template-columns: 1fr; } }
-      `}</style>
+      <ServiceHero
+        eyebrow="About Me"
+        title="I'm Lucas."
+        highlight="And I started Lucaseo because I was sick of watching agencies lie."
+        lead="A few years back I was working as a freelancer. One day a client asked me why another agency was charging $5000 for what I was doing for $500. Something clicked. I decided to build a different kind of agency."
+        cta1Text="Let's talk"
+        cta1Href="/#contact"
+        withVideo={true}
+      />
 
-      <section className="about-hero">
-        <div className="about-in">
-          <div className="about-eyebrow">About Lucas</div>
-          <h1>Digital marketing with an <em>obsession for results</em></h1>
-          <p className="about-lead">
-            I didn't become a marketer by accident. I started selling online at 17 and haven't stopped learning, experimenting and — most importantly — generating measurable results for real businesses.
+      <div style={{ maxWidth: "900px", margin: "0 auto", padding: "5rem 2.5rem" }}>
+        <section style={{ paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "1.5rem" }}>
+            I grew up watching family run small businesses. They worked 12-hour days without understanding why their competitors sold more. Later I found out — their competitors were online, and they weren't.
           </p>
-          <p className="about-lead">
-            Lucaseo was born from a frustration: watching big agencies charge a lot, deliver little and never be held accountable. I decided to build something different: an agency where transparency, speed and results aren't slogans — they're how we work.
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "1.5rem" }}>
+            The internet changed the game. Nobody had explained that to them.
           </p>
-        </div>
-      </section>
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+            When I started in digital marketing, I saw the opportunity. But I also saw the problem: agencies charging $200/hour for "strategy" that was really just sitting in a meeting without actually listening.
+          </p>
+        </section>
 
-      <div className="about-section">
-        <div className="about-tag">My story</div>
-        <h2>From selling online to building an agency</h2>
-        <p>I started in the digital world before I knew digital marketing was a thing. At 17, I was selling products online, learning through trial and error how Google, social media and online advertising worked. Every dollar I invested from my own pocket had to generate returns — and that taught me something many big agencies never learn: the client's money is not abstract.</p>
-        <p>Then came years of training, working with businesses of all sizes and specializing in SEO, SEM and artificial intelligence applied to marketing. Today I combine that practical experience with the most advanced tools in the market to give every client what they need: more clients, not more vanity metrics.</p>
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            How I got here
+          </h2>
 
-        <ul className="about-timeline">
-          <li><span className="about-year">2019</span><p>First online sales and discovery of digital marketing as a discipline.</p></li>
-          <li><span className="about-year">2021</span><p>First SEO and SEM clients. Measurable results from the very first project.</p></li>
-          <li><span className="about-year">2023</span><p>Specialization in AI applied to marketing and process automation.</p></li>
-          <li><span className="about-year">2024</span><p>Founded Lucaseo as an agency. Focus on SEO, SEM, social media, web and AI.</p></li>
-          <li><span className="about-year">2025</span><p>International expansion. Clients in Spain, Latin America and Australia.</p></li>
-        </ul>
-      </div>
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              The breaking point
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              I thought: "This isn't right. There has to be another way." So I decided to build a different agency. One that doesn't lie with metrics. Doesn't bill for hours it didn't work. Doesn't disappear after the sale. Is honest.
+            </p>
+          </div>
 
-      <div className="about-section">
-        <div className="about-tag">How I work</div>
-        <h2>Four principles I don't negotiate</h2>
-        <div className="about-values">
-          <div className="about-value">
-            <h3>Radical transparency</h3>
-            <p>You'll see every action I take, every dollar I spend and every result I get. If something isn't working, I tell you before you find out yourself.</p>
+          <div>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Why SEO + AI, not just web design
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "1rem" }}>
+              I started out building websites. Nice ones, functional ones — but just websites. Then I realised something: a beautiful website nobody can find is like a five-star restaurant in the middle of the desert.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "1rem" }}>
+              So I learned SEO. Ranking on Google. Driving organic traffic. That actually works.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              But then something else happened: people started searching on ChatGPT, Claude, Perplexity. Not just Google anymore. So I had to learn to rank there too. And to use AI not as a replacement for the work, but as an amplifier — doing in 2 weeks what used to take 2 months.
+            </p>
           </div>
-          <div className="about-value">
-            <h3>Results over activity</h3>
-            <p>I don't measure my work in hours billed or reports sent. I measure it in clients won, positions gained and returns generated.</p>
+        </section>
+
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            What I learned along the way
+          </h2>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Clients don't need a corporate agency
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              We're led to believe bigger means better. It's not true. A 50-person agency where you get passed between 5 departments is slower than one person who knows exactly what they're doing. My best clients tell me the same thing: "I don't want to talk to 'the team'. I want to talk to you."
+            </p>
           </div>
-          <div className="about-value">
-            <h3>Real speed</h3>
-            <p>I respond in hours, not days. I execute in days, not weeks. In a world where agencies take a month to send a proposal, I have it ready the same day.</p>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Most agencies still charge like it's 2015
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              15 years ago, building a website took weeks and cost thousands. Today, with AI, I can build a functional website in 1-2 weeks. What do other agencies do? Charge just as much. What do I do? Lower the price. Your business grows without going broke.
+            </p>
           </div>
-          <div className="about-value">
-            <h3>No long contracts</h3>
-            <p>If my work doesn't convince you this month, you leave next month. No penalties, no fine print. If I have to retain you with a contract, something is wrong.</p>
+
+          <div>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              AI changed the game. Others haven't caught on yet.
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              Plenty of agencies see AI as a threat. I see it differently: as a tool to work faster, deliver more value and charge less. But most haven't adapted yet. They're still pricing like it's 2015.
+            </p>
           </div>
-        </div>
+        </section>
+
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            How I work with you
+          </h2>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Listen first, sell second
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              I'm not going to call you with a rehearsed sales pitch. I'm going to ask questions. Most agencies do the opposite: they show you 5 options and ask which you want. I listen first. Then I propose what you actually need.
+            </p>
+          </div>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Radical honesty
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              If I think your idea won't work, I'll tell you — even if it costs me the sale. If your budget is small but your potential is big, I'll propose a cheaper solution that works. I know it sounds odd in the agency world. But that's how I do business.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Results, not smoke and mirrors
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              I care about 3 things: leads, conversions and ROI. I don't care about impressions, reach, vanity metrics. I'll send you reports where you can see exactly what's working. If something isn't working, we fix it. If it's working, we scale it.
+            </p>
+          </div>
+        </section>
+
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            What to expect from Lucaseo
+          </h2>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Fast replies (no radio silence)
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              I'll get back to you within 24h. Sooner if it's urgent. I'm not the type to disappear after the sale or leave messages unanswered.
+            </p>
+          </div>
+
+          <div style={{ marginBottom: "3rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Personal service (you talk to me, not "the team")
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              When you contact Lucaseo, you're talking to me. Not a "specialist" or an "account manager". I handle everything. I decide the strategy. I look at the numbers. You always talk to me.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1rem", color: "#0a0f1e" }}>
+              Fair pricing (not the market's ceiling)
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+              I don't treat you like an open wallet. I charge what's fair. If something isn't worth it, I'll tell you. If I can do it cheaper without cutting quality, I will.
+            </p>
+          </div>
+        </section>
+
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            I'm not perfect. But I am honest.
+          </h2>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "2.5rem" }}>
+            I'm someone who's just getting started. I don't have 20 years of experience (though I've been at this for several years now). I'm not a 50-person agency.
+          </p>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "2.5rem" }}>
+            What I do have:
+          </p>
+
+          <ul style={{ listStyle: "none", paddingLeft: 0, marginBottom: "2.5rem" }}>
+            <li style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "0.75rem" }}>✓ Real results (30→147 customers in 3 months)</li>
+            <li style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "0.75rem" }}>✓ A genuine drive to do it properly</li>
+            <li style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "0.75rem" }}>✓ Pricing that makes sense</li>
+            <li style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>✓ Honest dealings</li>
+          </ul>
+
+          <div style={{ background: "#f5f8ff", padding: "2.5rem", borderRadius: "8px", marginTop: "2.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "1.25rem", marginBottom: "1.5rem", color: "#004aad" }}>
+              What I DON'T do
+            </h3>
+            <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7, marginBottom: "0.75rem" }}>✗ I don't promise results I can't guarantee</li>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7, marginBottom: "0.75rem" }}>✗ I don't lock you into endless contracts</li>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7, marginBottom: "0.75rem" }}>✗ I don't raise prices just because</li>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7, marginBottom: "0.75rem" }}>✗ I don't disappear after the sale</li>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7, marginBottom: "0.75rem" }}>✗ I don't pass you between 5 different people</li>
+              <li style={{ fontSize: "0.9375rem", color: "#5a6480", lineHeight: 1.7 }}>✗ I don't bill for hours I didn't work</li>
+            </ul>
+          </div>
+        </section>
+
+        <section style={{ paddingTop: "5rem", paddingBottom: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)" }}>
+          <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "2.5rem" }}>
+            Why this matters
+          </h2>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginBottom: "1.5rem" }}>
+            Because your business is probably your life. You spend 12 hours a day thinking about it. You put your own money into it. You take risks.
+          </p>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300 }}>
+            You deserve someone who understands that. Not someone who sees you as a line on a spreadsheet.
+          </p>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginTop: "1.5rem" }}>
+            At Lucaseo, when your business grows, I celebrate. When it hits a wall, it frustrates me as much as it does you.
+          </p>
+
+          <p style={{ fontSize: "1.0625rem", color: "#5a6480", lineHeight: 1.8, fontWeight: 300, marginTop: "1.5rem", fontStyle: "italic" }}>
+            It's not a service. It's a partnership.
+          </p>
+        </section>
       </div>
 
       <ServiceCta
-        title="Let's talk?"
-        body="Tell me your situation. No commitment, no pressure, no sales pitch. Just a conversation to see if I can help."
+        title="Shall we start?"
+        body="This isn't a sales pitch. It's a conversation. Let's talk about your business, what you need, and how I can help."
         locale="en"
       />
-      <SiteFooter locale="en" />
     </>
   );
 }

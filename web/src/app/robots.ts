@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/gracias"],
       },
     ],
-    sitemap: "https://lucaseo.com/sitemap.xml",
+    sitemap: "https://lucaseo.com.au/sitemap.xml",
   };
 }

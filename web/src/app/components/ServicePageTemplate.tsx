@@ -94,7 +94,7 @@ export default function ServicePageTemplate({ page, locale }: { page: ServicePag
           <h1><Emphasis text={page.title} /></h1>
           <p className="sp-lead">{page.lead}</p>
           <div className="sp-actions">
-            <Link href={locale === "es" ? "/#contacto" : "/en#contact"} className="sp-btn">{page.primaryCta}</Link>
+            <Link href={locale === "es" ? "/es#contacto" : "/#contact"} className="sp-btn">{page.primaryCta}</Link>
             {page.secondaryCta && <a href="#detalle" className="sp-ghost">{page.secondaryCta} →</a>}
           </div>
         </div>
