@@ -9,6 +9,7 @@ interface ServiceHeroProps {
   cta1Href: string;
   cta2Text?: string;
   cta2Href?: string;
+  withVideo?: boolean;
 }
 
 export default function ServiceHero({
@@ -20,18 +21,46 @@ export default function ServiceHero({
   cta1Href,
   cta2Text,
   cta2Href,
+  withVideo = true,
 }: ServiceHeroProps) {
   return (
     <>
       <style>{`
         .service-hero {
+          position: relative;
           padding: 8rem 2.5rem 5rem;
-          background: linear-gradient(160deg, #f0f5ff 0%, #ffffff 60%);
           border-bottom: 1px solid rgba(0,74,173,0.1);
+          overflow: hidden;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(160deg, #f0f5ff 0%, #ffffff 60%);
+        }
+        .service-hero--video {
+          background: #000;
+        }
+        .service-hero--video::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.45);
+          z-index: 1;
+        }
+        .service-hero-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+          object-position: 70% center;
         }
         .service-hero__inner {
           max-width: 900px;
           margin: 0 auto;
+          position: relative;
+          z-index: 2;
         }
         .service-hero__eyebrow {
           display: inline-flex;
@@ -44,12 +73,18 @@ export default function ServiceHero({
           text-transform: uppercase;
           margin-bottom: 1.75rem;
         }
+        .service-hero--video .service-hero__eyebrow {
+          color: #fff;
+        }
         .service-hero__eyebrow::before {
           content: '';
           display: block;
           width: 24px;
           height: 1px;
           background: #004aad;
+        }
+        .service-hero--video .service-hero__eyebrow::before {
+          background: #fff;
         }
         .service-hero__title {
           font-family: var(--font-display), system-ui;
@@ -59,10 +94,18 @@ export default function ServiceHero({
           letter-spacing: -0.03em;
           margin-bottom: 1.75rem;
           text-wrap: balance;
+          color: #0a0f1e;
+        }
+        .service-hero--video .service-hero__title {
+          color: #fff;
         }
         .service-hero__title em {
           font-style: normal;
           color: #004aad;
+        }
+        .service-hero--video .service-hero__title em {
+          color: #4d9aff;
+          text-shadow: 0 0 20px rgba(0,74,173,0.8), 0 0 40px rgba(0,74,173,0.5);
         }
         .service-hero__lead {
           font-size: 1.0625rem;
@@ -71,6 +114,9 @@ export default function ServiceHero({
           line-height: 1.75;
           margin-bottom: 2.5rem;
           font-weight: 300;
+        }
+        .service-hero--video .service-hero__lead {
+          color: rgba(255,255,255,0.75);
         }
         .service-hero__actions {
           display: flex;
@@ -107,7 +153,8 @@ export default function ServiceHero({
         }
       `}</style>
 
-      <section className="service-hero">
+      <section className={`service-hero${withVideo ? ' service-hero--video' : ''}`}>
+        {withVideo && <video className="service-hero-video" src="/hero-video.mp4" autoPlay muted loop playsInline />}
         <div className="service-hero__inner">
           <div className="service-hero__eyebrow">{eyebrow}</div>
           <h1 className="service-hero__title">
