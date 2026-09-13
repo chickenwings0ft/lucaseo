@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
+import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -104,6 +105,11 @@ export default function SemPage() {
       </div>
 
       <FaqSection topic="SEM and Google Ads" faqs={semFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Service Area · SEM & Ads"
+        title={<>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got your ad spend covered.</>}
+      />
 
       <FreeConsultationCta />
 

@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "Web Design & Development Australia — Lucaseo | Webs que Venden",
@@ -136,6 +137,12 @@ export default function WebPage() {
       </div>
 
       <FaqSection topic="diseño y desarrollo web" faqs={webFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura · Web"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, cubrimos tu web.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Tu web representa el negocio que tienes hoy?"

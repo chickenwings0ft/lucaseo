@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
+import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -94,6 +95,11 @@ export default function AiPage() {
       </div>
 
       <FaqSection topic="AI and automation" faqs={aiFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Service Area · AI Automation"
+        title={<>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got your automation covered.</>}
+      />
 
       <FreeConsultationCta />
 

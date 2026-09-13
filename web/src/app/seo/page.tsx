@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "SEO Australia & Google — Lucaseo | Posicionamiento Garantizado",
@@ -162,6 +163,12 @@ export default function SeoPage() {
       </div>
 
       <FaqSection topic="SEO y posicionamiento web" faqs={seoFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura · SEO"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, cubrimos tu SEO.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Qué pasa ahora?"

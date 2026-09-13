@@ -7,6 +7,7 @@ import type { LandingData } from "@/lib/content";
 
 import ServiceNav from "./components/ServiceNav";
 import ServicesAccordionGrid from "./components/ServicesAccordionGrid";
+import ServiceAreaMap from "./components/ServiceAreaMap";
 
 const localClients = [
   { _id: "l0", name: "EEhh", url: "#", darkBackground: false, localLogo: "/eehh-logo.png", w: 512, h: 512, tagline: "Una marca más visible. Una web más viva. Más oportunidades." },
@@ -354,6 +355,12 @@ export default function Landing({ data }: { data: LandingData }) {
           </div>
         </div>
       </section>
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, te cubrimos.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <div className="closing-cta">
         <h2 className="closing-cta-title">¿Tienes buen negocio pero internet no se ha enterado?</h2>

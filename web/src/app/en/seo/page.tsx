@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
+import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -117,6 +118,11 @@ export default function SeoPage() {
       </div>
 
       <FaqSection topic="SEO and search ranking" faqs={seoFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Service Area · SEO"
+        title={<>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got your SEO covered.</>}
+      />
 
       <FreeConsultationCta />
 

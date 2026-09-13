@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "Social Media Management Australia — Lucaseo | Estrategia Redes Sociales",
@@ -112,6 +113,12 @@ export default function RrssPage() {
       </div>
 
       <FaqSection topic="Social media y redes sociales" faqs={rrssFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura · RRSS"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, cubrimos tus redes.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Hablamos de tu estrategia?"

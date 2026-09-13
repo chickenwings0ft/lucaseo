@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
+import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
 import ServiceHero from "../../components/ServiceHero";
 
@@ -138,6 +139,11 @@ export default function WebPage() {
       </div>
 
       <FaqSection topic="web design and development" faqs={webFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Service Area · Web Design"
+        title={<>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got your website covered.</>}
+      />
 
       <FreeConsultationCta />
 

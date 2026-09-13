@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "Google Ads & SEM Australia — Lucaseo | Resultados Rápidos",
@@ -102,6 +103,12 @@ export default function SemPage() {
       </div>
 
       <FaqSection topic="SEM y Google Ads" faqs={semFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura · SEM"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, cubrimos tus anuncios.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Y si mi presupuesto es pequeño?"

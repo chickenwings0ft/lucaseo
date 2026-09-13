@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "AI Automation Australia — Lucaseo | Trabaja Menos, Cierra Más",
@@ -92,6 +93,12 @@ export default function IaPage() {
       </div>
 
       <FaqSection topic="IA y automatización" faqs={iaFaqs} />
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura · IA"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, cubrimos tu automatización.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Cuántas horas de tu equipo se pierden en tareas repetitivas?"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
 import ServiceCta from "../components/ServiceCta";
 import ServiceHero from "../components/ServiceHero";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 
 export const metadata: Metadata = {
   title: "Sobre Lucas — Lucaseo | Agencia Web, SEO & IA Australia",
@@ -239,6 +240,12 @@ export default function SobreMiPage() {
           </p>
         </section>
       </div>
+
+      <ServiceAreaMap
+        eyebrow="Zona de cobertura"
+        title={<>Estés donde estés en el <em>Gold Coast</em>, te cubrimos.</>}
+        statLabel="suburbios de Gold Coast cubiertos"
+      />
 
       <ServiceCta
         title="¿Empezamos?"

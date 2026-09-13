@@ -1,4 +1,11 @@
 "use client";
+import type { ReactNode } from "react";
+
+interface ServiceAreaMapProps {
+  eyebrow?: string;
+  title?: ReactNode;
+  statLabel?: string;
+}
 
 const row1 = [
   "Surfers Paradise", "Broadbeach", "Southport", "Robina", "Burleigh Heads",
@@ -44,7 +51,11 @@ function Ticker({ items, direction, speed }: { items: string[]; direction: "left
   );
 }
 
-export default function ServiceAreaMap() {
+export default function ServiceAreaMap({
+  eyebrow = "Service Area",
+  title = <>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got you covered.</>,
+  statLabel = "Gold Coast suburbs served",
+}: ServiceAreaMapProps) {
   const total = row1.length + row2.length + row3.length;
 
   return (
@@ -82,12 +93,12 @@ export default function ServiceAreaMap() {
 
       <div className="sam-head">
         <div>
-          <div className="sam-tag">Service Area</div>
-          <h2 className="sam-title">Wherever you are on the <em>Gold Coast</em>, we&apos;ve got you covered.</h2>
+          <div className="sam-tag">{eyebrow}</div>
+          <h2 className="sam-title">{title}</h2>
         </div>
         <div className="sam-stat">
           <div className="sam-stat-n">{total}+</div>
-          <div className="sam-stat-l">Gold Coast suburbs served</div>
+          <div className="sam-stat-l">{statLabel}</div>
         </div>
       </div>
 
