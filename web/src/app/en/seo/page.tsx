@@ -9,7 +9,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "SEO Services Australia — Lucaseo | Rank on Google & AI Search",
   description: "SEO that ranks you on Google + AI search engines. From zero to page-one rankings in months. Real case studies: 30→147 customers, 5 leads/week. Free audit. From $500 AUD/month.",
-  alternates: { canonical: "https://lucaseo.com.au/en/seo" },
+  alternates: { canonical: "https://lucaseo.com/en/seo" },
 };
 
 const seoFaqs = [

@@ -9,7 +9,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "AI Automation Australia — Lucaseo | Work Less, Close More",
   description: "We automate repetitive processes with AI. CRM, leads, emails, customer service on autopilot. Integrates with the tools you already use.",
-  alternates: { canonical: "https://lucaseo.com.au/en/ai" },
+  alternates: { canonical: "https://lucaseo.com/en/ai" },
 };
 
 const aiFaqs = [

@@ -30,7 +30,7 @@ export default function SobreMiPage() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Lucas",
-            "url": "https://lucaseo.com.au/sobre-mi",
+            "url": "https://lucaseo.com/sobre-mi",
             "jobTitle": "Founder & CEO at Lucaseo",
             "worksFor": {
               "@type": "Organization",

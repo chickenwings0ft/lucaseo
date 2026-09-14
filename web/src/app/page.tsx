@@ -10,7 +10,7 @@ import SiteFooter from "./components/SiteFooter";
 export const metadata: Metadata = {
   title: "Lucaseo — Digital Marketing Agency Australia | SEO, SEM, Web & AI",
   description: "Your customers are searching for you online. SEO, Google Ads, social media, web design and AI automation — everything your business needs to get found and grow. Free 24h diagnosis.",
-  alternates: { canonical: "https://lucaseo.com.au" },
+  alternates: { canonical: "https://lucaseo.com" },
 };
 
 export default function HomePage() {

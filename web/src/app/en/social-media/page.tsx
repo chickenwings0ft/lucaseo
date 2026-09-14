@@ -9,7 +9,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "Social Media Management Australia — Lucaseo | Social Strategy",
   description: "Complete social media management. Content, community management, Meta Ads. From $400 AUD/month. Real clients, visible results.",
-  alternates: { canonical: "https://lucaseo.com.au/en/social-media" },
+  alternates: { canonical: "https://lucaseo.com/en/social-media" },
 };
 
 const socialFaqs = [

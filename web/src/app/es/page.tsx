@@ -9,7 +9,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Lucaseo — Agencia de Marketing Digital | SEO, SEM, Web & IA",
   description: "SEO, SEM, redes sociales, diseño web e IA para negocios que quieren dejar de perseguir clientes. Resultados medibles, sin métricas de vanidad.",
-  alternates: { canonical: "https://lucaseo.com.au/es" },
+  alternates: { canonical: "https://lucaseo.com/es" },
 };
 
 type QueryResult = Partial<LandingData> & {

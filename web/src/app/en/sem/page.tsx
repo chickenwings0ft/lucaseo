@@ -9,7 +9,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "Google Ads & SEM Australia — Lucaseo | Fast Results",
   description: "Optimised Google Ads. Same budget, 3x more customers. Real case studies: $2000/month → 45 leads. From $500 AUD/month management. Free audit.",
-  alternates: { canonical: "https://lucaseo.com.au/en/sem" },
+  alternates: { canonical: "https://lucaseo.com/en/sem" },
 };
 
 const semFaqs = [

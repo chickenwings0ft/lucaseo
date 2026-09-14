@@ -8,7 +8,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "About Lucas — Lucaseo | Web, SEO & AI Agency Australia",
   description: "I'm Lucas. I started Lucaseo because I was sick of watching agencies lie. Real results, honest pricing, personal service. This is how I work.",
-  alternates: { canonical: "https://lucaseo.com.au/en/about" },
+  alternates: { canonical: "https://lucaseo.com/en/about" },
 };
 
 export default function AboutPage() {

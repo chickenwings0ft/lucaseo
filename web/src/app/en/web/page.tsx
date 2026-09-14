@@ -9,7 +9,7 @@ import ServiceHero from "../../components/ServiceHero";
 export const metadata: Metadata = {
   title: "Web Design & Development Australia — Lucaseo | Websites That Sell",
   description: "Professional web design and development. Fast websites, optimised for SEO and built to convert. From landing pages to e-commerce.",
-  alternates: { canonical: "https://lucaseo.com.au/en/web" },
+  alternates: { canonical: "https://lucaseo.com/en/web" },
 };
 
 const webFaqs = [
