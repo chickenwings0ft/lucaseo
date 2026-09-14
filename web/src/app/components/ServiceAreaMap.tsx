@@ -44,7 +44,7 @@ function Ticker({ items, direction, speed }: { items: string[]; direction: "left
         style={{ animationDuration: `${speed}s` }}
       >
         {doubled.map((s, i) => (
-          <span key={`${s}-${i}`} className="sam-chip">{s}</span>
+          <h4 key={`${s}-${i}`} className="sam-chip">{s}</h4>
         ))}
       </div>
     </div>
@@ -82,7 +82,7 @@ export default function ServiceAreaMap({
         @keyframes sam-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @keyframes sam-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
-        .sam-chip { display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); white-space: nowrap; }
+        .sam-chip { display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); white-space: nowrap; margin: 0; }
 
         @media (max-width: 640px) {
           .sam-head { padding: 0 1.25rem; }
