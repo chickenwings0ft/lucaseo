@@ -147,9 +147,12 @@ export default function ServiceHero({
           opacity: 1;
         }
         @media (max-width: 768px) {
-          .service-hero {
-            padding: 6rem 2.5rem 4rem;
-          }
+          .service-hero { padding: 6rem 1.5rem 4rem; }
+          .service-hero__actions { flex-direction: column; }
+          .service-hero__btn { text-align: center; }
+        }
+        @media (max-width: 480px) {
+          .service-hero { padding: 5rem 1.25rem 3rem; min-height: auto; }
         }
       `}</style>
 

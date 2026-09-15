@@ -21,9 +21,11 @@ export default function FreeConsultationCta() {
         .fcc-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.875rem; }
         @media (max-width: 860px) {
           .fcc-card { grid-template-columns: 1fr; padding: 2rem; }
+          .fcc-right { padding: 1.5rem; }
         }
         @media (max-width: 640px) {
           .fcc { padding: 0 1.25rem 4rem; }
+          .fcc-title { font-size: 1.375rem; }
         }
       `}</style>
 

@@ -37,7 +37,7 @@ export default function ServiceCta({ title, body, locale = "es" }: Props) {
   const desc = body ?? t.defaultBody;
 
   return (
-    <section style={{ background: "#004aad", padding: "6rem 2.5rem", textAlign: "center" }}>
+    <section style={{ background: "#004aad", padding: "clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2.5rem)", textAlign: "center" }}>
       <div style={{ maxWidth: "700px", margin: "0 auto" }}>
         <p style={{ fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: "1.25rem" }}>{t.eyebrow}</p>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2rem,4vw,3.25rem)", color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>{heading}</h2>

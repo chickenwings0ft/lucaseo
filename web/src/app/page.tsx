@@ -46,7 +46,17 @@ export default function HomePage() {
         .en-brand-idea { text-align: center; padding: 5rem 2.5rem; border-top: 1px solid rgba(0,74,173,0.1); border-bottom: 1px solid rgba(0,74,173,0.1); background: #f5f8ff; }
         .en-brand-idea h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.5rem; text-wrap: balance; }
         .en-brand-idea p { font-size: 1.0625rem; color: #5a6480; max-width: 580px; margin: 0 auto; line-height: 1.75; font-weight: 300; }
-        @media (max-width: 768px) { .en-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+          .en-grid { grid-template-columns: 1fr; }
+          .en-hero-actions { flex-direction: column; align-items: stretch; }
+          .en-hero-cta { text-align: center; }
+          .en-services { padding: 3rem 1.25rem; }
+          .en-concept { padding: 3rem 1.25rem; }
+          .en-brand-idea { padding: 3rem 1.25rem; }
+        }
+        @media (max-width: 480px) {
+          .en-hero-in { padding: 1.25rem; }
+        }
       `}</style>
 
       <div className="en-hero">
