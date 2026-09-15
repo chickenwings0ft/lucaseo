@@ -31,7 +31,7 @@ export default function SeoPage() {
         .seo-hero { position: relative; background: #04091a; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding: 7rem 2.5rem 5rem; }
         .seo-hero__bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,74,173,0.18) 0%, transparent 70%); pointer-events: none; }
         .seo-hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
-        .seo-hero__inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center; }
+        .seo-hero__inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 500px; gap: 5rem; align-items: center; }
         .seo-hero__badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4d9aff; background: rgba(77,154,255,0.1); border: 1px solid rgba(77,154,255,0.25); padding: 0.375rem 0.875rem; border-radius: 999px; margin-bottom: 2rem; }
         .seo-hero__badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4dff9a; box-shadow: 0 0 8px #4dff9a; }
         .seo-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 4.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.5rem; text-wrap: balance; }
@@ -48,8 +48,8 @@ export default function SeoPage() {
         .seo-hero__stat-l { font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-top: 0.125rem; }
 
         .seo-hero__phone-wrap { position: relative; display: flex; justify-content: center; }
-        .seo-hero__phone-glow { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(0,74,173,0.35) 0%, transparent 65%); pointer-events: none; }
-        .seo-hero__phone { position: relative; z-index: 1; width: 100%; max-width: 340px; filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(0,74,173,0.3)); animation: seo-float 4s ease-in-out infinite; }
+        .seo-hero__phone-glow { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(0,74,173,0.4) 0%, transparent 65%); pointer-events: none; }
+        .seo-hero__phone { position: relative; z-index: 1; width: 100%; max-width: 440px; filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(0,74,173,0.4)); animation: seo-float 4s ease-in-out infinite; }
         @keyframes seo-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         /* ── Proof bar ── */
@@ -108,11 +108,12 @@ export default function SeoPage() {
         .seo-ai-proof__eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4d9aff; margin-bottom: 1rem; }
         .seo-ai-proof__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2rem); color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
         .seo-ai-proof__body { font-size: 0.9375rem; color: rgba(255,255,255,0.65); line-height: 1.75; font-weight: 300; }
-        .seo-ai-proof__phone { width: 100%; max-width: 240px; margin: 0 auto; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+        .seo-ai-proof__phone { width: 100%; max-width: 300px; margin: 0 auto; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
 
         @media (max-width: 900px) {
           .seo-hero__inner { grid-template-columns: 1fr; }
-          .seo-hero__phone-wrap { display: none; }
+          .seo-hero__phone-wrap { justify-content: center; }
+          .seo-hero__phone { max-width: 320px; }
           .seo-platforms { grid-template-columns: repeat(2, 1fr); }
           .seo-cases { grid-template-columns: 1fr; }
           .seo-plans { grid-template-columns: 1fr; }
@@ -167,8 +168,8 @@ export default function SeoPage() {
             <Image
               src="/mockup-seo.png"
               alt="Google AI Overview recommending Lucaseo for digital marketing in Australia"
-              width={340}
-              height={680}
+              width={440}
+              height={880}
               className="seo-hero__phone"
               priority
             />
