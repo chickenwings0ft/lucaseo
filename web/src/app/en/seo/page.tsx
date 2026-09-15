@@ -167,7 +167,8 @@ export default function SeoPage() {
             <div className="seo-hero__phone-glow" />
             <Image
               src="/mockup-seo.png"
-              alt="Google AI Overview recommending Lucaseo for digital marketing in Australia"
+              alt="Google AI Overview recommending Lucaseo — Gold Coast SEO specialist"
+              title="Google recommends Lucaseo for digital marketing in Australia"
               width={440}
               height={880}
               className="seo-hero__phone"
@@ -233,9 +234,10 @@ export default function SeoPage() {
             </div>
             <Image
               src="/mockup-seo.png"
-              alt="Google AI Overview recommending Lucaseo"
-              width={240}
-              height={480}
+              alt="Google AI Overview recommending Lucaseo as a leading digital marketing agency in Australia"
+              title="Google AI recommends Lucaseo — Gold Coast SEO specialist"
+              width={300}
+              height={600}
               className="seo-ai-proof__phone"
             />
           </div>

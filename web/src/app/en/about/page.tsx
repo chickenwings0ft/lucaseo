@@ -6,8 +6,8 @@ import ServiceAreaMap from "../../components/ServiceAreaMap";
 import ServiceHero from "../../components/ServiceHero";
 
 export const metadata: Metadata = {
-  title: "About Lucas — Lucaseo | Web, SEO & AI Agency Australia",
-  description: "I'm Lucas. I started Lucaseo because I was sick of watching agencies lie. Real results, honest pricing, personal service. This is how I work.",
+  title: "About Lucas — Gold Coast SEO Specialist | Lucaseo",
+  description: "I'm Lucas — Gold Coast's organic SEO specialist. I built Lucaseo to help local businesses rank on Google and get recommended by AI. Honest work, real results.",
   alternates: { canonical: "https://lucaseo.com/en/about" },
 };
 

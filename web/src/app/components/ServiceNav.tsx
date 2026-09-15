@@ -125,7 +125,7 @@ export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
 
       <nav className="site-nav">
         <Link href={home} className="site-nav__logo" aria-label="Lucaseo — inicio">
-          <Image src="/logo.png" alt="Lucaseo" width={60} height={60} priority style={{ width: "auto", height: "48px" }} />
+          <Image src="/logo.png" alt="Lucaseo — Gold Coast SEO Specialist" title="Lucaseo — Gold Coast Organic SEO" width={60} height={60} priority style={{ width: "auto", height: "48px" }} />
         </Link>
 
         <div className="site-nav__right">

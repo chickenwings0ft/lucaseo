@@ -29,14 +29,24 @@ export default function SobreMiPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Lucas",
-            "url": "https://lucaseo.com/sobre-mi",
-            "jobTitle": "Founder & CEO at Lucaseo",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Lucaseo"
+            "name": "Lucas Palacios",
+            "url": "https://lucaseo.com/en/about",
+            "sameAs": ["https://lucaseo.com/sobre-mi"],
+            "jobTitle": "Organic SEO Specialist — Gold Coast",
+            "description": "Gold Coast organic SEO specialist helping local businesses rank on Google and get recommended by AI search engines including ChatGPT, Perplexity and Claude.",
+            "areaServed": {
+              "@type": "City",
+              "name": "Gold Coast",
+              "addressRegion": "QLD",
+              "addressCountry": "AU"
             },
-            "knowsAbout": ["Web Development", "SEO", "Google Ads", "AI Automation", "Custom Software"]
+            "worksFor": {
+              "@type": "LocalBusiness",
+              "name": "Lucaseo",
+              "url": "https://lucaseo.com",
+              "areaServed": "Gold Coast, Queensland, Australia"
+            },
+            "knowsAbout": ["Organic SEO", "Local SEO Gold Coast", "AI Search Optimisation", "Google Rankings", "ChatGPT SEO", "Content Strategy", "Technical SEO", "Google Ads", "AI Automation"]
           })
         }}
       />
