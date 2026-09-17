@@ -35,6 +35,42 @@ export default function AiPage() {
         withVideo={true}
       />
 
+      <style>{`
+        .ias-tools-section {
+          background: #04091a;
+          padding: 3rem 2rem;
+          text-align: center;
+        }
+        .ias-tools-label {
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.4);
+          margin-bottom: 1.5rem;
+        }
+        .ias-tools-img {
+          width: 100%;
+          max-width: 900px;
+          height: auto;
+          opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+          .ias-tools-section { padding: 2.5rem 1.25rem; }
+          .ias-tools-img { max-width: 100%; }
+        }
+      `}</style>
+
+      <div className="ias-tools-section">
+        <p className="ias-tools-label">Tools we automate with</p>
+        <img
+          src="/ias-section.png"
+          alt="AI automation tools: HubSpot, Zapier, Make, n8n, OpenAI, WhatsApp Business and more"
+          title="AI automation integrations — Lucaseo Gold Coast"
+          className="ias-tools-img"
+        />
+      </div>
+
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>
         <section style={{ borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
           <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>The idea</div>
