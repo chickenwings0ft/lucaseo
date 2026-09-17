@@ -38,8 +38,8 @@ export default function AiPage() {
       <style>{`
         .ias-tools-section {
           background: #04091a;
-          padding: 3rem 2rem;
-          text-align: center;
+          padding: 3rem 0 3rem;
+          overflow: hidden;
         }
         .ias-tools-label {
           font-size: 0.75rem;
@@ -48,27 +48,47 @@ export default function AiPage() {
           text-transform: uppercase;
           color: rgba(255,255,255,0.4);
           margin-bottom: 1.5rem;
+          text-align: center;
+        }
+        .ias-ticker-track {
+          display: flex;
+          width: max-content;
+          animation: ias-scroll 28s linear infinite;
+        }
+        .ias-ticker-track:hover { animation-play-state: paused; }
+        @keyframes ias-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
         .ias-tools-img {
-          width: 100%;
-          max-width: 900px;
-          height: auto;
+          height: 72px;
+          width: auto;
           opacity: 0.9;
+          flex-shrink: 0;
         }
         @media (max-width: 768px) {
-          .ias-tools-section { padding: 2.5rem 1.25rem; }
-          .ias-tools-img { max-width: 100%; }
+          .ias-tools-img { height: 52px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ias-ticker-track { animation: none; }
         }
       `}</style>
 
       <div className="ias-tools-section">
         <p className="ias-tools-label">Tools we automate with</p>
-        <img
-          src="/ias-section.png"
-          alt="AI automation tools: HubSpot, Zapier, Make, n8n, OpenAI, WhatsApp Business and more"
-          title="AI automation integrations — Lucaseo Gold Coast"
-          className="ias-tools-img"
-        />
+        <div className="ias-ticker-track" aria-hidden="true">
+          <img
+            src="/ias-section.png"
+            alt="AI automation tools: HubSpot, Zapier, Make, n8n, OpenAI, WhatsApp Business and more"
+            title="AI automation integrations — Lucaseo Gold Coast"
+            className="ias-tools-img"
+          />
+          <img
+            src="/ias-section.png"
+            alt=""
+            className="ias-tools-img"
+          />
+        </div>
       </div>
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>
