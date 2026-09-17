@@ -16,9 +16,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Lucaseo — Gold Coast SEO Specialist | Organic Search & AI",
+  title: "Lucaseo — Digital Marketing Agency Gold Coast | SEO, Ads, Web & AI",
   description:
-    "Gold Coast organic SEO specialist. Rank on Google and get recommended by AI — ChatGPT, Perplexity, Claude. Real results for local businesses.",
+    "Gold Coast digital marketing agency. SEO, Google Ads, social media, web design and AI automation that gets your business found, chosen and growing.",
 };
 
 export default function RootLayout({

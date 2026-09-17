@@ -8,8 +8,8 @@ import EnContactSection from "./components/EnContactSection";
 import SiteFooter from "./components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Lucaseo — Gold Coast SEO Specialist | Organic Search, Google & AI",
-  description: "Gold Coast's organic SEO specialist. Rank on Google and get recommended by AI — ChatGPT, Perplexity, Claude. Real results for local businesses. Free on-site visit.",
+  title: "Lucaseo — Digital Marketing Agency Gold Coast | SEO, Ads, Web & AI",
+  description: "Gold Coast digital marketing agency. SEO, Google Ads, social media, web design and AI automation that gets your business found, chosen and growing. Free on-site visit.",
   alternates: { canonical: "https://lucaseo.com" },
 };
 
@@ -63,8 +63,8 @@ export default function HomePage() {
         <video className="en-hero-video" src="/hero-video.mp4" autoPlay loop muted playsInline preload="auto" />
         <div className="en-hero-overlay" />
         <div className="en-hero-in">
-          <h1>Gold Coast&apos;s organic SEO <em>specialist.</em></h1>
-          <p className="en-hero-lead">Rank on Google. Get recommended by ChatGPT, Perplexity and Claude. Real organic growth for Gold Coast businesses — no shortcuts, no lock-in contracts, no vanity metrics.</p>
+          <h1>The ocean is big.<br />Better learn to swim like a <em>shark.</em></h1>
+          <p className="en-hero-lead">SEO, Google Ads, social media, web design and AI — everything your Gold Coast business needs to get found, get chosen and leave competitors behind. No vanity metrics. No lock-in contracts.</p>
           <div className="en-hero-actions">
             <Link href="/#contact" className="en-hero-cta">Get a free diagnosis</Link>
             <Link href="#services" className="en-hero-cta en-hero-cta--ghost">See what we do</Link>
