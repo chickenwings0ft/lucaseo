@@ -63,7 +63,7 @@ export default function HomePage() {
         <video className="en-hero-video" src="/hero-video.mp4" autoPlay loop muted playsInline preload="auto" />
         <div className="en-hero-overlay" />
         <div className="en-hero-in">
-          <h1>The ocean is big.<br />Better learn to swim like a <em>shark.</em></h1>
+          <h1>Become the shark in the <em>digital ocean.</em></h1>
           <p className="en-hero-lead">SEO, Google Ads, social media, web design and AI — everything your Gold Coast business needs to get found, get chosen and leave competitors behind. No vanity metrics. No lock-in contracts.</p>
           <div className="en-hero-actions">
             <Link href="/#contact" className="en-hero-cta">Get a free diagnosis</Link>
