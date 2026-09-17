@@ -53,7 +53,7 @@ export default function AiPage() {
         .ias-ticker-track {
           display: flex;
           width: max-content;
-          animation: ias-scroll 28s linear infinite;
+          animation: ias-scroll 12s linear infinite;
         }
         .ias-ticker-track:hover { animation-play-state: paused; }
         @keyframes ias-scroll {
@@ -61,13 +61,13 @@ export default function AiPage() {
           100% { transform: translateX(-50%); }
         }
         .ias-tools-img {
-          height: 72px;
+          height: 140px;
           width: auto;
           opacity: 0.9;
           flex-shrink: 0;
         }
         @media (max-width: 768px) {
-          .ias-tools-img { height: 52px; }
+          .ias-tools-img { height: 90px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .ias-ticker-track { animation: none; }
