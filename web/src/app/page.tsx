@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="en-hero-overlay" />
         <div className="en-hero-in">
           <h1>Become the shark in the <em>digital ocean.</em></h1>
-          <p className="en-hero-lead">SEO, Google Ads, social media, web design and AI — everything your Gold Coast business needs to get found, get chosen and leave competitors behind. No vanity metrics. No lock-in contracts.</p>
+          <p className="en-hero-lead">Your competitors are online. Your customers are searching. The only question is — are they finding you, or someone else? We fix that.</p>
           <div className="en-hero-actions">
             <Link href="/#contact" className="en-hero-cta">Get a free diagnosis</Link>
             <Link href="#services" className="en-hero-cta en-hero-cta--ghost">See what we do</Link>
