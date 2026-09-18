@@ -56,6 +56,7 @@ export default function AiPage() {
           width: auto;
           opacity: 0.9;
           flex-shrink: 0;
+          margin-right: -60px;
         }
         @media (max-width: 768px) {
           .ias-tools-img { height: 130px; }
