@@ -209,6 +209,151 @@ export default function SeoPage() {
         </div>
       </div>
 
+      {/* ── SEO for AI — full section ── */}
+      <style>{`
+        .sai-wrap { background: #04091a; color: #fff; padding: 6rem 2.5rem; }
+        .sai-inner { max-width: 1100px; margin: 0 auto; }
+        .sai-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #4d9aff; margin-bottom: 1.25rem; }
+        .sai-h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.5rem; text-wrap: balance; }
+        .sai-h2 em { font-style: normal; color: #4d9aff; }
+        .sai-lead { font-size: 1.125rem; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.8; font-weight: 300; margin-bottom: 4rem; }
+        .sai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 4rem; }
+        .sai-what { }
+        .sai-what-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem; color: #fff; }
+        .sai-what-body { font-size: 0.9375rem; color: rgba(255,255,255,0.55); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+        .sai-terms { display: flex; flex-direction: column; gap: 0.75rem; }
+        .sai-term { display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start; }
+        .sai-term-badge { background: rgba(77,154,255,0.12); border: 1px solid rgba(77,154,255,0.2); color: #4d9aff; font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; padding: 0.375rem 0.375rem; text-align: center; line-height: 1.2; }
+        .sai-term-text { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+        .sai-term-text strong { color: rgba(255,255,255,0.9); font-weight: 600; display: block; margin-bottom: 0.125rem; }
+        .sai-tactics { }
+        .sai-tactics-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 1.25rem; color: #fff; }
+        .sai-tactic-list { display: flex; flex-direction: column; gap: 0; }
+        .sai-tactic { display: flex; gap: 1rem; padding: 1.125rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); align-items: flex-start; }
+        .sai-tactic:first-child { padding-top: 0; }
+        .sai-tactic-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(0,74,173,0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+        .sai-tactic-name { font-size: 0.9375rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 0.25rem; }
+        .sai-tactic-desc { font-size: 0.8125rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+        .sai-platforms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 3rem; }
+        .sai-platform { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; }
+        .sai-platform-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .sai-platform-name { font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 0.25rem; }
+        .sai-platform-share { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+        .sai-vs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .sai-vs-col { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.75rem; }
+        .sai-vs-col--new { border-color: rgba(77,154,255,0.3); background: rgba(0,74,173,0.12); }
+        .sai-vs-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.875rem; }
+        .sai-vs-col--new .sai-vs-label { color: #4d9aff; }
+        .sai-vs-title { font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 1rem; }
+        .sai-vs-items { display: flex; flex-direction: column; gap: 0.625rem; }
+        .sai-vs-item { font-size: 0.875rem; color: rgba(255,255,255,0.5); display: flex; gap: 0.625rem; align-items: flex-start; line-height: 1.5; }
+        .sai-vs-item::before { content: '→'; color: rgba(255,255,255,0.25); flex-shrink: 0; }
+        .sai-vs-col--new .sai-vs-item { color: rgba(255,255,255,0.75); }
+        .sai-vs-col--new .sai-vs-item::before { content: '✓'; color: #4dff9a; }
+        @media (max-width: 900px) {
+          .sai-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+          .sai-platforms { grid-template-columns: repeat(3, 1fr); }
+          .sai-vs { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+          .sai-wrap { padding: 4rem 1.25rem; }
+          .sai-platforms { grid-template-columns: repeat(2, 1fr); }
+        }
+      `}</style>
+      <div className="sai-wrap">
+        <div className="sai-inner">
+          <div className="sai-eyebrow">AIO · AEO · GEO</div>
+          <h2 className="sai-h2">Google is not the only one<br />recommending businesses anymore. <em>AI is.</em></h2>
+          <p className="sai-lead">
+            The way people search has changed. They&apos;re asking ChatGPT &ldquo;who&apos;s the best SEO agency in Gold Coast?&rdquo; instead of Googling it. If your business isn&apos;t in that answer, you don&apos;t exist to them.
+          </p>
+
+          <div className="sai-grid">
+            <div className="sai-what">
+              <div className="sai-what-title">What is SEO for AI?</div>
+              <p className="sai-what-body">
+                AI search engines don&apos;t rank pages — they synthesise answers from the sources they trust most. Getting your business cited by ChatGPT, Perplexity, or Google AI Overview is a new discipline that sits on top of traditional SEO. We call it AIO/AEO/GEO — and it&apos;s what separates businesses that will grow in the next 3 years from those that won&apos;t.
+              </p>
+              <div className="sai-terms">
+                <div className="sai-term">
+                  <div className="sai-term-badge">AIO</div>
+                  <div className="sai-term-text"><strong>AI Overview Optimisation</strong>Getting featured in Google&apos;s AI-generated summaries at the top of search results.</div>
+                </div>
+                <div className="sai-term">
+                  <div className="sai-term-badge">AEO</div>
+                  <div className="sai-term-text"><strong>Answer Engine Optimisation</strong>Making your content the answer that ChatGPT, Claude and Perplexity cite when someone asks a question.</div>
+                </div>
+                <div className="sai-term">
+                  <div className="sai-term-badge">GEO</div>
+                  <div className="sai-term-text"><strong>Generative Engine Optimisation</strong>Building the authority signals that make AI models treat your brand as a trusted source by default.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="sai-tactics">
+              <div className="sai-tactics-title">How we make it happen</div>
+              <div className="sai-tactic-list">
+                {[
+                  { icon: "🏗️", name: "Structured data & schema", desc: "We tell AI exactly who you are, what you do, and where you operate — in the language machines understand." },
+                  { icon: "✍️", name: "Question-based content", desc: "We write content that directly answers what your customers ask AI tools — so you become the cited source." },
+                  { icon: "🔗", name: "Authority & citations", desc: "AI models trust brands that are mentioned across the web. We build the digital PR footprint that gets you cited." },
+                  { icon: "📋", name: "E-E-A-T signals", desc: "Experience, expertise, authoritativeness, trustworthiness. Google and AI engines both weigh these heavily." },
+                  { icon: "🌐", name: "Entity SEO", desc: "We establish your business as a recognised entity in AI knowledge graphs — so models know you exist." },
+                  { icon: "⚡", name: "Technical crawlability", desc: "AI bots (OAI-SearchBot, Googlebot) must be able to read your site. We make sure nothing blocks them." },
+                ].map(t => (
+                  <div key={t.name} className="sai-tactic">
+                    <div className="sai-tactic-icon">{t.icon}</div>
+                    <div>
+                      <div className="sai-tactic-name">{t.name}</div>
+                      <div className="sai-tactic-desc">{t.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="sai-platforms">
+            {[
+              { icon: "🔍", name: "Google AI Overview", share: "90%+ market share" },
+              { icon: "🤖", name: "ChatGPT", share: "180M+ users" },
+              { icon: "🌐", name: "Perplexity", share: "15M+ daily queries" },
+              { icon: "💎", name: "Google Gemini", share: "Built into Android" },
+              { icon: "⚡", name: "Claude (Anthropic)", share: "Growing fast" },
+            ].map(p => (
+              <div key={p.name} className="sai-platform">
+                <div className="sai-platform-icon">{p.icon}</div>
+                <div className="sai-platform-name">{p.name}</div>
+                <div className="sai-platform-share">{p.share}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="sai-vs">
+            <div className="sai-vs-col">
+              <div className="sai-vs-label">Traditional SEO only</div>
+              <div className="sai-vs-title">You rank on Google. Nothing else.</div>
+              <div className="sai-vs-items">
+                <div className="sai-vs-item">Invisible when users ask AI tools for recommendations</div>
+                <div className="sai-vs-item">Missing 30%+ of searches happening outside Google</div>
+                <div className="sai-vs-item">No entity recognition in AI knowledge graphs</div>
+                <div className="sai-vs-item">Competitors with AI SEO will overtake you</div>
+              </div>
+            </div>
+            <div className="sai-vs-col sai-vs-col--new">
+              <div className="sai-vs-label">SEO + AI search (what we do)</div>
+              <div className="sai-vs-title">You rank on Google. And get recommended by AI.</div>
+              <div className="sai-vs-items">
+                <div className="sai-vs-item">Cited by ChatGPT, Perplexity, Claude and Gemini</div>
+                <div className="sai-vs-item">Featured in Google AI Overview for your key topics</div>
+                <div className="sai-vs-item">Recognised entity in AI knowledge graphs</div>
+                <div className="sai-vs-item">Traffic from every place your customers search</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="seo-page">
 
         {/* ── Where your customers search ── */}
