@@ -115,7 +115,7 @@ export default function SeoResultsSection() {
             const iv = setInterval(() => {
               cur--; setPosition(cur)
               if (cur <= 0) { clearInterval(iv); setRankDone(true) }
-            }, 750)
+            }, 1400)
           }, 3600)
         }, 80)
       } else {
