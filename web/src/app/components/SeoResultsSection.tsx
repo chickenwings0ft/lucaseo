@@ -128,9 +128,9 @@ export default function SeoResultsSection() {
     return () => observer.disconnect()
   }, [])
 
-  const list = [...G_RESULTS]
-  const clientItem = list.splice(7, 1)[0]
-  list.splice(position, 0, clientItem)
+  const ROW_H = 44
+  const LUCASEO_EXTRA = rankDone ? 52 : 0
+  const COMPETITORS = G_RESULTS.slice(0, 7)
 
   const rowStyle = {
     display: 'block' as const,
@@ -183,39 +183,55 @@ export default function SeoResultsSection() {
                 seo agency gold coast
               </div>
             </div>
-            {list.map((r, idx) => (
-              <div key={r.name} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', padding: '0.4rem 0.4rem', borderRadius: '6px', marginBottom: '0.15rem', transition: 'all 0.3s cubic-bezier(0.34,1.56,0.64,1)', background: r.isClient && rankDone ? 'rgba(0,74,173,0.06)' : 'transparent', border: r.isClient && rankDone ? '1px solid rgba(0,74,173,0.18)' : '1px solid transparent' }}>
-                <span style={{ fontSize: '0.6rem', fontWeight: 800, color: r.isClient ? (rankDone ? '#188038' : '#1a0dab') : '#9aa0a6', minWidth: '1.1rem', textAlign: 'right', paddingTop: '2px', transition: 'color 0.3s' }}>#{idx + 1}</span>
-                {r.isClient
-                  ? <img src="/logo-mark.png" alt="Lucaseo" style={{ width: '16px', height: '16px', borderRadius: '3px', objectFit: 'contain', flexShrink: 0, marginTop: '2px' }} />
-                  : <div style={{ width: '16px', height: '16px', background: '#f1f3f4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5rem', fontWeight: 'bold', color: '#5f6368', flexShrink: 0, marginTop: '2px' }}>{r.name[0]}</div>
-                }
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '0.62rem', color: '#4d5156', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.isClient ? '🌐 lucaseo.com › en › seo' : r.url}</div>
-                  <div style={{ fontSize: r.isClient ? '0.8rem' : '0.7rem', color: '#1a0dab', fontWeight: r.isClient ? 700 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</div>
-                  {r.isClient && (
-                    <>
-                      <div style={{ fontSize: '0.6rem', color: '#4d5156', lineHeight: 1.5, marginTop: '1px' }}>
-                        Gold Coast SEO specialist. Organic SEO + AI search visibility. Free audit. From $500 AUD/month.
+            {/* Absolute-positioned list for smooth animation */}
+            <div style={{ position: 'relative', height: `${8 * ROW_H + LUCASEO_EXTRA + 10}px`, transition: 'height 0.6s ease' }}>
+
+              {/* Competitors */}
+              {COMPETITORS.map((r, i) => {
+                const visualRank = i < position ? i : i + 1
+                const topPx = visualRank <= position
+                  ? visualRank * ROW_H
+                  : position * ROW_H + LUCASEO_EXTRA + ROW_H + (visualRank - position - 1) * ROW_H
+                return (
+                  <div key={r.name} style={{ position: 'absolute', left: 0, right: 0, top: `${topPx}px`, transition: 'top 1s cubic-bezier(0.4,0,0.2,1)', display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.3rem 0.4rem', height: `${ROW_H}px` }}>
+                    <span style={{ fontSize: '0.6rem', fontWeight: 800, color: '#9aa0a6', minWidth: '1.1rem', textAlign: 'right' }}>#{visualRank + 1}</span>
+                    <div style={{ width: '16px', height: '16px', background: '#f1f3f4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5rem', fontWeight: 'bold', color: '#5f6368', flexShrink: 0 }}>{r.name[0]}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '0.6rem', color: '#4d5156', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.url}</div>
+                      <div style={{ fontSize: '0.7rem', color: '#1a0dab', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</div>
+                    </div>
+                  </div>
+                )
+              })}
+
+              {/* Lucaseo — animates from bottom to top */}
+              <div style={{ position: 'absolute', left: 0, right: 0, top: `${position * ROW_H}px`, transition: 'top 1s cubic-bezier(0.4,0,0.2,1)', padding: '0.3rem 0.4rem', borderRadius: '6px', background: rankDone ? 'rgba(0,74,173,0.06)' : 'transparent', border: rankDone ? '1px solid rgba(0,74,173,0.18)' : '1px solid transparent', transition: 'top 1s cubic-bezier(0.4,0,0.2,1), background 0.4s, border-color 0.4s' as any }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                  <span style={{ fontSize: '0.6rem', fontWeight: 800, color: rankDone ? '#188038' : '#1a0dab', minWidth: '1.1rem', textAlign: 'right', paddingTop: '2px', transition: 'color 0.4s' }}>#{position + 1}</span>
+                  <img src="/logo-mark.png" alt="Lucaseo" style={{ width: '16px', height: '16px', borderRadius: '3px', objectFit: 'contain', flexShrink: 0, marginTop: '2px' }} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: '0.62rem', color: '#4d5156' }}>🌐 lucaseo.com › en › seo</div>
+                    <div style={{ fontSize: '0.8rem', color: '#1a0dab', fontWeight: 700, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>Lucaseo — Gold Coast SEO Specialist | Rank on Google & AI Search</div>
+                    <div style={{ fontSize: '0.6rem', color: '#4d5156', lineHeight: 1.5, marginTop: '1px' }}>
+                      Gold Coast SEO specialist. Organic SEO + AI search visibility. Free audit. From $500 AUD/month.
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginTop: '2px' }}>
+                      <span style={{ color: '#f5a623', fontSize: '0.65rem', letterSpacing: '-1px' }}>★★★★★</span>
+                      <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#202124' }}>5.0</span>
+                      <span style={{ fontSize: '0.6rem', color: '#70757a' }}>(47 reviews) · Gold Coast, QLD</span>
+                    </div>
+                    {rankDone && (
+                      <div style={{ display: 'flex', gap: '0.4rem', marginTop: '4px', flexWrap: 'wrap' }}>
+                        {['SEO Services', 'AI Search', 'Free Audit', 'Pricing'].map(link => (
+                          <span key={link} style={{ fontSize: '0.58rem', color: '#1a0dab', borderBottom: '1px solid #1a0dab', lineHeight: 1.6 }}>{link}</span>
+                        ))}
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginTop: '2px' }}>
-                        <span style={{ color: '#f5a623', fontSize: '0.65rem', letterSpacing: '-1px' }}>★★★★★</span>
-                        <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#202124' }}>5.0</span>
-                        <span style={{ fontSize: '0.6rem', color: '#70757a' }}>(47 reviews) · Gold Coast, QLD</span>
-                      </div>
-                      {rankDone && (
-                        <div style={{ display: 'flex', gap: '0.4rem', marginTop: '4px', flexWrap: 'wrap' }}>
-                          {['SEO Services', 'AI Search', 'Free Audit', 'Pricing'].map(link => (
-                            <span key={link} style={{ fontSize: '0.58rem', color: '#1a0dab', borderBottom: '1px solid #1a0dab', cursor: 'pointer', lineHeight: 1.4 }}>{link}</span>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
-            ))}
-            {rankDone && <div style={{ marginTop: '0.8rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 700, color: '#188038' }}>Lucaseo — Position #1 on Google</div>}
+            </div>
+            {rankDone && <div style={{ marginTop: '0.6rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 700, color: '#188038' }}>✓ Lucaseo — Position #1 · Gold Coast SEO</div>}
           </div>
 
           {/* RIGHT: ChatGPT */}
