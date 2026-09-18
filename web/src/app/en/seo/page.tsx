@@ -188,6 +188,27 @@ export default function SeoPage() {
         </div>
       </div>
 
+      {/* ── SEO for AI ticker ── */}
+      <style>{`
+        .seo-ai-ticker { background: #004aad; overflow: hidden; padding: 0; }
+        .seo-ai-ticker__label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; padding: 1.25rem 0 0.5rem; }
+        .seo-ai-track { display: flex; width: max-content; animation: seo-ai-scroll 14s linear infinite; }
+        .seo-ai-track:hover { animation-play-state: paused; }
+        @keyframes seo-ai-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .seo-ai-img { height: 200px; width: auto; flex-shrink: 0; margin-right: -15px; opacity: 0.9; }
+        @media (max-width: 768px) { .seo-ai-img { height: 120px; } }
+        @media (prefers-reduced-motion: reduce) { .seo-ai-track { animation: none; } }
+      `}</style>
+      <div className="seo-ai-ticker">
+        <p className="seo-ai-ticker__label">SEO for AI search</p>
+        <div className="seo-ai-track" aria-hidden="true">
+          <img src="/ias-section.png" alt="AI search platforms: ChatGPT, Claude, Perplexity, Gemini and more" className="seo-ai-img" />
+          <img src="/ias-section.png" alt="" className="seo-ai-img" />
+          <img src="/ias-section.png" alt="" className="seo-ai-img" />
+          <img src="/ias-section.png" alt="" className="seo-ai-img" />
+        </div>
+      </div>
+
       <div className="seo-page">
 
         {/* ── Where your customers search ── */}

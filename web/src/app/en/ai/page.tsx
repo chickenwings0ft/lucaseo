@@ -35,46 +35,6 @@ export default function AiPage() {
         withVideo={true}
       />
 
-      <style>{`
-        .ias-tools-section {
-          background: #04091a;
-          padding: 2rem 0;
-          overflow: hidden;
-        }
-        .ias-ticker-track {
-          display: flex;
-          width: max-content;
-          animation: ias-scroll 14s linear infinite;
-        }
-        .ias-ticker-track:hover { animation-play-state: paused; }
-        @keyframes ias-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .ias-tools-img {
-          height: 220px;
-          width: auto;
-          opacity: 0.9;
-          flex-shrink: 0;
-          margin-right: -60px;
-        }
-        @media (max-width: 768px) {
-          .ias-tools-img { height: 130px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .ias-ticker-track { animation: none; }
-        }
-      `}</style>
-
-      <div className="ias-tools-section">
-        <div className="ias-ticker-track" aria-hidden="true">
-          <img src="/ias-section.png" alt="AI automation tools" className="ias-tools-img" />
-          <img src="/ias-section.png" alt="" className="ias-tools-img" />
-          <img src="/ias-section.png" alt="" className="ias-tools-img" />
-          <img src="/ias-section.png" alt="" className="ias-tools-img" />
-        </div>
-      </div>
-
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>
         <section style={{ borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
           <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>The idea</div>
