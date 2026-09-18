@@ -38,22 +38,13 @@ export default function AiPage() {
       <style>{`
         .ias-tools-section {
           background: #04091a;
-          padding: 3rem 0 3rem;
+          padding: 2rem 0;
           overflow: hidden;
-        }
-        .ias-tools-label {
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.4);
-          margin-bottom: 1.5rem;
-          text-align: center;
         }
         .ias-ticker-track {
           display: flex;
           width: max-content;
-          animation: ias-scroll 12s linear infinite;
+          animation: ias-scroll 14s linear infinite;
         }
         .ias-ticker-track:hover { animation-play-state: paused; }
         @keyframes ias-scroll {
@@ -61,13 +52,13 @@ export default function AiPage() {
           100% { transform: translateX(-50%); }
         }
         .ias-tools-img {
-          height: 140px;
+          height: 220px;
           width: auto;
           opacity: 0.9;
           flex-shrink: 0;
         }
         @media (max-width: 768px) {
-          .ias-tools-img { height: 90px; }
+          .ias-tools-img { height: 130px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .ias-ticker-track { animation: none; }
@@ -75,19 +66,11 @@ export default function AiPage() {
       `}</style>
 
       <div className="ias-tools-section">
-        <p className="ias-tools-label">Tools we automate with</p>
         <div className="ias-ticker-track" aria-hidden="true">
-          <img
-            src="/ias-section.png"
-            alt="AI automation tools: HubSpot, Zapier, Make, n8n, OpenAI, WhatsApp Business and more"
-            title="AI automation integrations — Lucaseo Gold Coast"
-            className="ias-tools-img"
-          />
-          <img
-            src="/ias-section.png"
-            alt=""
-            className="ias-tools-img"
-          />
+          <img src="/ias-section.png" alt="AI automation tools" className="ias-tools-img" />
+          <img src="/ias-section.png" alt="" className="ias-tools-img" />
+          <img src="/ias-section.png" alt="" className="ias-tools-img" />
+          <img src="/ias-section.png" alt="" className="ias-tools-img" />
         </div>
       </div>
 
