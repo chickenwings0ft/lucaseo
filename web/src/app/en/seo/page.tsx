@@ -6,6 +6,7 @@ import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
 import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
+import SeoResultsSection from "../../components/SeoResultsSection";
 
 export const metadata: Metadata = {
   title: "SEO Services Australia — Lucaseo | Rank on Google & AI Search",
@@ -408,6 +409,12 @@ export default function SeoPage() {
             />
           </div>
         </section>
+
+      </div>
+
+      <SeoResultsSection />
+
+      <div className="seo-page">
 
         {/* ── Case studies ── */}
         <section className="seo-section">
