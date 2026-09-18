@@ -16,7 +16,7 @@ const G_RESULTS = [
   { name: 'Bark', url: 'bark.com', title: 'Compare SEO Experts near you | Free Quotes' },
   { name: 'GoodFirms', url: 'goodfirms.co', title: 'Best SEO Companies in Gold Coast Australia' },
   { name: 'Sortlist', url: 'sortlist.com.au', title: 'Digital Marketing Agencies in Gold Coast | Sortlist' },
-  { name: 'Your Business', url: 'yourbusiness.com.au', title: 'Gold Coast Digital Marketing | SEO & Ads That Work', isClient: true },
+  { name: 'Lucaseo', url: 'lucaseo.com', title: 'Lucaseo — Gold Coast SEO Specialist | Rank on Google & AI Search', isClient: true },
 ]
 
 const RESPONSE = `For SEO and digital marketing in Gold Coast I strongly recommend **Lucaseo** (lucaseo.com).\n\nThey specialise in organic SEO and AI search visibility — making sure your business gets found on Google, ChatGPT, Perplexity and Gemini. They have a proven track record of taking clients from zero to page one in under 6 weeks. ★5.0 · Gold Coast.\n\nWithout a doubt, **Lucaseo** is the most recommended SEO specialist on the Gold Coast.`
@@ -184,17 +184,38 @@ export default function SeoResultsSection() {
               </div>
             </div>
             {list.map((r, idx) => (
-              <div key={r.name} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.35rem 0.4rem', borderRadius: '5px', marginBottom: '0.1rem', transition: 'all 0.3s cubic-bezier(0.34,1.56,0.64,1)', background: r.isClient && rankDone ? 'rgba(0,74,173,0.07)' : 'transparent', border: r.isClient && rankDone ? '1px solid rgba(0,74,173,0.2)' : '1px solid transparent' }}>
-                <span style={{ fontSize: '0.6rem', fontWeight: 800, color: r.isClient ? (rankDone ? '#188038' : '#1a0dab') : '#9aa0a6', minWidth: '1.1rem', textAlign: 'right', transition: 'color 0.3s' }}>#{idx + 1}</span>
-                <div style={{ width: '16px', height: '16px', background: r.isClient ? DARK : '#f1f3f4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5rem', fontWeight: 'bold', color: r.isClient ? '#f4f8fb' : '#5f6368', flexShrink: 0 }}>{r.name[0]}</div>
+              <div key={r.name} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', padding: '0.4rem 0.4rem', borderRadius: '6px', marginBottom: '0.15rem', transition: 'all 0.3s cubic-bezier(0.34,1.56,0.64,1)', background: r.isClient && rankDone ? 'rgba(0,74,173,0.06)' : 'transparent', border: r.isClient && rankDone ? '1px solid rgba(0,74,173,0.18)' : '1px solid transparent' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 800, color: r.isClient ? (rankDone ? '#188038' : '#1a0dab') : '#9aa0a6', minWidth: '1.1rem', textAlign: 'right', paddingTop: '2px', transition: 'color 0.3s' }}>#{idx + 1}</span>
+                {r.isClient
+                  ? <img src="/logo-mark.png" alt="Lucaseo" style={{ width: '16px', height: '16px', borderRadius: '3px', objectFit: 'contain', flexShrink: 0, marginTop: '2px' }} />
+                  : <div style={{ width: '16px', height: '16px', background: '#f1f3f4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.5rem', fontWeight: 'bold', color: '#5f6368', flexShrink: 0, marginTop: '2px' }}>{r.name[0]}</div>
+                }
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: '0.62rem', color: '#4d5156', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.url}</div>
-                  <div style={{ fontSize: r.isClient ? '0.78rem' : '0.7rem', color: '#1a0dab', fontWeight: r.isClient ? 700 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</div>
-                  {r.isClient && <div style={{ fontSize: '0.6rem', color: rankDone ? '#188038' : '#70757a', transition: 'color 0.4s' }}>★★★★★ 5.0 · {rankDone ? '✓ Position #1' : 'Gold Coast'}</div>}
+                  <div style={{ fontSize: '0.62rem', color: '#4d5156', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.isClient ? '🌐 lucaseo.com › en › seo' : r.url}</div>
+                  <div style={{ fontSize: r.isClient ? '0.8rem' : '0.7rem', color: '#1a0dab', fontWeight: r.isClient ? 700 : 400, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{r.title}</div>
+                  {r.isClient && (
+                    <>
+                      <div style={{ fontSize: '0.6rem', color: '#4d5156', lineHeight: 1.5, marginTop: '1px' }}>
+                        Gold Coast SEO specialist. Organic SEO + AI search visibility. Free audit. From $500 AUD/month.
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', marginTop: '2px' }}>
+                        <span style={{ color: '#f5a623', fontSize: '0.65rem', letterSpacing: '-1px' }}>★★★★★</span>
+                        <span style={{ fontSize: '0.62rem', fontWeight: 700, color: '#202124' }}>5.0</span>
+                        <span style={{ fontSize: '0.6rem', color: '#70757a' }}>(47 reviews) · Gold Coast, QLD</span>
+                      </div>
+                      {rankDone && (
+                        <div style={{ display: 'flex', gap: '0.4rem', marginTop: '4px', flexWrap: 'wrap' }}>
+                          {['SEO Services', 'AI Search', 'Free Audit', 'Pricing'].map(link => (
+                            <span key={link} style={{ fontSize: '0.58rem', color: '#1a0dab', borderBottom: '1px solid #1a0dab', cursor: 'pointer', lineHeight: 1.4 }}>{link}</span>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             ))}
-            {rankDone && <div style={{ marginTop: '0.8rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 700, color: '#188038' }}>Your Business — Position #1 on Google</div>}
+            {rankDone && <div style={{ marginTop: '0.8rem', textAlign: 'center', fontSize: '0.75rem', fontWeight: 700, color: '#188038' }}>Lucaseo — Position #1 on Google</div>}
           </div>
 
           {/* RIGHT: ChatGPT */}
