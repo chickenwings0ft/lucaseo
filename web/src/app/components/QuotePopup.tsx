@@ -1,9 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function QuotePopup() {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === "/en/contact") {
+      setOpen(true);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const check = () => {

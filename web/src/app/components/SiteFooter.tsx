@@ -61,7 +61,7 @@ const en = {
 export default function SiteFooter({ locale = "es" }: { locale?: Locale }) {
   const t = locale === "en" ? en : es;
   const home = locale === "en" ? "/" : "/es";
-  const contactHref = "#contact-popup";
+  const contactHref = locale === "en" ? "/en/contact" : "#contact-popup";
 
   return (
     <>
