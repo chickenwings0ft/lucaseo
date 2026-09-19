@@ -114,7 +114,7 @@ export default function SocialMediaPage() {
         </section>
       </div>
 
-      <FaqSection topic="social media management" faqs={socialFaqs} />
+      <FaqSection topic="social media management" faqs={socialFaqs} title="Frequently asked questions about social media" />
 
       <ServiceAreaMap
         eyebrow="Service Area · Social Media"

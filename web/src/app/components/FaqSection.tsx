@@ -9,6 +9,7 @@ export interface FaqItem {
 interface Props {
   topic: string;
   faqs: FaqItem[];
+  title?: string;
 }
 
 function slugify(text: string): string {
@@ -21,7 +22,7 @@ function slugify(text: string): string {
     .slice(0, 60);
 }
 
-export default function FaqSection({ topic, faqs }: Props) {
+export default function FaqSection({ topic, faqs, title }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const detailsRefs = useRef<(HTMLDetailsElement | null)[]>([]);
 
@@ -109,7 +110,7 @@ export default function FaqSection({ topic, faqs }: Props) {
         itemType="https://schema.org/FAQPage"
       >
         <h2 className="faq-module__title">
-          Preguntas frecuentes sobre {topic}
+          {title ?? `Preguntas frecuentes sobre ${topic}`}
         </h2>
         {faqs.map((f, i) => (
           <details

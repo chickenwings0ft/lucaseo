@@ -94,7 +94,7 @@ export default function AiPage() {
         </section>
       </div>
 
-      <FaqSection topic="AI and automation" faqs={aiFaqs} />
+      <FaqSection topic="AI and automation" faqs={aiFaqs} title="Frequently asked questions about AI automation" />
 
       <ServiceAreaMap
         eyebrow="Service Area · AI Automation"

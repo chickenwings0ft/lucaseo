@@ -507,7 +507,7 @@ export default function SeoPage() {
 
       </div>
 
-      <FaqSection topic="SEO and search ranking" faqs={seoFaqs} />
+      <FaqSection topic="SEO and search ranking" faqs={seoFaqs} title="Frequently asked questions about SEO" />
 
       <ServiceAreaMap
         eyebrow="Service Area · SEO"

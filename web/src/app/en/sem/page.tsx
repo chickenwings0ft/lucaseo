@@ -104,7 +104,7 @@ export default function SemPage() {
         </section>
       </div>
 
-      <FaqSection topic="SEM and Google Ads" faqs={semFaqs} />
+      <FaqSection topic="SEM and Google Ads" faqs={semFaqs} title="Frequently asked questions about SEM &amp; Google Ads" />
 
       <ServiceAreaMap
         eyebrow="Service Area · SEM & Ads"

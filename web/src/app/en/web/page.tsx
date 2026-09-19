@@ -138,7 +138,7 @@ export default function WebPage() {
         </section>
       </div>
 
-      <FaqSection topic="web design and development" faqs={webFaqs} />
+      <FaqSection topic="web design and development" faqs={webFaqs} title="Frequently asked questions about web design" />
 
       <ServiceAreaMap
         eyebrow="Service Area · Web Design"
