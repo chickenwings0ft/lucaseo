@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
+import QuotePopup from "./components/QuotePopup";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -54,7 +55,10 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <QuotePopup />
+      </body>
     </html>
   );
 }
