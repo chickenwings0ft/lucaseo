@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactAutoOpen from "./ContactAutoOpen";
 
 export const metadata: Metadata = {
   title: "Contact Lucaseo — Free Marketing Audit | Gold Coast",
@@ -33,7 +34,8 @@ export default function ContactPage() {
             </span>
           ))}
         </div>
-        <noscript>
+        <ContactAutoOpen />
+      <noscript>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.875rem" }}>
             Email us at <a href="mailto:hola@lucaseo.com" style={{ color: "#4d9aff" }}>hola@lucaseo.com</a>
           </p>
