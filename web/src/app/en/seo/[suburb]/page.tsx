@@ -127,17 +127,6 @@ export default async function SuburbSeoPage({ params }: Props) {
           <p className="sub-p">Every day, potential customers in {profile.name} are searching for businesses like yours — on Google, and increasingly on AI tools too.</p>
         </section>
 
-        {/* ── Business landscape ── */}
-        <section className="sub-section">
-          <div className="sub-tag">The {profile.name} business landscape</div>
-          <h2 className="sub-h2">{profile.character}</h2>
-          <div className="sub-chips">
-            {profile.businessMix.map((b) => (
-              <span key={b} className="sub-chip">{b}</span>
-            ))}
-          </div>
-        </section>
-
         {/* ── How people search here ── */}
         <section className="sub-section">
           <div className="sub-tag">How people search in {profile.name}</div>
@@ -201,6 +190,17 @@ export default async function SuburbSeoPage({ params }: Props) {
               <Link key={s.slug} href={`/en/seo/${s.slug}`}>{s.name}</Link>
             ))}
             <Link href="/en/seo">All suburbs →</Link>
+          </div>
+        </section>
+
+        {/* ── Business landscape ── */}
+        <section className="sub-section">
+          <div className="sub-tag">The {profile.name} business landscape</div>
+          <h2 className="sub-h2">{profile.character}</h2>
+          <div className="sub-chips">
+            {profile.businessMix.map((b) => (
+              <span key={b} className="sub-chip">{b}</span>
+            ))}
           </div>
         </section>
       </div>
