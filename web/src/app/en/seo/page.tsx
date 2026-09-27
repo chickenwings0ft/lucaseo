@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
 import FreeConsultationCta from "../../components/FreeConsultationCta";
@@ -8,6 +6,9 @@ import ServiceAreaMap from "../../components/ServiceAreaMap";
 import FaqSection from "../../components/FaqSection";
 import SeoResultsSection from "../../components/SeoResultsSection";
 import PrefillQuoteButton from "../../components/PrefillQuoteButton";
+import SeoHero from "../../components/SeoHero";
+import SeoVsSemGraphic from "../../components/SeoVsSemGraphic";
+import AiSearchGraphic from "../../components/AiSearchGraphic";
 
 export const metadata: Metadata = {
   title: "SEO Services Australia — Lucaseo | Rank on Google & AI Search",
@@ -32,7 +33,7 @@ export default function SeoPage() {
         /* ══════════════════════════════════════════════
            Design tokens — shared across every section
            ══════════════════════════════════════════════ */
-        .seo-hero, .sai-wrap, .seo-page, .seo-ai-ticker, .seo-vs-wrap {
+        .sai-wrap, .seo-page, .seo-ai-ticker, .seo-vs-wrap {
           --ink: #04091a;
           --text: #0a0f1e;
           --muted: #5a6480;
@@ -70,35 +71,6 @@ export default function SeoPage() {
         .seo-tile:hover {
           transform: translateY(-3px); border-color: var(--card-border-hover);
           box-shadow: 0 12px 28px rgba(0,74,173,0.1);
-        }
-
-        /* ══════════════════════════════════════════════
-           Hero
-           ══════════════════════════════════════════════ */
-        .seo-hero { position: relative; background: var(--ink); min-height: 100svh; display: flex; align-items: center; overflow: hidden; padding: 6.5rem 1.25rem 4rem; }
-        .seo-hero__bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(0,74,173,0.18) 0%, transparent 70%); pointer-events: none; }
-        .seo-hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-        .seo-hero__inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 3rem; align-items: center; }
-        .seo-hero__badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); background: rgba(77,154,255,0.1); border: 1px solid rgba(77,154,255,0.25); padding: 0.375rem 0.875rem; border-radius: 999px; margin-bottom: 1.5rem; }
-        .seo-hero__badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px var(--success); flex-shrink: 0; }
-        .seo-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 7vw, 3.75rem); line-height: 1.1; letter-spacing: -0.03em; color: #fff; margin-bottom: 1.25rem; text-wrap: balance; }
-        .seo-hero h1 em { font-style: normal; color: var(--accent-light); }
-        .seo-hero__lead { font-size: clamp(1rem, 2.5vw, 1.125rem); color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; max-width: 520px; margin-bottom: 2rem; }
-        .seo-hero__actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
-        .seo-hero__btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9375rem 1.75rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s; }
-        .seo-hero__btn:hover { background: var(--accent-hover); }
-
-        .seo-hero__phone-wrap { position: relative; display: flex; justify-content: center; width: 100%; }
-        .seo-hero__phone-glow { position: absolute; inset: -20%; background: radial-gradient(circle, rgba(0,74,173,0.4) 0%, transparent 65%); pointer-events: none; }
-        .seo-hero__phone { position: relative; z-index: 1; width: 100%; height: auto; max-width: 300px; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(0,74,173,0.4)); animation: seo-float 4s ease-in-out infinite; }
-        @keyframes seo-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        @media (min-width: 1024px) {
-          .seo-hero { padding: 7rem 2.5rem 5rem; }
-          .seo-hero__inner { flex-direction: row; gap: 5rem; text-align: left; }
-          .seo-hero__inner > div:first-child { flex: 1; }
-          .seo-hero__phone-wrap { flex: 0 0 440px; }
-          .seo-hero__phone { max-width: 440px; }
         }
 
         /* ── Intro: SEO & getting more customers ── */
@@ -158,30 +130,6 @@ export default function SeoPage() {
            ══════════════════════════════════════════════ */
         .seo-vs-wrap { background: #fff; padding: 3.5rem 1.25rem; }
         .seo-vs-inner { max-width: 1100px; margin: 0 auto; }
-        .seo-vs-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-        .seo-vs-card { border-radius: 14px; padding: 1.75rem; border: 1px solid var(--card-border); }
-        .seo-vs-card--seo { border-color: rgba(0,74,173,0.28); background: linear-gradient(180deg, rgba(0,74,173,0.06) 0%, rgba(0,74,173,0.02) 100%); }
-        .seo-vs-card--sem { border-color: var(--card-border); background: #fafbfd; }
-        .seo-vs-card__head { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem; }
-        .seo-vs-card__icon { font-size: 1.375rem; width: 44px; height: 44px; border-radius: 10px; background: #fff; border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .seo-vs-card__label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.25rem; }
-        .seo-vs-card--sem .seo-vs-card__label { color: var(--muted); }
-        .seo-vs-card__title { font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; color: var(--text); letter-spacing: -0.01em; line-height: 1.25; }
-        .seo-vs-card__intro { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
-        .seo-vs-card__list { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.625rem; }
-        .seo-vs-card__list li { font-size: 0.8375rem; color: var(--text); line-height: 1.55; padding-left: 1.375rem; position: relative; }
-        .seo-vs-card--seo .seo-vs-card__list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-        .seo-vs-card--sem .seo-vs-card__list li::before { content: '–'; position: absolute; left: 0; color: var(--muted); font-weight: 700; }
-        .seo-vs-chart { border-top: 1px solid var(--card-border); padding-top: 1.25rem; }
-        .seo-vs-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
-        .seo-vs-chart__caption { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 0.625rem; }
-
-        .seo-vs-combo { margin-top: 2.5rem; text-align: center; }
-        .seo-vs-combo__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.25rem, 3.5vw, 1.75rem); color: var(--text); letter-spacing: -0.02em; line-height: 1.3; margin: 0 auto 1.5rem; text-wrap: balance; max-width: 560px; }
-        .seo-vs-combo__cta { display: inline-flex; align-items: center; justify-content: center; padding: 0.9375rem 2rem; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9375rem; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
-        .seo-vs-combo__cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
-
-        @media (min-width: 700px) { .seo-vs-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 900px) {
           .seo-vs-wrap { padding: 5.5rem 2.5rem; }
         }
@@ -213,52 +161,18 @@ export default function SeoPage() {
         .sai-term-text { font-size: 0.8375rem; color: var(--muted); line-height: 1.55; padding-top: 0.2rem; }
         .sai-term-text strong { color: var(--text); font-weight: 600; }
 
-        .sai-platforms { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
-        .sai-platform { padding: 1.125rem 0.875rem; text-align: center; }
-        .sai-platform-icon { font-size: 1.375rem; margin-bottom: 0.5rem; }
-        .sai-platform-name { font-size: 0.8125rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
-        .sai-platform-share { font-size: 0.75rem; color: var(--muted); }
-
-        @media (min-width: 560px) { .sai-platforms { grid-template-columns: repeat(3, 1fr); } }
         @media (min-width: 700px) { .sai-terms { grid-template-columns: repeat(3, 1fr); } }
         @media (min-width: 900px) {
           .sai-wrap { padding: 5.5rem 2.5rem; }
-          .sai-platforms { grid-template-columns: repeat(6, 1fr); }
         }
       `}</style>
 
       {/* ── Hero ── */}
-      <section className="seo-hero">
-        <div className="seo-hero__bg" />
-        <div className="seo-hero__grid" />
-        <div className="seo-hero__inner">
-          <div>
-            <div className="seo-hero__badge">Organic SEO · Gold Coast</div>
-            <h1>
-              Get found on Google.<br />
-              Get recommended by <em>AI.</em>
-            </h1>
-            <p className="seo-hero__lead">
-              Google is still where most of your customers start looking. We get you ranking at the top of it — and increasingly, they&apos;re also asking ChatGPT, Perplexity, and Claude. We make sure you show up there too. Real rankings. Real results.
-            </p>
-            <div className="seo-hero__actions">
-              <PrefillQuoteButton message="" className="seo-hero__btn">Get your free SEO audit</PrefillQuoteButton>
-            </div>
-          </div>
-          <div className="seo-hero__phone-wrap">
-            <div className="seo-hero__phone-glow" />
-            <Image
-              src="/mockup-seo.png"
-              alt="Google AI Overview recommending Lucaseo — Gold Coast SEO specialist"
-              title="Google recommends Lucaseo for digital marketing in Australia"
-              width={440}
-              height={660}
-              className="seo-hero__phone"
-              priority
-            />
-          </div>
-        </div>
-      </section>
+      <SeoHero
+        badge="Organic SEO · Gold Coast"
+        h1={<>Get found on Google.<br />Get recommended by <em>AI.</em></>}
+        lead="Google is still where most of your customers start looking. We get you ranking at the top of it — and increasingly, they're also asking ChatGPT, Perplexity, and Claude. We make sure you show up there too. Real rankings. Real results."
+      />
 
       {/* ── Intro: SEO & getting more customers ── */}
       <div className="seo-page">
@@ -294,84 +208,17 @@ export default function SeoPage() {
       {/* ── SEO vs SEM ── */}
       <div className="seo-vs-wrap">
         <div className="seo-vs-inner">
-          <div className="seo-tag">SEO vs SEM</div>
-          <h2 className="seo-h2">SEO or Google Ads? Most businesses get this wrong.</h2>
-          <p className="seo-lead">
-            Both get you customers from Google. But they work in completely different ways — and picking the wrong one wastes months and budget.
-          </p>
-
-          <div className="seo-vs-grid">
-            {/* SEO card */}
-            <div className="seo-vs-card seo-vs-card--seo">
-              <div className="seo-vs-card__head">
-                <span className="seo-vs-card__icon">📈</span>
-                <div>
-                  <div className="seo-vs-card__label">SEO · Organic ranking</div>
-                  <div className="seo-vs-card__title">Build it once. It works for years.</div>
-                </div>
-              </div>
-              <p className="seo-vs-card__intro">SEO earns your spot on Google through relevance and authority. Nobody can outbid you for it.</p>
-              <ul className="seo-vs-card__list">
-                <li>No cost per click, no matter how much traffic you get</li>
-                <li>Compounds over time — the longer you rank, the harder you are to displace</li>
-                <li>An asset you own. Stop paying us and your rankings don&apos;t vanish</li>
-                <li>Takes 3–6 months to build momentum</li>
-              </ul>
-              <div className="seo-vs-chart">
-                <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="10" y="70" width="24" height="10" fill="var(--accent)" opacity="0.45" />
-                  <rect x="42" y="62" width="24" height="18" fill="var(--accent)" opacity="0.55" />
-                  <rect x="74" y="53" width="24" height="27" fill="var(--accent)" opacity="0.65" />
-                  <rect x="106" y="42" width="24" height="38" fill="var(--accent)" opacity="0.78" />
-                  <rect x="138" y="30" width="24" height="50" fill="var(--accent)" opacity="0.9" />
-                  <rect x="170" y="16" width="24" height="64" fill="var(--accent)" opacity="1" />
-                  <text x="22" y="94" fontSize="9" fill="var(--muted)" textAnchor="middle">Month 1</text>
-                  <text x="182" y="94" fontSize="9" fill="var(--muted)" textAnchor="middle">Month 12</text>
-                </svg>
-                <div className="seo-vs-chart__caption">Traffic keeps climbing, month after month</div>
-              </div>
-            </div>
-
-            {/* SEM card */}
-            <div className="seo-vs-card seo-vs-card--sem">
-              <div className="seo-vs-card__head">
-                <span className="seo-vs-card__icon">⚡</span>
-                <div>
-                  <div className="seo-vs-card__label">SEM · Google Ads</div>
-                  <div className="seo-vs-card__title">Pay for the spot. Lose it when you stop.</div>
-                </div>
-              </div>
-              <p className="seo-vs-card__intro">SEM buys your spot at the top of Google, instantly. The moment your budget stops, so does your traffic.</p>
-              <ul className="seo-vs-card__list">
-                <li>Live on page one from day one</li>
-                <li>You pay for every single click, indefinitely</li>
-                <li>Cancel your budget and traffic drops to zero — same day</li>
-                <li>Best for fast wins, launches, and testing what converts</li>
-              </ul>
-              <div className="seo-vs-chart">
-                <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="10" y="30" width="24" height="50" fill="var(--accent)" opacity="0.85" />
-                  <rect x="42" y="30" width="24" height="50" fill="var(--accent)" opacity="0.85" />
-                  <rect x="74" y="30" width="24" height="50" fill="var(--accent)" opacity="0.85" />
-                  <rect x="106" y="30" width="24" height="50" fill="var(--accent)" opacity="0.85" />
-                  <line x1="132" y1="4" x2="132" y2="80" stroke="var(--muted)" strokeWidth="1" strokeDasharray="3,3" />
-                  <rect x="138" y="74" width="24" height="6" fill="var(--muted)" opacity="0.35" />
-                  <rect x="170" y="74" width="24" height="6" fill="var(--muted)" opacity="0.35" />
-                  <text x="132" y="10" fontSize="8" fill="var(--muted)" textAnchor="middle">Budget stops</text>
-                  <text x="22" y="94" fontSize="9" fill="var(--muted)" textAnchor="middle">Month 1</text>
-                  <text x="182" y="94" fontSize="9" fill="var(--muted)" textAnchor="middle">Month 12</text>
-                </svg>
-                <div className="seo-vs-chart__caption">Traffic stops the day you stop paying</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="seo-vs-combo">
-            <h3 className="seo-vs-combo__title">Don&apos;t choose. Run both, and let each one do its job.</h3>
-            <PrefillQuoteButton message="10% SEO+SEM discount" className="seo-vs-combo__cta">
-              Claim 10% off SEO + SEM →
-            </PrefillQuoteButton>
-          </div>
+          <SeoVsSemGraphic
+            header={
+              <>
+                <div className="seo-tag">SEO vs SEM</div>
+                <h2 className="seo-h2">SEO or Google Ads? Most businesses get this wrong.</h2>
+                <p className="seo-lead">
+                  Both get you customers from Google. But they work in completely different ways — and picking the wrong one wastes months and budget.
+                </p>
+              </>
+            }
+          />
         </div>
       </div>
 
@@ -389,43 +236,32 @@ export default function SeoPage() {
       {/* ── SEO for AI — compact section ── */}
       <div className="sai-wrap">
         <div className="sai-inner">
-          <div className="sai-eyebrow">AIO · AEO · GEO</div>
-          <h2 className="sai-h2">Your customers now also ask AI.</h2>
-          <p className="sai-lead">
-            ChatGPT, Perplexity and Google&apos;s own AI Overview now answer questions people used to Google. We make sure you&apos;re in those answers too.
-          </p>
+          <AiSearchGraphic
+            header={
+              <>
+                <div className="sai-eyebrow">AIO · AEO · GEO</div>
+                <h2 className="sai-h2">Your customers now also ask AI.</h2>
+                <p className="sai-lead">
+                  ChatGPT, Perplexity and Google&apos;s own AI Overview now answer questions people used to Google. We make sure you&apos;re in those answers too.
+                </p>
 
-          <div className="sai-terms">
-            <div className="sai-term">
-              <div className="sai-term-badge">AIO</div>
-              <div className="sai-term-text"><strong>AI Overview Optimisation.</strong> Featured in Google&apos;s AI-generated summaries.</div>
-            </div>
-            <div className="sai-term">
-              <div className="sai-term-badge">AEO</div>
-              <div className="sai-term-text"><strong>Answer Engine Optimisation.</strong> The answer ChatGPT and Perplexity cite.</div>
-            </div>
-            <div className="sai-term">
-              <div className="sai-term-badge">GEO</div>
-              <div className="sai-term-text"><strong>Generative Engine Optimisation.</strong> The authority signals AI models trust.</div>
-            </div>
-          </div>
-
-          <div className="sai-platforms">
-            {[
-              { icon: "🔵", name: "Google Search", share: "8.5B searches/day" },
-              { icon: "🔍", name: "Google AI Overview", share: "90%+ market share" },
-              { icon: "🤖", name: "ChatGPT", share: "180M+ users" },
-              { icon: "🌐", name: "Perplexity", share: "15M+ daily queries" },
-              { icon: "🗺️", name: "Google Maps", share: "\"Near me\" local search" },
-              { icon: "💎", name: "Google Gemini", share: "Built into Android" },
-            ].map(p => (
-              <div key={p.name} className="seo-tile sai-platform">
-                <div className="sai-platform-icon">{p.icon}</div>
-                <div className="sai-platform-name">{p.name}</div>
-                <div className="sai-platform-share">{p.share}</div>
-              </div>
-            ))}
-          </div>
+                <div className="sai-terms">
+                  <div className="sai-term">
+                    <div className="sai-term-badge">AIO</div>
+                    <div className="sai-term-text"><strong>AI Overview Optimisation.</strong> Featured in Google&apos;s AI-generated summaries.</div>
+                  </div>
+                  <div className="sai-term">
+                    <div className="sai-term-badge">AEO</div>
+                    <div className="sai-term-text"><strong>Answer Engine Optimisation.</strong> The answer ChatGPT and Perplexity cite.</div>
+                  </div>
+                  <div className="sai-term">
+                    <div className="sai-term-badge">GEO</div>
+                    <div className="sai-term-text"><strong>Generative Engine Optimisation.</strong> The authority signals AI models trust.</div>
+                  </div>
+                </div>
+              </>
+            }
+          />
         </div>
       </div>
 
@@ -496,6 +332,23 @@ export default function SeoPage() {
       <ServiceAreaMap
         eyebrow="Service Area · SEO"
         title={<>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got your SEO covered.</>}
+        linkedSuburbs={{
+          "Surfers Paradise": "/en/seo/surfers-paradise",
+          "Broadbeach": "/en/seo/broadbeach",
+          "Southport": "/en/seo/southport",
+          "Robina": "/en/seo/robina",
+          "Burleigh Heads": "/en/seo/burleigh-heads",
+          "Coolangatta": "/en/seo/coolangatta",
+          "Palm Beach": "/en/seo/palm-beach",
+          "Nerang": "/en/seo/nerang",
+          "Coomera": "/en/seo/coomera",
+          "Helensvale": "/en/seo/helensvale",
+          "Mermaid Beach": "/en/seo/mermaid-beach",
+          "Miami": "/en/seo/miami",
+          "Currumbin": "/en/seo/currumbin",
+          "Varsity Lakes": "/en/seo/varsity-lakes",
+          "Labrador": "/en/seo/labrador",
+        }}
       />
 
       <FreeConsultationCta />

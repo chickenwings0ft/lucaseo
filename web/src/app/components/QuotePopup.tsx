@@ -219,7 +219,7 @@ export default function QuotePopup() {
       `}</style>
 
       {/* Sticky manual trigger */}
-      <button className="qp-btn" onClick={() => { setShowForm(false); setOpen(true); }}>
+      <button className="qp-btn" onClick={() => { setShowForm(true); setOpen(true); }}>
         <span className="qp-dot" aria-hidden="true" />
         Free quote
       </button>

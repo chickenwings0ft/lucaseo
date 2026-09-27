@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import type { Locale } from "@/lib/pages/types";
+import PrefillQuoteButton from "./PrefillQuoteButton";
 
 const esLinks = [
   { href: "/sobre-mi", label: "Sobre Mí" },
@@ -27,7 +28,6 @@ export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
   const pathname = usePathname();
   const links = locale === "en" ? enLinks : esLinks;
   const home = locale === "en" ? "/" : "/es";
-  const ctaHref = locale === "en" ? "/#contact" : "/es#contacto";
   const ctaLabel = locale === "en" ? "Let's talk" : "Hablemos";
   const [open, setOpen] = useState(false);
 
@@ -141,7 +141,7 @@ export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
               </li>
             ))}
           </ul>
-          <Link href={ctaHref} className="site-nav__cta">{ctaLabel}</Link>
+          <PrefillQuoteButton message="" className="site-nav__cta">{ctaLabel}</PrefillQuoteButton>
 
           <button
             className={`site-nav__burger${open ? " site-nav__burger--open" : ""}`}
@@ -164,7 +164,9 @@ export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
             {l.label}
           </Link>
         ))}
-        <Link href={ctaHref} className="site-nav__mobile-cta">{ctaLabel}</Link>
+        <div onClick={() => setOpen(false)}>
+          <PrefillQuoteButton message="" className="site-nav__mobile-cta">{ctaLabel}</PrefillQuoteButton>
+        </div>
       </div>
     </>
   );

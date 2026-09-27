@@ -1,10 +1,12 @@
 "use client";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 interface ServiceAreaMapProps {
   eyebrow?: string;
   title?: ReactNode;
   statLabel?: string;
+  linkedSuburbs?: Record<string, string>;
 }
 
 const row1 = [
@@ -35,7 +37,7 @@ const row3 = [
   "Willowvale", "Wongawallan", "Woongoolba", "Worongary", "Yatala",
 ];
 
-function Ticker({ items, direction, speed }: { items: string[]; direction: "left" | "right"; speed: number }) {
+function Ticker({ items, direction, speed, linkedSuburbs }: { items: string[]; direction: "left" | "right"; speed: number; linkedSuburbs?: Record<string, string> }) {
   const doubled = [...items, ...items];
   return (
     <div className="sam-track-wrap">
@@ -43,9 +45,14 @@ function Ticker({ items, direction, speed }: { items: string[]; direction: "left
         className={`sam-track sam-track--${direction}`}
         style={{ animationDuration: `${speed}s` }}
       >
-        {doubled.map((s, i) => (
-          <h4 key={`${s}-${i}`} className="sam-chip">{s}</h4>
-        ))}
+        {doubled.map((s, i) => {
+          const href = linkedSuburbs?.[s];
+          return href ? (
+            <Link key={`${s}-${i}`} href={href} className="sam-chip sam-chip--link">{s}</Link>
+          ) : (
+            <h4 key={`${s}-${i}`} className="sam-chip">{s}</h4>
+          );
+        })}
       </div>
     </div>
   );
@@ -55,6 +62,7 @@ export default function ServiceAreaMap({
   eyebrow = "Service Area",
   title = <>Wherever you are on the <em>Gold Coast</em>, we&apos;ve got you covered.</>,
   statLabel = "Gold Coast suburbs served",
+  linkedSuburbs,
 }: ServiceAreaMapProps) {
   const total = row1.length + row2.length + row3.length;
 
@@ -83,6 +91,8 @@ export default function ServiceAreaMap({
         @keyframes sam-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
         .sam-chip { display: inline-flex; align-items: center; padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); white-space: nowrap; margin: 0; }
+        .sam-chip--link { text-decoration: none; border-color: rgba(77,154,255,0.35); color: #4d9aff; transition: background 0.2s, border-color 0.2s; }
+        .sam-chip--link:hover { background: rgba(77,154,255,0.12); border-color: #4d9aff; }
 
         @media (max-width: 640px) {
           .sam-head { padding: 0 1.25rem; }
@@ -103,7 +113,7 @@ export default function ServiceAreaMap({
       </div>
 
       <div className="sam-tracks">
-        <Ticker items={row1} direction="left" speed={38} />
+        <Ticker items={row1} direction="left" speed={38} linkedSuburbs={linkedSuburbs} />
         <Ticker items={row2} direction="right" speed={46} />
         <Ticker items={row3} direction="left" speed={42} />
       </div>

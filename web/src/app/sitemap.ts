@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next';
+import { suburbSeoProfiles } from '@/lib/suburbSeoData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lucaseo.com';
   const now = new Date();
+
+  const suburbPages: MetadataRoute.Sitemap = suburbSeoProfiles.map((s) => ({
+    url: `${baseUrl}/en/seo/${s.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
 
   return [
     // English (primary — Australian market)
@@ -24,6 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+
+    // Local SEO — Gold Coast suburbs (Tier 1 only, see suburbSeoData.ts)
+    ...suburbPages,
     {
       url: `${baseUrl}/en/sem`,
       lastModified: now,

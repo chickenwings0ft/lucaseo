@@ -124,7 +124,6 @@ export default function SeoResultsSection() {
     display: 'block' as const,
     fontFamily: 'var(--font-display), system-ui',
     fontWeight: 800,
-    fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
     textTransform: 'uppercase' as const,
     letterSpacing: '-0.04em',
     lineHeight: 1,
@@ -138,18 +137,20 @@ export default function SeoResultsSection() {
         <style>{`
           @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
           .seo-results-split { display: flex; }
+          .yb-line { font-size: clamp(1.75rem, 10.5vw, 6.5rem); }
+          @media (min-width: 640px) { .yb-line { font-size: clamp(3.5rem, 7vw, 6.5rem); } }
           @media (max-width: 768px) { .seo-results-split { flex-direction: column !important; } }
         `}</style>
 
         {/* Scramble intro */}
         <div style={{ textAlign: 'center', transform: visionVisible ? 'translateY(-100vh)' : 'translateY(0)', opacity: visionVisible ? 0 : 1, transition: 'transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease' }}>
-          <span style={{ ...rowStyle, color: '#f4f8fb', display: 'block', marginBottom: '0.05em' }}>
+          <span className="yb-line" style={{ ...rowStyle, color: '#f4f8fb', display: 'block', marginBottom: '0.05em' }}>
             <ScrambleText text="YOUR" progress={localProgress(progress, P_SCRAMBLE.your[0], P_SCRAMBLE.your[1])} />
           </span>
-          <span style={{ ...rowStyle, color: '#f4f8fb', display: 'block', marginBottom: '0.05em' }}>
+          <span className="yb-line" style={{ ...rowStyle, color: '#f4f8fb', display: 'block', marginBottom: '0.05em' }}>
             <ScrambleText text="BUSINESS" progress={localProgress(progress, P_SCRAMBLE.business[0], P_SCRAMBLE.business[1])} />
           </span>
-          <span style={{ ...rowStyle, color: BLUE_LIGHT, display: 'block' }}>
+          <span className="yb-line" style={{ ...rowStyle, color: BLUE_LIGHT, display: 'block' }}>
             <CountdownText progress={localProgress(progress, P_SCRAMBLE.num[0], P_SCRAMBLE.num[1])} />
           </span>
           <div style={{ height: '3px', width: lineVisible ? '260px' : '0px', background: '#f4f8fb', margin: '2.5rem auto 0', borderRadius: '2px', opacity: lineWidthProgress, transition: 'width 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease' }} />

@@ -75,23 +75,23 @@ export async function sendLeadEmails(lead: Lead): Promise<boolean> {
     });
   }
 
-  // 2. Respuesta automática al cliente
+  // 2. Auto-reply to the client
   await resend.emails.send({
     from,
-    subject: "Hemos recibido tu mensaje — Lucaseo",
+    subject: "We've received your message — Lucaseo",
     to: lead.email,
     html: shell(`
-      <p style="margin:0 0 20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#004aad;font-weight:600">Mensaje recibido</p>
-      <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">Gracias${lead.name ? `, ${esc(lead.name)}` : ""}.</h1>
+      <p style="margin:0 0 20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#004aad;font-weight:600">Message received</p>
+      <h1 style="margin:0 0 16px;font-size:22px;line-height:1.25">Thanks${lead.name ? `, ${esc(lead.name)}` : ""}.</h1>
       <p style="margin:0 0 16px;font-size:15px;line-height:1.65;color:#3d4661">
-        Hemos recibido tu mensaje y ya estamos revisando tu caso. Te responderemos <strong>en menos de 24 horas</strong> con un primer diagnóstico: qué vemos en tu situación actual, dónde está la oportunidad y qué haríamos primero.
+        We've received your message and we're already looking into it. We'll get back to you <strong>within 24 hours</strong> with a first read on your situation: what we see, where the opportunity is, and what we'd tackle first.
       </p>
       <p style="margin:0 0 24px;font-size:15px;line-height:1.65;color:#3d4661">
-        Mientras tanto, si quieres añadir algo, simplemente responde a este email.
+        In the meantime, if you want to add anything, just reply to this email.
       </p>
-      <a href="https://lucaseo.com" style="display:inline-block;background:#004aad;color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 24px;border-radius:6px">Ver la web</a>
+      <a href="https://lucaseo.com" style="display:inline-block;background:#004aad;color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 24px;border-radius:6px">Visit the website</a>
       <p style="margin:28px 0 0;padding-top:20px;border-top:1px solid #e4e9f2;font-size:13px;color:#5a6480">
-        Lucaseo — SEO, SEM y presencia digital<br>
+        Lucaseo — SEO, SEM and digital presence<br>
         <a href="https://lucaseo.com" style="color:#004aad;text-decoration:none">lucaseo.com</a>
       </p>
     `),
