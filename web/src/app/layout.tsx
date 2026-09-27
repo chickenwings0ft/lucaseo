@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import QuotePopup from "./components/QuotePopup";
+import CookieBanner from "./components/CookieBanner";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body>
         {children}
         <QuotePopup />
+        <CookieBanner />
       </body>
     </html>
   );
