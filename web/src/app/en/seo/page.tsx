@@ -176,17 +176,14 @@ export default function SeoPage() {
         .seo-vs-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
         .seo-vs-chart__caption { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 0.625rem; }
 
-        .seo-vs-combo { margin-top: 1.5rem; border-radius: 16px; background: linear-gradient(135deg, var(--ink) 0%, #0a1940 100%); padding: 2rem 1.5rem; text-align: center; }
-        .seo-vs-combo__tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--success); margin-bottom: 0.875rem; }
-        .seo-vs-combo__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.25rem, 3.5vw, 1.75rem); color: #fff; letter-spacing: -0.02em; line-height: 1.3; margin: 0 auto 1rem; text-wrap: balance; max-width: 640px; }
-        .seo-vs-combo__body { font-size: 0.9375rem; color: rgba(255,255,255,0.65); line-height: 1.75; font-weight: 300; max-width: 560px; margin: 0 auto 1.75rem; }
-        .seo-vs-combo__cta { display: inline-flex; align-items: center; justify-content: center; padding: 0.9375rem 2rem; background: #fff; color: var(--ink); font-weight: 700; font-size: 0.9375rem; border-radius: 8px; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-        .seo-vs-combo__cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
+        .seo-vs-combo { margin-top: 2.5rem; text-align: center; }
+        .seo-vs-combo__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.25rem, 3.5vw, 1.75rem); color: var(--text); letter-spacing: -0.02em; line-height: 1.3; margin: 0 auto 1.5rem; text-wrap: balance; max-width: 560px; }
+        .seo-vs-combo__cta { display: inline-flex; align-items: center; justify-content: center; padding: 0.9375rem 2rem; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9375rem; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+        .seo-vs-combo__cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
         @media (min-width: 700px) { .seo-vs-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 900px) {
           .seo-vs-wrap { padding: 5.5rem 2.5rem; }
-          .seo-vs-combo { padding: 3rem; }
         }
 
         /* ══════════════════════════════════════════════
@@ -370,11 +367,7 @@ export default function SeoPage() {
           </div>
 
           <div className="seo-vs-combo">
-            <div className="seo-vs-combo__tag">The smart move</div>
             <h3 className="seo-vs-combo__title">Don&apos;t choose. Run both, and let each one do its job.</h3>
-            <p className="seo-vs-combo__body">
-              Use SEM to get customers today, while SEO builds in the background. Once you&apos;re ranking organically, SEO does the heavy lifting for free — and you keep Ads only for the handful of keywords worth bidding on. Short-term traffic now. A long-term asset for later.
-            </p>
             <PrefillQuoteButton message="10% SEO+SEM discount" className="seo-vs-combo__cta">
               Claim 10% off SEO + SEM →
             </PrefillQuoteButton>
