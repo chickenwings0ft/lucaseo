@@ -1,15 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function QuotePopup() {
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const pathname = usePathname();
 
+  // Fires on every client-side navigation (layout never remounts)
   useEffect(() => {
-    // pathname trigger (e.g. /en/contact)
-    if (window.location.pathname === "/en/contact") setOpen(true);
+    if (pathname === "/en/contact") setOpen(true);
+  }, [pathname]);
 
-    // hash trigger
+  // Hash trigger — only needs to register once
+  useEffect(() => {
     const check = () => {
       if (window.location.hash === "#contact-popup") setOpen(true);
     };
