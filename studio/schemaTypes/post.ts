@@ -28,12 +28,13 @@ export default defineType({
       validation: (r) => r.required(),
     }),
     defineField({
-      name: 'category',
-      title: 'Categoría',
-      type: 'string',
+      name: 'categories',
+      title: 'Categorías',
+      type: 'array',
       group: 'content',
       description:
-        'Clasifica el artículo por servicio. Aparecerá en la sección "Articles" de esa página de servicio.',
+        'Marca una o varias. El artículo aparecerá en la sección "Articles" de cada página de servicio que marques (ej. un artículo de "SEO vs SEM" puede llevar las dos).',
+      of: [{type: 'string'}],
       options: {
         list: [
           {title: 'SEO', value: 'seo'},
@@ -42,9 +43,9 @@ export default defineType({
           {title: 'Social Media', value: 'social'},
           {title: 'Marketing (general)', value: 'marketing'},
         ],
-        layout: 'radio',
+        layout: 'grid',
       },
-      validation: (r) => r.required(),
+      validation: (r) => r.required().min(1),
     }),
     defineField({
       name: 'excerpt',
@@ -223,9 +224,12 @@ export default defineType({
     {title: 'Más recientes primero', name: 'publishedDesc', by: [{field: 'publishedAt', direction: 'desc'}]},
   ],
   preview: {
-    select: {title: 'title', category: 'category', media: 'headerImage'},
-    prepare({title, category, media}) {
-      return {title, subtitle: category ? category.toUpperCase() : 'Sin categoría', media}
+    select: {title: 'title', categories: 'categories', media: 'headerImage'},
+    prepare({title, categories, media}) {
+      const subtitle = Array.isArray(categories) && categories.length
+        ? categories.map((c: string) => c.toUpperCase()).join(' · ')
+        : 'Sin categoría'
+      return {title, subtitle, media}
     },
   },
 })

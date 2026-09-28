@@ -17,7 +17,7 @@ export interface BlogListItem {
   publishedAt: string;
   updatedAt: string;
   author?: string;
-  category?: BlogCategory;
+  categories?: BlogCategory[];
   headerImage: BlogImage;
   headerImageAlt: string;
 }
@@ -44,17 +44,17 @@ const headerImageProjection = `
 `;
 
 export const postListQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
-  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, category,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, categories,
   ${headerImageProjection}
 }`;
 
-export const postsByCategoryQuery = groq`*[_type == "post" && defined(slug.current) && category == $category] | order(publishedAt desc) {
-  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, category,
+export const postsByCategoryQuery = groq`*[_type == "post" && defined(slug.current) && $category in categories] | order(publishedAt desc) {
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, categories,
   ${headerImageProjection}
 }`;
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]{
-  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body, category,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body, categories,
   cta1Label, cta1Href, cta2Label, cta2Href, seoTitle, seoDescription,
   "faqs": faqs[]{"q": question, "a": answer},
   ${headerImageProjection}
