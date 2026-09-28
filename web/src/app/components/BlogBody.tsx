@@ -13,6 +13,8 @@ export default function BlogBody({ body, idByKey }: { body: PortableTextBlock[];
     block: {
       h2: ({ children, value }) => <h2 id={value._key ? idByKey.get(value._key) : undefined}>{children}</h2>,
       h3: ({ children, value }) => <h3 id={value._key ? idByKey.get(value._key) : undefined}>{children}</h3>,
+      h4: ({ children, value }) => <h4 id={value._key ? idByKey.get(value._key) : undefined}>{children}</h4>,
+      h5: ({ children, value }) => <h5 id={value._key ? idByKey.get(value._key) : undefined}>{children}</h5>,
       blockquote: ({ children }) => <blockquote>{children}</blockquote>,
       normal: ({ children }) => <p>{children}</p>,
     },
@@ -46,10 +48,12 @@ export default function BlogBody({ body, idByKey }: { body: PortableTextBlock[];
   return (
     <div className="blog-body">
       <style>{`
-        .blog-body { font-size: 1.0625rem; line-height: 1.8; color: var(--text); font-weight: 300; }
-        .blog-body h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 1.875rem); letter-spacing: -0.02em; margin: 2.5rem 0 1.25rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
-        .blog-body h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; margin: 2rem 0 1rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
-        .blog-body p { margin-bottom: 1.5rem; }
+        .blog-body { font-size: 1.0625rem; line-height: 1.6; color: var(--text); font-weight: 300; }
+        .blog-body h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 1.875rem); letter-spacing: -0.02em; line-height: 1.25; margin: 2.5rem 0 1.25rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
+        .blog-body h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1.3; margin: 2rem 0 1rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
+        .blog-body h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.01em; line-height: 1.35; margin: 1.5rem 0 0.75rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
+        .blog-body h5 { font-weight: 700; font-size: 0.9375rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.625rem; scroll-margin-top: calc(var(--nav-height) + 1.5rem); }
+        .blog-body p { margin-bottom: 1.25rem; }
         .blog-body ul, .blog-body ol { margin: 0 0 1.5rem 1.25rem; }
         .blog-body li { margin-bottom: 0.5rem; }
         .blog-body a { color: var(--accent); text-underline-offset: 2px; }

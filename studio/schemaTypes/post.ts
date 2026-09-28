@@ -75,7 +75,7 @@ export default defineType({
       type: 'array',
       group: 'content',
       description:
-        'Usa los estilos "Título H2" y "Título H3" para tus subtítulos — el índice del artículo se genera solo a partir de ellos.',
+        'Usa "Título H2" y "Título H3" para tus subtítulos principales — el índice del artículo se genera solo a partir de ellos. "Título H4" y "H5" están disponibles para subdivisiones más pequeñas dentro de una sección (no aparecen en el índice).',
       of: [
         {
           type: 'block',
@@ -83,6 +83,8 @@ export default defineType({
             {title: 'Normal', value: 'normal'},
             {title: 'Título H2', value: 'h2'},
             {title: 'Título H3', value: 'h3'},
+            {title: 'Título H4', value: 'h4'},
+            {title: 'Título H5', value: 'h5'},
             {title: 'Cita', value: 'blockquote'},
           ],
           lists: [
