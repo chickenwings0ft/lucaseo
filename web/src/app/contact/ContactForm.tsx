@@ -1,18 +1,7 @@
 "use client";
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
-
-const PRODUCT_MESSAGES: Record<string, string> = {
-  "nfc-white": "I'd like to order the White NFC Google Review Card.",
-  "nfc-black": "I'd like to order the Black NFC Google Review Card.",
-};
 
 export default function ContactForm() {
-  const searchParams = useSearchParams();
-  const product = searchParams.get("product");
-  const prefillMessage = product ? PRODUCT_MESSAGES[product] ?? "" : "";
-  const prefillGoal = product ? "Get more Google reviews (NFC cards)" : "";
-
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [preference, setPreference] = useState<"Email" | "Phone">("Email");
 
@@ -146,7 +135,7 @@ export default function ContactForm() {
 
             <div className="cf-field">
               <label htmlFor="c-goal">What do you need?</label>
-              <select id="c-goal" name="goal" defaultValue={prefillGoal}>
+              <select id="c-goal" name="goal" defaultValue="">
                 <option value="">Select an option</option>
                 <option>Rank higher on Google</option>
                 <option>Get customers with Ads</option>
@@ -160,7 +149,7 @@ export default function ContactForm() {
 
             <div className="cf-field">
               <label htmlFor="c-message">Tell us about your situation</label>
-              <textarea id="c-message" name="message" placeholder="What's stopping you from getting more customers?" defaultValue={prefillMessage} />
+              <textarea id="c-message" name="message" placeholder="What's stopping you from getting more customers?" />
             </div>
 
             {formState === "error" && <p className="cf-err">Something went wrong. Please try again.</p>}

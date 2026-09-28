@@ -1,10 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "qp_dismissed";
 const EXIT_MS = 180;
+const HIDDEN_ON = ["/nfc-review-cards"];
 
 export default function QuotePopup() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(false);
@@ -88,6 +91,8 @@ export default function QuotePopup() {
     setOpen(false);
     sessionStorage.setItem(STORAGE_KEY, "1");
   }
+
+  if (HIDDEN_ON.some((path) => pathname?.startsWith(path))) return null;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
