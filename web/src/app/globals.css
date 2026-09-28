@@ -74,3 +74,54 @@ summary:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* ══ TiltCard ═══════════════════════════════════════════════
+   From components/TiltCard.tsx (Bencho, MIT — bencho.dev/licence).
+   A picture card that gives under the pointer. Almost nothing
+   is here: the rotation, both gradients and the shadow are
+   written per frame from the pointer's position, and a rule
+   in this file that also had an opinion about any of them
+   would be a second author. What is left is the things that
+   are true whatever the pointer is doing. */
+.tlt {
+  position: relative;
+  /* The frame is what the pointer is measured against and it
+     is deliberately the ONLY thing in here that never moves.
+     The perspective lives on it rather than on the card for
+     the usual reason: on the card itself, `perspective` is
+     applied per element and the vanishing point rides along
+     with the rotation instead of staying put in the room. */
+}
+
+.tlt-card {
+  position: absolute;
+  inset: 0;
+  /* Bencho's own --surface-2 (their second-tier surface fill,
+     shown while/if the picture doesn't cover the box) mapped
+     to this project's own --surface rather than added as a
+     new global — same job, one token. */
+  background-color: var(--surface);
+  overflow: hidden;
+  /* The picture itself is a next/image with `fill`, not a CSS
+     background-image the way Bencho's own BUTTERFLY stub drew
+     it — this project keeps its screenshots as real <img>s so
+     they carry alt text and next/image's optimisation. */
+  /* NO `will-change`. It would hold a composited layer for
+     every copy of this block on the wall, permanently, to
+     save one frame on a hover that may never come — the same
+     bookkeeping CLAUDE.md objects to for permanent rAF. The
+     browser promotes this on its own once the transform
+     starts moving. */
+}
+
+/* ── the dent and the rim ───────────────────────────────────
+   One element, two gradients, both placed from the pointer —
+   the dark one under it and the light one at its mirror. It
+   inherits the corner rather than being told one, so the knob
+   only has to reach the card. */
+.tlt-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
