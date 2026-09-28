@@ -70,10 +70,10 @@ export const semEn: ServicePage = {
   related: {
     title: "Related services",
     links: [
-      { href: "/en/seo", label: "Organic SEO" },
-      { href: "/en/social-media", label: "Social Media" },
-      { href: "/en/web", label: "Web Design" },
-      { href: "/en/ai", label: "AI Solutions" },
+      { href: "/seo", label: "Organic SEO" },
+      { href: "/social-media", label: "Social Media" },
+      { href: "/web", label: "Web Design" },
+      { href: "/ai", label: "AI Solutions" },
     ],
   },
 };

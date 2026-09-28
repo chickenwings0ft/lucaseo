@@ -130,7 +130,7 @@ export default function CookieBanner() {
                 We use cookies and similar technologies to improve your experience, analyse traffic, and support our marketing.
                 By clicking &ldquo;Accept all&rdquo; you consent to their use. You can manage your preferences at any time.
                 See our{" "}
-                <Link href="/en/privacy-policy">Privacy Policy</Link>.
+                <Link href="/privacy-policy">Privacy Policy</Link>.
               </p>
             </div>
           </div>

@@ -33,21 +33,21 @@ const es = {
 const en = {
   services: "Services",
   links: [
-    { href: "/en/seo", label: "Organic SEO" },
-    { href: "/en/sem", label: "SEM & Ads" },
-    { href: "/en/social-media", label: "Social Media" },
-    { href: "/en/web", label: "Web Design" },
-    { href: "/en/ai", label: "Artificial Intelligence" },
+    { href: "/seo", label: "Organic SEO" },
+    { href: "/sem", label: "SEM & Ads" },
+    { href: "/social-media", label: "Social Media" },
+    { href: "/web", label: "Web Design" },
+    { href: "/ai", label: "Artificial Intelligence" },
   ],
   company: "Company",
   companyLinks: [
-    { href: "/en/about", label: "About Lucas" },
-    { href: "/en/clients", label: "Clients" },
+    { href: "/about", label: "About Lucas" },
+    { href: "/clients", label: "Clients" },
   ],
   legal: "Legal",
   legalLinks: [
-    { href: "/en/privacy-policy", label: "Privacy Policy" },
-    { href: "/en/legal-notice", label: "Legal Notice" },
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/legal-notice", label: "Legal Notice" },
   ],
   rights: "All rights reserved.",
   tagline: "Digital marketing for businesses that want to stop chasing clients.",
@@ -61,7 +61,7 @@ const en = {
 export default function SiteFooter({ locale = "es" }: { locale?: Locale }) {
   const t = locale === "en" ? en : es;
   const home = locale === "en" ? "/" : "/es";
-  const contactHref = locale === "en" ? "/en/contact" : "#contact-popup";
+  const contactHref = locale === "en" ? "/contact" : "#contact-popup";
 
   return (
     <>

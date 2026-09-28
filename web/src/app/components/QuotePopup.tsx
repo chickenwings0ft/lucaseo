@@ -47,9 +47,9 @@ export default function QuotePopup() {
     };
   }, []);
 
-  // Also open on /en/contact or hash
+  // Also open on /contact or hash
   useEffect(() => {
-    if (pathname === "/en/contact") setOpen(true);
+    if (pathname === "/contact") setOpen(true);
   }, [pathname]);
 
   useEffect(() => {

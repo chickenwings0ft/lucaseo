@@ -48,88 +48,71 @@ export default function HomePage() {
         .en-brand-idea p { font-size: 1.0625rem; color: #5a6480; max-width: 580px; margin: 0 auto; line-height: 1.75; font-weight: 300; }
         @media (max-width: 768px) {
           .en-grid { grid-template-columns: 1fr; }
-          .en-hero-actions { flex-direction: column; align-items: stretch; }
-          .en-hero-cta { text-align: center; }
-          .en-services { padding: 3rem 1.25rem; }
-          .en-concept { padding: 3rem 1.25rem; }
-          .en-brand-idea { padding: 3rem 1.25rem; }
-        }
-        @media (max-width: 480px) {
-          .en-hero-in { padding: 1.25rem; }
+          .en-services h2 { font-size: 1.5rem; }
+          .en-services-lead { font-size: 1rem; }
         }
       `}</style>
-
-      <div className="en-hero">
-        <video className="en-hero-video" src="/hero-video.mp4" autoPlay loop muted playsInline preload="auto" />
-        <div className="en-hero-overlay" />
+      <section className="en-hero">
+        <video className="en-hero-video" autoPlay muted loop>
+          <source src="/hb-compress.mp4" type="video/mp4" />
+        </video>
+        <div className="en-hero-overlay"></div>
         <div className="en-hero-in">
-          <h1>Become the shark in the <em>digital ocean.</em></h1>
-          <p className="en-hero-lead">Your competitors are online. Your customers are searching.<br />The question is — are they finding you?</p>
+          <h1>Get Your Business <em>Found</em>, <em>Chosen</em> & <em>Growing</em></h1>
+          <p className="en-hero-lead">Digital marketing that actually works. From SEO and Google Ads to web design and AI automation.</p>
           <div className="en-hero-actions">
-            <Link href="/#contact" className="en-hero-cta">Get a free diagnosis</Link>
-            <Link href="#services" className="en-hero-cta en-hero-cta--ghost">See what we do</Link>
+            <a href="https://calendly.com/lucaseo/30min?back=1" className="en-hero-cta">Free consultation</a>
+            <a href="#contact" className="en-hero-cta en-hero-cta--ghost">Get in touch</a>
           </div>
         </div>
-      </div>
-
-      <div className="en-concept">
-        <div className="en-concept-title">
-          The digital ocean is crowded.<br />
-          The question isn&apos;t whether there are customers out there.<br />
-          It&apos;s: <span className="en-concept-accent">who&apos;s catching them?</span>
-        </div>
-      </div>
-
-      <div className="en-services" id="services">
-        <div className="en-tag">What we do</div>
-        <h2>Everything your business needs to grow online</h2>
-        <p className="en-services-lead">No bloated retainers, no jargon, no disappearing after you sign. Just the services that move the needle — run by someone who actually does the work.</p>
+      </section>
+      <section className="en-concept">
+        <h2 className="en-concept-title">Digital marketing for businesses that <span className="en-concept-accent">want to scale</span></h2>
+      </section>
+      <section className="en-services">
+        <p className="en-tag">What we do</p>
+        <h2>Digital marketing services</h2>
+        <p className="en-services-lead">Proven strategies that get your business in front of the right people at the right time</p>
         <div className="en-grid">
-          <Link href="/en/seo" className="en-svc">
+          <Link href="/seo" className="en-svc">
             <div className="en-svc-icon">🔍</div>
-            <h3>Organic SEO</h3>
-            <p>Rank on Google — and on ChatGPT, Perplexity and Claude too. Technical SEO, content and AI search visibility in one strategy.</p>
+            <h3>SEO</h3>
+            <p>Organic traffic that converts. Long-term growth through technical excellence and content strategy.</p>
           </Link>
-          <Link href="/en/sem" className="en-svc">
-            <div className="en-svc-icon">📈</div>
-            <h3>SEM &amp; Paid Ads</h3>
-            <p>Google Ads, Meta Ads and TikTok Ads. Campaigns built for ROI, optimised weekly, not left on autopilot.</p>
+          <Link href="/sem" className="en-svc">
+            <div className="en-svc-icon">💰</div>
+            <h3>Paid Ads</h3>
+            <p>Google Ads, Meta, TikTok & more. Precise targeting that turns clicks into customers.</p>
           </Link>
-          <Link href="/en/social-media" className="en-svc">
-            <div className="en-svc-icon">📱</div>
-            <h3>Social Media</h3>
-            <p>Strategy, content and community management that turns followers into actual customers — not just likes.</p>
-          </Link>
-          <Link href="/en/web" className="en-svc">
-            <div className="en-svc-icon">💻</div>
+          <Link href="/web" className="en-svc">
+            <div className="en-svc-icon">🌐</div>
             <h3>Web Design</h3>
-            <p>Fast, SEO-first websites built to convert. From landing pages to full e-commerce builds.</p>
+            <p>Fast, modern sites built for conversions. Your website is your #1 sales tool.</p>
           </Link>
-          <Link href="/en/ai" className="en-svc">
+          <Link href="/ai" className="en-svc">
             <div className="en-svc-icon">🤖</div>
             <h3>AI Automation</h3>
-            <p>Chatbots, lead follow-up, CRM syncing and workflow automation. Your business on autopilot, without losing the personal touch.</p>
+            <p>Email, chat, voice & workflows. Save time, serve customers better, scale faster.</p>
           </Link>
-          <Link href="/en/about" className="en-svc">
-            <div className="en-svc-icon">👤</div>
-            <h3>About Lucas</h3>
-            <p>Meet the person behind Lucaseo — why this agency exists, and why it works differently to the rest.</p>
+          <Link href="/social-media" className="en-svc">
+            <div className="en-svc-icon">📱</div>
+            <h3>Social Media</h3>
+            <p>Strategy, content & paid management. Build community and amplify your message.</p>
           </Link>
+          <a href="https://calendly.com/lucaseo/30min?back=1" className="en-svc">
+            <div className="en-svc-icon">💬</div>
+            <h3>Free consultation</h3>
+            <p>Let's discuss your business goals and find the perfect solution for you.</p>
+          </a>
         </div>
-      </div>
-
-      <div className="en-brand-idea">
-        <h2>The ocean doesn&apos;t reward whoever waits.<br />It rewards whoever moves better.</h2>
-        <p>
-          Your competitors have a website too. They&apos;re on Instagram too. They run ads too. They also claim to offer &ldquo;the best service in town&rdquo;.<br /><br />
-          So stop trying to look like them. Do it better. Do it faster. Do it with more intent.<br /><br />
-          At Lucaseo, we build businesses a digital presence that&apos;s impossible to scroll past.
-        </p>
-      </div>
-
+      </section>
       <ServiceAreaMap />
+      <ServiceCta />
+      <section className="en-brand-idea">
+        <h2>What makes us different?</h2>
+        <p>We don't do templated solutions. Every strategy is built for your specific business, goals, and audience. You get a partner who understands your market and isn't satisfied until you're thriving.</p>
+      </section>
       <FreeConsultationCta />
-      <ServiceCta locale="en" />
       <EnContactSection />
       <SiteFooter locale="en" />
     </>

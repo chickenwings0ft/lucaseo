@@ -69,10 +69,10 @@ export const socialMediaEn: ServicePage = {
   related: {
     title: "Related services",
     links: [
-      { href: "/en/sem", label: "SEM & Ads" },
-      { href: "/en/seo", label: "Organic SEO" },
-      { href: "/en/web", label: "Web Design" },
-      { href: "/en/ai", label: "AI Solutions" },
+      { href: "/sem", label: "SEM & Ads" },
+      { href: "/seo", label: "Organic SEO" },
+      { href: "/web", label: "Web Design" },
+      { href: "/ai", label: "AI Solutions" },
     ],
   },
 };

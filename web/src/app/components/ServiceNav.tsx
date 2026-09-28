@@ -16,12 +16,12 @@ const esLinks = [
 ];
 
 const enLinks = [
-  { href: "/en/about", label: "About" },
-  { href: "/en/seo", label: "SEO" },
-  { href: "/en/sem", label: "SEM" },
-  { href: "/en/social-media", label: "Social" },
-  { href: "/en/web", label: "Web" },
-  { href: "/en/ai", label: "AI" },
+  { href: "/about", label: "About" },
+  { href: "/seo", label: "SEO" },
+  { href: "/sem", label: "SEM" },
+  { href: "/social-media", label: "Social" },
+  { href: "/web", label: "Web" },
+  { href: "/ai", label: "AI" },
 ];
 
 export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {

@@ -70,10 +70,10 @@ export const aiEn: ServicePage = {
   related: {
     title: "Related services",
     links: [
-      { href: "/en/web", label: "Web Design" },
-      { href: "/en/seo", label: "Organic SEO" },
-      { href: "/en/sem", label: "SEM & Ads" },
-      { href: "/en/social-media", label: "Social Media" },
+      { href: "/web", label: "Web Design" },
+      { href: "/seo", label: "Organic SEO" },
+      { href: "/sem", label: "SEM & Ads" },
+      { href: "/social-media", label: "Social Media" },
     ],
   },
 };

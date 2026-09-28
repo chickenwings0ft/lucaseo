@@ -6,265 +6,73 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const suburbPages: MetadataRoute.Sitemap = suburbSeoProfiles.map((s) => ({
-    url: `${baseUrl}/en/seo/${s.slug}`,
+    url: `${baseUrl}/seo/${s.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
 
   return [
-    // English (primary — Australian market)
+    // Homepage
     {
       url: baseUrl,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,
     },
+    // Main service pages
     {
-      url: `${baseUrl}/en/about`,
+      url: `${baseUrl}/about`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/en/seo`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-
-    // Local SEO — Gold Coast suburbs (Tier 1 only, see suburbSeoData.ts)
-    ...suburbPages,
-    {
-      url: `${baseUrl}/en/sem`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/social-media`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/web`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/ai`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/clients`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/en/privacy-policy`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/en/legal-notice`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-
-    // Spanish
-    {
-      url: `${baseUrl}/es`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/sobre-mi`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/seo`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
+    ...suburbPages,
     {
       url: `${baseUrl}/sem`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/rrss`,
+      url: `${baseUrl}/social-media`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/web`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
-      url: `${baseUrl}/ia`,
+      url: `${baseUrl}/ai`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.7,
+      priority: 0.8,
     },
-
-    // SEM sub-pages (ES)
     {
-      url: `${baseUrl}/sem/google-ads`,
+      url: `${baseUrl}/clients`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    // Legal pages
     {
-      url: `${baseUrl}/sem/meta-ads`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/sem/tiktok-ads`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/sem/chatgpt-ads`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-
-    // RRSS sub-pages (ES)
-    {
-      url: `${baseUrl}/rrss/estrategia-mensual`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/rrss/estrategia-storytelling`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/rrss/paid-media`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-
-    // IA sub-pages (ES)
-    {
-      url: `${baseUrl}/ia/agentes`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/agentes-voz`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/automatizaciones`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/chatbots`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/email-marketing`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/integracion-crm`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/lead-scoring`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/personalizado`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/reporting-automatizado`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/ia/whatsapp-automation`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-
-    // Client case studies (ES)
-    {
-      url: `${baseUrl}/clientes`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/clientes/briya`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/clientes/macheta`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/clientes/roots`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-
-    // Legal (ES)
-    {
-      url: `${baseUrl}/politica-privacidad`,
+      url: `${baseUrl}/privacy-policy`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/aviso-legal`,
+      url: `${baseUrl}/legal-notice`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.3,

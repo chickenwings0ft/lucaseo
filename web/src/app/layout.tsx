@@ -31,9 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
       <head>
-        <link rel="alternate" hrefLang="en-au" href="https://lucaseo.com" />
-        <link rel="alternate" hrefLang="es" href="https://lucaseo.com/es" />
-        <link rel="alternate" hrefLang="x-default" href="https://lucaseo.com" />
+        <link rel="canonical" href="https://lucaseo.com" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T8MSE1KS11"
           strategy="afterInteractive"
