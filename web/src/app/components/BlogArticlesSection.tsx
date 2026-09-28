@@ -18,7 +18,7 @@ export default async function BlogArticlesSection({ category, title = "Articles"
         .blog-articles { max-width: var(--container-max); margin: 0 auto; padding: 5rem 2rem; }
         .blog-articles__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
         .blog-articles__tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-        .blog-articles h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.25rem); letter-spacing: -0.03em; }
+        .blog-articles h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.375rem, 2vw, 1.625rem); letter-spacing: -0.02em; }
         .blog-articles__all { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9375rem; white-space: nowrap; }
         .blog-articles__all:hover { text-decoration: underline; }
         .blog-articles__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
