@@ -54,7 +54,7 @@ export default function HomePage() {
       `}</style>
       <section className="en-hero">
         <video className="en-hero-video" autoPlay muted loop>
-          <source src="/hb-compress.mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="en-hero-overlay"></div>
         <div className="en-hero-in">
