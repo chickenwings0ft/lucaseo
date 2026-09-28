@@ -107,7 +107,7 @@ export default function HomePage() {
         </div>
       </section>
       <ServiceAreaMap />
-      <ServiceCta />
+      <ServiceCta locale="en" />
       <section className="en-brand-idea">
         <h2>What makes us different?</h2>
         <p>We don't do templated solutions. Every strategy is built for your specific business, goals, and audience. You get a partner who understands your market and isn't satisfied until you're thriving.</p>
