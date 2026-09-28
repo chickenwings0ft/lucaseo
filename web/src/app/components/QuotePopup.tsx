@@ -8,6 +8,7 @@ const HIDDEN_ON = ["/nfc-review-cards"];
 
 export default function QuotePopup() {
   const pathname = usePathname();
+  const hidden = HIDDEN_ON.some((path) => pathname?.startsWith(path));
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(false);
@@ -32,6 +33,7 @@ export default function QuotePopup() {
 
   // Open straight to the form, pre-filled — used by promo CTAs (e.g. "10% off" buttons)
   useEffect(() => {
+    if (hidden) return;
     const onPrefillOpen = (e: Event) => {
       const detail = (e as CustomEvent<{ message?: string }>).detail;
       setPrefillMessage(detail?.message ?? "");
@@ -40,10 +42,11 @@ export default function QuotePopup() {
     };
     window.addEventListener("open-quote-popup-prefill", onPrefillOpen as EventListener);
     return () => window.removeEventListener("open-quote-popup-prefill", onPrefillOpen as EventListener);
-  }, []);
+  }, [hidden]);
 
   // Auto-open after 6s — but only after cookie consent (so banner doesn't block popup)
   useEffect(() => {
+    if (hidden) return;
     if (sessionStorage.getItem(STORAGE_KEY)) return;
 
     let timer: ReturnType<typeof setTimeout>;
@@ -64,22 +67,23 @@ export default function QuotePopup() {
       clearTimeout(timer);
       window.removeEventListener("cookie-consent-given", startTimer);
     };
-  }, []);
+  }, [hidden]);
 
   // Also open via #contact-popup hash
   useEffect(() => {
+    if (hidden) return;
     const check = () => {
       if (window.location.hash === "#contact-popup") setOpen(true);
     };
     check();
     window.addEventListener("hashchange", check);
     return () => window.removeEventListener("hashchange", check);
-  }, []);
+  }, [hidden]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open && !hidden ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [open]);
+  }, [open, hidden]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") close(); };
@@ -92,7 +96,7 @@ export default function QuotePopup() {
     sessionStorage.setItem(STORAGE_KEY, "1");
   }
 
-  if (HIDDEN_ON.some((path) => pathname?.startsWith(path))) return null;
+  if (hidden) return null;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
