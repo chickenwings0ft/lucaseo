@@ -24,7 +24,7 @@ const enLinks = [
   { href: "/ai", label: "AI" },
 ];
 
-export default function ServiceNav({ locale = "es" }: { locale?: Locale }) {
+export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
   const pathname = usePathname();
   const links = locale === "en" ? enLinks : esLinks;
   const home = locale === "en" ? "/" : "/es";

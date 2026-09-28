@@ -31,7 +31,7 @@ const i18n = {
   },
 };
 
-export default function ServiceCta({ title, body, locale = "es" }: Props) {
+export default function ServiceCta({ title, body, locale = "en" }: Props) {
   const t = i18n[locale];
   const heading = title ?? t.defaultTitle;
   const desc = body ?? t.defaultBody;

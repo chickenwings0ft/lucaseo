@@ -58,7 +58,7 @@ const en = {
   ctaLink: "Contact →",
 };
 
-export default function SiteFooter({ locale = "es" }: { locale?: Locale }) {
+export default function SiteFooter({ locale = "en" }: { locale?: Locale }) {
   const t = locale === "en" ? en : es;
   const home = locale === "en" ? "/" : "/es";
   const contactHref = locale === "en" ? "/contact" : "#contact-popup";
