@@ -79,11 +79,11 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <ServiceNav locale="en" />
       <style>{`
-        .blog-post-header { max-width: 760px; margin: 0 auto; padding: 8rem 1.5rem 2rem; }
+        .blog-post-header { max-width: 900px; margin: 0 auto; padding: 8rem 1.5rem 2rem; }
         .blog-post-header__meta { display: flex; align-items: center; gap: 0.625rem; font-size: 0.8125rem; color: var(--muted); margin-bottom: 1.25rem; }
         .blog-post-header__back { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.875rem; display: inline-block; margin-bottom: 1.5rem; }
-        .blog-post-header h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.875rem, 4vw, 2.75rem); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; text-wrap: balance; }
-        .blog-post-header__excerpt { font-size: 1.125rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+        .blog-post-header h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.875rem, 3.4vw, 2.5rem); letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 1rem; text-wrap: balance; max-width: 780px; }
+        .blog-post-header__excerpt { font-size: 1.125rem; color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 680px; }
 
         .blog-post-cover { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 2.5rem; }
         .blog-post-cover__img-wrap { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }

@@ -60,7 +60,7 @@ export default function BlogBody({ body, idByKey }: { body: PortableTextBlock[];
         .blog-body ul, .blog-body ol { margin: 0 0 1.5rem 1.25rem; }
         .blog-body li { margin-bottom: 0.5rem; }
         .blog-body a { color: var(--accent); text-underline-offset: 2px; }
-        .blog-body strong { font-weight: 700; }
+        .blog-body p strong, .blog-body li strong, .blog-body blockquote strong { font-weight: 500; color: var(--accent); }
         .blog-body blockquote { border-left: 3px solid var(--accent); padding-left: 1.25rem; margin: 1.75rem 0; font-style: italic; color: var(--muted); }
         .blog-body__figure { margin: 2rem 0; }
         .blog-body__figure img { width: 100%; height: auto; border-radius: var(--radius-md); }
