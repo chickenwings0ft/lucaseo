@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "qp_dismissed";
 const EXIT_MS = 180;
@@ -13,7 +12,6 @@ export default function QuotePopup() {
   const [showForm, setShowForm] = useState(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [prefillMessage, setPrefillMessage] = useState("");
-  const pathname = usePathname();
 
   // Drives the mount/enter/exit sequence so closing gets a real transition
   // instead of the modal vanishing instantly.
@@ -65,11 +63,7 @@ export default function QuotePopup() {
     };
   }, []);
 
-  // Also open on /contact or hash
-  useEffect(() => {
-    if (pathname === "/contact") setOpen(true);
-  }, [pathname]);
-
+  // Also open via #contact-popup hash
   useEffect(() => {
     const check = () => {
       if (window.location.hash === "#contact-popup") setOpen(true);

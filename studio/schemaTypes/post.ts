@@ -133,7 +133,8 @@ export default defineType({
       title: 'CTA 1 — Enlace',
       type: 'string',
       group: 'ctas',
-      initialValue: 'https://calendly.com/lucaseo/30min?back=1',
+      description: 'Por defecto apunta a la página de contacto (/contact), que tiene el formulario completo.',
+      initialValue: '/contact',
     }),
     defineField({
       name: 'cta2Label',

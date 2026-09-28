@@ -58,7 +58,7 @@ export async function sendLeadEmails(lead: Lead): Promise<boolean> {
             ? `<div style="margin:0 0 20px;padding:12px 16px;background:#eef3fc;border-left:3px solid #004aad;border-radius:4px">
                  <span style="font-size:13px;color:#5a6480">Prefiere que le contactes por </span>
                  <strong style="font-size:14px;color:#004aad">${esc(lead.preference)}</strong>
-                 ${lead.preference.toLowerCase().startsWith("tel") && lead.phone ? `<div style="margin-top:6px;font-size:15px;font-weight:600">${esc(lead.phone)}</div>` : ""}
+                 ${lead.preference.toLowerCase().includes("phone") && lead.phone ? `<div style="margin-top:6px;font-size:15px;font-weight:600">${esc(lead.phone)}</div>` : ""}
                </div>`
             : ""
         }
