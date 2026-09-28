@@ -4,10 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceNav from "../../components/ServiceNav";
 import SiteFooter from "../../components/SiteFooter";
-import ServiceCta from "../../components/ServiceCta";
 import BlogToc from "../../components/BlogToc";
 import BlogBody from "../../components/BlogBody";
 import BlogCta from "../../components/BlogCta";
+import BlogClosing from "../../components/BlogClosing";
 import AdSlot from "../../components/AdSlot";
 import { getBlogPost, getBlogSlugs } from "@/lib/blog";
 import { extractToc } from "@/lib/toc";
@@ -86,7 +86,6 @@ export default async function BlogPostPage({ params }: Props) {
         .blog-post-layout { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 5rem; display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
         .blog-post-main { min-width: 0; }
         .blog-post-ad { margin: 2.5rem 0; }
-        .blog-post-closing { margin-top: 3rem; }
 
         @media (min-width: 960px) {
           .blog-post-layout { grid-template-columns: 220px 1fr; align-items: start; }
@@ -134,13 +133,7 @@ export default async function BlogPostPage({ params }: Props) {
             <AdSlot slot="blog-in-article" />
           </div>
 
-          <div className="blog-post-closing">
-            <ServiceCta
-              title="Ready to put this into practice?"
-              body="Tell us about your business and we'll show you exactly where to start. Free, no-obligation consultation."
-              locale="en"
-            />
-          </div>
+          <BlogClosing cta={{ label: post.cta1Label ?? "", href: post.cta1Href ?? "" }} />
         </main>
       </div>
 
