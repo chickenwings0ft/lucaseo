@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import ServiceNav from "../../components/ServiceNav";
-import ServiceCta from "../../components/ServiceCta";
-import FreeConsultationCta from "../../components/FreeConsultationCta";
-import ServiceAreaMap from "../../components/ServiceAreaMap";
-import FaqSection from "../../components/FaqSection";
-import ServiceHero from "../../components/ServiceHero";
+import ServiceNav from "../components/ServiceNav";
+import ServiceCta from "../components/ServiceCta";
+import FreeConsultationCta from "../components/FreeConsultationCta";
+import ServiceAreaMap from "../components/ServiceAreaMap";
+import FaqSection from "../components/FaqSection";
+import ServiceHero from "../components/ServiceHero";
 
 export const metadata: Metadata = {
   title: "Social Media Management Australia — Lucaseo | Social Strategy",

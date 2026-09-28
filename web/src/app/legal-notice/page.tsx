@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import ServiceNav from "../../components/ServiceNav";
-import SiteFooter from "../../components/SiteFooter";
+import ServiceNav from "../components/ServiceNav";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Legal Notice | Lucaseo",

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ServiceNav from "../../../components/ServiceNav";
-import ServiceCta from "../../../components/ServiceCta";
-import FaqSection from "../../../components/FaqSection";
-import SeoHero from "../../../components/SeoHero";
-import SeoVsSemGraphic from "../../../components/SeoVsSemGraphic";
-import AiSearchGraphic from "../../../components/AiSearchGraphic";
-import SeoResultsSection from "../../../components/SeoResultsSection";
+import ServiceNav from "../../components/ServiceNav";
+import ServiceCta from "../../components/ServiceCta";
+import FaqSection from "../../components/FaqSection";
+import SeoHero from "../../components/SeoHero";
+import SeoVsSemGraphic from "../../components/SeoVsSemGraphic";
+import AiSearchGraphic from "../../components/AiSearchGraphic";
+import SeoResultsSection from "../../components/SeoResultsSection";
 import { suburbSeoProfiles, getSuburbProfile } from "@/lib/suburbSeoData";
 
 type Props = {

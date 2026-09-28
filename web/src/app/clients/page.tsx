@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ServiceNav from "../../components/ServiceNav";
-import ServiceCta from "../../components/ServiceCta";
-import SiteFooter from "../../components/SiteFooter";
+import ServiceNav from "../components/ServiceNav";
+import ServiceCta from "../components/ServiceCta";
+import SiteFooter from "../components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Clients | Lucaseo — Our Work Speaks",

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import ServiceNav from "../../components/ServiceNav";
-import ServiceCta from "../../components/ServiceCta";
-import FreeConsultationCta from "../../components/FreeConsultationCta";
-import ServiceAreaMap from "../../components/ServiceAreaMap";
-import FaqSection from "../../components/FaqSection";
-import SeoResultsSection from "../../components/SeoResultsSection";
-import PrefillQuoteButton from "../../components/PrefillQuoteButton";
-import SeoHero from "../../components/SeoHero";
-import SeoVsSemGraphic from "../../components/SeoVsSemGraphic";
-import AiSearchGraphic from "../../components/AiSearchGraphic";
+import ServiceNav from "../components/ServiceNav";
+import ServiceCta from "../components/ServiceCta";
+import FreeConsultationCta from "../components/FreeConsultationCta";
+import ServiceAreaMap from "../components/ServiceAreaMap";
+import FaqSection from "../components/FaqSection";
+import SeoResultsSection from "../components/SeoResultsSection";
+import PrefillQuoteButton from "../components/PrefillQuoteButton";
+import SeoHero from "../components/SeoHero";
+import SeoVsSemGraphic from "../components/SeoVsSemGraphic";
+import AiSearchGraphic from "../components/AiSearchGraphic";
 
 export const metadata: Metadata = {
   title: "SEO Services Australia — Lucaseo | Rank on Google & AI Search",
