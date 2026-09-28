@@ -1,15 +1,33 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "qp_dismissed";
+const EXIT_MS = 180;
 
 export default function QuotePopup() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [active, setActive] = useState(false);
+  const exitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [formState, setFormState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [prefillMessage, setPrefillMessage] = useState("");
   const pathname = usePathname();
+
+  // Drives the mount/enter/exit sequence so closing gets a real transition
+  // instead of the modal vanishing instantly.
+  useEffect(() => {
+    if (open) {
+      if (exitTimer.current) { clearTimeout(exitTimer.current); exitTimer.current = null; }
+      setMounted(true);
+      const raf = requestAnimationFrame(() => setActive(true));
+      return () => cancelAnimationFrame(raf);
+    }
+    setActive(false);
+    exitTimer.current = setTimeout(() => setMounted(false), EXIT_MS);
+    return () => { if (exitTimer.current) clearTimeout(exitTimer.current); };
+  }, [open]);
 
   // Open straight to the form, pre-filled — used by promo CTAs (e.g. "10% off" buttons)
   useEffect(() => {
@@ -110,7 +128,10 @@ export default function QuotePopup() {
           display: flex; align-items: center; gap: 0.5rem;
           transition: transform 0.2s, box-shadow 0.2s;
         }
-        .qp-btn:hover { transform: translateY(-2px); }
+        @media (hover: hover) and (pointer: fine) {
+          .qp-btn:hover { transform: translateY(-2px); }
+        }
+        .qp-btn:active { transform: scale(0.96); }
         .qp-dot { width: 7px; height: 7px; background: #4dffb0; border-radius: 50%; animation: qp-pulse 2s ease-in-out infinite; }
         @keyframes qp-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
 
@@ -118,16 +139,18 @@ export default function QuotePopup() {
           position: fixed; inset: 0; z-index: 1000;
           background: rgba(4,9,26,0.65); backdrop-filter: blur(3px);
           display: flex; align-items: center; justify-content: center;
-          padding: 1rem; animation: qp-fade 0.25s ease;
+          padding: 1rem; opacity: 0;
+          transition: opacity 180ms var(--ease-out);
         }
-        @keyframes qp-fade { from{opacity:0} to{opacity:1} }
+        .qp-overlay--visible { opacity: 1; }
 
         .qp-modal {
           background: #fff; border-radius: 14px; width: 100%; max-width: 480px;
-          overflow: hidden; animation: qp-rise 0.3s cubic-bezier(0.22,1,0.36,1);
-          box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+          overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+          opacity: 0; transform: scale(0.95) translateY(16px);
+          transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
         }
-        @keyframes qp-rise { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+        .qp-overlay--visible .qp-modal { opacity: 1; transform: scale(1) translateY(0); }
 
         /* — Hook screen — */
         .qp-hook {
@@ -162,10 +185,13 @@ export default function QuotePopup() {
           background: #fff; color: var(--accent); border: none; border-radius: 8px;
           padding: 0.875rem 2rem; font-size: 1rem; font-weight: 700;
           font-family: var(--font-body); cursor: pointer; width: 100%;
-          transition: transform 0.15s, box-shadow 0.15s;
+          transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
           box-shadow: 0 4px 16px rgba(0,0,0,0.15);
         }
-        .qp-hook-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        @media (hover: hover) and (pointer: fine) {
+          .qp-hook-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        }
+        .qp-hook-cta:active { transform: scale(0.98); transition-duration: 100ms; }
         .qp-hook-skip {
           margin-top: 0.875rem; font-size: 0.8rem; color: rgba(255,255,255,0.45);
           background: none; border: none; cursor: pointer; font-family: var(--font-body);
@@ -206,9 +232,12 @@ export default function QuotePopup() {
         .qp-submit {
           width: 100%; padding: 0.875rem; background: var(--accent); color: #fff;
           border: none; border-radius: 8px; font-size: 0.9375rem; font-weight: 600;
-          font-family: var(--font-body); cursor: pointer; transition: opacity 0.2s;
+          font-family: var(--font-body); cursor: pointer; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out);
         }
-        .qp-submit:hover { opacity: 0.88; }
+        @media (hover: hover) and (pointer: fine) {
+          .qp-submit:hover:not(:disabled) { opacity: 0.88; }
+        }
+        .qp-submit:active:not(:disabled) { transform: scale(0.98); transition-duration: 100ms; }
         .qp-submit:disabled { opacity: 0.55; cursor: default; }
         .qp-note { font-size: 0.75rem; color: #9aa5b4; text-align: center; }
         .qp-err { font-size: 0.8rem; color: #c0392b; }
@@ -224,8 +253,8 @@ export default function QuotePopup() {
         Free quote
       </button>
 
-      {open && (
-        <div className="qp-overlay" onClick={(e) => { if (e.target === e.currentTarget) close(); }} role="dialog" aria-modal="true">
+      {mounted && (
+        <div className={`qp-overlay${active ? " qp-overlay--visible" : ""}`} onClick={(e) => { if (e.target === e.currentTarget) close(); }} role="dialog" aria-modal="true">
           <div className="qp-modal">
 
             {/* Screen 1 — hook */}

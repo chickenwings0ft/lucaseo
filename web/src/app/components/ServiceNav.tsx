@@ -67,9 +67,12 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
           background: var(--accent); color: #fff;
           font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.01em;
           text-decoration: none; border-radius: 999px;
-          transition: background 0.18s ease;
+          transition: background 160ms var(--ease-out), transform 160ms var(--ease-out);
         }
-        .site-nav__cta:hover { background: #003c8f; }
+        .site-nav__cta:active { transform: scale(0.96); transition-duration: 100ms; }
+        @media (hover: hover) and (pointer: fine) {
+          .site-nav__cta:hover { background: var(--accent-hover); }
+        }
 
         .site-nav__burger {
           display: none;
@@ -87,7 +90,7 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
         .site-nav__burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         .site-nav__mobile {
-          display: none;
+          display: flex;
           position: fixed; inset: 0; top: 68px; z-index: 99;
           background: rgba(255,255,255,0.98);
           backdrop-filter: blur(16px);
@@ -95,8 +98,19 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
           padding: 2rem 1.5rem;
           gap: 0;
           overflow-y: auto;
+          opacity: 0;
+          transform: translateY(-8px);
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s linear 200ms;
         }
-        .site-nav__mobile--open { display: flex; }
+        .site-nav__mobile--open {
+          opacity: 1;
+          transform: translateY(0);
+          visibility: visible;
+          pointer-events: auto;
+          transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s linear 0s;
+        }
         .site-nav__mobile-link {
           display: block; padding: 1rem 0;
           font-size: 1.25rem; font-weight: 600; color: var(--text);

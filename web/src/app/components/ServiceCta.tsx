@@ -45,11 +45,14 @@ export default function ServiceCta({ title, body, locale = "en" }: Props) {
         .svc-cta__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem,4vw,3.25rem); color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; text-wrap: balance; }
         .svc-cta__body { font-size: 1.125rem; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 300; }
         .svc-cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .svc-cta__btn { display: inline-block; padding: 0.875rem 2rem; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease; }
+        .svc-cta__btn { display: inline-block; padding: 0.875rem 2rem; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms var(--ease-out), border-color 160ms var(--ease-out); }
         .svc-cta__btn--primary { background: #fff; color: var(--accent); }
-        .svc-cta__btn--primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
         .svc-cta__btn--ghost { background: transparent; color: #fff; font-weight: 500; border: 1px solid rgba(255,255,255,0.4); }
-        .svc-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+        @media (hover: hover) and (pointer: fine) {
+          .svc-cta__btn--primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+          .svc-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+        }
+        .svc-cta__btn:active { transform: scale(0.97); transition-duration: 100ms; }
         .svc-cta__bullets { margin-top: 3rem; display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
         .svc-cta__bullet { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.75); font-size: 0.875rem; }
         .svc-cta__bullet-check { color: #fff; font-weight: 700; }

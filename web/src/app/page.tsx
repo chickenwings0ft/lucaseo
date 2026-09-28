@@ -26,10 +26,13 @@ export default function HomePage() {
         .en-hero h1 em { font-style: normal; color: #4d9aff; text-shadow: 0 0 20px rgba(0,74,173,0.8), 0 0 40px rgba(0,74,173,0.5); }
         .en-hero-lead { font-size: 1.125rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.75; font-weight: 300; }
         .en-hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .en-hero-cta { display: inline-block; padding: 0.875rem 2rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
-        .en-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,74,173,0.45); background: var(--accent-hover); }
+        .en-hero-cta { display: inline-block; padding: 0.875rem 2rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background 160ms var(--ease-out); }
         .en-hero-cta--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff; box-shadow: none; }
-        .en-hero-cta--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); box-shadow: none; }
+        @media (hover: hover) and (pointer: fine) {
+          .en-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,74,173,0.45); background: var(--accent-hover); }
+          .en-hero-cta--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); box-shadow: none; }
+        }
+        .en-hero-cta:active { transform: scale(0.97); transition-duration: 100ms; }
         .en-concept { text-align: center; padding: 5rem 2.5rem; }
         .en-concept-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.3; max-width: 620px; margin: 0 auto; }
         .en-concept-accent { color: var(--accent); }
@@ -41,16 +44,19 @@ export default function HomePage() {
         .en-svc {
           background: #fff; padding: 2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;
           border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
-          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+          transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms var(--ease-out);
         }
-        .en-svc:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(0,74,173,0.3); }
-        .en-svc-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.5rem; transition: background 0.22s ease, transform 0.22s ease; }
-        .en-svc:hover .en-svc-icon { background: var(--accent); transform: scale(1.06); }
+        .en-svc-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.5rem; transition: background 220ms var(--ease-out), transform 220ms var(--ease-out); }
         .en-svc h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.625rem; }
         .en-svc p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; margin-bottom: 1.25rem; }
         .en-svc-more { font-size: 0.875rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.375rem; }
-        .en-svc-more-arrow { transition: transform 0.22s ease; }
-        .en-svc:hover .en-svc-more-arrow { transform: translateX(4px); }
+        .en-svc-more-arrow { display: inline-block; transition: transform 220ms var(--ease-out); }
+        @media (hover: hover) and (pointer: fine) {
+          .en-svc:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(0,74,173,0.3); }
+          .en-svc:hover .en-svc-icon { background: var(--accent); transform: scale(1.06); }
+          .en-svc:hover .en-svc-more-arrow { transform: translateX(4px); }
+        }
+        .en-svc:active { transform: scale(0.98); transition-duration: 100ms; }
         .en-brand-idea { text-align: center; padding: 5rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
         .en-brand-idea h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.5rem; text-wrap: balance; }
         .en-brand-idea p { font-size: 1.0625rem; color: var(--muted); max-width: 580px; margin: 0 auto; line-height: 1.75; font-weight: 300; }

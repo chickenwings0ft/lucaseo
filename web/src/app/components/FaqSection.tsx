@@ -87,7 +87,7 @@ export default function FaqSection({ topic, faqs, title }: Props) {
         .faq-module summary:hover { color: var(--accent); }
         .faq-module__chevron {
           width: 20px; height: 20px; flex-shrink: 0;
-          transition: transform 0.3s ease;
+          transition: transform 200ms var(--ease-in-out);
           color: var(--accent);
         }
         .faq-module details[open] .faq-module__chevron { transform: rotate(180deg); }
