@@ -43,6 +43,7 @@ const en = {
   companyLinks: [
     { href: "/about", label: "About Lucas" },
     { href: "/clients", label: "Clients" },
+    { href: "/blog", label: "Blog" },
   ],
   legal: "Legal",
   legalLinks: [

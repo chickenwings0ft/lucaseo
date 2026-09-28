@@ -22,6 +22,7 @@ const enLinks = [
   { href: "/social-media", label: "Social" },
   { href: "/web", label: "Web" },
   { href: "/ai", label: "AI" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
