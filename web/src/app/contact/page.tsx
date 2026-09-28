@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ContactForm from "./ContactForm";
@@ -51,7 +52,9 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <ContactForm />
+          <Suspense fallback={null}>
+            <ContactForm />
+          </Suspense>
 
           <noscript>
             <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.875rem" }}>
