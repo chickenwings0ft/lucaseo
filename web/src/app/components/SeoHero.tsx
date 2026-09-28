@@ -1,5 +1,5 @@
+import Image from "next/image";
 import PrefillQuoteButton from "./PrefillQuoteButton";
-import { TiltCard } from "./TiltCard";
 
 interface Props {
   badge: string;
@@ -59,11 +59,12 @@ export default function SeoHero({ badge, h1, lead, ctaLabel = "Get your free SEO
         </div>
         <div className="seo-hero__phone-wrap">
           <div className="seo-hero__phone-glow" />
-          <TiltCard
-            image="/mockup-seo.png"
+          <Image
+            src="/mockup-seo.png"
             alt="Google AI Overview recommending Lucaseo — Gold Coast SEO specialist"
-            width={1024}
-            height={1536}
+            title="Google recommends Lucaseo for digital marketing in Australia"
+            width={440}
+            height={660}
             className="seo-hero__phone"
             priority
           />
