@@ -11,6 +11,7 @@ import BlogClosing from "../../components/BlogClosing";
 import AdSlot from "../../components/AdSlot";
 import { getBlogPost, getBlogSlugs } from "@/lib/blog";
 import { extractToc } from "@/lib/toc";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
 import type { PortableTextBlock } from "@portabletext/react";
 
 type Props = {
@@ -39,7 +40,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "article",
       publishedTime: post.publishedAt,
-      images: [{ url: post.headerImage.url }],
+      modifiedTime: post.updatedAt || post.publishedAt,
+      authors: [post.author || "Lucas"],
+      images: [{ url: post.headerImage.url, width: post.headerImage.w, height: post.headerImage.h }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [post.headerImage.url],
     },
   };
 }
@@ -58,16 +67,12 @@ export default async function BlogPostPage({ params }: Props) {
   const toc = extractToc(post.body);
   const idByKey = new Map(toc.map((t) => [t.key, t.id]));
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    image: post.headerImage.url,
-    datePublished: post.publishedAt,
-    author: { "@type": "Person", name: post.author || "Lucas" },
-    publisher: { "@type": "Organization", name: "Lucaseo" },
-  };
+  const articleJsonLd = blogPostingSchema(post);
+  const breadcrumbJsonLd = breadcrumbSchema([
+    { name: "Home", url: "https://lucaseo.com" },
+    { name: "Blog", url: "https://lucaseo.com/blog" },
+    { name: post.title, url: `https://lucaseo.com/blog/${post.slug}` },
+  ]);
 
   return (
     <>
@@ -139,7 +144,8 @@ export default async function BlogPostPage({ params }: Props) {
 
       <SiteFooter locale="en" />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     </>
   );
 }

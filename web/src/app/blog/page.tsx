@@ -4,9 +4,10 @@ import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import BlogCard from "../components/BlogCard";
 import { getBlogPosts } from "@/lib/blog";
+import { blogListSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Blog — Lucaseo | SEO, Marketing & AI Insights",
+  title: "Digital Marketing Blog by Lucaseo",
   description: "Practical guides on SEO, Google Ads, web design and AI automation for Gold Coast businesses that want to grow.",
   alternates: { canonical: "https://lucaseo.com/blog" },
 };
@@ -15,6 +16,12 @@ export const revalidate = 60;
 
 export default async function BlogIndexPage() {
   const posts = await getBlogPosts();
+
+  const blogJsonLd = blogListSchema(posts);
+  const breadcrumbJsonLd = breadcrumbSchema([
+    { name: "Home", url: "https://lucaseo.com" },
+    { name: "Blog", url: "https://lucaseo.com/blog" },
+  ]);
 
   return (
     <>
@@ -37,7 +44,7 @@ export default async function BlogIndexPage() {
 
       <section className="blog-hero">
         <p className="blog-hero__tag">Blog</p>
-        <h1>SEO, marketing &amp; AI — explained simply</h1>
+        <h1>Digital Marketing Blog by Lucaseo</h1>
         <p>Straight-talking guides on getting found on Google, running profitable ads, and using AI to grow your business.</p>
       </section>
 
@@ -55,6 +62,9 @@ export default async function BlogIndexPage() {
 
       <ServiceCta locale="en" />
       <SiteFooter locale="en" />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
     </>
   );
 }

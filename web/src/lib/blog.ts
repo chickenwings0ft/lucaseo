@@ -13,6 +13,7 @@ export interface BlogListItem {
   slug: string;
   excerpt: string;
   publishedAt: string;
+  updatedAt: string;
   author?: string;
   headerImage: BlogImage;
   headerImageAlt: string;
@@ -34,12 +35,12 @@ const headerImageProjection = `
 `;
 
 export const postListQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
-  _id, title, "slug": slug.current, excerpt, publishedAt, author,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author,
   ${headerImageProjection}
 }`;
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]{
-  _id, title, "slug": slug.current, excerpt, publishedAt, author, body,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body,
   cta1Label, cta1Href, cta2Label, cta2Href, seoTitle, seoDescription,
   ${headerImageProjection}
 }`;
