@@ -33,6 +33,9 @@ export default function BlogBody({ body, idByKey }: { body: PortableTextBlock[];
     },
     types: {
       image: ({ value }: { value: BlogImageValue }) => {
+        // An image block can exist with no file attached yet (e.g. saved
+        // mid-upload in the Studio) — skip it instead of crashing the page.
+        if (!value?.asset?._ref) return null;
         const url = urlForImage(value)?.width(1400).fit("max").auto("format").url();
         if (!url) return null;
         return (
