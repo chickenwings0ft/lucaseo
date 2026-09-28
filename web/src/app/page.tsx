@@ -26,30 +26,44 @@ export default function HomePage() {
         .en-hero h1 em { font-style: normal; color: #4d9aff; text-shadow: 0 0 20px rgba(0,74,173,0.8), 0 0 40px rgba(0,74,173,0.5); }
         .en-hero-lead { font-size: 1.125rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.75; font-weight: 300; }
         .en-hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .en-hero-cta { display: inline-block; padding: 0.875rem 2rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: 6px; transition: opacity 0.2s; }
-        .en-hero-cta:hover { opacity: 0.88; }
-        .en-hero-cta--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff; }
-        .en-hero-cta--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+        .en-hero-cta { display: inline-block; padding: 0.875rem 2rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
+        .en-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,74,173,0.45); background: var(--accent-hover); }
+        .en-hero-cta--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: #fff; box-shadow: none; }
+        .en-hero-cta--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); box-shadow: none; }
         .en-concept { text-align: center; padding: 5rem 2.5rem; }
         .en-concept-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.3; max-width: 620px; margin: 0 auto; }
         .en-concept-accent { color: var(--accent); }
-        .en-services { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid rgba(0,74,173,0.1); }
+        .en-services { max-width: var(--container-max); margin: 0 auto; padding: 6rem 2rem; }
         .en-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
         .en-services h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; margin-bottom: 1rem; text-wrap: balance; }
-        .en-services-lead { font-size: 1.0625rem; color: var(--muted); max-width: 560px; line-height: 1.75; font-weight: 300; margin-bottom: 2.5rem; }
-        .en-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,74,173,0.1); border: 1px solid rgba(0,74,173,0.1); }
-        .en-svc { background: #fff; padding: 2.25rem; text-decoration: none; color: inherit; transition: background 0.2s; display: block; }
-        .en-svc:hover { background: #f5f8ff; }
-        .en-svc-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(0,74,173,0.07); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.25rem; }
-        .en-svc h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.5rem; }
-        .en-svc p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
-        .en-brand-idea { text-align: center; padding: 5rem 2.5rem; border-top: 1px solid rgba(0,74,173,0.1); border-bottom: 1px solid rgba(0,74,173,0.1); background: #f5f8ff; }
+        .en-services-lead { font-size: 1.0625rem; color: var(--muted); max-width: 560px; line-height: 1.75; font-weight: 300; margin-bottom: 3rem; }
+        .en-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .en-svc {
+          background: #fff; padding: 2rem; text-decoration: none; color: inherit; display: flex; flex-direction: column;
+          border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .en-svc:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(0,74,173,0.3); }
+        .en-svc-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.5rem; transition: background 0.22s ease, transform 0.22s ease; }
+        .en-svc:hover .en-svc-icon { background: var(--accent); transform: scale(1.06); }
+        .en-svc h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; margin-bottom: 0.625rem; }
+        .en-svc p { font-size: 0.9375rem; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; margin-bottom: 1.25rem; }
+        .en-svc-more { font-size: 0.875rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.375rem; }
+        .en-svc-more-arrow { transition: transform 0.22s ease; }
+        .en-svc:hover .en-svc-more-arrow { transform: translateX(4px); }
+        .en-brand-idea { text-align: center; padding: 5rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
         .en-brand-idea h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.5rem; text-wrap: balance; }
         .en-brand-idea p { font-size: 1.0625rem; color: var(--muted); max-width: 580px; margin: 0 auto; line-height: 1.75; font-weight: 300; }
+        @media (max-width: 860px) {
+          .en-grid { grid-template-columns: 1fr 1fr; }
+        }
         @media (max-width: 768px) {
-          .en-grid { grid-template-columns: 1fr; }
+          .en-services { padding: 4rem 1.5rem; }
           .en-services h2 { font-size: 1.5rem; }
           .en-services-lead { font-size: 1rem; }
+        }
+        @media (max-width: 560px) {
+          .en-grid { grid-template-columns: 1fr; }
         }
       `}</style>
       <section className="en-hero">
@@ -75,34 +89,40 @@ export default function HomePage() {
         <p className="en-services-lead">Proven strategies that get your business in front of the right people at the right time</p>
         <div className="en-grid">
           <Link href="/seo" className="en-svc">
-            <div className="en-svc-icon">🔍</div>
+            <div className="en-svc-icon" aria-hidden="true">🔍</div>
             <h3>SEO</h3>
             <p>Organic traffic that converts. Long-term growth through technical excellence and content strategy.</p>
+            <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
           <Link href="/sem" className="en-svc">
-            <div className="en-svc-icon">💰</div>
+            <div className="en-svc-icon" aria-hidden="true">💰</div>
             <h3>Paid Ads</h3>
             <p>Google Ads, Meta, TikTok & more. Precise targeting that turns clicks into customers.</p>
+            <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
           <Link href="/web" className="en-svc">
-            <div className="en-svc-icon">🌐</div>
+            <div className="en-svc-icon" aria-hidden="true">🌐</div>
             <h3>Web Design</h3>
             <p>Fast, modern sites built for conversions. Your website is your #1 sales tool.</p>
+            <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
           <Link href="/ai" className="en-svc">
-            <div className="en-svc-icon">🤖</div>
+            <div className="en-svc-icon" aria-hidden="true">🤖</div>
             <h3>AI Automation</h3>
             <p>Email, chat, voice & workflows. Save time, serve customers better, scale faster.</p>
+            <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
           <Link href="/social-media" className="en-svc">
-            <div className="en-svc-icon">📱</div>
+            <div className="en-svc-icon" aria-hidden="true">📱</div>
             <h3>Social Media</h3>
             <p>Strategy, content & paid management. Build community and amplify your message.</p>
+            <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
           <a href="https://calendly.com/lucaseo/30min?back=1" className="en-svc">
-            <div className="en-svc-icon">💬</div>
+            <div className="en-svc-icon" aria-hidden="true">💬</div>
             <h3>Free consultation</h3>
-            <p>Let's discuss your business goals and find the perfect solution for you.</p>
+            <p>Let&apos;s discuss your business goals and find the perfect solution for you.</p>
+            <span className="en-svc-more">Book now <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </a>
         </div>
       </section>
