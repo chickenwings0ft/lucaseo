@@ -1,9 +1,13 @@
 "use client";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 export interface FaqItem {
   q: string;
   a: string;
+  /** Optional "see also" link rendered as a citation under the answer — kept
+   * separate from `a` so the FAQPage schema's answer text stays plain. */
+  citeLink?: { text: string; href: string };
 }
 
 interface Props {
@@ -99,6 +103,19 @@ export default function FaqSection({ topic, faqs, title }: Props) {
           font-weight: 300;
           max-width: 640px;
         }
+        .faq-module__cite {
+          margin-top: 0.875rem;
+          padding-left: 0.875rem;
+          border-left: 2px solid var(--accent);
+          font-style: italic;
+        }
+        .faq-module__cite a {
+          color: var(--accent);
+          font-style: normal;
+          font-weight: 500;
+          text-decoration: none;
+        }
+        .faq-module__cite a:hover { text-decoration: underline; }
         @media (max-width: 600px) {
           .faq-module { padding: 3rem 1.25rem; }
         }
@@ -137,6 +154,11 @@ export default function FaqSection({ topic, faqs, title }: Props) {
               itemType="https://schema.org/Answer"
             >
               <p itemProp="text">{f.a}</p>
+              {f.citeLink && (
+                <p className="faq-module__cite">
+                  <Link href={f.citeLink.href}>{f.citeLink.text} →</Link>
+                </p>
+              )}
             </div>
           </details>
         ))}

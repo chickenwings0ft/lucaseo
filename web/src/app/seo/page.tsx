@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const seoFaqs = [
   { q: "How long does SEO take to work?", a: "3–6 months for movement. 6–12 for solid results. It depends on your industry and competition. If anyone promises results in 30 days, they're lying." },
-  { q: "Is SEO better than Google Ads?", a: "Both, but different. Google Ads = instant results, you pay per click. SEO = slower results, free traffic forever. Ideally you combine both: Ads for quick cash flow, SEO for long-term independence." },
+  { q: "Is SEO better than Google Ads?", a: "Both, but different. Google Ads = instant results, you pay per click. SEO = slower results, free traffic forever. Ideally you combine both: Ads for quick cash flow, SEO for long-term independence.", citeLink: { text: "Discover the differences here", href: "/blog/seo-vs-sem-differences-tactics-costs-results" } },
   { q: "What happens if I switch agencies later?", a: "The work we did on your site is yours. We don't take it back. But it's important you find someone to keep optimising. Don't leave SEO abandoned." },
   { q: "Do you guarantee results?", a: "No. Nobody can guarantee rankings — if someone does, they're lying. What I do guarantee: professional work, transparency, and adjustments if something isn't working." },
   { q: "Does SEO actually work?", a: "Yes. But only if it's done properly and you're patient. Most agencies fail because they promise results in 30 days, don't optimise for where people actually search, or disappear after 3 months." },
