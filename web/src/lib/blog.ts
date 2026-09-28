@@ -1,6 +1,8 @@
 import { groq } from "next-sanity";
 import { client } from "./sanity";
 
+export type BlogCategory = "seo" | "sem" | "ai" | "social" | "marketing";
+
 export interface BlogImage {
   url: string;
   w: number;
@@ -15,6 +17,7 @@ export interface BlogListItem {
   publishedAt: string;
   updatedAt: string;
   author?: string;
+  category?: BlogCategory;
   headerImage: BlogImage;
   headerImageAlt: string;
 }
@@ -41,12 +44,17 @@ const headerImageProjection = `
 `;
 
 export const postListQuery = groq`*[_type == "post" && defined(slug.current)] | order(publishedAt desc) {
-  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, category,
+  ${headerImageProjection}
+}`;
+
+export const postsByCategoryQuery = groq`*[_type == "post" && defined(slug.current) && category == $category] | order(publishedAt desc) {
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, category,
   ${headerImageProjection}
 }`;
 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]{
-  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body,
+  _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body, category,
   cta1Label, cta1Href, cta2Label, cta2Href, seoTitle, seoDescription,
   "faqs": faqs[]{"q": question, "a": answer},
   ${headerImageProjection}
@@ -58,6 +66,15 @@ export async function getBlogPosts(): Promise<BlogListItem[]> {
   if (!client) return [];
   try {
     return await client.fetch(postListQuery);
+  } catch {
+    return [];
+  }
+}
+
+export async function getBlogPostsByCategory(category: BlogCategory): Promise<BlogListItem[]> {
+  if (!client) return [];
+  try {
+    return await client.fetch(postsByCategoryQuery, { category });
   } catch {
     return [];
   }

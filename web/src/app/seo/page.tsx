@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
+import BlogArticlesSection from "../components/BlogArticlesSection";
 import ServiceAreaMap from "../components/ServiceAreaMap";
 import FaqSection from "../components/FaqSection";
 import SeoResultsSection from "../components/SeoResultsSection";
@@ -350,6 +351,8 @@ export default function SeoPage() {
       />
 
       <FreeConsultationCta />
+
+      <BlogArticlesSection category="seo" title="SEO Articles" />
 
       <ServiceCta
         title="Ready to show up where your customers are searching?"

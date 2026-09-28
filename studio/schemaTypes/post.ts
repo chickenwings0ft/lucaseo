@@ -28,6 +28,25 @@ export default defineType({
       validation: (r) => r.required(),
     }),
     defineField({
+      name: 'category',
+      title: 'Categoría',
+      type: 'string',
+      group: 'content',
+      description:
+        'Clasifica el artículo por servicio. Aparecerá en la sección "Articles" de esa página de servicio.',
+      options: {
+        list: [
+          {title: 'SEO', value: 'seo'},
+          {title: 'SEM & Ads', value: 'sem'},
+          {title: 'AI', value: 'ai'},
+          {title: 'Social Media', value: 'social'},
+          {title: 'Marketing (general)', value: 'marketing'},
+        ],
+        layout: 'radio',
+      },
+      validation: (r) => r.required(),
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Resumen',
       type: 'text',
@@ -204,6 +223,9 @@ export default defineType({
     {title: 'Más recientes primero', name: 'publishedDesc', by: [{field: 'publishedAt', direction: 'desc'}]},
   ],
   preview: {
-    select: {title: 'title', subtitle: 'excerpt', media: 'headerImage'},
+    select: {title: 'title', category: 'category', media: 'headerImage'},
+    prepare({title, category, media}) {
+      return {title, subtitle: category ? category.toUpperCase() : 'Sin categoría', media}
+    },
   },
 })

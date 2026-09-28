@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
+import BlogArticlesSection from "../components/BlogArticlesSection";
 import ServiceAreaMap from "../components/ServiceAreaMap";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
@@ -113,6 +114,8 @@ export default function SemPage() {
       />
 
       <FreeConsultationCta />
+
+      <BlogArticlesSection category="sem" title="SEM & Ads Articles" />
 
       <ServiceCta
         title="What if my budget is small?"

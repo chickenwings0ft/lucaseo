@@ -3,6 +3,7 @@ import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
+import BlogArticlesSection from "../components/BlogArticlesSection";
 import ServiceAreaMap from "../components/ServiceAreaMap";
 import FaqSection from "../components/FaqSection";
 import ServiceHero from "../components/ServiceHero";
@@ -123,6 +124,8 @@ export default function SocialMediaPage() {
       />
 
       <FreeConsultationCta />
+
+      <BlogArticlesSection category="social" title="Social Media Articles" />
 
       <ServiceCta
         title="Let's talk about your strategy?"
