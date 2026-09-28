@@ -103,7 +103,7 @@ export default function QuotePopup() {
       <style>{`
         .qp-btn {
           position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
-          background: #004aad; color: #fff; border: none; border-radius: 50px;
+          background: var(--accent); color: #fff; border: none; border-radius: 50px;
           padding: 0.8rem 1.375rem; font-size: 0.9rem; font-weight: 600;
           font-family: var(--font-body); cursor: pointer;
           box-shadow: 0 4px 20px rgba(0,74,173,0.4);
@@ -131,7 +131,7 @@ export default function QuotePopup() {
 
         /* — Hook screen — */
         .qp-hook {
-          background: linear-gradient(135deg, #002e6d 0%, #004aad 100%);
+          background: linear-gradient(135deg, #002e6d 0%, var(--accent) 100%);
           padding: 2.5rem 2rem 2rem; position: relative; text-align: center;
         }
         .qp-hook-close {
@@ -159,7 +159,7 @@ export default function QuotePopup() {
           line-height: 1.6; margin: 0 0 1.5rem;
         }
         .qp-hook-cta {
-          background: #fff; color: #004aad; border: none; border-radius: 8px;
+          background: #fff; color: var(--accent); border: none; border-radius: 8px;
           padding: 0.875rem 2rem; font-size: 1rem; font-weight: 700;
           font-family: var(--font-body); cursor: pointer; width: 100%;
           transition: transform 0.15s, box-shadow 0.15s;
@@ -180,31 +180,31 @@ export default function QuotePopup() {
         }
         .qp-form-head h3 {
           font-family: var(--font-display), system-ui; font-weight: 700;
-          font-size: 1.125rem; letter-spacing: -0.02em; margin: 0; color: #0a0f1e;
+          font-size: 1.125rem; letter-spacing: -0.02em; margin: 0; color: var(--text);
         }
-        .qp-form-head p { font-size: 0.8375rem; color: #5a6480; margin: 0.2rem 0 0; }
+        .qp-form-head p { font-size: 0.8375rem; color: var(--muted); margin: 0.2rem 0 0; }
         .qp-fclose {
           background: #f5f8ff; border: none; border-radius: 50%;
           width: 30px; height: 30px; cursor: pointer; flex-shrink: 0; margin-left: 1rem;
-          display: flex; align-items: center; justify-content: center; color: #5a6480;
+          display: flex; align-items: center; justify-content: center; color: var(--muted);
           transition: background 0.15s;
         }
         .qp-fclose:hover { background: #e8eef8; }
         .qp-form-body { padding: 1.125rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
         .qp-field { display: flex; flex-direction: column; gap: 0.25rem; }
-        .qp-field label { font-size: 0.78rem; font-weight: 500; color: #5a6480; }
+        .qp-field label { font-size: 0.78rem; font-weight: 500; color: var(--muted); }
         .qp-field input, .qp-field textarea, .qp-field select {
           background: #f5f8ff; border: 1px solid rgba(0,74,173,0.15); border-radius: 6px;
-          padding: 0.65rem 0.875rem; color: #0a0f1e; font-family: var(--font-body);
+          padding: 0.65rem 0.875rem; color: var(--text); font-family: var(--font-body);
           font-size: 0.9375rem; width: 100%; outline: none; appearance: none;
           transition: border-color 0.15s;
         }
         .qp-field input:focus, .qp-field textarea:focus, .qp-field select:focus {
-          border-color: #004aad; box-shadow: 0 0 0 3px rgba(0,74,173,0.1);
+          border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,74,173,0.1);
         }
         .qp-field textarea { resize: vertical; min-height: 80px; }
         .qp-submit {
-          width: 100%; padding: 0.875rem; background: #004aad; color: #fff;
+          width: 100%; padding: 0.875rem; background: var(--accent); color: #fff;
           border: none; border-radius: 8px; font-size: 0.9375rem; font-weight: 600;
           font-family: var(--font-body); cursor: pointer; transition: opacity 0.2s;
         }
@@ -213,8 +213,8 @@ export default function QuotePopup() {
         .qp-note { font-size: 0.75rem; color: #9aa5b4; text-align: center; }
         .qp-err { font-size: 0.8rem; color: #c0392b; }
         .qp-success { padding: 2.5rem 2rem; text-align: center; }
-        .qp-success h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #004aad; margin-bottom: 0.5rem; }
-        .qp-success p { color: #5a6480; font-size: 0.9375rem; }
+        .qp-success h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .qp-success p { color: var(--muted); font-size: 0.9375rem; }
         @media (max-width: 480px) { .qp-btn { bottom: 1rem; right: 1rem; } }
       `}</style>
 

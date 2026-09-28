@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
+import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
 import ServiceAreaMap from "../components/ServiceAreaMap";
@@ -35,9 +36,6 @@ export default function SeoPage() {
            ══════════════════════════════════════════════ */
         .sai-wrap, .seo-page, .seo-ai-ticker, .seo-vs-wrap {
           --ink: #04091a;
-          --text: #0a0f1e;
-          --muted: #5a6480;
-          --accent: #004aad;
           --accent-hover: #0057cc;
           --accent-light: #4d9aff;
           --success: #4dff9a;
@@ -358,6 +356,7 @@ export default function SeoPage() {
         body="Get your free SEO audit. We'll tell you where you rank, where you should rank, and where to start. No hard sell. No contracts."
         locale="en"
       />
+      <SiteFooter locale="en" />
     </>
   );
 }

@@ -47,7 +47,7 @@ export default function ServicesAccordionGrid({ services }: { services: Accordio
         .sag-card__chevron {
           width: 20px; height: 20px; flex-shrink: 0;
           transition: transform 0.25s ease;
-          color: #004aad;
+          color: var(--accent);
         }
         .sag-card--open .sag-card__chevron { transform: rotate(180deg); }
         .sag-card__body {
@@ -59,14 +59,14 @@ export default function ServicesAccordionGrid({ services }: { services: Accordio
         .sag-card__inner { overflow: hidden; }
         .sag-card__content { padding: 0 1.5rem 1.5rem; }
         .sag-card__desc {
-          font-size: 0.9375rem; color: #5a6480;
+          font-size: 0.9375rem; color: var(--muted);
           line-height: 1.7; font-weight: 300;
           margin-bottom: 1.25rem;
         }
         .sag-card__link {
           display: inline-flex; align-items: center; gap: 0.5rem;
           font-size: 0.875rem; font-weight: 600;
-          color: #004aad; text-decoration: none;
+          color: var(--accent); text-decoration: none;
           padding: 0.5rem 1rem;
           border: 1px solid rgba(0,74,173,0.25);
           border-radius: 6px;

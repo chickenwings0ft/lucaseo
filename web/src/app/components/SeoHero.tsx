@@ -15,7 +15,6 @@ export default function SeoHero({ badge, h1, lead, ctaLabel = "Get your free SEO
       <style>{`
         .seo-hero {
           --ink: #04091a;
-          --accent: #004aad;
           --accent-hover: #0057cc;
           --accent-light: #4d9aff;
           --success: #4dff9a;

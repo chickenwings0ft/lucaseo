@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
+import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
 import ServiceAreaMap from "../components/ServiceAreaMap";
@@ -37,49 +38,49 @@ export default function SemPage() {
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>
         <section style={{ borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>The problem</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>The problem</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             It's not Google Ads. It's how it's being used.
           </h2>
-          <p style={{ fontSize: "1.0625rem", color: "#5a6480", maxWidth: "580px", lineHeight: 1.75, fontWeight: 300, marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1.0625rem", color: "var(--muted)", maxWidth: "580px", lineHeight: 1.75, fontWeight: 300, marginBottom: "2rem" }}>
             Google Ads works. 90% of businesses that use it properly generate positive ROI. The problem: most don't use it properly.
           </p>
           <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px", marginTop: "2rem" }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.125rem", marginBottom: "1rem" }}>Why does most campaigns fail?</h3>
             <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Generic keywords (spending on clicks that don't convert)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ No conversion tracking (they don't know what's working)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Weak ads (no clear offer)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ No targeting (reaching people who aren't customers)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Generic keywords (spending on clicks that don't convert)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ No conversion tracking (they don't know what's working)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Weak ads (no clear offer)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ No targeting (reaching people who aren't customers)</li>
             </ul>
           </div>
         </section>
 
         <section style={{ paddingTop: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>Case studies</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>Case studies</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             Same budget, 3x the results
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", marginTop: "2rem" }}>
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Restaurant</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Before vs After</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480", marginBottom: "0.875rem" }}><strong>Before:</strong> $2000/month → 15 leads/month ($133 per lead)</p>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}><strong>After:</strong> $2000/month → 45 leads/month ($44 per lead)</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Restaurant</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>Before vs After</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)", marginBottom: "0.875rem" }}><strong>Before:</strong> $2000/month → 15 leads/month ($133 per lead)</p>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)" }}><strong>After:</strong> $2000/month → 45 leads/month ($44 per lead)</p>
             </div>
 
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Local Service</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>ROI transformed</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480", marginBottom: "0.875rem" }}><strong>Before:</strong> $1500/month → 1.2x ROI</p>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}><strong>After:</strong> $1500/month → 4.5x ROI</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Local Service</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>ROI transformed</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)", marginBottom: "0.875rem" }}><strong>Before:</strong> $1500/month → 1.2x ROI</p>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)" }}><strong>After:</strong> $1500/month → 4.5x ROI</p>
             </div>
           </div>
         </section>
 
         <section style={{ paddingTop: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>Investment</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>Investment</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             How much does it cost?
           </h2>
@@ -87,15 +88,15 @@ export default function SemPage() {
           <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px", marginTop: "2rem" }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.125rem", marginBottom: "1rem" }}>Options</h3>
             <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Standard Google Ads: $500 AUD/month</strong> + your ad budget<br />
                 For small businesses, budgets $500-2000 AUD/month
               </li>
-              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Advanced Google Ads: $1000 AUD/month</strong> + your ad budget<br />
                 For mid-size businesses, e-commerce, multiple campaigns
               </li>
-              <li style={{ fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Multi-platform: $1500 AUD/month</strong> + ad budget<br />
                 Google + Meta + TikTok Ads
               </li>
@@ -118,6 +119,7 @@ export default function SemPage() {
         body="Even better. Small budgets require PERFECT optimisation. That's what we do: squeeze every dollar to bring the maximum return."
         locale="en"
       />
+      <SiteFooter locale="en" />
     </>
   );
 }

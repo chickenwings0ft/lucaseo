@@ -84,17 +84,17 @@ export default function FaqSection({ topic, faqs, title }: Props) {
         }
         .faq-module summary::-webkit-details-marker { display: none; }
         .faq-module summary::marker { display: none; content: ""; }
-        .faq-module summary:hover { color: #004aad; }
+        .faq-module summary:hover { color: var(--accent); }
         .faq-module__chevron {
           width: 20px; height: 20px; flex-shrink: 0;
           transition: transform 0.3s ease;
-          color: #004aad;
+          color: var(--accent);
         }
         .faq-module details[open] .faq-module__chevron { transform: rotate(180deg); }
         .faq-module__answer {
           padding: 0 0 1.5rem;
           font-size: 0.9375rem;
-          color: var(--faq-answer-color, #5a6480);
+          color: var(--faq-answer-color, var(--muted));
           line-height: 1.75;
           font-weight: 300;
           max-width: 640px;

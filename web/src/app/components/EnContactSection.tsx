@@ -40,35 +40,35 @@ export default function EnContactSection() {
       <style>{`
         .ec { padding: 6rem 2.5rem; max-width: 1200px; margin: 0 auto; }
         .ec-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-        .ec-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #004aad; margin-bottom: 1rem; }
+        .ec-tag { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
         .ec-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; margin-bottom: 1.25rem; }
-        .ec-body { font-size: 1.0625rem; color: #5a6480; max-width: 480px; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
-        .ec-check-item { display: flex; gap: 0.875rem; align-items: center; font-size: 0.9375rem; color: #5a6480; margin-bottom: 0.875rem; }
+        .ec-body { font-size: 1.0625rem; color: var(--muted); max-width: 480px; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+        .ec-check-item { display: flex; gap: 0.875rem; align-items: center; font-size: 0.9375rem; color: var(--muted); margin-bottom: 0.875rem; }
         .ec-check-icon { color: #16a06a; font-size: 1rem; }
         .ec-form { display: flex; flex-direction: column; gap: 1rem; }
         .ec-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .ec-field { display: flex; flex-direction: column; gap: 0.375rem; }
-        .ec-field label { font-size: 0.8125rem; font-weight: 500; color: #5a6480; letter-spacing: 0.02em; }
+        .ec-field label { font-size: 0.8125rem; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
         .ec-field input, .ec-field textarea, .ec-field select {
           background: #f5f8ff; border: 1px solid rgba(0,74,173,0.15); border-radius: 6px;
-          padding: 0.75rem 1rem; color: #0a0f1e; font-family: var(--font-body); font-size: 0.9375rem;
+          padding: 0.75rem 1rem; color: var(--text); font-family: var(--font-body); font-size: 0.9375rem;
           font-weight: 400; width: 100%; transition: border-color 0.2s; outline: none; appearance: none;
         }
-        .ec-field input:focus, .ec-field textarea:focus, .ec-field select:focus { border-color: #004aad; box-shadow: 0 0 0 3px rgba(0,74,173,0.12); }
+        .ec-field input:focus, .ec-field textarea:focus, .ec-field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,74,173,0.12); }
         .ec-pref-group { display: flex; gap: 0.625rem; }
-        .ec-pref { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #f5f8ff; border: 1px solid rgba(0,74,173,0.15); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; font-size: 0.9375rem; color: #0a0f1e; font-weight: 400; transition: border-color 0.2s, background 0.2s; }
+        .ec-pref { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #f5f8ff; border: 1px solid rgba(0,74,173,0.15); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; font-size: 0.9375rem; color: var(--text); font-weight: 400; transition: border-color 0.2s, background 0.2s; }
         .ec-pref input { position: absolute; opacity: 0; width: 0; height: 0; }
-        .ec-pref:hover { border-color: #004aad; }
-        .ec-pref:has(input:checked) { border-color: #004aad; background: rgba(0,74,173,0.08); color: #004aad; font-weight: 500; }
+        .ec-pref:hover { border-color: var(--accent); }
+        .ec-pref:has(input:checked) { border-color: var(--accent); background: rgba(0,74,173,0.08); color: var(--accent); font-weight: 500; }
         .ec-field textarea { resize: vertical; min-height: 120px; }
-        .ec-note { font-size: 0.8125rem; color: #5a6480; line-height: 1.5; }
+        .ec-note { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
         .ec-err { font-size: 0.8125rem; color: #c0392b; }
-        .ec-btn { width: 100%; justify-content: center; display: flex; padding: 0.875rem; font-size: 1rem; background: #004aad; color: #fff; font-family: var(--font-body); font-weight: 500; text-decoration: none; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; letter-spacing: 0.01em; }
+        .ec-btn { width: 100%; justify-content: center; display: flex; padding: 0.875rem; font-size: 1rem; background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 500; text-decoration: none; border-radius: 6px; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; letter-spacing: 0.01em; }
         .ec-btn:hover { opacity: 0.88; transform: translateY(-1px); }
         .ec-btn:disabled { opacity: 0.6; cursor: default; }
         .ec-success { padding: 2rem; border: 1px solid #16a06a; border-radius: 8px; background: rgba(22,160,106,0.08); text-align: center; }
-        .ec-success h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; color: #004aad; }
-        .ec-success p { color: #5a6480; font-size: 0.9375rem; }
+        .ec-success h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .ec-success p { color: var(--muted); font-size: 0.9375rem; }
         @media (max-width: 900px) {
           .ec-wrap { grid-template-columns: 1fr; gap: 3rem; }
           .ec-row { grid-template-columns: 1fr; }

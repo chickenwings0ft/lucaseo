@@ -66,7 +66,7 @@ export default function SiteFooter({ locale = "en" }: { locale?: Locale }) {
   return (
     <>
       <style>{`
-        .site-ft { background: #0a0f1e; color: #fff; padding: 4rem 2rem 2rem; }
+        .site-ft { background: var(--text); color: #fff; padding: 4rem 2rem 2rem; }
         .site-ft-in { max-width: 1100px; margin: 0 auto; }
         .site-ft-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
         .site-ft-brand { display: flex; flex-direction: column; gap: 1rem; }
@@ -77,10 +77,6 @@ export default function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         .site-ft-col a:hover { color: #fff; }
         .site-ft-bar { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .site-ft-copy { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
-        .site-ft-lang { display: flex; gap: 0.75rem; }
-        .site-ft-lang a { font-size: 0.8125rem; color: rgba(255,255,255,0.45); text-decoration: none; }
-        .site-ft-lang a:hover { color: #fff; }
-        .site-ft-lang a.active { color: #fff; font-weight: 600; }
         @media (max-width: 768px) { .site-ft-top { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 480px) { .site-ft-top { grid-template-columns: 1fr; } }
       `}</style>
@@ -93,7 +89,7 @@ export default function SiteFooter({ locale = "en" }: { locale?: Locale }) {
               </Link>
               <p className="site-ft-tagline">{t.tagline}</p>
               <p className="site-ft-tagline" style={{ fontStyle: "italic", marginTop: "0.5rem" }}>{t.sharkLine}</p>
-              <p className="site-ft-tagline" style={{ marginTop: "0.25rem", fontSize: "0.75rem" }}>SEO · Ads · RRSS · Web · IA</p>
+              <p className="site-ft-tagline" style={{ marginTop: "0.25rem", fontSize: "0.75rem" }}>SEO · Ads · Social · Web · AI</p>
             </div>
             <div className="site-ft-col">
               <div className="site-ft-col-t">{t.services}</div>
@@ -123,10 +119,6 @@ export default function SiteFooter({ locale = "en" }: { locale?: Locale }) {
           </div>
           <div className="site-ft-bar">
             <span className="site-ft-copy">&copy; {new Date().getFullYear()} Lucaseo. {t.rights}</span>
-            <div className="site-ft-lang">
-              <Link href="/es" className={locale === "es" ? "active" : ""}>ES</Link>
-              <Link href="/" className={locale === "en" ? "active" : ""}>EN</Link>
-            </div>
           </div>
         </div>
       </footer>

@@ -37,30 +37,45 @@ export default function ServiceCta({ title, body, locale = "en" }: Props) {
   const desc = body ?? t.defaultBody;
 
   return (
-    <section style={{ background: "#004aad", padding: "clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2.5rem)", textAlign: "center" }}>
-      <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-        <p style={{ fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", marginBottom: "1.25rem" }}>{t.eyebrow}</p>
-        <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2rem,4vw,3.25rem)", color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>{heading}</h2>
-        <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.75)", marginBottom: "2.5rem", lineHeight: 1.7, fontWeight: 300 }}>{desc}</p>
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href={t.ctaHref} style={{
-            display: "inline-block", padding: "0.875rem 2rem", background: "#fff", color: "#004aad",
-            fontWeight: 600, fontSize: "0.9375rem", textDecoration: "none", borderRadius: "6px"
-          }}>{t.primary}</Link>
-          <Link href={t.homeHref} style={{
-            display: "inline-block", padding: "0.875rem 2rem", background: "transparent", color: "#fff",
-            fontWeight: 500, fontSize: "0.9375rem", textDecoration: "none", borderRadius: "6px",
-            border: "1px solid rgba(255,255,255,0.35)"
-          }}>{t.secondary}</Link>
+    <>
+      <style>{`
+        .svc-cta { background: var(--accent); padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2.5rem); text-align: center; }
+        .svc-cta__in { max-width: 700px; margin: 0 auto; }
+        .svc-cta__eyebrow { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 1.25rem; }
+        .svc-cta__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem,4vw,3.25rem); color: #fff; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.25rem; text-wrap: balance; }
+        .svc-cta__body { font-size: 1.125rem; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 300; }
+        .svc-cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .svc-cta__btn { display: inline-block; padding: 0.875rem 2rem; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: var(--radius-sm); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease; }
+        .svc-cta__btn--primary { background: #fff; color: var(--accent); }
+        .svc-cta__btn--primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .svc-cta__btn--ghost { background: transparent; color: #fff; font-weight: 500; border: 1px solid rgba(255,255,255,0.4); }
+        .svc-cta__btn--ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+        .svc-cta__bullets { margin-top: 3rem; display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
+        .svc-cta__bullet { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.75); font-size: 0.875rem; }
+        .svc-cta__bullet-check { color: #fff; font-weight: 700; }
+        @media (max-width: 480px) {
+          .svc-cta__actions { flex-direction: column; align-items: stretch; }
+          .svc-cta__bullets { gap: 1rem 1.5rem; }
+        }
+      `}</style>
+      <section className="svc-cta">
+        <div className="svc-cta__in">
+          <p className="svc-cta__eyebrow">{t.eyebrow}</p>
+          <h2 className="svc-cta__title">{heading}</h2>
+          <p className="svc-cta__body">{desc}</p>
+          <div className="svc-cta__actions">
+            <Link href={t.ctaHref} className="svc-cta__btn svc-cta__btn--primary">{t.primary}</Link>
+            <Link href={t.homeHref} className="svc-cta__btn svc-cta__btn--ghost">{t.secondary}</Link>
+          </div>
+          <div className="svc-cta__bullets">
+            {t.bullets.map(b => (
+              <div key={b} className="svc-cta__bullet">
+                <span className="svc-cta__bullet-check" aria-hidden="true">&#10003;</span> {b}
+              </div>
+            ))}
+          </div>
         </div>
-        <div style={{ marginTop: "3rem", display: "flex", gap: "2.5rem", justifyContent: "center", flexWrap: "wrap" }}>
-          {t.bullets.map(b => (
-            <div key={b} style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.7)", fontSize: "0.875rem" }}>
-              <span style={{ color: "#fff", fontWeight: 700 }}>&#10003;</span> {b}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

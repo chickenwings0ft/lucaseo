@@ -55,16 +55,16 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
         .site-nav__right { display: flex; align-items: center; gap: 2rem; }
         .site-nav__links { list-style: none; display: flex; align-items: center; gap: 1.75rem; margin: 0; padding: 0; }
         .site-nav__link {
-          color: #5a6480; text-decoration: none;
+          color: var(--muted); text-decoration: none;
           font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em;
           transition: color 0.18s ease;
         }
-        .site-nav__link:hover { color: #0a0f1e; }
-        .site-nav__link--active { color: #0a0f1e; }
+        .site-nav__link:hover { color: var(--text); }
+        .site-nav__link--active { color: var(--text); }
         .site-nav__cta {
           display: inline-flex; align-items: center;
           height: 36px; padding: 0 1.125rem;
-          background: #004aad; color: #fff;
+          background: var(--accent); color: #fff;
           font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.01em;
           text-decoration: none; border-radius: 999px;
           transition: background 0.18s ease;
@@ -79,7 +79,7 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
         }
         .site-nav__burger span {
           display: block; width: 22px; height: 2px;
-          background: #0a0f1e; border-radius: 2px;
+          background: var(--text); border-radius: 2px;
           transition: transform 0.25s ease, opacity 0.25s ease;
         }
         .site-nav__burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -99,17 +99,17 @@ export default function ServiceNav({ locale = "en" }: { locale?: Locale }) {
         .site-nav__mobile--open { display: flex; }
         .site-nav__mobile-link {
           display: block; padding: 1rem 0;
-          font-size: 1.25rem; font-weight: 600; color: #0a0f1e;
+          font-size: 1.25rem; font-weight: 600; color: var(--text);
           text-decoration: none;
           border-bottom: 1px solid rgba(0,74,173,0.08);
           transition: color 0.18s;
         }
-        .site-nav__mobile-link:hover { color: #004aad; }
-        .site-nav__mobile-link--active { color: #004aad; }
+        .site-nav__mobile-link:hover { color: var(--accent); }
+        .site-nav__mobile-link--active { color: var(--accent); }
         .site-nav__mobile-cta {
           display: flex; align-items: center; justify-content: center;
           margin-top: 2rem; padding: 1rem;
-          background: #004aad; color: #fff;
+          background: var(--accent); color: #fff;
           font-size: 1rem; font-weight: 600;
           text-decoration: none; border-radius: 8px;
         }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceNav from "../../components/ServiceNav";
 import ServiceCta from "../../components/ServiceCta";
+import SiteFooter from "../../components/SiteFooter";
 import FaqSection from "../../components/FaqSection";
 import SeoHero from "../../components/SeoHero";
 import SeoVsSemGraphic from "../../components/SeoVsSemGraphic";
@@ -57,9 +58,6 @@ export default async function SuburbSeoPage({ params }: Props) {
       <style>{`
         .sub-page, .sub-vs-wrap, .sub-ai-wrap {
           --ink: #04091a;
-          --text: #0a0f1e;
-          --muted: #5a6480;
-          --accent: #004aad;
           --accent-hover: #0057cc;
           --accent-light: #4d9aff;
           --success: #4dff9a;
@@ -221,6 +219,8 @@ export default async function SuburbSeoPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      <SiteFooter locale="en" />
     </>
   );
 }

@@ -68,7 +68,7 @@ export default function ServiceHero({
           gap: 0.5rem;
           font-size: 0.8125rem;
           font-weight: 500;
-          color: #004aad;
+          color: var(--accent);
           letter-spacing: 0.12em;
           text-transform: uppercase;
           margin-bottom: 1.75rem;
@@ -81,7 +81,7 @@ export default function ServiceHero({
           display: block;
           width: 24px;
           height: 1px;
-          background: #004aad;
+          background: var(--accent);
         }
         .service-hero--video .service-hero__eyebrow::before {
           background: #fff;
@@ -94,14 +94,14 @@ export default function ServiceHero({
           letter-spacing: -0.03em;
           margin-bottom: 1.75rem;
           text-wrap: balance;
-          color: #0a0f1e;
+          color: var(--text);
         }
         .service-hero--video .service-hero__title {
           color: #fff;
         }
         .service-hero__title em {
           font-style: normal;
-          color: #004aad;
+          color: var(--accent);
         }
         .service-hero--video .service-hero__title em {
           color: #4d9aff;
@@ -109,7 +109,7 @@ export default function ServiceHero({
         }
         .service-hero__lead {
           font-size: 1.0625rem;
-          color: #5a6480;
+          color: var(--muted);
           max-width: 600px;
           line-height: 1.75;
           margin-bottom: 2.5rem;
@@ -126,7 +126,7 @@ export default function ServiceHero({
         .service-hero__btn {
           display: inline-block;
           padding: 0.75rem 1.75rem;
-          background: #004aad;
+          background: var(--accent);
           color: #fff;
           font-weight: 500;
           font-size: 0.9375rem;
@@ -139,11 +139,11 @@ export default function ServiceHero({
         }
         .service-hero__btn--ghost {
           background: transparent;
-          color: #004aad;
+          color: var(--accent);
           border: 1px solid rgba(0,74,173,0.3);
         }
         .service-hero__btn--ghost:hover {
-          border-color: #004aad;
+          border-color: var(--accent);
           opacity: 1;
         }
         @media (max-width: 768px) {

@@ -15,7 +15,7 @@ export default function LegalNotice() {
       <style>{`
         .legal { max-width: 720px; margin: 0 auto; padding: 9rem 2rem 5rem; }
         .legal h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-        .legal .updated { font-size: 0.875rem; color: #5a6480; margin-bottom: 3rem; }
+        .legal .updated { font-size: 0.875rem; color: var(--muted); margin-bottom: 3rem; }
         .legal h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
         .legal p, .legal li { font-size: 0.9375rem; color: #3d4661; line-height: 1.8; }
         .legal p + p { margin-top: 1rem; }

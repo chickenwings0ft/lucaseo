@@ -16,8 +16,6 @@ export default function AiSearchGraphic({ header }: Props) {
     <div className="aisg-wrap">
       <style>{`
         .aisg-wrap {
-          --text: #0a0f1e;
-          --muted: #5a6480;
           --card-border: rgba(0,74,173,0.12);
           --card-border-hover: rgba(0,74,173,0.32);
         }

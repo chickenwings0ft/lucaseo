@@ -74,9 +74,9 @@ export default function CookieBanner() {
 
         .ck-top { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
         .ck-icon { font-size: 1.375rem; flex-shrink: 0; margin-top: 0.1rem; }
-        .ck-title { font-family: var(--font-display, system-ui); font-weight: 700; font-size: 1rem; color: #0a0f1e; margin: 0 0 0.25rem; }
-        .ck-desc { font-size: 0.84rem; color: #5a6480; line-height: 1.6; margin: 0; }
-        .ck-desc a { color: #004aad; text-underline-offset: 2px; }
+        .ck-title { font-family: var(--font-display, system-ui); font-weight: 700; font-size: 1rem; color: var(--text); margin: 0 0 0.25rem; }
+        .ck-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.6; margin: 0; }
+        .ck-desc a { color: var(--accent); text-underline-offset: 2px; }
 
         .ck-actions { display: flex; gap: 0.625rem; flex-wrap: wrap; align-items: center; }
         .ck-btn {
@@ -84,19 +84,19 @@ export default function CookieBanner() {
           font-family: var(--font-body, system-ui); cursor: pointer; border: none; transition: opacity 0.15s;
         }
         .ck-btn:hover { opacity: 0.85; }
-        .ck-btn--primary { background: #004aad; color: #fff; }
-        .ck-btn--ghost { background: transparent; border: 1.5px solid #d0d8e8; color: #5a6480; }
-        .ck-btn--ghost:hover { border-color: #004aad; color: #004aad; opacity: 1; }
+        .ck-btn--primary { background: var(--accent); color: #fff; }
+        .ck-btn--ghost { background: transparent; border: 1.5px solid #d0d8e8; color: var(--muted); }
+        .ck-btn--ghost:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
         .ck-btn--text { background: none; color: #9aa5b4; font-weight: 500; padding-left: 0; padding-right: 0; font-size: 0.8rem; }
-        .ck-btn--text:hover { color: #5a6480; opacity: 1; }
+        .ck-btn--text:hover { color: var(--muted); opacity: 1; }
 
         /* Manage panel */
         .ck-manage { margin-top: 1.25rem; border-top: 1px solid #eef1f8; padding-top: 1.25rem; }
         .ck-cat { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
         .ck-cat:last-child { margin-bottom: 0; }
         .ck-cat-info {}
-        .ck-cat-name { font-weight: 600; font-size: 0.875rem; color: #0a0f1e; margin-bottom: 0.125rem; }
-        .ck-cat-desc { font-size: 0.8rem; color: #5a6480; line-height: 1.5; }
+        .ck-cat-name { font-weight: 600; font-size: 0.875rem; color: var(--text); margin-bottom: 0.125rem; }
+        .ck-cat-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
         .ck-toggle { position: relative; width: 40px; height: 22px; flex-shrink: 0; margin-top: 0.1rem; }
         .ck-toggle input { opacity: 0; width: 0; height: 0; }
         .ck-slider {
@@ -108,7 +108,7 @@ export default function CookieBanner() {
           left: 3px; top: 3px; background: #fff; border-radius: 50%;
           transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-        .ck-toggle input:checked + .ck-slider { background: #004aad; }
+        .ck-toggle input:checked + .ck-slider { background: var(--accent); }
         .ck-toggle input:checked + .ck-slider::before { transform: translateX(18px); }
         .ck-toggle input:disabled + .ck-slider { cursor: default; opacity: 0.6; }
 
@@ -121,7 +121,7 @@ export default function CookieBanner() {
       `}</style>
 
       <div className="ck-overlay">
-        <div className="ck-banner" role="dialog" aria-label="Cookie preferences">
+        <div className="ck-banner" role="dialog" aria-modal="true" aria-label="Cookie preferences">
           <div className="ck-top">
             <span className="ck-icon">🍪</span>
             <div>

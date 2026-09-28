@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServiceNav from "../components/ServiceNav";
+import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
 import FreeConsultationCta from "../components/FreeConsultationCta";
 import ServiceAreaMap from "../components/ServiceAreaMap";
@@ -37,59 +38,59 @@ export default function SocialMediaPage() {
 
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "5rem 2.5rem" }}>
         <section style={{ borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>The problem</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>The problem</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             Most businesses don't know how to sell through social media
           </h2>
-          <p style={{ fontSize: "1.0625rem", color: "#5a6480", maxWidth: "580px", lineHeight: 1.75, fontWeight: 300, marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1.0625rem", color: "var(--muted)", maxWidth: "580px", lineHeight: 1.75, fontWeight: 300, marginBottom: "2rem" }}>
             Instagram and TikTok are powerful. The problem: most people post without a strategy.
           </p>
           <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px", marginTop: "2rem" }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.125rem", marginBottom: "1rem" }}>Why do small business socials fail?</h3>
             <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Posting without a plan (no clear goal or audience)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Inconsistency (post for 2 months, disappear for 3)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Not replying to comments (losing connection)</li>
-              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "#5a6480" }}>→ Not knowing how to convert to sales (just vanity metrics)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Posting without a plan (no clear goal or audience)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Inconsistency (post for 2 months, disappear for 3)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Not replying to comments (losing connection)</li>
+              <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Not knowing how to convert to sales (just vanity metrics)</li>
             </ul>
           </div>
         </section>
 
         <section style={{ paddingTop: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>What we do</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>What we do</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             Social media that sells
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", marginTop: "2rem" }}>
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Strategy</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>A clear plan from day one</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480", marginBottom: "0.875rem" }}>We define your audience, your tone, which platforms to use, and what type of content converts. No guesswork.</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Strategy</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>A clear plan from day one</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)", marginBottom: "0.875rem" }}>We define your audience, your tone, which platforms to use, and what type of content converts. No guesswork.</p>
             </div>
 
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Content</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Content that generates leads</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}>Not just nice photos. Educational, entertaining content with a CTA. Every post is a sales opportunity.</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Content</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>Content that generates leads</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)" }}>Not just nice photos. Educational, entertaining content with a CTA. Every post is a sales opportunity.</p>
             </div>
 
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Community</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Replying to comments</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}>Every comment is a potential customer. We reply, we build relationships, we convert.</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Community</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>Replying to comments</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)" }}>Every comment is a potential customer. We reply, we build relationships, we convert.</p>
             </div>
 
             <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "#004aad", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Advertising</div>
-              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "#004aad" }}>Optimised Meta Ads</h3>
-              <p style={{ fontSize: "0.9375rem", color: "#5a6480" }}>If you need to accelerate, we run Meta/TikTok advertising with measurable ROI.</p>
+              <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--accent)", background: "rgba(0,74,173,0.08)", padding: "0.375rem 0.75rem", borderRadius: "4px", marginBottom: "1rem", display: "inline-block" }}>Advertising</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "1rem", color: "var(--accent)" }}>Optimised Meta Ads</h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--muted)" }}>If you need to accelerate, we run Meta/TikTok advertising with measurable ROI.</p>
             </div>
           </div>
         </section>
 
         <section style={{ paddingTop: "5rem" }}>
-          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#004aad", marginBottom: "1rem" }}>Investment</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>Investment</div>
           <h2 style={{ fontFamily: "var(--font-display), system-ui", fontWeight: 700, fontSize: "clamp(1.875rem, 3vw, 2.75rem)", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: "1.25rem" }}>
             How much does it cost?
           </h2>
@@ -97,15 +98,15 @@ export default function SocialMediaPage() {
           <div style={{ background: "#f5f8ff", padding: "2rem", borderRadius: "8px", marginTop: "2rem" }}>
             <h3 style={{ fontWeight: 700, fontSize: "1.125rem", marginBottom: "1rem" }}>Plans</h3>
             <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Basic Management: $400 AUD/month</strong><br />
                 1 social network, 8 posts/month, replies
               </li>
-              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ marginBottom: "1rem", fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Standard Management: $700 AUD/month</strong><br />
                 2-3 networks, 20 posts/month, community, reports
               </li>
-              <li style={{ fontSize: "0.9375rem", color: "#5a6480" }}>
+              <li style={{ fontSize: "0.9375rem", color: "var(--muted)" }}>
                 <strong>Premium Management: $1200 AUD/month</strong><br />
                 4 networks, original content, Meta Ads, strategy calls
               </li>
@@ -128,6 +129,7 @@ export default function SocialMediaPage() {
         body="Tell us what you want to achieve with your social media. We do a no-obligation consult and propose a plan specific to your case."
         locale="en"
       />
+      <SiteFooter locale="en" />
     </>
   );
 }

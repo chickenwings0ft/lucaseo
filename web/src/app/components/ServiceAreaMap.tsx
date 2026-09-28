@@ -47,10 +47,14 @@ function Ticker({ items, direction, speed, linkedSuburbs }: { items: string[]; d
       >
         {doubled.map((s, i) => {
           const href = linkedSuburbs?.[s];
+          // The list is duplicated to create a seamless scrolling loop — hide the
+          // second copy from assistive tech so screen readers don't announce every
+          // suburb twice.
+          const hidden = i >= items.length;
           return href ? (
-            <Link key={`${s}-${i}`} href={href} className="sam-chip sam-chip--link">{s}</Link>
+            <Link key={`${s}-${i}`} href={href} className="sam-chip sam-chip--link" aria-hidden={hidden || undefined} tabIndex={hidden ? -1 : undefined}>{s}</Link>
           ) : (
-            <h4 key={`${s}-${i}`} className="sam-chip">{s}</h4>
+            <span key={`${s}-${i}`} className="sam-chip" aria-hidden={hidden || undefined}>{s}</span>
           );
         })}
       </div>
@@ -69,7 +73,7 @@ export default function ServiceAreaMap({
   return (
     <section className="sam" id="service-area">
       <style>{`
-        .sam { position: relative; padding: 5.5rem 0; background: #0a0f1e; overflow: hidden; }
+        .sam { position: relative; padding: 5.5rem 0; background: var(--text); overflow: hidden; }
         .sam-glow { position: absolute; top: -20%; right: -10%; width: 60%; height: 140%; background: radial-gradient(circle, rgba(0,74,173,0.25) 0%, transparent 70%); pointer-events: none; }
         .sam-head { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto 3rem; padding: 0 2.5rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
         .sam-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4d9aff; margin-bottom: 1.25rem; }

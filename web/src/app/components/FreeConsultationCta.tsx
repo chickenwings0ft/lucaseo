@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function FreeConsultationCta() {
   return (
     <section className="fcc">
       <style>{`
-        .fcc { background: #0a0f1e; padding: 0 2.5rem 5.5rem; }
+        .fcc { background: var(--text); padding: 0 2.5rem 5.5rem; }
         .fcc-in { max-width: 1100px; margin: 0 auto; }
-        .fcc-card { background: linear-gradient(135deg, #004aad 0%, #00337a 100%); border-radius: 16px; padding: 2.75rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: center; }
+        .fcc-card { background: linear-gradient(135deg, var(--accent) 0%, #00337a 100%); border-radius: 16px; padding: 2.75rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: center; }
         .fcc-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 0.375rem 0.875rem; border-radius: 999px; margin-bottom: 1.25rem; }
         .fcc-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 2.125rem); color: #fff; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1rem; text-wrap: balance; }
         .fcc-body { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem; max-width: 480px; }
@@ -16,7 +18,7 @@ export default function FreeConsultationCta() {
         .fcc-price { font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; color: #fff; letter-spacing: -0.03em; margin: 0.25rem 0 0.25rem; }
         .fcc-price span { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.6); }
         .fcc-sub { font-size: 0.8125rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
-        .fcc-btn { display: block; width: 100%; padding: 0.9rem; background: #fff; color: #004aad; font-weight: 700; font-size: 0.9375rem; text-decoration: none; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; }
+        .fcc-btn { display: block; width: 100%; padding: 0.9rem; background: #fff; color: var(--accent); font-weight: 700; font-size: 0.9375rem; text-decoration: none; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; }
         .fcc-btn:hover { opacity: 0.9; transform: translateY(-1px); }
         .fcc-note { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.875rem; }
         @media (max-width: 860px) {
@@ -55,7 +57,7 @@ export default function FreeConsultationCta() {
           <div className="fcc-right">
             <div className="fcc-price">$0<span>/visit</span></div>
             <div className="fcc-sub">Only a few free spots released each week</div>
-            <a href="/#contact" className="fcc-btn">Claim my free visit</a>
+            <Link href="/#contact" className="fcc-btn">Claim my free visit</Link>
             <div className="fcc-note">No card required · No obligation · Gold Coast businesses only</div>
           </div>
         </div>

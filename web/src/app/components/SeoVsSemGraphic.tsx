@@ -10,9 +10,6 @@ export default function SeoVsSemGraphic({ header, ctaMessage = "" }: Props) {
     <div className="svs-wrap">
       <style>{`
         .svs-wrap {
-          --text: #0a0f1e;
-          --muted: #5a6480;
-          --accent: #004aad;
           --accent-hover: #0057cc;
           --card-border: rgba(0,74,173,0.12);
         }
