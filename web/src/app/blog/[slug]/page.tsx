@@ -9,6 +9,7 @@ import BlogBody from "../../components/BlogBody";
 import BlogCta from "../../components/BlogCta";
 import BlogClosing from "../../components/BlogClosing";
 import AdSlot from "../../components/AdSlot";
+import FaqSection from "../../components/FaqSection";
 import { getBlogPost, getBlogSlugs } from "@/lib/blog";
 import { extractToc } from "@/lib/toc";
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
@@ -137,6 +138,10 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="blog-post-ad">
             <AdSlot slot="blog-in-article" />
           </div>
+
+          {post.faqs && post.faqs.length > 0 && (
+            <FaqSection topic={post.title} faqs={post.faqs} title="Frequently asked questions" />
+          )}
 
           <BlogClosing cta={{ label: post.cta1Label ?? "", href: post.cta1Href ?? "" }} />
         </main>

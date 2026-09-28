@@ -19,12 +19,18 @@ export interface BlogListItem {
   headerImageAlt: string;
 }
 
+export interface BlogFaqItem {
+  q: string;
+  a: string;
+}
+
 export interface BlogPost extends BlogListItem {
   body: unknown[];
   cta1Label?: string;
   cta1Href?: string;
   cta2Label?: string;
   cta2Href?: string;
+  faqs?: BlogFaqItem[];
   seoTitle?: string;
   seoDescription?: string;
 }
@@ -42,6 +48,7 @@ export const postListQuery = groq`*[_type == "post" && defined(slug.current)] | 
 export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]{
   _id, title, "slug": slug.current, excerpt, publishedAt, "updatedAt": _updatedAt, author, body,
   cta1Label, cta1Href, cta2Label, cta2Href, seoTitle, seoDescription,
+  "faqs": faqs[]{"q": question, "a": answer},
   ${headerImageProjection}
 }`;
 

@@ -7,6 +7,7 @@ export default defineType({
   groups: [
     {name: 'content', title: 'Contenido', default: true},
     {name: 'ctas', title: 'Botones CTA'},
+    {name: 'faq', title: 'Preguntas frecuentes'},
     {name: 'seo', title: 'SEO'},
   ],
   fields: [
@@ -146,6 +147,39 @@ export default defineType({
       type: 'string',
       group: 'ctas',
       initialValue: '/seo',
+    }),
+    defineField({
+      name: 'faqs',
+      title: 'Preguntas frecuentes',
+      type: 'array',
+      group: 'faq',
+      description:
+        'Opcional. Si añades preguntas aquí, aparece un módulo de FAQ al final del artículo — igual que en las páginas de servicios.',
+      of: [
+        {
+          type: 'object',
+          name: 'faqItem',
+          title: 'Pregunta',
+          fields: [
+            defineField({
+              name: 'question',
+              title: 'Pregunta',
+              type: 'string',
+              validation: (r) => r.required(),
+            }),
+            defineField({
+              name: 'answer',
+              title: 'Respuesta',
+              type: 'text',
+              rows: 3,
+              validation: (r) => r.required(),
+            }),
+          ],
+          preview: {
+            select: {title: 'question'},
+          },
+        },
+      ],
     }),
     defineField({
       name: 'seoTitle',
