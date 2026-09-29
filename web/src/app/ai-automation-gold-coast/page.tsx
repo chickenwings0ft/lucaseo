@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import FreeConsultationCta from "../components/FreeConsultationCta";
@@ -6,7 +7,6 @@ import BlogArticlesSection from "../components/BlogArticlesSection";
 import ServiceAreaMap from "../components/ServiceAreaMap";
 import FaqSection from "../components/FaqSection";
 import PrefillQuoteButton from "../components/PrefillQuoteButton";
-import WorkflowDiagram from "./WorkflowDiagram";
 import RoiCalculator from "./RoiCalculator";
 import { breadcrumbSchema, organizationSchema } from "@/lib/schema";
 import {
@@ -154,16 +154,8 @@ export default function AiAutomationGoldCoastPage() {
         .aig-hero__trust span { font-size: 0.8125rem; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.4rem; }
         .aig-hero__trust span::before { content: '✓'; color: var(--success); font-weight: 700; }
 
-        /* ── Hero workflow diagram ── */
-        .aig-diagram { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.75rem 1.25rem; display: flex; flex-direction: column; gap: 1.25rem; max-width: 820px; margin: 0 auto; text-align: left; }
-        .aig-diagram__row { display: flex; align-items: center; gap: 0.875rem; flex-wrap: wrap; }
-        .aig-diagram__icon { font-size: 1.125rem; flex-shrink: 0; }
-        .aig-diagram__chain { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; row-gap: 0.5rem; }
-        .aig-diagram__step-wrap { display: flex; align-items: center; gap: 0.5rem; }
-        .aig-diagram__step { font-size: 0.8125rem; font-weight: 500; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 0.375rem 0.75rem; white-space: nowrap; }
-        .aig-diagram__step--ai { color: #fff; background: var(--accent); border-color: var(--accent); font-weight: 700; }
-        .aig-diagram__arrow { color: rgba(255,255,255,0.35); font-size: 0.875rem; }
-        @media (max-width: 640px) { .aig-diagram { padding: 1.25rem 1rem; } }
+        /* ── Hero visual ── */
+        .aig-hero__visual { width: 100%; max-width: 880px; height: auto; margin: 0 auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45)); }
 
         /* ── Trust bar ── */
         .aig-bar { background: #fff; border-bottom: 1px solid var(--hairline); padding: 1.125rem 1.25rem; }
@@ -224,8 +216,7 @@ export default function AiAutomationGoldCoastPage() {
         .roi-card { background: var(--surface); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
         .roi-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
         .roi-field { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8125rem; font-weight: 600; color: var(--text); }
-        .roi-field input { background: #fff; border: 1px solid var(--card-border); border-radius: 8px; padding: 0.625rem 0.875rem; font-size: 0.9375rem; font-family: var(--font-body); color: var(--text); }
-        .roi-field input:focus { outline: none; border-color: var(--accent); }
+        .roi-field__value { font-family: var(--font-display); font-size: 1.125rem; color: var(--accent); }
         .roi-result { background: #fff; border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; }
         .roi-result__row { display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; color: var(--muted); padding: 0.5rem 0; }
         .roi-result__row strong { color: var(--text); font-weight: 600; }
@@ -327,7 +318,14 @@ export default function AiAutomationGoldCoastPage() {
             <span>Free first consultation</span>
             <span>No long contracts</span>
           </div>
-          <WorkflowDiagram />
+          <Image
+            src="/ai-automation-gold-coast-hero.png"
+            alt="AI automation workflow for Gold Coast businesses showing website enquiries, AI receptionist, CRM, quotes, calendar bookings and invoice processing"
+            width={1774}
+            height={887}
+            className="aig-hero__visual"
+            priority
+          />
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SloshSlider } from "../components/SloshSlider";
 
 function formatAud(n: number): string {
   return n.toLocaleString("en-AU", { style: "currency", currency: "AUD", maximumFractionDigits: 0 });
@@ -18,46 +19,26 @@ export default function RoiCalculator() {
   return (
     <div className="roi-card">
       <div className="roi-inputs">
-        <label className="roi-field">
+        <div className="roi-field">
           <span>Hours per week on repetitive admin</span>
-          <input
-            type="number"
-            min={0}
-            max={80}
-            value={adminHours}
-            onChange={(e) => setAdminHours(Math.max(0, Number(e.target.value)))}
-          />
-        </label>
-        <label className="roi-field">
-          <span>Hourly value of your team&apos;s time (A$)</span>
-          <input
-            type="number"
-            min={0}
-            max={500}
-            value={hourlyValue}
-            onChange={(e) => setHourlyValue(Math.max(0, Number(e.target.value)))}
-          />
-        </label>
-        <label className="roi-field">
+          <strong className="roi-field__value">{adminHours} hrs/week</strong>
+          <SloshSlider min={0} max={60} step={1} defaultValue={adminHours} onChange={setAdminHours} ariaLabel="Hours per week on repetitive admin" />
+        </div>
+        <div className="roi-field">
+          <span>Hourly value of your team&apos;s time</span>
+          <strong className="roi-field__value">{formatAud(hourlyValue)}/hr</strong>
+          <SloshSlider min={20} max={200} step={5} defaultValue={hourlyValue} onChange={setHourlyValue} ariaLabel="Hourly value of your team's time" />
+        </div>
+        <div className="roi-field">
           <span>Missed or unanswered enquiries per week</span>
-          <input
-            type="number"
-            min={0}
-            max={100}
-            value={missedEnquiries}
-            onChange={(e) => setMissedEnquiries(Math.max(0, Number(e.target.value)))}
-          />
-        </label>
-        <label className="roi-field">
-          <span>Average job value (A$)</span>
-          <input
-            type="number"
-            min={0}
-            max={100000}
-            value={jobValue}
-            onChange={(e) => setJobValue(Math.max(0, Number(e.target.value)))}
-          />
-        </label>
+          <strong className="roi-field__value">{missedEnquiries}/week</strong>
+          <SloshSlider min={0} max={30} step={1} defaultValue={missedEnquiries} onChange={setMissedEnquiries} ariaLabel="Missed or unanswered enquiries per week" />
+        </div>
+        <div className="roi-field">
+          <span>Average job value</span>
+          <strong className="roi-field__value">{formatAud(jobValue)}</strong>
+          <SloshSlider min={50} max={5000} step={50} defaultValue={jobValue} onChange={setJobValue} ariaLabel="Average job value" />
+        </div>
       </div>
 
       <div className="roi-result">
