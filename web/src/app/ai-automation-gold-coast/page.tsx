@@ -140,12 +140,21 @@ export default function AiAutomationGoldCoastPage() {
         .aig-hero { position: relative; background: var(--ink); overflow: hidden; padding: 6.5rem 1.25rem 4rem; }
         .aig-hero__bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,74,173,0.2) 0%, transparent 70%); pointer-events: none; }
         .aig-hero__grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-        .aig-hero__inner { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; width: 100%; text-align: center; }
+        .aig-hero__inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 3rem; align-items: center; text-align: center; }
+        .aig-hero__copy { width: 100%; }
         .aig-hero__badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); background: rgba(77,154,255,0.1); border: 1px solid rgba(77,154,255,0.25); padding: 0.375rem 0.875rem; border-radius: 999px; margin-bottom: 1.5rem; }
         .aig-hero__badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px var(--success); flex-shrink: 0; }
         .aig-hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -0.03em; color: #fff; margin: 0 auto 1.25rem; text-wrap: balance; max-width: 780px; }
         .aig-hero__lead { font-size: clamp(1rem, 2.2vw, 1.125rem); color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; max-width: 560px; margin: 0 auto 2rem; }
         .aig-hero__actions { display: flex; gap: 0.875rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
+        .aig-hero__visual-wrap { width: 100%; }
+        @media (min-width: 1024px) {
+          .aig-hero__inner { flex-direction: row; gap: 3.5rem; text-align: left; align-items: center; }
+          .aig-hero__copy { flex: 1; }
+          .aig-hero h1, .aig-hero__lead { margin-left: 0; margin-right: 0; }
+          .aig-hero__actions, .aig-hero__trust, .aig-hero__badge { justify-content: flex-start; }
+          .aig-hero__visual-wrap { flex: 0 0 48%; max-width: 560px; }
+        }
         .aig-hero__btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9375rem 1.75rem; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; text-decoration: none; border-radius: 8px; border: none; cursor: pointer; transition: background 0.2s; }
         .aig-hero__btn:hover { background: var(--accent-hover); }
         .aig-hero__btn--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
@@ -302,30 +311,34 @@ export default function AiAutomationGoldCoastPage() {
         <div className="aig-hero__bg" />
         <div className="aig-hero__grid" />
         <div className="aig-hero__inner">
-          <div className="aig-hero__badge">AI · Automation · Gold Coast</div>
-          <h1>Stop doing work AI can do for you.</h1>
-          <p className="aig-hero__lead">
-            AI automation for Gold Coast businesses — built around the tools you already use.
-          </p>
-          <div className="aig-hero__actions">
-            <PrefillQuoteButton message="I'd like a free AI automation audit." className="aig-hero__btn">
-              Get your free automation audit →
-            </PrefillQuoteButton>
-            <a href="#services" className="aig-hero__btn aig-hero__btn--ghost">See what we can automate</a>
+          <div className="aig-hero__copy">
+            <div className="aig-hero__badge">AI · Automation · Gold Coast</div>
+            <h1>Stop doing work AI can do for you.</h1>
+            <p className="aig-hero__lead">
+              AI automation for Gold Coast businesses — built around the tools you already use.
+            </p>
+            <div className="aig-hero__actions">
+              <PrefillQuoteButton message="I'd like a free AI automation audit." className="aig-hero__btn">
+                Get your free automation audit →
+              </PrefillQuoteButton>
+              <a href="#services" className="aig-hero__btn aig-hero__btn--ghost">See what we can automate</a>
+            </div>
+            <div className="aig-hero__trust">
+              <span>Gold Coast · Australia</span>
+              <span>Free first consultation</span>
+              <span>No long contracts</span>
+            </div>
           </div>
-          <div className="aig-hero__trust">
-            <span>Gold Coast · Australia</span>
-            <span>Free first consultation</span>
-            <span>No long contracts</span>
+          <div className="aig-hero__visual-wrap">
+            <Image
+              src="/ai-automation-gold-coast-hero.png"
+              alt="AI automation workflow for Gold Coast businesses showing website enquiries, AI receptionist, CRM, quotes, calendar bookings and invoice processing"
+              width={1774}
+              height={887}
+              className="aig-hero__visual"
+              priority
+            />
           </div>
-          <Image
-            src="/ai-automation-gold-coast-hero.png"
-            alt="AI automation workflow for Gold Coast businesses showing website enquiries, AI receptionist, CRM, quotes, calendar bookings and invoice processing"
-            width={1774}
-            height={887}
-            className="aig-hero__visual"
-            priority
-          />
         </div>
       </section>
 
