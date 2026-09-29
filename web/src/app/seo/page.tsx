@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
@@ -179,7 +180,7 @@ export default function SeoPage() {
           <div className="seo-tag">Why SEO matters</div>
           <h2 className="seo-h2">More people are searching for what you sell online — right now.</h2>
           <p className="seo-lead">
-            Every day, potential customers in Gold Coast search Google (and increasingly ChatGPT and Perplexity) for businesses like yours. SEO is how you show up in those searches, again and again, without paying for every single click. It&apos;s not a trick — it&apos;s being visible, being useful, and earning the kind of trust that turns a search into a customer.
+            Every day, potential customers in Gold Coast search Google (and increasingly ChatGPT and Perplexity) for businesses like yours. SEO is how you show up in those searches, again and again, without paying for every single click. It&apos;s not a trick — it&apos;s being visible, being useful, and earning the kind of trust that turns a search into a customer. Once SEO brings the enquiries in, <Link href="/ai-automation-gold-coast" style={{ color: "var(--accent)", fontWeight: 600, textDecoration: "none" }}>AI automation</Link> makes sure none of them go unanswered.
           </p>
           <div className="seo-contact-cta">
             <div className="seo-contact-cta__tag">No fixed packages</div>

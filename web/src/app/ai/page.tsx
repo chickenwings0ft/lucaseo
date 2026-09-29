@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServiceNav from "../components/ServiceNav";
 import SiteFooter from "../components/SiteFooter";
 import ServiceCta from "../components/ServiceCta";
@@ -55,6 +56,10 @@ export default function AiPage() {
               <li style={{ marginBottom: "0.875rem", fontSize: "0.9375rem", color: "var(--muted)" }}>→ Email classification and automatic reporting</li>
             </ul>
           </div>
+          <p style={{ fontSize: "0.9375rem", color: "var(--muted)", marginTop: "1.5rem" }}>
+            Based on the Gold Coast? See our full breakdown of{" "}
+            <Link href="/ai-automation-gold-coast" style={{ color: "var(--accent)", fontWeight: 600 }}>AI automation for Gold Coast businesses →</Link>
+          </p>
         </section>
 
         <section style={{ paddingTop: "5rem", borderBottom: "1px solid rgba(0,74,173,0.1)", paddingBottom: "5rem" }}>

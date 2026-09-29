@@ -112,7 +112,7 @@ export default function HomePage() {
             <p>Fast, modern sites built for conversions. Your website is your #1 sales tool.</p>
             <span className="en-svc-more">Learn more <span className="en-svc-more-arrow" aria-hidden="true">→</span></span>
           </Link>
-          <Link href="/ai" className="en-svc">
+          <Link href="/ai-automation-gold-coast" className="en-svc">
             <div className="en-svc-icon" aria-hidden="true">🤖</div>
             <h3>AI Automation</h3>
             <p>Email, chat, voice & workflows. Save time, serve customers better, scale faster.</p>
