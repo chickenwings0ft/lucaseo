@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FaqSection from "../components/FaqSection";
+import ServiceAreaMap from "../components/ServiceAreaMap";
 import SiteFooter from "../components/SiteFooter";
 import OrderForm from "./OrderForm";
+import { suburbSeoProfiles } from "@/lib/suburbSeoData";
+
+const linkedSuburbs = Object.fromEntries(suburbSeoProfiles.map((s) => [s.name, `/seo/${s.slug}`]));
 
 export const metadata: Metadata = {
   title: "NFC Google Review Cards Gold Coast — Get 5-Star Reviews in Seconds | Lucaseo",
@@ -36,6 +40,16 @@ const faqs = [
   {
     q: "How fast will I get mine?",
     a: "Send your Google review link and pick a colour — we'll confirm your exact dispatch date when you order.",
+  },
+  {
+    q: "Does this actually help my Google ranking, or just collect reviews?",
+    a: "Both — they're the same thing. Google has confirmed that review count, recency and rating are direct local ranking signals, which is exactly what a tap-to-review card is built to keep topped up without you having to chase anyone for it.",
+    citeLink: { text: "See the full local SEO picture", href: "/seo" },
+  },
+  {
+    q: "I'm already paying for local SEO — does this replace it or work alongside it?",
+    a: "Alongside it, always. SEO gets you found; reviews are one of the signals that decide how high you rank once you are. Every local SEO engagement we run already treats reviews as a core lever — this card is just the fastest way we've found to action it.",
+    citeLink: { text: "See how we approach SEO suburb by suburb", href: "/seo" },
   },
 ];
 
@@ -270,7 +284,15 @@ export default function NfcReviewCardsPage() {
           </div>
           <p className="nfc-seo__cta"><Link href="/seo">Want the full SEO picture too? →</Link></p>
         </section>
+      </div>
 
+      <ServiceAreaMap
+        eyebrow="Built for your suburb"
+        title={<>We run local SEO in these suburbs too — reviews are part of every one of them.</>}
+        linkedSuburbs={linkedSuburbs}
+      />
+
+      <div className="nfc-page">
         <FaqSection topic="NFC Google review cards" faqs={faqs} title="Frequently asked questions" />
 
         <section className="nfc-section nfc-closing">

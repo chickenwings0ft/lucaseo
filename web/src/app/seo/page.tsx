@@ -351,6 +351,28 @@ export default function SeoPage() {
         }}
       />
 
+      <div className="seo-page">
+        <section className="seo-section">
+          <div className="seo-tag">By industry</div>
+          <h2 className="seo-h2">SEO built around how your industry actually gets searched</h2>
+          <p className="seo-lead">Different industries get found in completely different ways. Here&apos;s how we approach a few of the most common ones on the Gold Coast.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem", marginTop: "1.5rem" }}>
+            {[
+              { name: "Restaurants", href: "/seo/restaurants", desc: "Google Business Profile, Maps and menu SEO built for the thirty minutes before someone eats." },
+              { name: "Cafes", href: "/seo/cafes", desc: "Win the morning 'coffee near me' search, every single day." },
+              { name: "Home & Trade Services", href: "/seo/home-services", desc: "Rank across every suburb you service, and win the call." },
+              { name: "Barbershops", href: "/seo/barbershops", desc: "Make booking effortless and keep your reviews fresher than theirs." },
+            ].map((ind) => (
+              <Link key={ind.href} href={ind.href} className="seo-tile" style={{ display: "block", padding: "1.5rem", textDecoration: "none", color: "inherit" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.0625rem", marginBottom: "0.5rem", color: "var(--text)" }}>{ind.name}</div>
+                <p style={{ fontSize: "0.875rem", color: "var(--muted)", lineHeight: 1.6, fontWeight: 300, marginBottom: "0.75rem" }}>{ind.desc}</p>
+                <span style={{ fontSize: "0.8125rem", color: "var(--accent)", fontWeight: 600 }}>Learn more →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
+
       <FreeConsultationCta />
 
       <BlogArticlesSection category="seo" title="SEO Articles" />

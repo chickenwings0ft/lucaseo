@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ServiceNav from "../../components/ServiceNav";
@@ -30,6 +31,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/* Variant controls reading order so 15 near-identical local pages don't all
+   share the same section sequence — part1 runs before the shared graphics,
+   part2 after them. See suburbSeoData.ts for why each suburb got its variant. */
+const PART1_ORDER: Record<string, string[]> = {
+  A: ["howTheySearch", "businessLandscape", "didYouKnow"],
+  B: ["businessLandscape", "howTheySearch", "didYouKnow"],
+  C: ["didYouKnow", "howTheySearch", "businessLandscape"],
+};
+const PART2_ORDER: Record<string, string[]> = {
+  A: ["mapProof", "reviewsNote", "nearby"],
+  B: ["reviewsNote", "mapProof", "nearby"],
+  C: ["mapProof", "nearby", "reviewsNote"],
+};
+
 export default async function SuburbSeoPage({ params }: Props) {
   const { suburb } = await params;
   const profile = getSuburbProfile(suburb);
@@ -52,6 +67,90 @@ export default async function SuburbSeoPage({ params }: Props) {
 
   const mapSrc = `https://www.google.com/maps?q=${profile.lat},${profile.lng}&z=14&output=embed`;
 
+  const sections: Record<string, ReactNode> = {
+    howTheySearch: (
+      <section className="sub-section" key="howTheySearch">
+        <div className="sub-tag">How people search in {profile.name}</div>
+        <p className="sub-p">{profile.searchBehaviour}</p>
+        <div className="sub-queries">
+          {profile.exampleQueries.map((q) => (
+            <div key={q} className="sub-query">{q}</div>
+          ))}
+        </div>
+        <p className="sub-p">{profile.seoAngle}</p>
+      </section>
+    ),
+    businessLandscape: (
+      <section className="sub-section" key="businessLandscape">
+        <div className="sub-tag">The {profile.name} business landscape</div>
+        <h2 className="sub-h2">{profile.character}</h2>
+        <div className="sub-chips">
+          {profile.businessMix.map((b) => (
+            <span key={b} className="sub-chip">{b}</span>
+          ))}
+        </div>
+      </section>
+    ),
+    didYouKnow: (
+      <section className="sub-section" key="didYouKnow">
+        <div className="sub-callout">
+          <div className="sub-callout__tag">Worth knowing</div>
+          <p className="sub-callout__text">{profile.didYouKnow}</p>
+        </div>
+      </section>
+    ),
+    mapProof: (
+      <section className="sub-section" key="mapProof">
+        <div className="sub-tag">Where we&apos;re working from</div>
+        <h2 className="sub-h2">Local, not outsourced.</h2>
+        <p className="sub-p">We&apos;re based on the Gold Coast and work with {profile.name} businesses directly — no offshore account managers, no call centre.</p>
+        <div className="sub-map-wrap">
+          <iframe src={mapSrc} loading="lazy" title={`Map of ${profile.name}, Gold Coast`} />
+        </div>
+        <div className="sub-proof">
+          <div>
+            <div className="sub-proof__stat-n">6 wks</div>
+            <div className="sub-proof__stat-l">to page one, on average</div>
+          </div>
+          <div>
+            <div className="sub-proof__stat-n">30→147</div>
+            <div className="sub-proof__stat-l">customers in 3 months</div>
+          </div>
+          <div>
+            <div className="sub-proof__stat-n">AI Search</div>
+            <div className="sub-proof__stat-l">included in every plan</div>
+          </div>
+        </div>
+      </section>
+    ),
+    reviewsNote: (
+      <section className="sub-section" key="reviewsNote">
+        <div className="sub-tag">Why reviews matter here</div>
+        <h2 className="sub-h2">The fastest ranking signal you can actually control</h2>
+        <p className="sub-p">
+          {profile.reviewsNote} That&apos;s exactly the gap our{" "}
+          <Link href="/nfc-review-cards">tap-to-review NFC cards</Link> are built to close — hand someone the card
+          while the experience is still fresh, and the review happens before they&apos;ve left the building.
+        </p>
+      </section>
+    ),
+    nearby: (
+      <section className="sub-section" key="nearby">
+        <div className="sub-tag">Also serving nearby</div>
+        <h2 className="sub-h2">SEO for other Gold Coast suburbs</h2>
+        <div className="sub-nearby">
+          {nearby.map((s) => (
+            <Link key={s.slug} href={`/seo/${s.slug}`}>{s.name}</Link>
+          ))}
+          <Link href="/seo">All suburbs →</Link>
+        </div>
+      </section>
+    ),
+  };
+
+  const part1 = PART1_ORDER[profile.variant].map((key) => sections[key]);
+  const part2 = PART2_ORDER[profile.variant].map((key) => sections[key]);
+
   return (
     <>
       <ServiceNav locale="en" />
@@ -73,6 +172,11 @@ export default async function SuburbSeoPage({ params }: Props) {
         .sub-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
         .sub-h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.375rem, 3.5vw, 1.875rem); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; text-wrap: balance; color: var(--text); }
         .sub-p { font-size: 0.9375rem; color: var(--muted); line-height: 1.75; font-weight: 300; max-width: 680px; }
+        .sub-p + .sub-p { margin-top: 1rem; }
+        .sub-p a, .sub-section a { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .sub-p a:hover, .sub-section a:hover { text-decoration: underline; }
+
+        .sub-intro { font-size: 1.0625rem; color: var(--text); line-height: 1.8; font-weight: 300; max-width: 720px; }
 
         .sub-chips { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1.5rem; }
         .sub-chip { display: inline-flex; align-items: center; padding: 0.45rem 0.875rem; border-radius: 999px; font-size: 0.8125rem; font-weight: 500; background: var(--surface); border: 1px solid var(--card-border); color: var(--text); }
@@ -91,6 +195,11 @@ export default async function SuburbSeoPage({ params }: Props) {
         .sub-nearby { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
         .sub-nearby a { display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 8px; background: var(--surface); border: 1px solid var(--card-border); color: var(--accent); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
         .sub-nearby a:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+        /* ── "Worth knowing" callout ── */
+        .sub-callout { background: linear-gradient(135deg, var(--ink) 0%, #0a1940 100%); border-radius: 14px; padding: 1.75rem 2rem; }
+        .sub-callout__tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--success); margin-bottom: 0.75rem; }
+        .sub-callout__text { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.7; font-weight: 300; max-width: 680px; }
 
         /* ── Shared-graphic wrappers (visual parity with /seo) ── */
         .sub-vs-wrap { background: #fff; padding: 3rem 1.25rem; border-bottom: 1px solid var(--hairline); }
@@ -118,24 +227,13 @@ export default async function SuburbSeoPage({ params }: Props) {
           <Link href="/seo" style={{ color: "var(--accent)", textDecoration: "none" }}>SEO</Link> · {profile.name}
         </div>
 
-        {/* ── Why SEO matters (short) ── */}
+        {/* ── Suburb-specific opening (replaces generic boilerplate) ── */}
         <section className="sub-section">
-          <div className="sub-tag">Why SEO matters</div>
-          <h2 className="sub-h2">More people are searching for what you sell online — right now.</h2>
-          <p className="sub-p">Every day, potential customers in {profile.name} are searching for businesses like yours — on Google, and increasingly on AI tools too.</p>
+          <div className="sub-tag">Why SEO matters here</div>
+          <p className="sub-intro">{profile.intro}</p>
         </section>
 
-        {/* ── How people search here ── */}
-        <section className="sub-section">
-          <div className="sub-tag">How people search in {profile.name}</div>
-          <p className="sub-p">{profile.searchBehaviour}</p>
-          <div className="sub-queries">
-            {profile.exampleQueries.map((q) => (
-              <div key={q} className="sub-query">{q}</div>
-            ))}
-          </div>
-          <p className="sub-p">{profile.seoAngle}</p>
-        </section>
+        {part1}
       </div>
 
       {/* ── SEO vs SEM (graphic + button only) ── */}
@@ -155,52 +253,7 @@ export default async function SuburbSeoPage({ params }: Props) {
       <SeoResultsSection />
 
       <div className="sub-page">
-        {/* ── Map + proof ── */}
-        <section className="sub-section">
-          <div className="sub-tag">Where we&apos;re working from</div>
-          <h2 className="sub-h2">Local, not outsourced.</h2>
-          <p className="sub-p">We&apos;re based on the Gold Coast and work with {profile.name} businesses directly — no offshore account managers, no call centre.</p>
-          <div className="sub-map-wrap">
-            <iframe src={mapSrc} loading="lazy" title={`Map of ${profile.name}, Gold Coast`} />
-          </div>
-          <div className="sub-proof">
-            <div>
-              <div className="sub-proof__stat-n">6 wks</div>
-              <div className="sub-proof__stat-l">to page one, on average</div>
-            </div>
-            <div>
-              <div className="sub-proof__stat-n">30→147</div>
-              <div className="sub-proof__stat-l">customers in 3 months</div>
-            </div>
-            <div>
-              <div className="sub-proof__stat-n">AI Search</div>
-              <div className="sub-proof__stat-l">included in every plan</div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Nearby ── */}
-        <section className="sub-section">
-          <div className="sub-tag">Also serving nearby</div>
-          <h2 className="sub-h2">SEO for other Gold Coast suburbs</h2>
-          <div className="sub-nearby">
-            {nearby.map((s) => (
-              <Link key={s.slug} href={`/seo/${s.slug}`}>{s.name}</Link>
-            ))}
-            <Link href="/seo">All suburbs →</Link>
-          </div>
-        </section>
-
-        {/* ── Business landscape ── */}
-        <section className="sub-section">
-          <div className="sub-tag">The {profile.name} business landscape</div>
-          <h2 className="sub-h2">{profile.character}</h2>
-          <div className="sub-chips">
-            {profile.businessMix.map((b) => (
-              <span key={b} className="sub-chip">{b}</span>
-            ))}
-          </div>
-        </section>
+        {part2}
       </div>
 
       <FaqSection

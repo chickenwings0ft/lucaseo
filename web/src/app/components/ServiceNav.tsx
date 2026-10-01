@@ -16,7 +16,6 @@ const esLinks = [
 ];
 
 const enLinks = [
-  { href: "/about", label: "About" },
   { href: "/seo", label: "SEO" },
   { href: "/sem", label: "SEM" },
   { href: "/social-media", label: "Social" },
