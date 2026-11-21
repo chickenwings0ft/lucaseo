@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "lucaseo_cookie_consent";
 const EXIT_MS = 180;
@@ -24,6 +25,8 @@ function savePrefs(prefs: Prefs) {
 }
 
 export default function CookieBanner() {
+  const pathname = usePathname();
+  const hidden = !!pathname?.startsWith("/invoice");
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState(false);
@@ -33,11 +36,12 @@ export default function CookieBanner() {
   const [marketing, setMarketing] = useState(true);
 
   useEffect(() => {
+    if (hidden) return;
     const saved = loadPrefs();
     if (!saved) {
       setOpen(true);
     }
-  }, []);
+  }, [hidden]);
 
   // Drives the mount/enter/exit sequence so dismissing gets a real
   // transition instead of the banner vanishing instantly.
@@ -69,7 +73,7 @@ export default function CookieBanner() {
     setManaging(false);
   }
 
-  if (!mounted) return null;
+  if (!mounted || hidden) return null;
 
   return (
     <>

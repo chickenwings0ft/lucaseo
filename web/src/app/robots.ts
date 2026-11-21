@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/gracias"],
+        disallow: ["/api/", "/gracias", "/invoice/"],
       },
     ],
     sitemap: "https://lucaseo.com/sitemap.xml",

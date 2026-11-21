@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "qp_dismissed";
 const EXIT_MS = 180;
-const HIDDEN_ON = ["/nfc-review-cards"];
+const HIDDEN_ON = ["/nfc-review-cards", "/invoice"];
 
 export default function QuotePopup() {
   const pathname = usePathname();
