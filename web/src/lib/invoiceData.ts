@@ -1,7 +1,7 @@
 // Online invoices live at /invoice/[ref]. Edit everything here — the page just renders it.
 // To add another client, add an entry to `invoices` with a new, hard-to-guess `ref`.
 //
-// ⚠ DRAFT: amounts follow what was agreed verbally (bundle ≈ 800, Ads from 650/month); confirm before sending. Same for the payment
+// ⚠ DRAFT: amounts follow what was agreed verbally (set-up A$600 + Ads A$600/month, month 1 billed with the set-up); confirm before sending. Same for the payment
 // details and Lucaseo's ABN. Set `status` to "sent" once the numbers are final.
 
 export type InvoiceLang = "es" | "en";
@@ -26,6 +26,17 @@ export interface RecurringLine {
   fromPrice: number;
   /** Length of the management agreement, in months. */
   months: number;
+  /** Bill month 1 of management on this invoice, together with the set-up. */
+  firstMonthNow?: boolean;
+  note: string;
+}
+
+export interface AddonLine {
+  title: string;
+  summary: string;
+  includes: string[];
+  /** Extra monthly fee in AUD, excluding GST. */
+  price: number;
   note: string;
 }
 
@@ -35,6 +46,14 @@ export interface InvoicePlan {
   intro: string;
   stats: { value: string; label: string }[];
   phases: { when: string; title: string; text: string }[];
+  note: string;
+}
+
+export interface InvoiceReferences {
+  tag: string;
+  heading: string;
+  intro: string;
+  sites: { name: string; url: string; note: string }[];
   note: string;
 }
 
@@ -54,11 +73,15 @@ export interface Invoice {
   /** The headline campaign plan, shown near the top of the invoice. */
   plan?: InvoicePlan;
   why: { heading: string; body: string[] };
+  /** Live previews of well-designed sites in the client's sector, shown as scaled iframes. */
+  references?: InvoiceReferences;
   /** One closed price for the website + launch set-up (items 01–04), in AUD excluding GST. */
   bundle: { label: string; price: number };
   website: InvoiceLine;
   launch: InvoiceLine[];
   recurring: RecurringLine;
+  /** Optional extras the client can add; shown in Part 3 and the summary, not included in the totals. */
+  addons?: AddonLine[];
   payment: { accountName?: string; bsb?: string; accountNumber?: string; payId?: string; reference: string };
   terms: string[];
 }
@@ -96,7 +119,7 @@ export const invoices: Invoice[] = [
         "El objetivo de este proyecto es claro: conseguir llamadas y solicitudes de presupuesto de personas que están buscando ahora mismo reformar su cocina, su baño o su lavadero. Durante los tres primeros meses, Google Ads es el motor que trae esas búsquedas; la web nueva es donde esas visitas se convierten en clientes.",
       stats: [
         { value: "A$300–400 / mes", label: "Inversión recomendada en anuncios, pagada directamente a Google" },
-        { value: "A$650 / mes", label: "Gestión de las campañas por Lucaseo" },
+        { value: "A$600 / mes", label: "Gestión de las campañas por Lucaseo" },
         { value: "3 meses", label: "Duración de la gestión incluida en este acuerdo" },
       ],
       phases: [
@@ -116,17 +139,40 @@ export const invoices: Invoice[] = [
           text: "Concentramos la inversión en lo que mejor funciona y cerramos con un informe de resultados y próximos pasos.",
         },
       ],
-      note: "La inversión en anuncios es orientativa: la ajustamos juntos según los resultados y no forma parte de esta factura.",
+      note: "La inversión en anuncios es orientativa: la ajustamos juntos según los resultados y no forma parte de esta propuesta.",
     },
     why: {
       heading: "Por qué una web nueva",
       body: [
-        "La web actual de Costa Casa está construida sobre un CMS cerrado que no está preparado para la forma en que gestionamos el SEO, el seguimiento y Google Ads. Eso limita la velocidad de carga, el posicionamiento y la precisión con la que podemos medir las llamadas y solicitudes de presupuesto que genera.",
-        "Reconstruirla sobre el mismo dominio le da a Costa Casa una web rápida y moderna que Lucaseo puede gestionar directamente, trasladando las páginas y fotos de proyectos existentes y redirigiendo cada URL antigua, para no perder nada de lo que ya tiene visibilidad.",
-        "Además, la web estrenará una imagen mucho más fresca y premium, a la altura del trabajo que hace Costa Casa: la fotografía de vuestros proyectos como protagonista, una tipografía elegante, espacios limpios y una estética cuidada que transmite desde el primer vistazo la calidad de una reforma de alto nivel. Y es una pieza clave para Google Ads: cada anuncio necesita una página rápida, clara y convincente a la que llegar.",
+        "La web actual usa un CMS cerrado que limita la velocidad, el SEO y la medición de llamadas y presupuestos.",
+        "La rehacemos sobre el mismo dominio, más rápida y con una imagen fresca y premium a la altura de vuestras reformas, conservando proyectos y redirigiendo las URLs antiguas para no perder visibilidad. Además, es la base de Google Ads: cada anuncio necesita una página rápida y convincente a la que llegar.",
       ],
     },
-    bundle: { label: "Nueva web + puesta en marcha (01–04)", price: 800 },
+    references: {
+      tag: "Referencias",
+      heading: "El nivel de web que buscamos",
+      intro:
+        "Tres empresas de reformas de la zona con webs bien diseñadas y optimizadas: imagen premium, proyectos como protagonistas, llamadas a la acción claras y la confianza visible desde el primer momento. Es la línea en la que trabajaremos para Costa Casa — con su propia identidad, no una copia.",
+      sites: [
+        {
+          name: "4D Renovations",
+          url: "https://www.4drenovations.com.au/",
+          note: "Imagen y vídeo de proyectos a pantalla completa, un posicionamiento clarísimo (reformas de lujo en Gold Coast) y botones de contacto y de proyectos desde el primer pantallazo.",
+        },
+        {
+          name: "Intrend Bathrooms",
+          url: "https://intrendbathrooms.com.au/",
+          note: "Tipografía elegante y una paleta suave que transmite lujo, la consulta gratuita como llamada a la acción principal y las reseñas de Google justo debajo para generar confianza.",
+        },
+        {
+          name: "Smith & Sons — Gold Coast Central & South",
+          url: "https://www.smithandsons.com.au/renovation-builder/gold-coast-central-south-683/",
+          note: "Una página pensada para una zona concreta: teléfono y contacto visibles al instante, premios y testimonios arriba. Justo el tipo de página que funciona como destino de Google Ads.",
+        },
+      ],
+      note: "Vistas previas en directo. Cambia de web con las pestañas y pulsa la vista previa para abrirla completa.",
+    },
+    bundle: { label: "Nueva web + puesta en marcha (01–04)", price: 600 },
     website: {
       number: "01",
       title: "Nueva web — diseño, desarrollo y lanzamiento",
@@ -207,7 +253,7 @@ export const invoices: Invoice[] = [
     ],
     recurring: {
       title: "Gestión de Google Ads — 3 meses",
-      summary: "Gestión continua de las campañas durante los tres primeros meses, facturada mes a mes desde que se activan.",
+      summary: "Gestión continua de las campañas durante los tres primeros meses, facturada mes a mes. El primer mes se paga al inicio, junto con la puesta en marcha.",
       includes: [
         "Monitorización y optimización continua de campañas, pujas y presupuestos",
         "Revisión de términos de búsqueda y gestión de palabras clave negativas",
@@ -216,10 +262,26 @@ export const invoices: Invoice[] = [
         "Informe mensual en lenguaje claro: llamadas, solicitudes de presupuesto y coste por contacto",
         "Acceso directo a Lucas para dudas y estrategia",
       ],
-      fromPrice: 650,
+      fromPrice: 600,
       months: 3,
+      firstMonthNow: true,
       note: "La inversión en anuncios (recomendada: A$300–400 al mes) la paga Costa Casa directamente a Google y no está incluida en esta cuota.",
     },
+    addons: [
+      {
+        title: "Anuncios en Facebook e Instagram",
+        summary: "Si queréis llegar también a quien todavía no está buscando, añadimos campañas en Meta para mostrar vuestros proyectos a propietarios de la zona en Facebook e Instagram.",
+        includes: [
+          "Configuración del Business Manager, el píxel de Meta y la medición de contactos",
+          "Campañas con vuestras fotos y vídeos de proyectos: antes y después, reformas terminadas",
+          "Público de propietarios en Gold Coast y Northern NSW, más retargeting de quien ya ha visitado la web",
+          "Formularios de contacto y anuncios que llevan a la web nueva",
+          "Optimización continua y resultados incluidos en el informe mensual",
+        ],
+        price: 350,
+        note: "Opcional. Se suma a la gestión de Google Ads durante los mismos meses. La inversión en anuncios de Meta la paga Costa Casa directamente a Meta y no está incluida.",
+      },
+    ],
     payment: {
       accountName: undefined,
       bsb: undefined,
@@ -228,12 +290,13 @@ export const invoices: Invoice[] = [
       reference: "LUC-2026-001",
     },
     terms: [
+      "Para aceptar la propuesta basta con confirmarlo por escrito (email o WhatsApp). Al aceptarla emitiremos la factura del pago inicial y empezaremos el trabajo.",
       "Todos los importes están en dólares australianos (AUD).",
       "La inversión publicitaria de Google Ads la factura Google directamente a Costa Casa y es independiente de la cuota de gestión de Lucaseo.",
       "El dominio costacasa.com.au sigue siendo propiedad de Costa Casa. Lucaseo necesitará acceso al registrador del dominio o al DNS para completar el cambio.",
       "Costa Casa facilita su logo, fotos de proyectos, aprobación de contenidos y acceso a las cuentas de Google correspondientes (Ads, Analytics, Search Console, Perfil de Empresa).",
       "Los costes de terceros, como la renovación del dominio o herramientas de pago, no están incluidos salvo que se indique.",
-      "La gestión de Google Ads tiene una duración de 3 meses y se factura mensualmente desde el mes en que las campañas se activan.",
+      "La gestión de Google Ads tiene una duración de 3 meses y se factura mensualmente: el primer mes se paga al aceptar la propuesta, junto con la puesta en marcha, y los meses 2 y 3 al inicio de cada mes.",
       "La inversión recomendada en anuncios (A$300–400 al mes) es orientativa y puede ajustarse de mutuo acuerdo según los resultados.",
     ],
   },
