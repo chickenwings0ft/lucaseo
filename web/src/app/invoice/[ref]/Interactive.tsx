@@ -4,19 +4,24 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from "re
 import type { InvoiceLine } from "@/lib/invoiceData";
 import BrowserMockup from "../../clients/BrowserMockup";
 import SiteFrame from "./SiteFrame";
-import { money, type Dict } from "./strings";
+import { hrs, money, perDayCeil, type Dict } from "./strings";
 
 /* ── Shared state: which optional add-ons the client has switched on ── */
 
 interface Pricing {
   bundle: { label: string; price: number };
-  oneOff: { number: string; title: string }[];
+  bundleHours: number;
+  oneOff: { number: string; title: string; hours?: number }[];
   monthly: number;
+  monthlyHours: number;
   months: number;
   firstMonthNow: boolean;
   gstRate: number;
-  addons: { title: string; price: number }[];
+  addons: { title: string; price: number; hours: number }[];
 }
+
+/** Effective hourly rate, rounded to whole dollars. */
+const rate = (price: number, hours: number) => (hours > 0 ? Math.round(price / hours) : 0);
 
 const Ctx = createContext<{ on: boolean[]; toggle: (i: number) => void } | null>(null);
 
@@ -36,6 +41,7 @@ function useTotals(p: Pricing) {
   const { on } = useProposal();
   const addonMonthly = p.addons.reduce((sum, a, i) => sum + (on[i] ? a.price : 0), 0);
   const monthly = p.monthly + addonMonthly;
+  const monthlyHours = p.monthlyHours + p.addons.reduce((sum, a, i) => sum + (on[i] ? a.hours : 0), 0);
   const firstMonth = p.firstMonthNow ? monthly : 0;
   const restMonths = p.months - (p.firstMonthNow ? 1 : 0);
   const subtotal = p.bundle.price + firstMonth;
@@ -43,6 +49,7 @@ function useTotals(p: Pricing) {
   return {
     on,
     monthly,
+    monthlyHours,
     firstMonth,
     restMonths,
     subtotal,
@@ -73,7 +80,9 @@ export function Investment({ p, t }: { p: Pricing; t: Dict }) {
   return (
     <div className="inv-card inv-invest">
       <div className="inv-row">
-        <span>{p.bundle.label}</span>
+        <span>
+          {p.bundle.label} <em className="hrs">{hrs(p.bundleHours, t.locale)}</em>
+        </span>
         <strong>{money(p.bundle.price)}</strong>
       </div>
       {p.oneOff.map((l) => (
@@ -81,12 +90,14 @@ export function Investment({ p, t }: { p: Pricing; t: Dict }) {
           <span>
             {l.number} · {l.title}
           </span>
-          <strong>{t.included}</strong>
+          <strong>{l.hours ? hrs(l.hours, t.locale) : t.included}</strong>
         </div>
       ))}
       {p.firstMonthNow && (
         <div className="inv-row inv-row--sep">
-          <span>{t.firstMonthRow}</span>
+          <span>
+            {t.firstMonthRow} <em className="hrs">{hrs(p.monthlyHours, t.locale)}</em>
+          </span>
           <strong>{money(p.monthly)}</strong>
         </div>
       )}
@@ -100,6 +111,7 @@ export function Investment({ p, t }: { p: Pricing; t: Dict }) {
             </button>
             {a.title}
             {p.firstMonthNow && s.on[i] ? ` — ${t.addonMonth1}` : ""}
+            {s.on[i] && <em className="hrs">{hrs(a.hours, t.locale)}</em>}
           </span>
           <strong>{s.on[i] ? money(a.price) : t.optional}</strong>
         </div>
@@ -125,7 +137,10 @@ export function Investment({ p, t }: { p: Pricing; t: Dict }) {
       <p className="inv-then">
         {p.firstMonthNow ? (
           <>
-            <strong>{t.restMonths}:</strong> {s.restMonths} × {money(s.monthly)} = {money(s.monthly * s.restMonths)}, {t.restBilling}
+            <strong>{t.restMonths}:</strong> {money(s.monthly)} {t.perMonth}, {t.restBilling} {t.perDayLong.replace("{d}", String(perDayCeil(s.monthly)))}
+            <br />
+            <strong>{hrs(s.monthlyHours, t.locale)}</strong> {t.hoursPerMonth} · A${rate(s.monthly, s.monthlyHours)}
+            {t.perHour}
             <br />
             <strong>{t.contractTotal}:</strong> {money(s.agreement)} ({t.contractTotalNote} {p.months} {t.monthsWord})
           </>
@@ -141,12 +156,47 @@ export function Investment({ p, t }: { p: Pricing; t: Dict }) {
   );
 }
 
-export function UpfrontTotal({ p }: { p: Pricing }) {
+/** Final slide: what they pay today, then what it costs month to month. */
+export function AcceptSummary({ p, t }: { p: Pricing; t: Dict }) {
   const s = useTotals(p);
+  const day = String(perDayCeil(s.monthly));
   return (
-    <strong key={s.total} className="pop">
-      {money(s.total)}
-    </strong>
+    <div className="asum">
+      <div className="asum__col">
+        <div className="accept__label">{t.todayLabel}</div>
+        <div className="asum__amount">
+          <strong key={s.total} className="pop">
+            {money(s.total)}
+          </strong>
+        </div>
+        <div className="asum__hint">
+          {t.setupShort} {money(p.bundle.price)} + {t.month1Short} {money(s.monthly)}
+        </div>
+        <div className="asum__hint">
+          {hrs(p.bundleHours + s.monthlyHours, t.locale)} {t.hoursOfWork} · A${rate(s.total, p.bundleHours + s.monthlyHours)}
+          {t.perHour}
+        </div>
+      </div>
+      <div className="asum__arrow" aria-hidden="true">
+        →
+      </div>
+      <div className="asum__col">
+        <div className="accept__label">{t.thenLabel}</div>
+        <div className="asum__amount asum__amount--sm">
+          <strong key={s.monthly} className="pop">
+            {money(s.monthly)}
+          </strong>
+          <small>{t.perMonth}</small>
+        </div>
+        <div className="asum__hint">
+          {t.restLabel.replace("{n}", String(s.restMonths))} · {t.perDay.replace("{d}", day)}
+        </div>
+        <div className="asum__hint">
+          {hrs(s.monthlyHours, t.locale)} {t.hoursPerMonth} · A${rate(s.monthly, s.monthlyHours)}
+          {t.perHour}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -172,7 +222,20 @@ export function AcceptButton({ p, t, email, number, client, items }: { p: Pricin
 
 /* ── Lists that collapse to the first few items (on mobile, or always) ── */
 
-export function Expandable({ items, visible = 4, t, always = false }: { items: string[]; visible?: number; t: Dict; always?: boolean }) {
+export function Expandable({
+  items,
+  visible = 4,
+  t,
+  always = false,
+  hours,
+}: {
+  items: string[];
+  visible?: number;
+  t: Dict;
+  always?: boolean;
+  /** Hours per item, shown as a small badge. */
+  hours?: number[];
+}) {
   const [open, setOpen] = useState(false);
   const extra = items.length - visible;
   return (
@@ -180,7 +243,8 @@ export function Expandable({ items, visible = 4, t, always = false }: { items: s
       <ul className="inv-list">
         {items.map((it, i) => (
           <li key={it} className={i >= visible ? "xp-extra" : undefined}>
-            {it}
+            <span className="inv-list__text">{it}</span>
+            {hours?.[i] !== undefined && <em className="hrs">{hrs(hours[i], t.locale)}</em>}
           </li>
         ))}
       </ul>
@@ -195,7 +259,7 @@ export function Expandable({ items, visible = 4, t, always = false }: { items: s
 
 /* ── Accordion for the launch set-up items ── */
 
-export function Accordion({ items }: { items: InvoiceLine[] }) {
+export function Accordion({ items, t }: { items: InvoiceLine[]; t: Dict }) {
   const [open, setOpen] = useState(0);
   return (
     <div className="acc-group">
@@ -207,6 +271,7 @@ export function Accordion({ items }: { items: InvoiceLine[] }) {
               <strong>{l.title}</strong>
               <small>{l.summary}</small>
             </span>
+            {l.hours !== undefined && <em className="hrs hrs--lg">{hrs(l.hours, t.locale)}</em>}
             <span className="acc__chev" aria-hidden="true" />
           </button>
           <div className="acc__body">

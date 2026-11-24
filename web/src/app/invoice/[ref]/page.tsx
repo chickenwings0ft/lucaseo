@@ -5,8 +5,8 @@ import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import PrintButton from "./PrintButton";
 import Deck, { type Slide } from "./Deck";
-import { Accordion, AcceptButton, AddonToggle, Expandable, Investment, ProposalProvider, RefTabs, UpfrontTotal } from "./Interactive";
-import { T, money } from "./strings";
+import { Accordion, AcceptButton, AcceptSummary, AddonToggle, Expandable, Investment, ProposalProvider, RefTabs } from "./Interactive";
+import { T, hrs, money, perDayCeil } from "./strings";
 import { invoices, getInvoice } from "@/lib/invoiceData";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-poppins" });
@@ -45,14 +45,21 @@ export default async function InvoicePage({ params }: Props) {
   const t = T[invoice.lang];
   const rec = invoice.recurring;
   const addons = invoice.addons ?? [];
+  const sumH = (h?: number[]) => (h ?? []).reduce((a, b) => a + b, 0);
+  const oneOffLines = [invoice.website, ...invoice.launch];
+  const bundleHours = oneOffLines.reduce((a, l) => a + (l.hours ?? 0), 0);
+  const recHours = sumH(rec.includeHours);
+  const rate = (price: number, h: number) => (h > 0 ? Math.round(price / h) : 0);
   const pricing = {
     bundle: invoice.bundle,
-    oneOff: [invoice.website, ...invoice.launch].map((l) => ({ number: l.number, title: l.title })),
+    bundleHours,
+    oneOff: oneOffLines.map((l) => ({ number: l.number, title: l.title, hours: l.hours })),
     monthly: rec.fromPrice,
+    monthlyHours: recHours,
     months: rec.months,
     firstMonthNow: rec.firstMonthNow ?? false,
     gstRate: invoice.gstRate,
-    addons: addons.map((a) => ({ title: a.title, price: a.price })),
+    addons: addons.map((a) => ({ title: a.title, price: a.price, hours: sumH(a.includeHours) })),
   };
   const pay = invoice.payment;
   const web = invoice.website;
@@ -162,6 +169,12 @@ export default async function InvoicePage({ params }: Props) {
           <div>
             <div className="inv-bundle__label">{t.bundleTag}</div>
             <div className="inv-bundle__title">{invoice.bundle.label}</div>
+            {bundleHours > 0 && (
+              <div className="inv-bundle__hours">
+                {hrs(bundleHours, t.locale)} {t.hoursOfWork} · A${rate(invoice.bundle.price, bundleHours)}
+                {t.perHour}
+              </div>
+            )}
           </div>
           <div className="inv-bundle__price">{money(invoice.bundle.price)}</div>
         </div>
@@ -203,8 +216,9 @@ export default async function InvoicePage({ params }: Props) {
               <h3>{web.title}</h3>
               <p>{web.summary}</p>
             </div>
+            {web.hours !== undefined && <em className="hrs hrs--lg">{hrs(web.hours, t.locale)}</em>}
           </div>
-          <Expandable items={web.includes} visible={4} t={t} />
+          <Expandable items={web.includes} visible={6} t={t} always />
           {web.chips && (
             <div className="inv-chips">
               <span className="inv-chips__label">{web.chips.label}</span>
@@ -229,7 +243,7 @@ export default async function InvoicePage({ params }: Props) {
         <div className="inv-tag rv">{t.part2}</div>
         <h2 className="inv-h2 rv" style={d(1)}>{t.part2h}</h2>
         <div className="rv" style={d(2)}>
-          <Accordion items={invoice.launch} />
+          <Accordion items={invoice.launch} t={t} />
         </div>
       </>
     ),
@@ -256,9 +270,17 @@ export default async function InvoicePage({ params }: Props) {
               <span className="inv-recurring__amount">
                 {money(rec.fromPrice)} <small>{t.perMonth}</small>
               </span>
-              <span className="inv-recurring__from">× {rec.months} {t.monthsWord}</span>
+              <span className="inv-recurring__from">
+                {t.perDay.replace("{d}", String(perDayCeil(rec.fromPrice)))} · {rec.months} {t.monthsWord}
+              </span>
             </div>
-            <Expandable items={rec.includes} visible={3} t={t} always />
+            {recHours > 0 && (
+              <p className="cap__hours">
+                <strong>{hrs(recHours, t.locale)}</strong> {t.hoursPerMonth} · A${rate(rec.fromPrice, recHours)}
+                {t.perHour}
+              </p>
+            )}
+            <Expandable items={rec.includes} visible={2} t={t} always hours={rec.includeHours} />
             <p className="inv-recurring__note">{rec.note}</p>
           </article>
           {addons.map((a, i) => (
@@ -277,7 +299,13 @@ export default async function InvoicePage({ params }: Props) {
                 </span>
                 <AddonToggle index={i} t={t} />
               </div>
-              <Expandable items={a.includes} visible={3} t={t} always />
+              {a.includeHours && (
+                <p className="cap__hours">
+                  <strong>{hrs(sumH(a.includeHours), t.locale)}</strong> {t.hoursPerMonth} · A${rate(a.price, sumH(a.includeHours))}
+                  {t.perHour}
+                </p>
+              )}
+              <Expandable items={a.includes} visible={2} t={t} always hours={a.includeHours} />
               <p className="inv-recurring__note">{a.note}</p>
             </article>
           ))}
@@ -345,10 +373,8 @@ export default async function InvoicePage({ params }: Props) {
         <h2 className="accept__h rv" style={d(1)}>{t.acceptH}</h2>
         <p className="accept__p rv" style={d(2)}>{t.acceptText}</p>
         <div className="accept__card rv" style={d(3)}>
-          <div className="accept__label">{t.totalDue}</div>
-          <div className="accept__amount">
-            <UpfrontTotal p={pricing} />
-          </div>
+          <AcceptSummary p={pricing} t={t} />
+          <p className="asum__roi">{t.roiNote}</p>
           <div className="accept__actions">
             <AcceptButton
               p={pricing}
@@ -417,7 +443,7 @@ const CSS = `
   /* ── Deck: desktop = vertical snap ── */
   .deck { position: relative; height: 100svh; overflow-y: auto; overflow-x: hidden; scroll-snap-type: y mandatory; outline: none; scrollbar-width: none; }
   .deck::-webkit-scrollbar { display: none; }
-  .slide { position: relative; min-height: 100svh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; padding: 2.5rem 0; }
+  .slide { position: relative; min-height: 100svh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; padding: 2rem 0; }
   .slide:nth-child(even) { background: var(--surface); }
   .slide__in { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 4.5rem 0 2rem; }
 
@@ -527,6 +553,14 @@ const CSS = `
   .inv-chips__row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .inv-chip { font-size: 0.8125rem; font-weight: 500; background: var(--surface); border: 1px solid var(--card-border); border-radius: 999px; padding: 0.35rem 0.8rem; }
 
+  .hrs { flex-shrink: 0; margin-left: auto; font-style: normal; font-size: 0.6875rem; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 0.1rem 0.5rem; white-space: nowrap; font-variant-numeric: tabular-nums; line-height: 1.6; }
+  .inv-row .hrs { margin-left: 0.5rem; vertical-align: 1px; }
+  .hrs--lg { font-size: 0.8125rem; padding: 0.3rem 0.7rem; align-self: flex-start; }
+  .acc__head .hrs--lg { margin: 0.125rem 0 0; }
+  .inv-list__text { flex: 1; min-width: 0; }
+  .cap__hours { font-size: 0.8125rem; color: var(--muted); margin: -0.5rem 0 1rem; }
+  .cap__hours strong { color: var(--accent); }
+  .inv-bundle__hours { font-size: 0.8125rem; color: var(--muted); margin-top: 0.25rem; }
   .xp:not(.is-open) .xp-extra { display: none; }
   .xp-btn { margin-top: 0.875rem; background: none; border: 1px solid var(--card-border); border-radius: 999px; padding: 0.45rem 0.95rem; font: inherit; font-size: 0.8125rem; font-weight: 600; color: var(--accent); cursor: pointer; transition: border-color 160ms, transform 160ms var(--ease-out); }
   .xp-btn:active { transform: scale(0.96); }
@@ -606,22 +640,34 @@ const CSS = `
 
   /* Accept */
   .accept { text-align: center; max-width: 760px; margin: 0 auto; }
-  .accept__h { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 3.75rem); letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 1rem; }
+  .accept__h { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 0.75rem; }
   .accept__p { font-size: clamp(1rem, 1.7vw, 1.125rem); color: var(--muted); line-height: 1.7; font-weight: 300; max-width: 560px; margin: 0 auto; }
-  .accept__card { margin: 1.75rem auto 0; background: linear-gradient(135deg, var(--ink) 0%, #322d6b 100%); color: #fff; border-radius: 22px; padding: 1.75rem 1.25rem; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .accept__card { margin: 1.25rem auto 0; background: linear-gradient(135deg, var(--ink) 0%, #322d6b 100%); color: #fff; border-radius: 22px; padding: 1.5rem 1.25rem; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .accept__label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
   .accept__amount strong { display: inline-block; font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.03em; margin-top: 0.25rem; }
-  .accept__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
+  .asum { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: center; }
+  .asum__col { min-width: 0; }
+  .asum__amount strong { display: inline-block; font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 3rem); letter-spacing: -0.03em; margin-top: 0.25rem; line-height: 1.1; }
+  .asum__amount--sm strong { font-size: clamp(1.75rem, 4.5vw, 2.25rem); color: #fff; }
+  .asum__amount small { font-size: 0.9375rem; font-weight: 600; color: rgba(255,255,255,0.6); margin-left: 0.25rem; }
+  .asum__hint { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
+  .asum__arrow { font-size: 1.5rem; color: var(--gold); transform: rotate(90deg); }
+  .asum__roi { margin: 1rem auto 0; max-width: 460px; font-size: 0.8125rem; line-height: 1.6; color: rgba(255,255,255,0.75); padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.12); }
+  @media (min-width: 700px) {
+    .asum { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1.5rem; }
+    .asum__arrow { transform: none; }
+  }
+  .accept__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; margin-top: 1rem; }
   .inv-accept__btn { display: inline-flex; align-items: center; gap: 0.5rem; height: 52px; padding: 0 1.75rem; border-radius: 999px; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 0.9375rem; text-decoration: none; transition: transform 160ms var(--ease-out), box-shadow 200ms; }
   .inv-accept__btn:active { transform: scale(0.97); }
   @media (hover: hover) and (pointer: fine) { .inv-accept__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(192,160,120,0.35); } }
   .accept__card .inv-print { height: 52px; color: #fff; border-color: rgba(255,255,255,0.3); }
-  .inv-parties { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; margin-top: 1.5rem; text-align: left; }
+  .inv-parties { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; margin-top: 1rem; text-align: left; }
   .inv-party { border: 1px solid var(--card-border); border-radius: 14px; padding: 1rem 1.25rem; background: #fff; }
   .inv-party__label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
   .inv-party__name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
   .inv-party p { font-size: 0.8125rem; color: var(--muted); line-height: 1.6; }
-  .inv-foot { margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.5rem 1.5rem; flex-wrap: wrap; font-size: 0.8125rem; color: var(--muted); }
+  .inv-foot { margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem 1.5rem; flex-wrap: wrap; font-size: 0.8125rem; color: var(--muted); }
   .inv-foot a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
   @media (min-width: 700px) {
@@ -635,6 +681,7 @@ const CSS = `
   }
 
   @media (min-width: 900px) {
+    .slide:last-child { padding: 1.5rem 0; }
     .xp--mobile .xp-extra { display: flex !important; }
     .xp--mobile .xp-btn { display: none; }
     .cap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
