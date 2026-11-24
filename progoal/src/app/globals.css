@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #000000;
+  --color-ink-2: #1c1c1c;
+  --color-paper: #ffffff;
+  --color-bone: #f5f5f4;
+  --color-mute: #6b6b6b;
+  --color-gold: #b8913a;
+  --color-gold-light: #e2c47e;
+  --color-gold-dark: #8a6a22;
+
+  --font-display: var(--font-hanken), ui-sans-serif, system-ui;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-rise: rise 700ms cubic-bezier(0.23, 1, 0.32, 1) both;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-paper);
+}
+
+/* Refined display type: light weight, tight tracking, italic for the second voice */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.display em { font-weight: 600; }
+
+/* Hero entrance: the page's single orchestrated motion moment */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in { animation: rise 900ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+}
+
+/* Gold hatched numerals, like the shirt number in reference 1 */
+.hatched {
+  color: transparent;
+  background: repeating-linear-gradient(135deg, var(--color-gold) 0 2px, transparent 2px 7px);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.hatched-panel {
+  background: repeating-linear-gradient(135deg, rgb(184 145 58 / 0.22) 0 1px, transparent 1px 9px);
+}
+
+@layer components {
+/* Pill button (reference 2): label + circular arrow */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  border-radius: 9999px;
+  padding: 0.3125rem 0.3125rem 0.3125rem 1.375rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: transform 160ms var(--ease-out-strong), background-color 200ms ease, color 200ms ease;
+}
+.pill:active { transform: scale(0.97); }
+.pill-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  transition: transform 250ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .pill:hover .pill-icon { transform: rotate(45deg); }
+}
+}
+
+/* Scroll-driven reveal (progressive enhancement) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-rise { animation: none; }
+}
+
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-icon { transform: rotate(45deg); }
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}

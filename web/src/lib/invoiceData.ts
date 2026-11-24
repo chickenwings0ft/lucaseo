@@ -1,7 +1,7 @@
 // Online invoices live at /invoice/[ref]. Edit everything here — the page just renders it.
 // To add another client, add an entry to `invoices` with a new, hard-to-guess `ref`.
 //
-// ⚠ DRAFT: amounts follow what was agreed verbally (set-up A$600 + Ads A$600/month, month 1 billed with the set-up); confirm before sending. Same for the payment
+// ⚠ DRAFT: amounts follow what was agreed verbally (set-up A$597 + Ads A$597/month, month 1 billed with the set-up; Meta optional +A$347/month); confirm before sending. Same for the payment
 // details and Lucaseo's ABN. Set `status` to "sent" once the numbers are final.
 
 export type InvoiceLang = "es" | "en";
@@ -16,6 +16,8 @@ export interface InvoiceLine {
   chips?: { label: string; items: string[] };
   /** One-off amount in AUD, excluding GST. */
   price?: number;
+  /** Estimated hours of work for this item. */
+  hours?: number;
 }
 
 export interface RecurringLine {
@@ -28,6 +30,8 @@ export interface RecurringLine {
   months: number;
   /** Bill month 1 of management on this invoice, together with the set-up. */
   firstMonthNow?: boolean;
+  /** Hours per month for each entry in `includes` (same order). */
+  includeHours?: number[];
   note: string;
 }
 
@@ -37,6 +41,8 @@ export interface AddonLine {
   includes: string[];
   /** Extra monthly fee in AUD, excluding GST. */
   price: number;
+  /** Hours per month for each entry in `includes` (same order). */
+  includeHours?: number[];
   note: string;
 }
 
@@ -119,7 +125,7 @@ export const invoices: Invoice[] = [
         "El objetivo de este proyecto es claro: conseguir llamadas y solicitudes de presupuesto de personas que están buscando ahora mismo reformar su cocina, su baño o su lavadero. Durante los tres primeros meses, Google Ads es el motor que trae esas búsquedas; la web nueva es donde esas visitas se convierten en clientes.",
       stats: [
         { value: "A$300–400 / mes", label: "Inversión recomendada en anuncios, pagada directamente a Google" },
-        { value: "A$600 / mes", label: "Gestión de las campañas por Lucaseo" },
+        { value: "A$597 / mes", label: "Gestión de las campañas por Lucaseo" },
         { value: "3 meses", label: "Duración de la gestión incluida en este acuerdo" },
       ],
       phases: [
@@ -172,9 +178,10 @@ export const invoices: Invoice[] = [
       ],
       note: "Vistas previas en directo. Cambia de web con las pestañas y pulsa la vista previa para abrirla completa.",
     },
-    bundle: { label: "Nueva web + puesta en marcha (01–04)", price: 600 },
+    bundle: { label: "Nueva web + puesta en marcha (01–04)", price: 597 },
     website: {
       number: "01",
+      hours: 8.5,
       title: "Nueva web — diseño, desarrollo y lanzamiento",
       summary:
         "Una web nueva construida desde cero sobre vuestro dominio actual, con un estilo visual mucho más fresco y premium, pensado para el sector de las reformas de alta calidad: rápida, pensada primero para móvil y gestionada por Lucaseo.",
@@ -207,6 +214,7 @@ export const invoices: Invoice[] = [
     launch: [
       {
         number: "02",
+        hours: 1.5,
         title: "Analítica — GA4 y Google Search Console",
         summary: "Todo lo necesario para ver qué hace la web desde la primera visita, en cuentas que son propiedad de Costa Casa.",
         includes: [
@@ -222,6 +230,7 @@ export const invoices: Invoice[] = [
       },
       {
         number: "03",
+        hours: 1.25,
         title: "Base SEO",
         summary: "SEO básico on-page y técnico para que la web nueva nazca lista para posicionar. Es una base, no una iguala continua de SEO.",
         includes: [
@@ -236,6 +245,7 @@ export const invoices: Invoice[] = [
       },
       {
         number: "04",
+        hours: 2,
         title: "Google Ads — configuración completa",
         summary: "Un lanzamiento completo de Google Ads, listo para generar solicitudes de presupuesto en cuanto la web nueva salga en vivo.",
         includes: [
@@ -262,7 +272,8 @@ export const invoices: Invoice[] = [
         "Informe mensual en lenguaje claro: llamadas, solicitudes de presupuesto y coste por contacto",
         "Acceso directo a Lucas para dudas y estrategia",
       ],
-      fromPrice: 600,
+      fromPrice: 597,
+      includeHours: [5, 2.5, 2.5, 1.5, 1, 0.75],
       months: 3,
       firstMonthNow: true,
       note: "La inversión en anuncios (recomendada: A$300–400 al mes) la paga Costa Casa directamente a Google y no está incluida en esta cuota.",
@@ -278,7 +289,8 @@ export const invoices: Invoice[] = [
           "Formularios de contacto y anuncios que llevan a la web nueva",
           "Optimización continua y resultados incluidos en el informe mensual",
         ],
-        price: 350,
+        price: 347,
+        includeHours: [1, 2.5, 1.5, 1, 1.75],
         note: "Opcional. Se suma a la gestión de Google Ads durante los mismos meses. La inversión en anuncios de Meta la paga Costa Casa directamente a Meta y no está incluida.",
       },
     ],

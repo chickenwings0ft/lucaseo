@@ -4,9 +4,29 @@
     {
       "name": "lucaseo-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "web", "run", "dev"],
+      "runtimeArgs": [
+        "--prefix",
+        "web",
+        "run",
+        "dev"
+      ],
       "port": 3000,
       "url": "http://localhost:3000"
+    },
+    {
+      "name": "progoal-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "progoal",
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "3010"
+      ],
+      "port": 3010,
+      "url": "http://localhost:3010"
     }
   ]
 }

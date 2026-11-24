@@ -72,6 +72,18 @@ export const T = {
     acceptBody: "Aceptamos la propuesta",
     acceptIncludes: "Incluye",
     acceptThanks: "Gracias.",
+    todayLabel: "Hoy, al aceptar",
+    thenLabel: "Después, mes a mes",
+    setupShort: "Puesta en marcha",
+    month1Short: "mes 1",
+    restLabel: "durante {n} meses más",
+    perDay: "menos de A${d} al día",
+    perDayLong: "Equivale a menos de A${d} al día.",
+    roiNote: "Una sola reforma de cocina o baño conseguida cubre de sobra toda la inversión de los tres meses.",
+    hoursOfWork: "de trabajo",
+    hoursPerMonth: "de trabajo al mes",
+    perHour: "/hora",
+    hoursNote: "Horas estimadas por tarea",
   },
   en: {
     locale: "en-AU",
@@ -146,10 +158,31 @@ export const T = {
     acceptBody: "We accept proposal",
     acceptIncludes: "Includes",
     acceptThanks: "Thanks.",
+    todayLabel: "Today, on acceptance",
+    thenLabel: "Then, month to month",
+    setupShort: "Set-up",
+    month1Short: "month 1",
+    restLabel: "for {n} more months",
+    perDay: "under A${d} a day",
+    perDayLong: "That's under A${d} a day.",
+    roiNote: "A single kitchen or bathroom job won covers the whole three-month investment many times over.",
+    hoursOfWork: "of work",
+    hoursPerMonth: "of work per month",
+    perHour: "/hour",
+    hoursNote: "Estimated hours per task",
   },
 } as const;
 
 export type Dict = (typeof T)[keyof typeof T];
 
-export const money = (n: number) =>
-  `A$${n.toLocaleString("en-AU", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+/** A$1,194 for whole amounts (fewer characters reads cheaper), A$19.63 otherwise. */
+export const money = (n: number) => {
+  const whole = Number.isInteger(n);
+  return `A$${n.toLocaleString("en-AU", { minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: whole ? 0 : 2 })}`;
+};
+
+/** 8,5 h · 13,25 h (locale-aware, up to two decimals). */
+export const hrs = (n: number, locale: string) => `${n.toLocaleString(locale, { maximumFractionDigits: 2 })} h`;
+
+/** Smallest whole dollar amount the monthly fee stays under, per day. */
+export const perDayCeil = (monthly: number) => Math.ceil((monthly * 12) / 365);
